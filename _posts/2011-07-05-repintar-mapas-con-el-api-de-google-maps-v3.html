@@ -1,0 +1,44 @@
+---
+layout: post
+status: publish
+published: true
+title: Repintar mapas con el API de Google Maps V3
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1708
+wordpress_url: http://www.danilat.com/weblog/?p=1708
+date: '2011-07-05 04:31:14 +0200'
+date_gmt: '2011-07-05 02:31:14 +0200'
+categories:
+- Javascript
+tags: []
+comments:
+- id: 11704
+  author: Julio
+  author_email: juliofarias.dg@gmail.com
+  author_url: ''
+  date: '2013-07-07 01:04:47 +0200'
+  date_gmt: '2013-07-06 23:04:47 +0200'
+  content: "Hola Dani Latorre\r\n\r\nHe tenido el mismo problema y sin saber como
+    arrglarlo, espero que tu solución me sirva. Desde ya muchisimas gracias!\r\n\r\nLuego
+    te comento como me fue"
+---
+<p>Como (supongo) casi todo programador web que ha hecho desarrollos para internet, he tocado en múltiples ocasiones partes del API de google maps.</p>
+<p>Hace unos pocos días nos encontramos uno de esos problemas <em>curiososos</em>. Resulta que teníamos varios mapas en una misma página, dentro de la que habían mapas en capas ocultas usando css. La curiosidad en cuestión es que al hacer visibles esas capas no se pintaban correctamente los mapas.</p>
+<p>Buscando un poco que podría estar pasando, resulta que cuando creas el mapa google maps coge los estilos que hay en ese momento, y al pasar de oculto a visible el API no es consciente que ha cambiado la visibilidad del elemento que lo contiene y donde se pinta. </p>
+<p>Esto en la V2 del API se solucionaba usando <a href="http://code.google.com/apis/maps/documentation/javascript/v2/reference.html#GMap2.checkResize">checkResize</a>, pero resulta que para V3 no está disponible ese método para notificar al mapa que se redimensione. </p>
+<p>La necesidad de un <em>checkResize</em> está reportado <a href="http://code.google.com/p/gmaps-api-issues/issues/detail?id=1448">como bug de la versión 3</a>. Pero por suerte en los mismos comentarios aparecen algunas soluciones que me han venido como anillo al dedo para ir trasteando y terminar implementando una solución un poco más a mi gusto, añadiendo a la clase de <strong>google.maps.Map</strong> un comportamiento equivalente:</p>
+<p><code><br />
+google.maps.Map.prototype.checkResize = function() {<br />
+&nbsp;&nbsp;  var center = this.getCenter();<br />
+&nbsp;&nbsp;  google.maps.event.trigger(this, 'resize')<br />
+&nbsp;&nbsp;  this.setCenter(center);<br />
+}<br />
+</code></p>
+<p>Y así ya puedo utilizar el <em>checkResize</em> en los mapas del mismo modo que en la versión 2.</p>

@@ -1,0 +1,87 @@
+---
+layout: post
+status: publish
+published: true
+title: Grails Include Plugin 0.3, acabando el GSoC
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 181
+wordpress_url: http://www.danilat.com/weblog/2008/08/25/grails-include-plugin-03-acabando-el-gsoc/
+date: '2008-08-25 02:23:07 +0200'
+date_gmt: '2008-08-25 00:23:07 +0200'
+categories:
+- General
+- Grails
+tags: []
+comments:
+- id: 5510
+  author: dahernan
+  author_email: dahernan@gmail.com
+  author_url: http://dahernan.net/
+  date: '2008-08-25 10:53:43 +0200'
+  date_gmt: '2008-08-25 08:53:43 +0200'
+  content: "Gran trabajo!!!. Lo usaré en mi proximo proyecto seguro.\r\n\r\nSaludos"
+- id: 5513
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-08-25 13:09:10 +0200'
+  date_gmt: '2008-08-25 11:09:10 +0200'
+  content: "Muchas gracias dahernan!\r\n\r\nCreo que es un plugin que se puede llegar
+    a utilizar bastante, por la funcionalidad en sí y lo sencillo de usar :)"
+- id: 8077
+  author: valmanar
+  author_email: valmanar@gmail.com
+  author_url: ''
+  date: '2008-12-10 18:55:16 +0100'
+  date_gmt: '2008-12-10 16:55:16 +0100'
+  content: "Hola y gracia ante todo, lo utilizo desde netbeans 6.5 pero me arroja
+    siempre el error de que me falta declarar los atributos, (de hecho no lo hago)
+    ya que lo único que quiero es lanzar un método de un contolador pero sin pasarle
+    parámetros. ¿Podrías decirme algo?.\r\nGracias y saludos."
+- id: 8080
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-12-10 22:28:30 +0100'
+  date_gmt: '2008-12-10 20:28:30 +0100'
+  content: "Hola valmanar,\r\n\r\nPara hacerlo simplemente deberías usar [inc:include
+    controller=\"loquesea\" action=\"bla\"], el params es opcional. Esto no debería
+    darte problemas, aunque si te refieres a que es netbeans el que te lo marca como
+    error, no sé qué puede ser, aún tengo pendiente probar netbeans."
+- id: 9926
+  author: Braudys
+  author_email: bcordova@estudiantes.uci.cu
+  author_url: ''
+  date: '2010-05-09 03:47:23 +0200'
+  date_gmt: '2010-05-09 01:47:23 +0200'
+  content: "Esta muy bueno...jejejeje....pero m eda un problemita trabajo con el netbeans
+    6.7.1  y en el main utilizo dos templates para poner contenido una para la parte
+    izquierda y el otro para la parte derecha de mi portal,ahora bien lo qu ehago
+    con el include es incluirlo en el template derecho para mostrar un listado de
+    noticias pero cuando creo cualquier objeto de cualquier clase y se produce algun
+    error como el de no insertar algun dato obligatorio en donde esta el include me
+    muestra la vista del error quitando o ignorando el controlador con su respectiva
+    vista que antes se mostraba ahi...\r\n                        Saludos....."
+---
+<p>Hace días que no escribo <a href="http://www.danilat.com/weblog/2008/07/09/gsoc-estado-del-grails-include-plugin/">sobre mi proyecto del Google Summer of Code</a>, y eso que ya había puesto disponibles un par de releases del <a href="http://grails.org/Include+Plugin">Include Plugin de Grails</a>. Sólo lo he ido anunciando en <a href="http://www.nabble.com/codehaus---grails-f11860.html">la lista de correo de Grails</a> para ir recibiendo feedback y mejorarlo.</p>
+<p>En este momento, que estamos ya en fase de evaluación y en teoría lo que hagamos los participantes del GSoC <em>ya no vale</em>, es una versión casi definitiva, ya que al menos la forma de usarlo en principio ya no va a cambiar. </p>
+<p>En las versiones 0.1 y 0.2 se utilizaban dos tags, por cierto que al taglib hubo que añadirle un namespace(<strong>inc</strong>) por distribuirlo como un plugin, <code>inc:includeUrl</code> y <code>inc:includeController</code> que en esta versión están como deprecated y no se recomienda su uso. </p>
+<p>Ahora únicamente es necesario el tag <code>inc:include</code>, que de inicio era mi idea pero chocaba con otro <em>include fantasma</em> que hay en Grails, por estar en el mismo namespace, y al añadirle el nuevo namespace simplemente se me olvidó :P. </p>
+<p>En la lista me propusieron que hiciera esa modificación, lo que significaba sacar la versión 0.3. Mientras que al anunciar en la lista la última versión, ya que me han <em>críticado</em> el código para que mejore el rendimiento y haberme dado gran parte de la solución, tocará sacar al menos una nueva versión con esas mejoras. Las grandezas del open source, <a href="http://plugins.grails.org/grails-include/trunk/">si alguien más se anima</a>, las críticas son bienvenidas ;).</p>
+<p>Hablando ya de la instalación y su uso, es sencillísimo: </p>
+<p>Como está en el repositorio oficial de plugins, para instalarlo sólo debemos ejecutar: </p>
+<p><code>grails install-plugin include</code>.</p>
+<p>Para hacer includes de otras acciones podemos llamar a una accion de un controlador con unos parámetros, por ejemplo insertar las últimas 5 noticias en una vista: </p>
+<p><code>&lt;inc:include controller="news" action="last" params="[number:5]"/&gt;</code> </p>
+<p>Que también podríamos hacer usando la url que devuelve esa acción, con una mayor probabilidad de un cambio en el mapeo de la url: </p>
+<p><code>&lt;inc:include url="/news/last?number=5"/&gt;</code></p>
+<p>Otra de las cosas que pienso es interesante es el poder insertar contenido estático dentro del directorio <strong>web-app</strong>, de por ejemplo un html, a los que anteriormente no había una forma directa de acceder:</p>
+<p><code>&lt;inc:include url="/test.html"/&gt;</code> </p>
+<p>En definitiva, es un plugin que facilita parte del trabajo en webs tipo portal, evita la necesidad de crear taglibs para simplemente mostrar datos o de repetir código en los controllers. En fin, espero aprobar la evaluación y así llevarme la camiseta!! ;)</p>

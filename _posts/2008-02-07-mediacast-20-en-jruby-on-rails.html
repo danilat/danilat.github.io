@@ -1,0 +1,36 @@
+---
+layout: post
+status: publish
+published: true
+title: Mediacast 2.0 en JRuby on Rails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 135
+wordpress_url: http://www.danilat.com/weblog/2008/02/07/mediacast-20-en-jruby-on-rails/
+date: '2008-02-07 01:11:12 +0100'
+date_gmt: '2008-02-06 23:11:12 +0100'
+categories:
+- Java
+- Ruby
+tags: []
+comments: []
+---
+<p><a href="http://blog.igorminar.com/2008/01/jruby-on-rails-rewrite-of.html">Igor Minar ha publicado en su blog</a> que han reescrito por completo <a href="http://mediacast.sun.com/">mediacast</a>, una aplicación web para que los empleados de Sun puedan publicar archivos. </p>
+<p>Al parecer, la versión anterior estaba desarrollada con Servlets+JSP+Filtros y resultaba dura de mantener, por lo que decidieron reescribirla desde cero. Él sugirió que en el nuevo desarrollo se utilizara <a href="http://www.rubyonrails.org/">Rails</a> con <a href="http://jruby.codehaus.org/">JRuby</a> para desplegarlo en un servidor java. El equipo lo formaban él, que ya tenía alguna experiencia con Ruby on Rails, y otros dos compañeros más, éstos sin experiencia con Ruby o JRuby.</p>
+<p>Algunas de sus razones para usar JRoR:</p>
+<ul>
+<li>Al comenzar desde cero, no tenían código heredado</li>
+<li>Utilizar el proyecto como prueba de concepto para otros usos</li>
+<li>Comprobar que se cumple la promesa Rails para el desarrollo rápido</li>
+<li>Algo nuevo y divertido para el equipo, para equilibrar las cosas no tan divertidas (La que más me ha convencido:P)</li>
+</ul>
+<p>Por lo que comenta, la arquitectura de la aplicación no es demasiado compleja, aunque para mejorar el rendimiento utilizaron cacheos. </p>
+<p>En el entorno de producción cuentan con un par de servidores balanceados <a href="http://www.sun.com/servers/coolthreads/t2000/">T2000</a> con una unidad <a href="http://es.wikipedia.org/wiki/Network-attached_storage">NAS</a> compartida para el almacenamiento de ficheros, con Solaris 10, el JDK6, Sun Application Server 9.1 como servidor de aplicaciones y un servidor MySQL. Lo único que se echa de menos es que no de números de la carga que suele soportar el entorno de producción.</p>
+<p>En cuanto al desarrollo, el core de la aplicación lo tuvieron listo en poco tiempo y parece que gracias a la poca cantidad de código necesario, el código lo revisaban rápidamente y los bugs los solían solucionar con pocas líneas de código. Encontraron problemas por no poder utilizar la mayoría de las gemas basadas en C y con las peticiones largas, que les supusieron la mayoría del tiempo de trabajo, ambos problemas los acabaron solucionando usando Java.</p>
+<p>Que yo conozca, es la <a href="http://brigomp.blogspot.com/2007/11/historia-sobre-una-aplicacin-en-jruby.html">segunda aplicación</a> que desarrolla una gran empresa con JRuby on Rails, tras <a href="https://mix.oracle.com/">Oracle Mix</a>. Habrá que estar pendiente de los lenguajes dinámicos como JRuby y Groovy, pudiendo reaprovechar el conocimiento ya existente en Java y si va mejorando el rendimiento de estos lenguajes, quizás se empiecen a tener en cuenta como otra opción más dentro de la plataforma.</p>

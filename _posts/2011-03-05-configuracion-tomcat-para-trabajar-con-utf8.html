@@ -1,0 +1,88 @@
+---
+layout: post
+status: publish
+published: true
+title: Configuración de Tomcat para trabajar con UTF8
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1429
+wordpress_url: http://www.danilat.com/weblog/?p=1429
+date: '2011-03-05 00:36:53 +0100'
+date_gmt: '2011-03-04 22:36:53 +0100'
+categories:
+- Java
+tags: []
+comments:
+- id: 10342
+  author: Fran Serrano
+  author_email: f.serrano@devel.es
+  author_url: http://www.devel.es
+  date: '2011-03-07 21:53:46 +0100'
+  date_gmt: '2011-03-07 19:53:46 +0100'
+  content: "Algo muy util para proyectos Spring en los que vayas a usar ese encoding
+    es usar tambien el EncodingFilter en el web.xml, de esa manera te aseguras de
+    que todo lo que se escriba por la response será con ese encoding tambien y no
+    te encontraras sorpresas luego ni tendras que estar usando las directivas de pageEncoding
+    y charset por todas las vistas (JSP, TIles, etc)\r\nAlgo que hay que tener en
+    cuenta es poner ese filtro el primero de todos los filtros en el web.xml:\r\n\r\n---------------------------------------------------------------------------\r\n\r\n\r\n
+    \       encodingFilter\r\n        org.springframework.web.filter.CharacterEncodingFilter\r\n
+    \       \r\n            encoding\r\n            UTF-8\r\n        \r\n        \r\n
+    \           forceEncoding\r\n            true\r\n        \r\n    \r\n    \r\n
+    \       encodingFilter\r\n        /*\r\n    \r\n\r\n--------------------------------------------------------------\r\nSaludos"
+- id: 10343
+  author: Fran Serrano
+  author_email: f.serrano@devel.es
+  author_url: http://www.devel.es
+  date: '2011-03-07 21:55:04 +0100'
+  date_gmt: '2011-03-07 19:55:04 +0100'
+  content: Vaya... no ha pillado las marcas XML
+- id: 10344
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2011-03-08 04:18:58 +0100'
+  date_gmt: '2011-03-08 02:18:58 +0100'
+  content: "mmm... el wordpress habrá escapado el marcado :S\r\n\r\nTengo mis dudas
+    de si ese filtro soluciona este problema, que por otro lado supongo que ya lo
+    tendrán puesto para que Grails lo use de serie. Mi problema no era del response
+    en sí, que lo maneja el mismo Grails y era siempre utf8, lo que me daba problemas
+    era que el tomcat no manejaba bien los parámetros que le llegaban por GET.\r\n\r\nMe
+    explico, como comentaba en el post, se comporta de forma diferente ejecutando
+    el \"run-app\" con el tomcat embebido que desplegado en un war sobre un tomcat
+    \"normal\". Por eso entendí que era un problema de configuración de tomcat y terminé
+    encontrando esa solución :)"
+- id: 10741
+  author: Iván
+  author_email: lopez.ivan@gmail.com
+  author_url: http://lopezivan.blogspot.com
+  date: '2012-01-02 02:03:18 +0100'
+  date_gmt: '2012-01-02 00:03:18 +0100'
+  content: "Muchas gracias!!, justo es lo que me estaba pasando, al arrancar con run-app
+    (incluso en la máquina de producción), funcionaba correctamente, pero al hacerlo
+    con el tomcat no. Ha sido poner el parámetro y listo, todo perfecto.\r\n\r\nGracias
+    de nuevo Dani :-)\r\n\r\nSaludos, Iván."
+- id: 11676
+  author: jmiguel rodriguez
+  author_email: jmiguel.rodriguez@gmail.com
+  author_url: http://www.jmiguel.eu
+  date: '2013-04-22 19:50:26 +0200'
+  date_gmt: '2013-04-22 17:50:26 +0200'
+  content: "Otro agradecido, Dani. Tras darme unos trastazos sin saber lo que estaba
+    pasando, a dos dias de entrar en produccion, he encontrado esta solución.  :-)\r\n\r\nThank
+    you!"
+---
+<p>Me ha vuelto a pasar... otra vez! La configuración por defecto de <strong>Apache Tomcat 6</strong> me ha dado problemas con la codificación de carácteres. </p>
+<div style="text-align:center"><a href="http://www.flickr.com/photos/dlato/5498143790/" title="encoding por Dani Latorre, en Flickr"><img src="http://farm6.static.flickr.com/5292/5498143790_0a44f3f904.jpg" width="250" height="243" alt="encoding" /></a></div>
+<p>Mientras que en el servidor embebido de Grails funciona todo perfectamente con UTF8, siempre que no la líes <del datetime="2011-03-04T22:21:37+00:00">gracias a</del> a causa tu IDE/editor favorito, claro. Al poner en una instalación de tomcat el <em>war</em> que quería desplegar, los carácteres no-ascii(eñes, tildes, etc) no se pasaban con la codificación correcta cuando los parámetros iban por <em>GET</em>.</p>
+<p>La <a href="http://blog.oio.de/2010/12/31/solving-tomcat-encoding-problems-in-utf-8-webapps/">solución es bastante simple</a>.</p>
+<p>A la línea del <strong>server.xml</strong> de la configuración de nuestro/s tomcat/s:<br />
+<code>&lt;Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443"/&gt;</code></p>
+<p>Añadirle <em>URIEncoding="UTF-8"</em>, para que quede algo como esto:<br />
+<code>&lt;Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8"/&gt;</code></p>
+<p>Y ya :)</p>

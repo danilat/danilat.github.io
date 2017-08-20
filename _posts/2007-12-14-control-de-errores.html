@@ -1,0 +1,80 @@
+---
+layout: post
+status: publish
+published: true
+title: Control de errores
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 127
+wordpress_url: http://www.danilat.com/weblog/2007/12/14/control-de-errores/
+date: '2007-12-14 21:37:12 +0100'
+date_gmt: '2007-12-14 19:37:12 +0100'
+categories:
+- Programación
+- Java
+tags: []
+comments:
+- id: 1931
+  author: GreenEyed
+  author_email: greeneyed@dev.java.net
+  author_url: ''
+  date: '2007-12-16 20:55:16 +0100'
+  date_gmt: '2007-12-16 18:55:16 +0100'
+  content: "<i>Si desarrollas librerías o frameworks, como no tienes control sobre
+    cómo van a ser utilizados, sólo puedes hacerlo de forma confiada.</i>\r\nPara
+    ser más precisos, lo que dice es que no te puedes fiar mucho, y por eso tus \"zonas
+    de confianza\" no pueden ser muy amplias.\r\n\r\nYo en mi caso, no se si acabo
+    de estar muy de acuerdo ya su explicación es bastante vaga. Por que aunque estoy
+    de acuerdo en que tampoco puedes estar re-re-re-validando los inputs en cada metodo
+    que recibe el mismo parametro, no lo estoy en hacer control de errores \"a lo
+    grande\", por que como menciona uno de los comentarios, puede ser que más tarde
+    ese codigo acabe usandose de otra forma saltandose la parte de comprobación. En
+    mi caso es más bien una cuestion de \"unidades logicas\".\r\nSi puede ser usado
+    por separado, entonces debe tener su control de errores. Si no, no hay que permitir
+    que pueda ser usado independientemente (metodos privados, etc.)\r\n\r\nS!"
+- id: 1933
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-12-16 22:45:46 +0100'
+  date_gmt: '2007-12-16 20:45:46 +0100'
+  content: "Hola GreenEyed,\r\n\r\nGracias por el apunte, ya está actualizado:).\r\n\r\nEn
+    teoría la comprobación de errores sería responsabilidad de quién llama a la \"trusted
+    zone\". Yo creo que se puede hacer siempre que se tenga como convención hacerlo
+    así, o que esté documentado.\r\n\r\nUna forma de hacer esto, quizás podría ser
+    tener la lógica de negocio como \"trusted zone\" y por encima una capa que se
+    encargara de las comprobaciones, así se podría separar una unidad lógica y reutilizarla
+    en otro desarrollo.\r\n\r\nSaludos!"
+- id: 1951
+  author: Rodrigo
+  author_email: jrlv1705@yahoo.com
+  author_url: ''
+  date: '2007-12-19 17:31:00 +0100'
+  date_gmt: '2007-12-19 15:31:00 +0100'
+  content: "Estimados,\r\nEste mes me he hecho cargo del area de QA de la empresa
+    y me he dado cuenta que no existe un software o alguna aplicacion que lleve todo
+    el control de errores de los desarrollo que nos pasan, mi consulta es algunos
+    de uds. sabe que software se podria utilizar para ello, el unico que he encontrado
+    es el BugZilla, estamos trabajando para entender su funcionamiento.\r\ndesde ya
+    muchas gracias."
+- id: 1954
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-12-19 22:27:19 +0100'
+  date_gmt: '2007-12-19 20:27:19 +0100'
+  content: "Hola Rodrigo,\r\n\r\nEn mi trabajo utilizamos Mantis(http://www.mantisbt.org/),
+    está desarrollado con php y mysql por defecto, pero por su documentación, se puede
+    utilizar con otros gestores de bases de datos."
+---
+<p>Acabo de leer en el blog <a href="http://beautifulcode.oreillynet.com/">beautifulcode</a>, una interesante entrada de <a href="http://beautifulcode.oreillynet.com/mfeathers/">Michael Feathers</a> sobre el <a href="http://beautifulcode.oreillynet.com/2007/12/error_handling_the_practice_we.php">control de errores</a>.</p>
+<p>El post comienza con éste párrafo, que traduzco libremente: <em>...œEl control de errores es un poco cómo discutir quién saca la basura. Todos sabemos que hay que hacerlo, pero no dedicamos demasiado tiempo en pensar en cómo hacerlo....</em></p>
+<p>Habla sobre <strong>trusted zones</strong> (zonas de confianza), en éstas zonas de nuestro código, no deben existir comprobaciones, únicamente la lógica de lo que estemos desarrollando, de ésta forma conseguimos un código más limpio y mantenible.<br />
+Si desarrollas librerías o frameworks, como no tienes control sobre cómo van a ser utilizados, <del datetime="2007-12-16T20:15:14+00:00">sólo puedes hacerlo de forma confiada</del> tus zonas de confianza no pueden ser muy amplias. Mientras si desarrollas una aplicación, debes tratar de separar el control de errores todo lo que sea posible de la lógica de negocio. El control de errores debe ser una cuestión de diseño, no algo de última hora.</p>
+<p>Vamos, que por lo que parece utilizar trusted zones es una idea similar al <a href="http://en.wikipedia.org/wiki/Design_by_contract">diseño por contrato</a>, pero sin contrato (sin precondiciones, invariantes o postcondiciones), y así evitar la programación defensiva para tener mejor código, más ...œbeautiful... :)</p>

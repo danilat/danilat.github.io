@@ -1,0 +1,116 @@
+---
+layout: post
+status: publish
+published: true
+title: Testeando respuestas JSON con Grails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 611
+wordpress_url: http://www.danilat.com/weblog/?p=611
+date: '2009-11-20 03:35:08 +0100'
+date_gmt: '2009-11-20 01:35:08 +0100'
+categories:
+- Javascript
+- Grails
+tags: []
+comments:
+- id: 9742
+  author: atreyu
+  author_email: atreyu.bbb@gmail.com
+  author_url: http://twitter.com/jneira
+  date: '2009-11-20 07:33:06 +0100'
+  date_gmt: '2009-11-20 05:33:06 +0100'
+  content: "y que tal hubiera quedado un \"responseJSON=parse response as JSONElement\"
+    ya para dejarlo en plan dsl total ;-)\r\nme la apunto para cuando nos dejen jugar
+    con grails aunque ahora que java va a tener closures igual ya no merece la pena
+    :-P"
+- id: 9744
+  author: David Bonilla
+  author_email: david@sixservix.com
+  author_url: http://sixservix.com/blog/david
+  date: '2009-11-20 09:44:37 +0100'
+  date_gmt: '2009-11-20 07:44:37 +0100'
+  content: "Aiva !!! Dani, esta entrada sale cuando pulsas en la categoría \"Java\"
+    aunque no este categorizada dentro de la misma.\r\n\r\nDe todas formas, no me
+    había dado cuenta de la profundidad de tu blog hasta que he visto que tienes <b>160
+    entradas</b> dentro de la categoría programación :)"
+- id: 9745
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2009-11-20 13:17:29 +0100'
+  date_gmt: '2009-11-20 11:17:29 +0100'
+  content: "@atreyu jejeje, entonces quizás portan grails a java \"puro\" XD\r\n\r\n@David
+    las categorías las tengo anidadas (grails en groovy, groovy en java y java en
+    programación), creo que así resulta más fácil navegar en busca de contenido. \r\nMe
+    has hecho ir a mirar cuando empecé a escribir el blog... casi 3 años y medio!
+    Eso sí, entre todos esos posts hay cosillas decentes/curiosas y otros son de \"dudosa\"
+    calidad :P"
+- id: 9746
+  author: Raúl Expósito
+  author_email: raul@raulexposito.com
+  author_url: http://raulexposito.com
+  date: '2009-11-20 16:56:00 +0100'
+  date_gmt: '2009-11-20 14:56:00 +0100'
+  content: "Gracias por el truco Dani, me es bastante útil y me servirá de complemento
+    a esto: http://jsonlint.com/, que lo uso para saber si el objeto está bien generado
+    y poder verlo formateado.\r\n\r\nSaludos"
+- id: 9749
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2009-11-21 01:15:21 +0100'
+  date_gmt: '2009-11-20 23:15:21 +0100'
+  content: "Genial que te sirva Raúl! :)\r\n\r\nPero me quedo con la duda de si estás
+    validando la salida de una acción de tu proyecto. Si es tuya supongo que por alguna
+    razón, no estás utilizando las herramientas que aporta Grails y lo estás haciendo
+    a mano, ¿o no?"
+- id: 9750
+  author: Raúl Expósito
+  author_email: raul@raulexposito.com
+  author_url: http://raulexposito.com
+  date: '2009-11-22 14:35:06 +0100'
+  date_gmt: '2009-11-22 12:35:06 +0100'
+  content: "Efectivamente Dani, antes de conocer esto que comentas hacía la comprobación
+    a manubrio.\r\n\r\nSaludos"
+- id: 9754
+  author: Raúl Expósito
+  author_email: raul@raulexposito.com
+  author_url: http://raulexposito.com
+  date: '2009-11-26 23:30:46 +0100'
+  date_gmt: '2009-11-26 21:30:46 +0100'
+  content: "Oye Dani, lo he probado y no sólo va de lujo sino que además es muy cómodo
+    y muy sencillo usarlo.\r\n\r\nGracias de nuevo por el truco y saludos"
+- id: 9755
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2009-11-27 02:16:43 +0100'
+  date_gmt: '2009-11-27 00:16:43 +0100'
+  content: "Me alegro de que te sirva! :)\r\n\r\nLa verdad que en Grails he visto
+    algunas cosillas muy chulas que no están documentadas, o un poco perdidas entre
+    la documentación."
+---
+<p>Aunque en la <a href="http://grails.org/doc/1.1.1/guide/9.%20Testing.html#9.2%20Integration%20Testing">documentación de Grails aparece un ejemplo</a> de como escribir un test para una acción que recibe una petición en formato XML o JSON, no lo hace de como escribir un test de una acción que genera el JSON, que tampoco es que sea precisamente complicado.</p>
+<p>Si lo único que quisieramos probar es que, en una cadena JSON, se está devolviendo algún valor que estuvieramos esperando, podríamos utilizar el contenido que devuelve la response como una cadena(con <strong>contentAsString</strong>) y hacer alguna comprobación sobre el texto:</p>
+<p><code>def response = controller.response.contentAsString<br />
+assertTrue response.contains('"name":"Gustavo Poyet"')<br />
+assertTrue response.contains('"goals":63')<br />
+</code></p>
+<p>Pero claro, este test es un muy ligero y no prueba demasiado. Si quisieramos probar más a fondo la respuesta(estructura, un elemento concreto de un array, etc), podríamos usar contains sobre la cadena devuelta, convertir tipos... vamos, que sería más que posible que el código del test terminara siendo infumable. Pero está disponible <em>out of the box</em> el <a href="http://grails.org/doc/1.1.1/api/grails/converters/JSON.html"><strong>converter JSON</strong></a> de Grails, que permite testear más a fondo fácilmente y con un código mucho más claro.</p>
+<p>Es muy posible que si alguien se ve en la necesidad de escribir un test para una acción que devuelve un JSON, ya conozca el converter, por que es una de <a href="http://grails.org/doc/1.1.1/guide/6.%20The%20Web%20Layer.html#6.1.7%20XML%20and%20JSON%20Responses">las alternativas que hay para hacerlo</a>:</p>
+<p><code>render object as JSON</code></p>
+<p>Pues esa misma clase, tiene el paso contrario, pasar una cadena a un objeto groovy/java(<a href="http://grails.org/doc/1.1.1/api/org/codehaus/groovy/grails/web/json/JSONElement.html">JSONElement</a>). De esta forma ya nos ahorraremos trabajo sucio y el código quedará bastante claro:</p>
+<p><code>def response = controller.response.contentAsString<br />
+def responseJSON = grails.converters.JSON.parse(response)<br />
+assertNotNull responseJSON.players<br />
+assertEquals 5, responseJSON.players.size()<br />
+assertEquals 63, responseJSON.players[0].goals<br />
+assertEquals "Gustavo Poyet", responseJSON.players[0].name<br />
+</code></p>

@@ -1,0 +1,82 @@
+---
+layout: post
+status: publish
+published: true
+title: Integrar Spring y Struts
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 140
+wordpress_url: http://www.danilat.com/weblog/2008/02/27/integrar-spring-y-struts/
+date: '2008-02-27 10:55:53 +0100'
+date_gmt: '2008-02-27 08:55:53 +0100'
+categories:
+- Struts
+- Spring
+tags: []
+comments:
+- id: 2569
+  author: David Calavera
+  author_email: david.calavera@gmail.com
+  author_url: http://thinkincode.net
+  date: '2008-02-27 11:52:03 +0100'
+  date_gmt: '2008-02-27 09:52:03 +0100'
+  content: "Un pequeño apunte:\r\n\r\nUsando las anotaciones de spring 2.5 no haría
+    falta mantener 2 xml diferentes, anotaríamos los actions como @Component y solo
+    los definiríamos en el xml de struts.\r\n\r\nSaludos."
+- id: 2570
+  author: JF
+  author_email: jf@thestromboliproject.com
+  author_url: http://blog.thestromboliproject.com
+  date: '2008-02-27 12:16:11 +0100'
+  date_gmt: '2008-02-27 10:16:11 +0100'
+  content: "Ya estaba yo nervioso con el tema de los Struts...\r\n\r\n;)"
+- id: 2572
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-02-27 12:56:52 +0100'
+  date_gmt: '2008-02-27 10:56:52 +0100'
+  content: "Muchas gracias David lo probaré en cuanto pueda, es la mayor pega que
+    le veía y no había encontrado nada sobre poder utilizar anotaciones con los actions
+    en la documentación oficial.\r\n\r\nJF :)"
+- id: 2697
+  author: www.programame.net
+  author_email: ''
+  author_url: http://www.programame.net/story/integrar-spring-y-struts
+  date: '2008-03-07 17:38:55 +0100'
+  date_gmt: '2008-03-07 15:38:55 +0100'
+  content: |-
+    <strong>Integrar Spring y Struts...</strong>
+
+    Las diferentes opciones de usar el plugin para integrar spring 2.0 con struts 1.3...
+- id: 4222
+  author: kobasho
+  author_email: kokista@hotmail.com
+  author_url: ''
+  date: '2008-06-12 00:59:05 +0200'
+  date_gmt: '2008-06-11 22:59:05 +0200'
+  content: "¿Alguien de uds. ha integrado Struts Validator a Spring...? necesito hacerlo,
+    si alguien puede ayudarme, con gusto recibo esa ayuda."
+---
+<p>Hace ya algún tiempo que ando tocando algunas cosas de <a href="http://www.springframework.org/">Spring framework</a>. Un framework que simplifica el desarrollo de aplicaciones J2EE, que entre otras cosas nos permite desacoplar partes de nuestro código gracias a <a href="http://www.javaconganas.com/space/path/frameworks/spring/ioc">Spring IoC</a>.</p>
+<p>A raíz de <a href="http://www.programania.net/programacion/orientada-a-objetos/spring-plugin-para-struts-13x/">un post en programania</a>, en donde explican dos formas de integrar spring con <a href="http://struts.apache.org/1.3.8/index.html">struts</a>, voy a aprovechar para explicar aquí las otras dos alternativas para hacerlo. </p>
+<ul>
+<li>
+Nuestros Actions deben extender de <strong>ActionSupport</strong>: de esta forma se facilita la obtención del contexto de spring manualmente, que es la forma más sencilla de hacerlo. El problema, evidentemente que de esta forma las Actions de struts quedan muy aclopadas a spring.
+</li>
+<li>
+Usando <strong>DelegatingRequestProcessor</strong> (o en el caso de usar Tiles <strong>DelegatingTilesRequestProcessor</strong>): le pasamos el manejo de las acciones a spring sobre-escribiendo el RequestProcessor de struts. De esta forma desacomplamos los Actions de spring, aunque nos puede surgir el problema que vayamos a usar un RequestProcessor propio, por lo que deberíamos usar el <strong>DelegatingActionProxy</strong>, que es la forma que explican en programania.
+</li>
+</ul>
+<p>La pega que surge al delegar el manejo de los Actions a Spring con DelegatingRequestProcessor y DelegatingActionProxy, es que hay que definir en el beans.xml nuestros actions de struts. En el primer caso, en el struts-config definiremos (como siempre) nuestros actions, por lo que deberemos mantener las mismas actions en dos XML diferentes, sólo cambia que definimos:</p>
+<p><code><strong>controller processorClass = "org.springframework.web.struts.DelegatingRequestProcessor"</strong></code></p>
+<p>mientras que en el segundo, para cada action de struts-config le pondremos el type DelegatingActionProxy:</p>
+<p><code><strong>type = "org.springframework.web.struts.DelegatingActionProxy"</strong></code></p>
+<p>En conclusión, es recomendable delegar el manejo de las acciones a spring aunque tengamos que mantener dos XML diferentes, ya que la integración es más transparente y además tendremos la opción de utilizar Spring AOP. Mientras que extender de ActionSupport resultaría útil para utilizar varios contextos de spring distintos.</p>
+<p>Para encontrar una explicación mucho más detallada y con ejemplos, en <a href="http://www-128.ibm.com/developerworks/java/library/j-sr2.html">developerWorks hay un artículo</a> disponible.</p>

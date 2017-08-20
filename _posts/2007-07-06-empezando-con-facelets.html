@@ -1,0 +1,70 @@
+---
+layout: post
+status: publish
+published: true
+title: Empezando con Facelets
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 92
+wordpress_url: http://www.danilat.com/weblog/2007/07/06/empezando-con-facelets/
+date: '2007-07-06 17:17:58 +0200'
+date_gmt: '2007-07-06 15:17:58 +0200'
+categories:
+- Java
+- JavaServer Faces
+tags: []
+comments:
+- id: 15
+  author: publicame.corank.com
+  author_email: publicame.corank.com@gmail.com
+  author_url: http://publicame.corank.com/tech/story/empezando-con-Facelets
+  date: '2007-07-06 19:41:31 +0200'
+  date_gmt: '2007-07-06 17:41:31 +0200'
+  content: Post enviado a "Publícame". Puede promocionar este post clikeando sobre
+    el vínculo.
+- id: 144
+  author: Usar Facelets con Tomahawk
+  author_email: ''
+  author_url: http://www.danilat.com/weblog/2007/08/06/usar-facelets-con-tomahawk/
+  date: '2007-08-06 18:16:03 +0200'
+  date_gmt: '2007-08-06 16:16:03 +0200'
+  content: "[...] Después de empezar a usar facelets, necesitaba utilizar, cómo no,
+    los componentes de myfaces tomahawk, para esto hay una documentación muy buena
+    en el wiki de apache, use facelets with tomahawk. [...]"
+- id: 9540
+  author: Primeros pasos con Facelets &laquo; Gestor de contenidos ligero para un
+    AMPA
+  author_email: ''
+  author_url: http://melu71178.wordpress.com/2009/03/10/primeros-pasos-con-facelets/
+  date: '2009-04-20 17:52:58 +0200'
+  date_gmt: '2009-04-20 15:52:58 +0200'
+  content: "[...] configurar la aplicación para el uso de Facelets, he seguido este
+    tutorial, que explica punto por punto los pasos necesarios para configurar la
+    aplicación con el objetivo de [...]"
+- id: 9543
+  author: David
+  author_email: davisoski@hotmail.com
+  author_url: ''
+  date: '2009-05-03 21:19:49 +0200'
+  date_gmt: '2009-05-03 19:19:49 +0200'
+  content: "Hola.\r\n\r\nYo llevo tiempo utilizando facelets en mis aplicaciones (recomiendo
+    un librito de o'reilly, facelets shortcuts), pero estoy intentando mejorar la
+    plantilla tipo que tengo y no se si será posible incluir una plantilla dentro
+    de otra que representa una sección de la página.\r\n\r\nGracias"
+---
+<p>Estoy teniendo mis primeros contactos con <a href="https://facelets.dev.java.net/">Facelets</a>, un sistema de plantillas para JavaServer Faces, lo que sería un <a href="http://struts.apache.org/1.x/struts-tiles/">tiles</a> para <a href="http://struts.apache.org/">struts</a>.</p>
+<p>Ha sido bastante fácil utilizar Facelets en una micro-aplicación de ejemplo de JSF, sobre todo gracias a la buena <a href="https://facelets.dev.java.net/nonav/docs/dev/docbook.html">documentación</a> que tiene el proyecto.</p>
+<p>Para utilizarlo me ha sido necesario modificar lo siguiente:<br />
+-La <a href="https://facelets.dev.java.net/nonav/docs/dev/docbook.html#gettingstarted-setup-web">configuración de web.xml</a> poniendo un <strong>context-param</strong> <strong>javax.faces.DEFAULT_SUFFIX</strong> con value <strong>.html</strong> y otro <strong>facelets.DEVELOPMENT</strong> con value a <strong>true</strong> para tener, durante el desarrollo, salida de debug por el navegador.<br />
+-La <a href="https://facelets.dev.java.net/nonav/docs/dev/docbook.html#gettingstarted-setup-faces">de faces-config.xml</a> poniéndole un <strong>view-handler</strong>, <strong>com.sun.facelets.FaceletViewHandler</strong>.<br />
+-Crear un <a href="https://facelets.dev.java.net/nonav/docs/dev/docbook.html#gettingstarted-view-template">template</a> para las vistas.<br />
+-Modificar los nombres de archivos que utilizan JSF de <strong>.jsp</strong> a <strong>.html</strong> y en los archivos modificar lo necesario para dejarlos<br />
+con<a href="https://facelets.dev.java.net/nonav/docs/dev/docbook.html#gettingstarted-view-guess"> el formato de páginas facelets</a>, quitando los taglib y f:view...<br />
+-Y modificando también las <a href="https://facelets.dev.java.net/nonav/docs/dev/docbook.html#gettingstarted-nav">reglas de navegación de faces-config</a>, cambiándoles la extensión de los archivos de <strong>.jsp</strong> a <strong>.html</strong>.</p>
+<p>Una de las cosas que me ha parecido muy buena idea dentro de Facelets, es el poder utilizar de una forma alternativa los tags de jsf, al menos para los componentes del core de JSF pero supongo que para cualquier otro, utilizando etiquetas html de siempre con un atributo jsfc que dice cuál es el tag JSF que debe renderizar. Lo que a un diseñador/maquetador creo que le facilita bastante la vida al no tener que aprenderse los tags de JSF.</p>

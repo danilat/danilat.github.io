@@ -1,0 +1,225 @@
+---
+layout: post
+status: publish
+published: true
+title: Codificación de carácteres y Java
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 154
+wordpress_url: http://www.danilat.com/weblog/2008/05/19/codificacion-de-caracteres-y-java/
+date: '2008-05-19 17:12:04 +0200'
+date_gmt: '2008-05-19 15:12:04 +0200'
+categories:
+- Programación
+- Java
+- Grails
+tags: []
+comments:
+- id: 3889
+  author: David Calavera
+  author_email: david.calavera@gmail.com
+  author_url: http://thinkincode.net
+  date: '2008-05-19 17:54:07 +0200'
+  date_gmt: '2008-05-19 15:54:07 +0200'
+  content: "Hola Dani, una forma de evitar el problema con los properties y los ResourceBundle
+    es usar las librerías de gettext, que manejan mucho mejor estos temas, te dejo
+    una referencia:\r\n\r\nhttp://code.google.com/p/gettext-commons/\r\n\r\npor cierto,
+    el autor del post de programa con google es \"Joaquin Cuenca\" no Joaquin Cuesta.\r\n\r\nSaludos"
+- id: 3890
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-05-19 18:02:42 +0200'
+  date_gmt: '2008-05-19 16:02:42 +0200'
+  content: "Hola David,\r\n\r\nNo conocía esta librería, le pegaré un repaso tranquilamente.\r\n\r\nY
+    lo bueno es que sé que es Joaquin Cuenca, pero parece que no soy dueño de mis
+    dedos XD.\r\n\r\nGracias por ambos apuntes."
+- id: 3891
+  author: GreenEyed
+  author_email: greeneyed@dev.java.net
+  author_url: ''
+  date: '2008-05-19 19:08:28 +0200'
+  date_gmt: '2008-05-19 17:08:28 +0200'
+  content: "Hola,\r\nString internamente guarda los caracteres en UTF-16 como dices,
+    asi que no entiendo que diferencia hay, o crees que hay ;), entre valueIso y valueUtf.
+    Las dos cadenas _internamente_ son la misma, lo importante es a la hora de escribir
+    un String como bytes o interpretar un String a partir de unos bytes, pero internamente
+    te da igual como lo guarde.\r\n\r\nEs más, supuestamente si haces un getBytes()
+    y luego creas un String con esos bytes con encodings differentes, podrias tener
+    un error ya que estas generando la interpretacion en bytes como ISO-LATIN1 y la
+    estas leyendo como si los bytes fuera UTF-8...\r\nLo importante son los interfaces,
+    y ahi el emisor y el receptor han de ponerse de acuerdo, como se guarde internamente
+    la informacion deberia dar igual.\r\n\r\nOtro tema interesante y largamente comentado
+    pero que aun \"muerde\" es el de los navegadores y su envio de parametros. Por
+    cierto, el tag http-equiv=\"content-type\" y el response.setContentType son redundantes,
+    aunque se suelen poner ambos por si acaso, el problema es que si te equivocas
+    y no concuerdan... el resultado es imprevisible, por que cada navegador hace lo
+    que le pasa por... :)\r\n\r\nEs un tema interesante."
+- id: 3892
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-05-19 20:49:46 +0200'
+  date_gmt: '2008-05-19 18:49:46 +0200'
+  content: "Hola GreenEyed,\r\n\r\nLas dos cadenas al final son la misma, pero en
+    mi caso sí me interesa saber como lo guarda (o más bien forzar cómo lo guarda),
+    prefiero hacerlo en la interfaz de entrada que en la de salida, ya que quién sabe
+    si un día se modifica esa interfaz de entrada (por ejemplo para leer de un fichero
+    de texto en UTF-8) mientras que la codificación de salida no cambiará.\r\n\r\nSobre
+    los posibles problemas, no acabo de entender a qué te refieres, la transformación
+    es de Latin1 a UTF-16 en el getBytes y en el constructor del nuevo String es de
+    UTF-16 a UTF-8.\r\n\r\nSobre el tag y establecer el contentType, es redundante
+    pero como dices, cualquiera se fía de los navegadores :)."
+- id: 3904
+  author: GreenEyed
+  author_email: greeneyed@dev.java.net
+  author_url: ''
+  date: '2008-05-20 13:38:54 +0200'
+  date_gmt: '2008-05-20 11:38:54 +0200'
+  content: "\"me interesa saber como la guarda o forzar como la guarda\" El problema
+    de eso es que estas entendiendo el metodo al reves. Con String(bytes,codificacion),
+    lo que le estas diciendo es la codificacion de los bytes que le estas pasando.
+    Internamente String la seguira guardando en UTF-16, si o si. Codificacion se refiere
+    a como estan codificados los bytes, no al String.\r\n\r\nSobre el problema, pasa
+    exactamente lo mismo con getBytes. Con getBytes(codificacion), el parametro codificacion
+    no se refiere a como esta codificado internamente el String, que SIEMPRE esta
+    codificado en UTF-16, se refiere a como quieres que codifique los bytes de salida.
+    Asi que si obtienes los bytes codificados segun ISO y se los pasas a un constructor
+    diciendole que estan codificados en UTF, estas pasandole argumentos incorrectos
+    y te dara un error con algunos caracteres.\r\n\r\nEspero que asi quede mas claro
+    :).\r\n\r\nPrueba esto a ver si te aclara a lo que me refiero:\r\n\r\nSystem.err.println(\"Prueba:
+    \"\r\n  + new String(\"áéíóú@\".getBytes(\"UTF-8\"),\"ISO-8859-1\"))\r\n\r\nVerás
+    que el resultado no es \"áéíóú@\".\r\n\r\nS!"
+- id: 3907
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-05-20 16:46:54 +0200'
+  date_gmt: '2008-05-20 14:46:54 +0200'
+  content: "Vale, ahora te he entendido :)\r\n\r\nY sí, toda la razón, se modifica
+    la codificación de los bytes y no la del String en sí que siempre será UTF-16
+    y como han cambiado los bytes cambia el contenido del String.\r\n\r\nLa cuestión
+    es que en alguna ocasión he tenido que forzar esa transformación de codificación,
+    por no abstraerme de eso las interfaces.\r\n\r\nTodo lo que trata sobre estos
+    cambios de codificaciones en el javadoc de la clase String es un poco confuso...
+    al menos para mi:\r\n\r\nString(byte[] bytes, String charsetName) \r\n\"Constructs
+    a new String by decoding the specified array of bytes using the specified charset\"\r\n¿Un
+    nuevo String decodificando el array de bytes usando el charset especificado?\r\nSe
+    puede entender de las dos maneras... \r\n\r\ngetBytes(String charsetName) \r\n\"Encodes
+    this String into a sequence of bytes using the named charset, storing the result
+    into a new byte array.\"\r\n¿Codifica este String en una secuencia de bytes usando
+    el charset nombrado, guardando el resultado en un array de bytes?\r\nLo mismo...\r\n\r\n(Seguramente
+    las traducciones dejan bastante que desear XD)\r\n\r\nY por mi experiencia, quizás
+    me equivoque haciéndolo de memoria pero estoy convencido de esto, el código de
+    ejemplo viene a hacer:\r\n- El array de bytes lo leemos con codificación Latin1
+    para que el contenido del String \"no se vea raro\", con getBytes(\"ISO-8859-1\").\r\n-
+    Y ese array lo decodificamos a UTF-8 en la creación del String para que en el
+    destino se guarde \"sin verse raro\".\r\n\r\nGreenEyed, a ver si llegamos a un
+    acuerdo jejeje"
+- id: 3913
+  author: GreenEyed
+  author_email: greeneyed@dev.java.net
+  author_url: ''
+  date: '2008-05-20 20:39:45 +0200'
+  date_gmt: '2008-05-20 18:39:45 +0200'
+  content: "Totalmente de acuerdo en que la documentacion es mas que confusa y el
+    tema en si ya lo es. Yo lo tengo tan mirado por que antes pensaba que era como
+    tu decias hasta que una vez tuve problemas y dandole vueltas y mirando mas cosas
+    \"encontre la luz\" y todo cuadra.\r\n\r\nDe todas formas, al leer (constructor)
+    no se cambia la codificacion de los bytes, se cambia la forma de interpretarlos.
+    Y al escribir (getBytes) no se cambia la cadena, se cambia la forma de transformar
+    la cadena en bytes.\r\n\r\n\r\nEl ejemplo, asi como está, hace:\r\n.- El String
+    esta declarado como constante, crea un String y se codifica internamente en UTF-16\r\n.-
+    El .getBytes(...\x9DUTF-8\") devuelve la ristra en bytes, segun se codifica en
+    UTF-8, de la cadena.\r\n.- El new String(bytes,\"ISO-8859-1\") interpreta la ristra
+    de bytes como si codificaran unos caracteres en ISO, y los convierte en un String
+    (internamente con UTF16).\r\n.- Como los caracteres que he puesto, a conciencia,
+    no se  representan igual en UTF-8 y LATIN1, pues se el constructor los interpreta
+    mal.\r\n\r\nHaciendo una burda analogia, supongamos que UTF8 codifica las letras
+    en numeros normales y LATIN1 en numeros romanos.\r\n\r\n\"ABC\".getBytes(UTF-8)
+    = 1,2,3\r\n\"ABC\".getBytes(LATIN1) = I,II,III\r\n\r\nnew String({1,2,3},UTF-8)
+    = \"ABC\"\r\nnew String({I,II,II},LATIN1) = \"ABC\"\r\n\r\nnew String(\"ABC\".getBytes(UTF-8),LATIN1)
+    daria error por que el 1 en LATIN1 no es la A, el 2 no... etc.\r\n\r\nLa transformacion
+    que dices que hay que hacer a veces es cuando tienes que leer unos bytes que representan
+    una cadena y estan codificados en un charset, llamemosle charsetX, distinto del
+    de por defecto (usas new String(bytes,charsetX) o cuando tu tienes que esribir
+    unos bytes en una codificacion diferente de la por defecto, que usas getBytes(charsetX)
+    y escribes los bytes.\r\n\r\nS!"
+- id: 3930
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-05-21 18:17:59 +0200'
+  date_gmt: '2008-05-21 16:17:59 +0200'
+  content: "Mmmm GreenEyed, creo que al final te voy a dar la razón :).\r\n\r\nTu
+    último párrafo me hizo dudar y he comprobado que sí es como tú dices, corrijo
+    el post.\r\n\r\nMuchas gracias por \"ponerte tozudo\" para hacerme entrar en razón
+    ;)"
+- id: 3933
+  author: GreenEyed
+  author_email: greeneyed@dev.java.net
+  author_url: ''
+  date: '2008-05-21 21:30:50 +0200'
+  date_gmt: '2008-05-21 19:30:50 +0200'
+  content: "Gracias a ti, estas discusiones quieras que no siempre ayudan a aclarar
+    las cosas, y asi al que venga detras y lo lea le quedara mejor.\r\nAdemas, no
+    podia dejar que otro \"Dani\" se quedara con una idea que no es... tenemos que
+    mantener el nivel :P.\r\n\r\nSaludos, tocayo ;)"
+- id: 10139
+  author: Julio César
+  author_email: juli_t01@hotmail.com
+  author_url: ''
+  date: '2010-11-12 01:58:29 +0100'
+  date_gmt: '2010-11-11 23:58:29 +0100'
+  content: Hola que tal! Muchas gracias, estuve buscando esta información y por ningun
+    lado la encontraba y cuando lo hacia no era tan clara, basto con hacer unas pruebas
+    con toda la información que se publica en este foro y listo jejeje pude eliminar
+    los caracteres raros de mi archivo de salida!
+- id: 36737
+  author: VICTOR
+  author_email: vhso06@gmail.com
+  author_url: ''
+  date: '2015-03-06 23:38:08 +0100'
+  date_gmt: '2015-03-06 21:38:08 +0100'
+  content: "Hola amigo me gustaria comentarles m problema a ver s me pueden ayudar\r\ntengo
+    una tabla user creada en postgresql con codificacion UTF8 esta tabla contiene
+    los campos name y password ambos son de tipo character longitud=10 pero cuando
+    realizo una consulta filtrada por el campo name nunca me arroja resultados si
+    el registro no tiene los 10 caracteres al parecer completa los campos faltantes
+    con espacios en blanco.\r\nagradeceria si me pueden ayudar..Gracias de antemano."
+---
+<p>Hace unos días estuve peleándome(otra vez) con la codificación de carácteres en Java, se puede convertir en algo <em>divertido</em> el no saber exáctamente con qué codificaciones trabajas en cada momento cuando tienes varios orígenes de datos y recursos.</p>
+<p>La cuestión es que al estar utilizando <a href="http://grails.org/">Grails</a> que por defecto en la parte web utilizará UTF-8 para generar el html(se puede modificar, pero mejor usar UTF-8 para la internacionalización de carácteres), había que tratar de poner todas las codificaciones de carácteres en común (bases de datos, ficheros de texto, ficheros javascript...).</p>
+<p>Primero, tenemos que asegurarnos de que nuestro IDE/editor guarde nuestros ficheros con formato UTF-8, igual que nuestra base de datos guarde el contenido con esta codificación, en MySQL:<br />
+<code>CREATE DATABASE mydatabase CHARACTER SET utf8;<br />
+CREATE  TABLE mytable (<br />
+...<br />
+) ENGINE=InnoDB CHARSET=utf8;</code></p>
+<p>En PostgreSQL:<br />
+<code>CREATE DATABASE mydatabase WITH ENCODING 'UTF8';<br />
+...</code></p>
+<p>Por otro lado nos encontramos que Java utiliza nativamente UTF-16 (ver el <a href="http://java.sun.com/javase/6/docs/api/java/nio/charset/Charset.html">api de la clase Charset</a>) <strong>"The native character encoding of the Java programming language is UTF-16"</strong>, por lo que Groovy y Grails heredan esta codificación de carácteres. </p>
+<p>Para seguir la uniformidad, la lectura/escritura de ficheros desde java la debemos hacer en UTF-8, la lectura la podemos hacer por medio de un InputStreamReader pasándole un FileInputStream y para la escritura por medio de un OutputStreamWriter con un FileOutputStream, y diciéndoles a ambos contructores con qué codificación, en nuestro caso UTF-8:<br />
+<code>InputStreamReader isr = new InputStreamReader(myFileInputStream, "UTF-8")<br />
+...<br />
+OutputStreamWriter osw = new OutputStreamWriter(myFileOutputStream, "UTF-8")<br />
+</code></p>
+<p>Por último, y para rizar el rizo, nos encontramos que los <a href="http://ola-bini.blogspot.com/2006/10/resourcebundle-pain.html">ficheros Properties(y ResourceBundles) se cargan con codificación ISO-8859-1</a>, por lo que en este caso nuestro editor debe escribir con esta codificación, y para leerlo programáticamente podemos hacer la transformación de la codificación a nivel de byte, esto sería:<br />
+<strong>Corregido <a href="http://www.danilat.com/weblog/2008/05/19/codificacion-de-caracteres-y-java/#comment-3913">por los comentarios</a> de <a href="http://www.jroller.com/greeneyed/">GreenEyed</a></strong><br />
+<code>ResourceBundle bundle = ResourceBundle.getBundle("com.danilat.foo")<br />
+String valueIso = bundle.getString(key)<br />
+String value = new String (valueIso.getBytes(), "ISO-8859-1");</code></p>
+<p>Y en caso de que necesitemos forzar la conversión a UTF-8 de una cadena:<br />
+<code>String valueUtf8= new String(string.getBytes("UTF-8"));</code></p>
+<p>Por último, no debemos olvidarnos de añadir el tag meta content-type con el charset UTF-8 en el html, para que los navegadores sepan con qué codificación estamos mostrando nuestro contenido:<br />
+<code>[meta http-equiv="content-type" content="text/html; charset=UTF-8"]</code></p>
+<p>Como bonus, para Grails no es necesario ya que la codificación de carácteres es configurable en el <em>Config.groovy</em>, pero si quisieramos devolver contenido UTF-8 desde un Servlet o con un framework donde no fuera posible configurarlo, simplemente debemos acceder al objeto response y modificar la codificación de la respuesta :<br />
+<code>response.setCharacterEncoding("UTF-8");</code></p>
+<p>Si alguien quiere más explicaciones sobre codificaciones de carácteres y en particular sobre unicode, hay un artículo que para mi es de referencia de <a href="http://www.joelonsoftware.com/articles/Unicode.html">Joel Spolsky sobre Unicode</a>, en inglés. También es interesante <a href="http://programa-con-google.blogspot.com/2008/04/internacionalizacin-i-unicode.html">un post de Joaquín Cuenca en Programa con Google</a> sobre el tema.</p>
+<p>Por cierto, mucho cuidado con el <a href="http://es.wikipedia.org/wiki/Marca_de_orden_de_bytes_%28BOM%29">Byte Order Mark</a> (BOM) en ficheros UTF-8, que nos llevará a situaciones extrañas ya que Java lo reconoce como un espacio en blanco al principio de un fichero.</p>

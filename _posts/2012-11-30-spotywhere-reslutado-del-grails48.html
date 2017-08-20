@@ -1,0 +1,73 @@
+---
+layout: post
+status: publish
+published: true
+title: SpotyWhere, nuestro proyecto en el Grails48
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2320
+wordpress_url: http://www.danilat.com/weblog/?p=2320
+date: '2012-11-30 21:47:35 +0100'
+date_gmt: '2012-11-30 19:47:35 +0100'
+categories:
+- Proyectos
+- Grails
+tags: []
+comments:
+- id: 11428
+  author: Raul
+  author_email: raulgracialario@gmail.com
+  author_url: http://raulgracia.name
+  date: '2012-11-30 22:12:21 +0100'
+  date_gmt: '2012-11-30 20:12:21 +0100'
+  content: "Anda que vaya video., cada vez que lo veo... ¡Estaba super nervioso!.
+    \r\nEn fin... que un placer haber formado parte de este equipazo, y a ver cuando
+    nos juntamos una tarde para arreglar los errorcillos y añadir alguna que otra
+    feature.\r\n\r\n¡Un saludo desde Londres!"
+- id: 11429
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2012-12-01 02:42:15 +0100'
+  date_gmt: '2012-12-01 00:42:15 +0100'
+  content: Bah! si está bien el video, se entiende lo que hace la app. Es normal que
+    salgan los nervios, en un contexto en el que ya había bastante presión por acabar
+    sólo faltaba rematar con el video de las narices :D
+- id: 11452
+  author: 'Questa settimana in Grails (2012-48) - luca-canducci.com - Il blog di Luca
+    Canducci: notizie, tips e nuove tecnologie dal mondo dell’IT.'
+  author_email: ''
+  author_url: http://www.luca-canducci.com/2012/12/questa-settimana-in-grails-2012-48/
+  date: '2012-12-05 01:40:13 +0100'
+  date_gmt: '2012-12-04 23:40:13 +0100'
+  content: "[...] SpotyWhere, nuestro proyecto en el Grails48 [...]"
+- id: 11453
+  author: An Army of Solipsists &raquo; Blog Archive &raquo; This Week in Grails (2012-48)
+  author_email: ''
+  author_url: https://burtbeckwith.com/blog/?p=1712
+  date: '2012-12-05 01:56:09 +0100'
+  date_gmt: '2012-12-04 23:56:09 +0100'
+  content: "[...] SpotyWhere, nuestro proyecto en el Grails48 [...]"
+---
+<p>El segundo fin de semana de Noviembre, se celebró el primer <a href="http://www.grails48.com/">Grails48</a>, un <a href="http://en.wikipedia.org/wiki/Hackathon">hackathon</a> a nivel mundial en el que se debía desarrollar una aplicación web hecha con <strong>Grails</strong> en el transcurso de un fin de semana.</p>
+<p>Pues bien, yo participé en un equipo junto a <a href="https://twitter.com/maliciousmind">Raúl Gracia</a> (desde Londres), <a href="https://twitter.com/aaromnido">Fernando Val</a> (desde Dublín), <a href="https://twitter.com/rrasmo">Rafael Ramos</a> (desde Zaragoza) y <a href="https://twitter.com/albertovilches">Alberto Vilches</a> (desde Madrid); lo que viene siendo un <strong>equipazo</strong>, que además del evidente handicap de que supone la deslocalización tenía alguno más. Salvo Raúl y yo, el resto no habíamos trabajado nunca juntos (o no más que en proyectos pequeños por amor al arte). También sabíamos que no íbamos a pegarnos todo el fin de semana programando (por ejemplo, yo mismo me fui con Rafa de <a href="https://www.youtube.com/watch?v=62jbtfs5YRk">concierto el sábado</a>, con su posterior resaca :P) y que la dedicación de algunos iba a ser bastante limitada por tener otro tipo de obligaciones. Pero, con el equipo que montamos, tenía claro que del fin de semana saldría un resultado interesante de todas formas.</p>
+<p>La idea a desarrollar era de Raúl, una aplicación web donde localizar canciones en un mapa, que era la idea que más nos convenció de las que barajamos. Terminamos decidiendo centrarnos únicamente en <a href="https://developer.spotify.com/">Spotify y su API</a>, y a partir de ahí empezó la gestación de <strong><a href="http://www.spotywhere.com/">SpotyWhere</a></strong>.</p>
+<div style="text-align:center"><a href="http://www.spotywhere.com/" title="Spotywhere"><img src="http://farm9.staticflickr.com/8210/8232984256_9293865fae.jpg" width="340" height="103" alt="Spotywhere"></a></div>
+<p>El día antes hicimos algunos bocetos y wireframes, para intentar tener todos una idea lo más común posible de lo que iba a ser lo que íbamos a hacer y ponernos más o menos de acuerdo. Aunque al final las decisiones de la interfaz eran principalmente criterio de Fernando. </p>
+<p>Para organizarnos y comunicarnos usamos varias herramientas: en una sala de <a href="https://www.hipchat.com/">HipChat</a> procurábamos llevar el grueso de la comunicación, un poco de Skype para aclarar algunos puntos, <a href="https://trello.com/">Trello</a> para gestionar nuestras historias de usuario y tareas, y un repositorio git privado en <a href="https://github.com/">GitHub</a> que ponía la organización.</p>
+<p>La aplicación está desplegada en <a href="http://www.appfog.com/">AppFog</a>, que proponía de nuevo la organización, y decidimos utilizar <a href="http://www.mongodb.org/">MongoDB</a> (en <a href="https://www.mongohq.com/home">MongoHQ</a>) como base de datos. Una base de datos documental encajaba bien con nuestras necesidades, además de permitir hacer <a href="http://www.mongodb.org/display/DOCS/Geospatial+Indexing">búsquedas geo-espaciales</a> (aunque ahora no las usamos) y el plugin de <a href="http://grails.org/plugin/mongodb">MongoDB GORM</a> que lo deja muy facilón.</p>
+<p>Decidimos habilitar el login/registro de usuarios con Facebook y Twitter, así dejábamos el registro más fácil a los usuarios y no teníamos que preocuparnos de montar todo el sistema de gestión de usuarios. Para esto y para la integración con la búsqueda de canciones de Spotify tiramos del <a href="http://grails.org/plugin/rest">plugin REST client facilities</a> y <a href="http://groovy.codehaus.org/HTTP+Builder">HTTPBuilder</a>.</p>
+<p>Mientras que para la parte de front se usa <a href="http://foundation.zurb.com/">Foundation</a>, Google Maps junto a <a href="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/docs/examples.html">MarkerClusterer</a> en los mapas y jQuery para algunos detalles de interacción.</p>
+<p>Yo creo que nos quedó un resultado más que presentable, pero algunas mejoras y funcionalidades se tuvieron que quedar fuera. Cosas como un mapa en los perfiles de usuario o que pueda funcionar bien en terminales móviles son cosas bastante evidentes. También a nivel de código hay <em>parches</em> nada elegantes, como controladores con más código de la cuenta, no hay un miserable test, bastante javascript guarro y mezclado con el html... Lo típico en un hackathon de estas características, vamos :D.</p>
+<p>En fin, el tema es que el domingo conseguimos terminar (no sin nervios en las últimas horas) y hicimos el despliegue, otro <em>entregable</em> era un video donde se explicara el proyecto. No había un tipo de video establecido, y el marrón recayó en Raúl, os lo dejo aquí :P.</p>
+<p><iframe width="560" height="315" src="http://www.youtube.com/embed/zXBJGWK3tJs" frameborder="0" allowfullscreen></iframe></p>
+<p>Al final resultó que en el <em>podio</em> terminaron <a href="http://www.javahispano.org/portada/2012/11/22/tres-equipos-hispanos-en-los-3-primeros-lugares-del-grails48.html">3 equipos hispanos</a> (2 españoles y 1 mexicano). Mientras que nosotros nos llevamos una de las 3 <strong>menciones especiales</strong>, cosa que no ha estado nada mal :).</p>
+<p>Una cosa que también me llamó la atención es que, al parecer, la organización contaba (¿cuenta?) con mentores y partners que en su momento podrían ayudar de algún modo a evolucionar a algo más <em>serio</em> a los proyectos participantes.<br />
+Veremos si alguno de los proyectos lo hace, en nuestro caso no creo que tuviera sentido. No deja de ser un proyecto bonito y que puede ir creciendo, pero muy complicado de hacer algo <em>monetizable</em> alrededor,  o ganar dinero con él, que decimos los de pueblo. </p>
+<p>Bueno... siempre nos podría comprar spotify XD.</p>

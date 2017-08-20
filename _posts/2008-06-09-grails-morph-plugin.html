@@ -1,0 +1,60 @@
+---
+layout: post
+status: publish
+published: true
+title: Grails Morph Plugin
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 165
+wordpress_url: http://www.danilat.com/weblog/2008/06/09/grails-morph-plugin/
+date: '2008-06-09 17:25:42 +0200'
+date_gmt: '2008-06-09 15:25:42 +0200'
+categories:
+- Grails
+tags: []
+comments:
+- id: 4202
+  author: dahernan
+  author_email: dahernan@gmail.com
+  author_url: http://dahernan.net/
+  date: '2008-06-09 22:40:25 +0200'
+  date_gmt: '2008-06-09 20:40:25 +0200'
+  content: "Sencillisimo!!!\r\n\r\nPara Java EE 7 quiza se pueda hacer algo parecido
+    :D"
+- id: 4204
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-06-10 00:03:37 +0200'
+  date_gmt: '2008-06-09 22:03:37 +0200'
+  content: "La verdad que sí, muy fácil :)\r\n\r\nNo tengo claro(por lo que yo sé)
+    que por sí sólo se pueda hacer, quizás combinándolo con alguna herramienta que
+    elija qué fragmentos web tiene que cargar dependiendo del entorno."
+---
+<p>Ayer hablaba de los pasos para <a href="http://www.danilat.com/weblog/2008/06/08/desplegando-una-aplicacion-grails-en-morph/">desarrollar una micro-aplicación con Grails y cómo desplegarla en Morph</a>, había un paso molesto teniendo que generar y modificar el web.xml para añadir un recurso, que había que quitar para ejecutar la aplicación en entornos diferentes al de producción en Morph.</p>
+<p>Ya pensaba en un plugin para esto mientras escribía el post anterior, pero por <a href="http://www.danilat.com/weblog/2008/06/08/desplegando-una-aplicacion-grails-en-morph/#comment-4180">el comentario</a> de <a href="http://dahernan.net/">dahernan</a> me lancé a crearlo, lo que sólo me llevó unos minutos. Es un pequeño plugin que modifica el web.xml dinámicamente, o mejor dicho, que participa en su generación.</p>
+<p>El plugin se llama <a href="http://code.google.com/p/morphplugin/">Morph Plugin</a>, está disponible el <a href="http://code.google.com/p/morphplugin/downloads/list">para descargarlo</a> y en el <a href="http://morphplugin.googlecode.com/svn/trunk/">SVN</a> está disponible el código. Aunque se vean muchos archivos, la <em>chicha</em> está en <a href="http://morphplugin.googlecode.com/svn/trunk/MorphGrailsPlugin.groovy">MorphGrailsPlugin.groovy</a>:</p>
+<p><code><br />
+def doWithWebDescriptor = { xml -><br />
+  def env = System.getProperty("grails.env")<br />
+  if(env=="production"){<br />
+    def resourceRef = xml.'resource-ref'<br />
+    resourceRef+{<br />
+      'description'("Morphlabs Datasource")<br />
+      'res-ref-name'("jdbc/morph-ds")<br />
+      'res-type'("javax.sql.DataSource")<br />
+      'res-auth'("Container")<br />
+    }<br />
+  }<br />
+}<br />
+</code></p>
+<p>Para instalarlo sólo hay que descargarlo y ejecutar dentro del directorio de la aplicación este comando:<br />
+<code>grails install-plugin elpathquesea/grails-morph-0.1.zip</code></p>
+<p>El ejemplo de la <a href="http://danilat.morphexchange.com/task/list">TODO list</a> ya está desplegado de esta manera, y ya no es necesario ejecutar el comando <code>grails install-templates</code> para modifcar el web.xml ni tenemos ningún problema para seguir trabajando en local.</p>
+<p>Si alguien está interesado en la creación de plugins para Grails, existe una <a href="http://www.grails.org/The+Plug-in+Developers+Guide">guía para desarrolladores</a>.</p>

@@ -1,0 +1,75 @@
+---
+layout: post
+status: publish
+published: true
+title: Las entrañas de DNDzgz
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 779
+wordpress_url: http://www.danilat.com/weblog/?p=779
+date: '2010-04-29 10:20:26 +0200'
+date_gmt: '2010-04-29 08:20:26 +0200'
+categories:
+- Programación
+- Proyectos
+- Javascript
+- Aplicaciones Web
+tags: []
+comments:
+- id: 9921
+  author: Raúl Expósito
+  author_email: raul@raulexposito.com
+  author_url: http://raulexposito.com
+  date: '2010-05-01 00:11:56 +0200'
+  date_gmt: '2010-04-30 22:11:56 +0200'
+  content: "Madre mía, vaya entrada de palabros!!!! :-D\r\n\r\nMola ver junta tanta
+    locura, espero que al jurado le mole también :-)\r\n\r\nSaludos"
+- id: 9922
+  author: de la red &ndash; 30/04/2010 &laquo; Tecnologías y su contexto
+  author_email: ''
+  author_url: http://tecpol.wordpress.com/2010/05/01/de-la-red-30042010/
+  date: '2010-05-01 03:43:06 +0200'
+  date_gmt: '2010-05-01 01:43:06 +0200'
+  content: "[...] Las entrañas de DNDzgz Lo prometido es deuda, tenía pendiente escribir
+    un poco acerca de la parte técnica del fin de semana del desafío AbreDatos y de
+    DNDzgz. [...]"
+- id: 9924
+  author: Patricia
+  author_email: patricia.sevilla@gmail.com
+  author_url: ''
+  date: '2010-05-05 13:34:16 +0200'
+  date_gmt: '2010-05-05 11:34:16 +0200'
+  content: Molais mucho.
+- id: 9925
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2010-05-06 10:09:05 +0200'
+  date_gmt: '2010-05-06 08:09:05 +0200'
+  content: ":P"
+- id: 11511
+  author: 'DNDzgz: 4 semanas después - Calvo Con Barba'
+  author_email: ''
+  author_url: http://calvoconbarba.com/2010/05/16/dndzgz-4-semanas-despues/
+  date: '2013-01-02 14:23:31 +0100'
+  date_gmt: '2013-01-02 12:23:31 +0100'
+  content: "[...] Días Aragón (AragónTV). Publican entrevista en El Periódico de Aragón.
+    Dani lanza un segundo post con detalles técnicos de la [...]"
+---
+<p>Lo <a href="http://www.danilat.com/weblog/2010/04/20/nuestra-aportacion-en-el-desafio-abredatos-2010-dndzgz-com/">prometido es deuda</a>, tenía pendiente escribir un poco acerca de la parte técnica del fin de semana del <a href="http://www.abredatos.es/">desafío AbreDatos</a> y de <a href="http://www.dndzgz.com/">DNDzgz</a>. A <em>grosso modo</em> las tecnologías utilizadas fueron <a href="http://code.google.com/intl/es-ES/appengine/">Google App Engine</a>(GAE) y <a href="http://www.python.org/">Python</a> del lado servidor; del lado cliente fueron Javascript con <a href="http://jquery.com/">jQuery</a>, la versión <a href="http://code.google.com/intl/es-ES/apis/maps/documentation/v3/">3 del API de Google Maps</a>, algunas de las novedades de <a href="http://dev.w3.org/html5/spec/Overview.html">HTML5</a>, unas gotas de <a href="http://www.w3.org/TR/css3-roadmap/">CSS3</a> y <a href="http://jqtouch.com/">jQTouch</a> para ayudarnos para que tuviera pinta de aplicación nativa iPhone. Usamos <a href="http://git-scm.com/">Git</a> como repositorio de código, el repositorio está concretamente <a href="http://github.com/danilat/closin">en github</a>; para los documentos, diseños, fotos, etc. utilizamos <a href="https://www.dropbox.com/">dropbox</a>(antes del fin de semana yo no tenía ni cuenta :P).</p>
+<div align="center"><a href="http://www.dndzgz.com/" title="Logo DNDzgz"><img src="http://farm4.static.flickr.com/3120/4561892814_761c6fd258_o.jpg" width="292" height="113" alt="Logo DNDzgz" /></a></div>
+<p>La elección de GAE fue casi instantánea cuando empezamos a hablar con <a href="http://gimenete.wordpress.com/"><strong>gimenete</strong></a> acerca de presentarnos al AbreDatos, las razones: hosting gratis y capacidad de escalar mucho sin tener que gastarnos ni un euro, despreocuparnos de la parte de sistemas, ningún problema con las limitaciones por correr sobre la plataforma de Google. </p>
+<p>Que usáramos Python, aún siendo más <em>javeros</em> que otra cosa, fue por que ninguno de los 2 teníamos experiencia con GAE en Java(okok, yo había hecho <a href="http://www.danilat.com/weblog/2010/03/02/el-zaragoza-twitter-y-gaelykgroovy-appengine/">un pequeño experimento</a>, pero muy poca cosa para llegar a ninguna conclusión). Por eso preferimos aprovechar su experiencia desarrollando la primera versión de <a href="http://es.debugmodeon.com/">debug_mode=ON</a> con Python+GAE; mientras que varias semanas antes yo me ojeé un par de manuales de inicio rápido, retomé el ebook <a href="http://mundogeek.net/tutorial-python/">Python para todos</a> que tenía a medio leer(hace muuuucho :P) y un par de días antes, me hice en poco rato <a href="http://code.google.com/intl/es-ES/appengine/docs/python/gettingstarted/">el proyecto de ejemplo de GAE</a>. Para extraer los datos utilizamos tanto <a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> como expresiones regulares para hacer scraping de HTML o Javascript de <a href="http://www.tuzsa.es/">Tuzsa</a> y <a href="http://www.bizizaragoza.com/">Bizi</a>, y simplejson para cargar los datos JSON de <a href="http://datos.zaragoza.es/">datos.zaragoza.es</a>.</p>
+<p>Que utilizáramos jQuery como framework Javascript, fue una elección posterior a jQTouch(que está basado en jQuery) pero de todas formas, seguramente lo hubiéramos elegido. Google Maps es la elección "por defecto" para todo el que quiere hacer algo con mapas :P. Gimenete es quien estuvo peleando con esto, teníamos problemas con la fluidez en la navegación de los mapas, que al final consiguió mejorar... Eso sí, fuera del navegador Safari del iPhone no conseguimos que los mapas funcionaran correctamente, ni en terminales con distintas versiones de Android y ni si quiera en el Safari de Mac(tenemos que ver que pasa exactamente, tras algunas pruebas, el sospechoso principal es jQTouch).</p>
+<p>Gracias a que iPhone(y las últimas versiones de Android) soportan parte de HTML5, se ponían a nuestra disposición algunas de esas novedades que molan tanto (Flash, tiemblaaa!! ;)): </p>
+<ul>
+<li>La posibilidad de geolocalizar al usuario por medio del GPS del terminal (<a href="http://diveintohtml5.org/detect.html#live-geolocation">no es exactamente HTML5</a>, pero parece que la mayoría lo ponemos en el mismo saco) muy fácilmente utilizando <strong>navigator.geolocation</strong>. </li>
+<li>Para implementar los favoritos/acceso rápido estuvimos usando <a href="http://dev.w3.org/html5/webdatabase/">Web SQL Database</a>, lo que supone guardar los datos en una base de datos embebida al navegador web(actualmente parece que en todos es SQLite, o al menos parece ser la <em><a href="http://dev.w3.org/html5/webdatabase/#web-sql">implementación de referencia</a></em>), que finalmente se quedó fuera por falta de 3/4 horas :S.</li>
+</ul>
+<p>En fin, que debemos molar, porque nuestro proyecto es una pequeña colección de buzzwords: Cloud Computing vía Google App Engine, HTML5, iPhone... XD</p>

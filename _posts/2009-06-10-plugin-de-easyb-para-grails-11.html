@@ -1,0 +1,55 @@
+---
+layout: post
+status: publish
+published: true
+title: Plugin de easyb para Grails 1.1
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 373
+wordpress_url: http://www.danilat.com/weblog/?p=373
+date: '2009-06-10 02:38:55 +0200'
+date_gmt: '2009-06-10 00:38:55 +0200'
+categories:
+- Groovy
+- Grails
+tags: []
+comments:
+- id: 9826
+  author: Arragonán &raquo; Blog Archive &raquo; Video de BDD con easyb
+  author_email: ''
+  author_url: http://www.danilat.com/weblog/2010/02/05/video-de-bdd-con-easyb/
+  date: '2010-02-05 04:06:40 +0100'
+  date_gmt: '2010-02-05 02:06:40 +0100'
+  content: "[...] ya toqué el tema de esayb junto a grails, eso sí, no he llegado
+    a utilizarlo de [...]"
+---
+<p>Hace unas semanas que me suscribí a la lista de correo de <a href="http://www.easyb.org/">easyb</a>, un framework de testing para la plataforma Java, más exactamente para realizar <a href="http://dannorth.net/introducing-bdd">behavior driven development</a>.</p>
+<p>Pues resulta que hace unos días se anunció un plugin para integrar <a href="http://bitbucket.org/omadruga/grails-easyb/wiki/Home">easyb con Grails 1.1</a>. </p>
+<p>Sólo he hecho alguna pequeña prueba para ir conociendo easyb, pero por lo que he leído en la lista parece que tienen la intención de que un futuro se puedan integrar el plugin de testing por defecto de Grails con easyb.</p>
+<p>Ahora mismo, tras instalar el plugin, puedes crear tus Stories o Specifications con la sintaxis estándar de easyb, tenerlos en el mismo directorio que tus test unitarios o de integración(con el sufijo Story o Specification en vez de Tests) y al ejecutar los tests con el script de easyb se ejecutan los propios de easyb junto al resto de tests "legacy" que tengamos, por lo que nos podríamos ahorrar la <em>traducción</em> de los tests ya escritos. </p>
+<p>La única pega ahora mismo, es que por defecto no es amigable con los sistemas de integración continua, al ejecutar <strong>grails test-app</strong> se da a alegir a ejecutar entre dos scripts, el de por defecto y el del plugin, aunque se puede solucionar simplemente cambiando el de easyb a otro nombre(test-app-all, easyb-test...).</p>
+<p>Y aquí viene un ejemplo chorras de test de integración ;) :</p>
+<p><code>before "initialize", {<br />
+	given "CountryController", {<br />
+		controller = new CountryController()<br />
+	}<br />
+}<br />
+scenario "countries list", {<br />
+	given "a country", {<br />
+		 country = new Country(name:"Spain")<br />
+		 country.save(flush:true)<br />
+	}<br />
+	when "go to index", {<br />
+		countries = controller.index().countries<br />
+	}<br />
+	then "should have one country", {<br />
+		countries.size.shouldEqual 1<br />
+	}<br />
+}</code></p>
+<p>Aunque creo que se entiende mejor el código XD: teniendo un controlador CountryController para todos los escenarios, con un escenario que es un listado de países, que tiene un país y cuando vamos a la acción index, entonces debería haber un país. </p>

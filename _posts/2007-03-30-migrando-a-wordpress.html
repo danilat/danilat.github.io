@@ -1,0 +1,48 @@
+---
+layout: post
+status: publish
+published: true
+title: Migrando a wordpress
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 51
+wordpress_url: http://www.danilat.com/wordpress/?p=51
+date: '2007-03-30 18:26:22 +0200'
+date_gmt: '2007-03-30 16:26:22 +0200'
+categories:
+- General
+- Php
+- Aplicaciones Web
+tags: []
+comments:
+- id: 9516
+  author: Arragonán &raquo; Blog Archive &raquo; Migrado de Wordpress 2.0.11 a 2.7.1
+  author_email: ''
+  author_url: http://www.danilat.com/weblog/2009/03/01/migrado-de-wordpress-2011-a-271/
+  date: '2009-03-01 09:20:11 +0100'
+  date_gmt: '2009-03-01 17:20:11 +0100'
+  content: "[...] tal y como suena&#8230; hace casi dos años que congelé mi instalación
+    de wordpress(lo sé, lo sé&#8230; :P). Hasta que me llegó un email [...]"
+---
+<p>Como podéis comprobar, estoy migrando a wordpress, lo he trasteado alguna vez, y ahora lo voy a adoptar a ver qué tal funciona.</p>
+<p>Ya he migrado casi todas las entradas, pero es posible que me haya dejado alguna al haberlo hecho a mano.</p>
+<p>Por el momento rss.php y atom.php no van a funcionar, en este momento no existen.<br />
+<strong>Pasos de la migración:</strong></p>
+<p>He instalado el wordpress, en dos patadas, en otro directorio del servidor.</p>
+<p>Una vez copiadas las entradas, he hecho una copia del blog anterior (<a href="http://www.simplephpblog.com/">simplephpblog</a> trabaja con ficheros) en mi máquina.</p>
+<p>Borro el directorio viejo, y renombro el anterior de "wordpress" a "weblog", primer susto, la maquetación no se ve correctamente, no encontraba el css, y los enlaces van hacia "wordpress/blabla.php".</p>
+<p>Como en wp-config no hay configuraciones de los directorios, miro en la base de datos, en la tabla <strong><span class="syntax"><span class="syntax_quote syntax_quote_backtick">wp_options</span></span></strong><span class="syntax"><span class="syntax_quote syntax_quote_backtick"> cambiamos el option_name <strong>siteurl</strong> </span></span>de      http://www.danilat.com/wordpress a      http://www.danilat.com/weblog y por ahora todo correcto.</p>
+<p><strong>Actualización 1:</strong> Al ir al link "ver sitio", vuelve a ir al directorio "wordpress", para mandarlo al directorio actual, modifico también en el registro de la tabla <strong><span class="syntax"><span class="syntax_quote syntax_quote_backtick">wp_options</span></span></strong> el registro con option_name home a http://www.danilat.com/weblog y solucionado.</p>
+<p><strong>Actualización 2:</strong>  Cambiada la configuración de permalinks, y cambiado el fichero .htaccess, ya que la mayoría de visitas de este blog vienen de buscadores, a ver si consigo hacer el blog más visible, ahora a esperar a Mr <a href="http://www.google.es">google</a></p>
+<p><strong>Actualización 3:</strong> Subidos los ficheros rss.php y atom.php, estos dos cargan el contenido del feed rss de wordpress, ya que atom no lo soporta, supongo que con algún plugin...</p>
+<p>Este es el cutre código de los ficheros Php:<br />
+<em> $str=file_get_contents ("http://www.danilat.com/weblog/feed");<br />
+echo $str;</em></p>
+<p><strong>Actualización 4:</strong> Problemas con los posts con ejemplos de xml o html con los símbolos < y >, lo ha desecho (ni si quiera los ha escapado todos), tendré que intentar arreglar esos posts.</p>
+<p>Por hoy lo dejo que es viernes y hay que recuperarse para la semana de tres días que viene.</p>

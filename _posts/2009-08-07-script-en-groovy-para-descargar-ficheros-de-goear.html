@@ -1,0 +1,38 @@
+---
+layout: post
+status: publish
+published: true
+title: Script en groovy para descargar ficheros de GoEar
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 501
+wordpress_url: http://www.danilat.com/weblog/?p=501
+date: '2009-08-07 03:57:40 +0200'
+date_gmt: '2009-08-07 01:57:40 +0200'
+categories:
+- Groovy
+tags: []
+comments: []
+---
+<p>Una de las cosas de Groovy que pueden resultarnos útiles en algunos momentos, es la posibilidad de escribir pequeños scripts para automatizar alguna tarea o para escribir pequeñas utilidades. Es algo muy habitual para lenguajes como Perl o Ruby, y que tienen la ventaja de que comienza antes su ejecución por no tener que arrancar la JVM, cosa que sí necesita Groovy(que esto sea más o menos crítico, que lo decida cada uno :P).</p>
+<p>A modo de ejemplo, y basándome en el post <a href="http://es.debugmodeon.com/articulo/descargando-la-musica-de-goear-com">Descargando la música de GoEar.com en debugmodeon</a>, se me ocurrió escribir un pequeño script que hiciera prácticamente lo mismo(<strong>Extractor.groovy</strong>):</p>
+<p><strong>Update</strong>: Parece que el código se verá mejor <a href="http://gist.github.com/163668">en gist</a></p>
+<p><code>import groovy.util.XmlParser<br />
+args.each{ id -><br />
+	def songs = new XmlParser().parse("http://www.goear.com/files/xmlfiles/${id[0]}/secm${id}.xml")<br />
+	def song = songs.song[0]<br />
+	def mp3 = song.'@path'<br />
+	def name = (song.'@artist'+"_"+song.'@title').replaceAll(" ","_")<br />
+	def file = new File("/path-a-un-directorio/${id}-${name}.mp3").newOutputStream()<br />
+	file << new URL(mp3).openStream()<br />
+	file.close()<br />
+	println "${name} has been downloaded"<br />
+}</code> </p>
+<p>Para utilizarlo, simplemente le pasamos los identificadores de las canciones que queramos descargar, por ejemplo: </p>
+<p><code>groovy Extractor.groovy cd332f6 e96ff20 acee672</code></p>

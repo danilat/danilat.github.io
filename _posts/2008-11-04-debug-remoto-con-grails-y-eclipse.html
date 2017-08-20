@@ -1,0 +1,32 @@
+---
+layout: post
+status: publish
+published: true
+title: Debug remoto con Grails y Eclipse
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 196
+wordpress_url: http://www.danilat.com/weblog/2008/11/04/debug-remoto-con-grails-y-eclipse/
+date: '2008-11-04 04:34:03 +0100'
+date_gmt: '2008-11-04 02:34:03 +0100'
+categories:
+- Java
+- Grails
+tags: []
+comments: []
+---
+<p>Después de bastante tiempo programando en Java, uno está acostumbrado a de vez en cuando hacer utilizar el debug de su IDE(en mi caso Eclipse) para comprobar algún comportamiento extraño, en el caso de Grails se apoya en el debugging remoto que nos trae la JVM(veáse el bash o .bat en GRAILS_HOME/bin/grails-debug).</p>
+<p>Para empezar, deberemos ejecutar nuestra aplicación Grails con:</p>
+<p><code>grails-debug run-app</code></p>
+<p>De esta manera, tendremos debug remoto en el puerto 5005(por defecto)</p>
+<p>Luego nos vamos a nuestro Eclipse, sobre nuestro proyecto seleccionamos <em>Debug As</em> y <em>Debug Configurations...</em>, tras esto tendremos que crear una nueva <em>Remote Java Application</em> con tipo de conexión <em>Socket Attach</em> en nuestro host, pero deberemos modificar el puerto de conexión por defecto que usa Eclipse(8000) al 5005, darle a debug y listo.</p>
+<p>Ahí va una imagen(con un poco de <a href="http://www.jobsket.com/">publicidad</a> subliminal ;))</p>
+<div align="center"><a href="http://farm4.static.flickr.com/3177/3000732657_4e420504b7_o.png"><img src="http://farm4.static.flickr.com/3177/3000732657_9d63b1dfd1_m_d.jpg" alt="debug con grails y eclipse" /></a></div>
+<p>A partir de aquí ya podemos poner puntos de ruptura y trabajar con la perspectiva Debug de Eclipse normalmente.</p>
+<p>Y por si quedan dudas, como su nombre indica :P, es posible hacer debug en remoto y no es algo exclusivo ni de Grails ni de Eclipse :).</p>

@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Apunte: Recuperar el directorio raíz del servidor en un Servlet y/o en un
+  Action de Struts '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 45
+wordpress_url: http://www.danilat.com/wordpress/?p=45
+date: '2007-03-13 17:43:54 +0100'
+date_gmt: '2007-03-13 15:43:54 +0100'
+categories:
+- Programación
+- Java
+- Struts
+tags: []
+comments: []
+---
+<p>Código para recuperar el directorio raíz de un servidor, en el contexto del Servlet:</p>
+<p><code>this.getServletContext().getRealPath("/")</code></p>
+<p>En un Action de Struts, simplemente debemos recuperar el servlet que se ejecuta:</p>
+<p><code>this.getServlet().getServletContext().getRealPath("/");</code></p>

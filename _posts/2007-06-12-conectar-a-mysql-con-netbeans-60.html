@@ -1,0 +1,308 @@
+---
+layout: post
+status: publish
+published: true
+title: Conectar a mysql con NetBeans 6.0
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 83
+wordpress_url: http://www.danilat.com/weblog/2007/06/12/conectar-a-mysql-con-netbeans-60/
+date: '2007-06-12 21:34:22 +0200'
+date_gmt: '2007-06-12 19:34:22 +0200'
+categories:
+- Programación
+- Java
+tags: []
+comments:
+- id: 24
+  author: kenny
+  author_email: kenny51740@yahoo.es
+  author_url: ''
+  date: '2007-07-08 22:49:36 +0200'
+  date_gmt: '2007-07-08 20:49:36 +0200'
+  content: todo perfecto
+- id: 90
+  author: arturo
+  author_email: avillarino@gmail.com
+  author_url: ''
+  date: '2007-07-27 19:30:26 +0200'
+  date_gmt: '2007-07-27 17:30:26 +0200'
+  content: "Hola. espero que me puedan ayudar. tengo el siguiente problema:\r\n\r\ntengo
+    una maquina con red hat 7.3 y ahi esta instalado el xampp.\r\na traves de una
+    maquina windows que tiene el netbeans con ide 5.5.1 quiero conectarme a la base
+    de datos con nombre \"XXX\" y no puedo.\r\n\r\nme sale el error que no puedo conectarme
+    al :  jdbc:mysql://172.16.76.48:3306/xxx y que el ip 172.16.76.53( es el ip que
+    tiene la maquina windows xp  con el netbeans) no esta  permitido para conectarse
+    al mysql.\r\n\r\nmy usuario y contraseña son:\r\nuser: ***\r\npassword:***\r\n\r\ny
+    este usuario tiene todos los permisos para manipular la base XXX.\r\n\r\nagradecere
+    tu ayuda.\r\n\r\nsaludos desde peru."
+- id: 99
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-07-30 01:04:21 +0200'
+  date_gmt: '2007-07-29 23:04:21 +0200'
+  content: "Hola arturo,\r\n\r\nSólo se me ocurre que pueda ser algún problema por
+    la configuración de los permisos en red hat, con el puerto o con mysql.\r\n\r\nPor
+    cierto, he editado tu comentario para no mostrar el usuario/password.\r\n\r\nSaludos."
+- id: 3174
+  author: Alex
+  author_email: 1alexcuenca@gmail.com
+  author_url: ''
+  date: '2008-04-14 17:46:30 +0200'
+  date_gmt: '2008-04-14 15:46:30 +0200'
+  content: "Solo una pregunta... que base de datos es la más adecuada para utilizar
+    en NET Beans?\r\n\r\nHe utilizado mySQL con php... pero no estoy al 100% seguro
+    de si deberia utilizar MySQL con NET beans o mejor DERBY.\r\n\r\nGracias"
+- id: 3234
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-04-17 12:11:28 +0200'
+  date_gmt: '2008-04-17 10:11:28 +0200'
+  content: "Alex, NetBeans sólo es un IDE. \r\n\r\nElegir un gestor de bases de datos
+    u otro dependerá de tus necesidades, si quieres desarrollar una aplicación web
+    es bastante probable que con cualquiera de los dos tengas suficiente, pero si
+    ya conoces MySQL yo utilizaría ese gestor."
+- id: 4262
+  author: alfonso
+  author_email: eduin636@gmail.com
+  author_url: http://www.danilat.com/weblog/2007/06/12/conectar-a-mysql-con-netbeans-60/
+  date: '2008-06-15 23:45:17 +0200'
+  date_gmt: '2008-06-15 21:45:17 +0200'
+  content: "ya realize los pasos q explica, me aparece el siguiente mensaje incapaz
+    para agregar la conexión. no puede establecer una conexión al \r\njdbc: mysql:/
+    / :/ usando el com.mysql. jdbc.driver \r\n(el valor de puerto de conexión ilegal).
+    q debo hacer para q no salga este error."
+- id: 4271
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-06-16 12:54:28 +0200'
+  date_gmt: '2008-06-16 10:54:28 +0200'
+  content: "Hola alfonso,\r\n\r\nPues eso será el puerto para conectar a MySQL no
+    será el 3306(normalmente es este por defecto), deberás poner el que hayas configurado
+    en tu instalación de MySQL."
+- id: 6812
+  author: walter
+  author_email: pxcaster_2102@hotmail.com
+  author_url: ''
+  date: '2008-10-17 22:14:26 +0200'
+  date_gmt: '2008-10-17 20:14:26 +0200'
+  content: "hola\r\nsoy nuevo en estom he logrado hacer todo lo tu dices y esta muy
+    bien, pero aora quisiera desarrola una aplicacion, donde desde un menu me muestre
+    una tabla de la base de datos\r\nespero me puedas ayudar \r\nte antemano gracias"
+- id: 8150
+  author: walter
+  author_email: walterred87@gmail.com
+  author_url: ''
+  date: '2008-12-15 02:40:20 +0100'
+  date_gmt: '2008-12-15 00:40:20 +0100'
+  content: "hola, hice todo lo me posteaste muy bien eh,,\r\nlo que quisiera es poder
+    respaldar y restaurar mi base de datos, desde una aplicacion\r\nsi sabes como
+    te lo agradeceria mucho"
+- id: 9230
+  author: alberto
+  author_email: alberto_120894@hotmail.com
+  author_url: ''
+  date: '2009-02-11 17:07:28 +0100'
+  date_gmt: '2009-02-11 15:07:28 +0100'
+  content: "hola!! necesito hacer una conexion remota a una base de datos desde netbeans,
+    me puedes explicar komo hacerlo???\r\ngracias!!"
+- id: 9318
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2009-02-16 07:08:10 +0100'
+  date_gmt: '2009-02-16 05:08:10 +0100'
+  content: "@alberto, pues simplemente cambia localhost por la ip del servidor remoto."
+- id: 9555
+  author: Jose
+  author_email: ventura.jos3@gmail.com
+  author_url: ''
+  date: '2009-06-04 23:02:53 +0200'
+  date_gmt: '2009-06-04 21:02:53 +0200'
+  content: "Hola, \r\nEn esta oportunidad estoy teniendo un problema al momento de
+    crear la conexion jdbc:mysql://localhost:3306/test con mi usuario y contraseña
+    . Todo instalado en ubuntu 9.04.\r\nme sale un error: \r\nUnable to add connection.Cannot
+    establish a connection to jdbc:mysql://localhost:3306/test using com.mysql.jdbc.Driver
+    (Access denied for user 'root'@'localhost'(using password:YES)) . \r\n\r\nPudiendo
+    ingresar desde consola con normalidad con mi usuario y contraseña.\r\n$ mysql
+    -hlocalhost -uroot -p\r\nEnter password:\r\nWelcome to the MySQL monitor. Commands
+    end with ; or \\g.\r\nYour MySQL connection id is 46\r\nServer version: 5.0.75-0ubuntu10.2
+    (Ubuntu)\r\nType 'help;' or '\\h' for help. Type '\\c' to clear the buffer.\r\nmysql&gt;\r\n\r\nEsperando
+    alguna Respuesta y agradeciendo anticipadamente me despido."
+- id: 9567
+  author: Jose
+  author_email: ventura.jos3@gmail.com
+  author_url: ''
+  date: '2009-06-18 18:34:38 +0200'
+  date_gmt: '2009-06-18 16:34:38 +0200'
+  content: hola Espero me puedas ayudar con el problema que tengo, aun sigo esperando
+    respuesta
+- id: 9668
+  author: jorge
+  author_email: jmvwts@hotmail.com
+  author_url: ''
+  date: '2009-08-09 06:33:00 +0200'
+  date_gmt: '2009-08-09 04:33:00 +0200'
+  content: "bueno tengo un problema al conectarme fuera de un dominio tengo dos maquinas
+    con win xp conectadas a un switch  y en un workgrup  pero algo sucede desde servricion
+    en netbeans la conexion se estable pero al momendo de aplicarlo en codigo la coneccion
+    marca este error   uso el driver mysql-connecto-java 5.1.8\r\n\r\n\r\nSEVERE:
+    Application class tes1.Tes1App failed to launch\r\nLocal Exception Stack: \r\nException
+    [TOPLINK-4002] (Oracle TopLink Essentials - 2.0.1 (Build b09d-fcs (12/06/2007))):
+    oracle.toplink.essentials.exceptions.DatabaseException\r\nInternal Exception:
+    com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure\r\n\r\nLast
+    packet sent to the server was 0 ms ago.\r\nError Code: 0\r\n        at oracle.toplink.essentials.exceptions.DatabaseException.sqlException(DatabaseException.java:305)\r\n
+    \       at oracle.toplink.essentials.sessions.DefaultConnector.connect(DefaultConnector.java:102)\r\n
+    \       at oracle.toplink.essentials.sessions.DatasourceLogin.connectToDatasource(DatasourceLogin.java:184)\r\n
+    \       at oracle.toplink.essentials.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:582)\r\n
+    \       at oracle.toplink.essentials.ejb.cmp3.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:280)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:229)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.base.EntityManagerFactoryImpl.getServerSession(EntityManagerFactoryImpl.java:93)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.base.EntityManagerFactoryImpl.createEntityManagerImpl(EntityManagerFactoryImpl.java:126)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.base.EntityManagerFactoryImpl.createEntityManagerImpl(EntityManagerFactoryImpl.java:120)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.EntityManagerFactoryImpl.createEntityManager(EntityManagerFactoryImpl.java:91)\r\n
+    \       at tes1.Tes1View.initComponents(Tes1View.java:301)\r\n        at tes1.Tes1View.(Tes1View.java:36)\r\n
+    \       at tes1.Tes1App.startup(Tes1App.java:19)\r\n        at org.jdesktop.application.Application$1.run(Application.java:171)\r\n
+    \       at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:209)\r\n
+    \       at java.awt.EventQueue.dispatchEvent(EventQueue.java:597)\r\n        at
+    java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)\r\n
+    \       at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)\r\n
+    \       at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)\r\n
+    \       at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)\r\n
+    \       at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)\r\n
+    \       at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)\r\nCaused
+    by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link
+    failure\r\n\r\nLast packet sent to the server was 0 ms ago.\r\n        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native
+    Method)\r\n        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)\r\n
+    \       at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)\r\n
+    \       at java.lang.reflect.Constructor.newInstance(Constructor.java:513)\r\n
+    \       at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)\r\n        at
+    com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)\r\n
+    \       at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2103)\r\n
+    \       at com.mysql.jdbc.ConnectionImpl.(ConnectionImpl.java:718)\r\n        at
+    com.mysql.jdbc.JDBC4Connection.(JDBC4Connection.java:46)\r\n        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native
+    Method)\r\n        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)\r\n
+    \       at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)\r\n
+    \       at java.lang.reflect.Constructor.newInstance(Constructor.java:513)\r\n
+    \       at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)\r\n        at
+    com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:302)\r\n        at
+    com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:282)\r\n
+    \       at java.sql.DriverManager.getConnection(DriverManager.java:582)\r\n        at
+    java.sql.DriverManager.getConnection(DriverManager.java:154)\r\n        at oracle.toplink.essentials.sessions.DefaultConnector.connect(DefaultConnector.java:100)\r\n
+    \       ... 20 more\r\nCaused by: java.net.SocketException: SOCKS: Network unreachable\r\n
+    \       at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:532)\r\n        at
+    java.net.Socket.connect(Socket.java:519)\r\n        at java.net.Socket.connect(Socket.java:469)\r\n
+    \       at java.net.Socket.(Socket.java:366)\r\n        at java.net.Socket.(Socket.java:209)\r\n
+    \       at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:253)\r\n
+    \       at com.mysql.jdbc.MysqlIO.(MysqlIO.java:280)\r\n        at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2026)\r\n
+    \       ... 32 more\r\nException in thread \"AWT-EventQueue-0\" java.lang.Error:
+    Application class tes1.Tes1App failed to launch\r\n        at org.jdesktop.application.Application$1.run(Application.java:177)\r\n
+    \       at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:209)\r\n
+    \       at java.awt.EventQueue.dispatchEvent(EventQueue.java:597)\r\n        at
+    java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)\r\n
+    \       at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)\r\n
+    \       at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)\r\n
+    \       at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)\r\n
+    \       at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)\r\n
+    \       at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)\r\nCaused
+    by: Exception [TOPLINK-4002] (Oracle TopLink Essentials - 2.0.1 (Build b09d-fcs
+    (12/06/2007))): oracle.toplink.essentials.exceptions.DatabaseException\r\nInternal
+    Exception: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications
+    link failure\r\n\r\nLast packet sent to the server was 0 ms ago.\r\nError Code:
+    0\r\n        at oracle.toplink.essentials.exceptions.DatabaseException.sqlException(DatabaseException.java:305)\r\n
+    \       at oracle.toplink.essentials.sessions.DefaultConnector.connect(DefaultConnector.java:102)\r\n
+    \       at oracle.toplink.essentials.sessions.DatasourceLogin.connectToDatasource(DatasourceLogin.java:184)\r\n
+    \       at oracle.toplink.essentials.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:582)\r\n
+    \       at oracle.toplink.essentials.ejb.cmp3.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:280)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:229)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.base.EntityManagerFactoryImpl.getServerSession(EntityManagerFactoryImpl.java:93)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.base.EntityManagerFactoryImpl.createEntityManagerImpl(EntityManagerFactoryImpl.java:126)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.base.EntityManagerFactoryImpl.createEntityManagerImpl(EntityManagerFactoryImpl.java:120)\r\n
+    \       at oracle.toplink.essentials.internal.ejb.cmp3.EntityManagerFactoryImpl.createEntityManager(EntityManagerFactoryImpl.java:91)\r\n
+    \       at tes1.Tes1View.initComponents(Tes1View.java:301)\r\n        at tes1.Tes1View.(Tes1View.java:36)\r\n
+    \       at tes1.Tes1App.startup(Tes1App.java:19)\r\n        at org.jdesktop.application.Application$1.run(Application.java:171)\r\n
+    \       ... 8 more\r\nCaused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:
+    Communications link failure\r\n\r\nLast packet sent to the server was 0 ms ago.\r\n
+    \       at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n
+    \       at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)\r\n
+    \       at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)\r\n
+    \       at java.lang.reflect.Constructor.newInstance(Constructor.java:513)\r\n
+    \       at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)\r\n        at
+    com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)\r\n
+    \       at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2103)\r\n
+    \       at com.mysql.jdbc.ConnectionImpl.(ConnectionImpl.java:718)\r\n        at
+    com.mysql.jdbc.JDBC4Connection.(JDBC4Connection.java:46)\r\n        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native
+    Method)\r\n        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)\r\n
+    \       at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)\r\n
+    \       at java.lang.reflect.Constructor.newInstance(Constructor.java:513)\r\n
+    \       at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)\r\n        at
+    com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:302)\r\n        at
+    com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:282)\r\n
+    \       at java.sql.DriverManager.getConnection(DriverManager.java:582)\r\n        at
+    java.sql.DriverManager.getConnection(DriverManager.java:154)\r\n        at oracle.toplink.essentials.sessions.DefaultConnector.connect(DefaultConnector.java:100)\r\n
+    \       ... 20 more\r\nCaused by: java.net.SocketException: SOCKS: Network unreachable\r\n
+    \       at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:532)\r\n        at
+    java.net.Socket.connect(Socket.java:519)\r\n        at java.net.Socket.connect(Socket.java:469)\r\n
+    \       at java.net.Socket.(Socket.java:366)\r\n        at java.net.Socket.(Socket.java:209)\r\n
+    \       at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:253)\r\n
+    \       at com.mysql.jdbc.MysqlIO.(MysqlIO.java:280)\r\n        at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2026)\r\n
+    \       ... 32 more"
+- id: 9670
+  author: jorge
+  author_email: jmvwts@hotmail.com
+  author_url: ''
+  date: '2009-08-16 14:05:29 +0200'
+  date_gmt: '2009-08-16 12:05:29 +0200'
+  content: "Despues de varias pruebas y verificar en otra maquina se pudo corregir
+    el problema\r\n\r\nAl parecer  estubo relacionado a las actualizaciones que tubo
+    mi pc."
+- id: 9674
+  author: nerk
+  author_email: nerk_ivanov@yahoo.com.mx
+  author_url: ''
+  date: '2009-08-22 20:29:11 +0200'
+  date_gmt: '2009-08-22 18:29:11 +0200'
+  content: "Pude solucionar el problema, tengo instalado xampp y netbeans 6.7, para
+    poder conectar mysql en el puerto 3306, debes de cambiar:\r\n\r\n             En
+    windows.- C:Archivos de programas/xampp/etc/my.cnf (archivo de  \r\n                                 configuración
+    de mysql), debes comentar la linea que dice\r\n                                 #skip-networking,
+    así podras acceder vía url.\r\n\r\n             En Ubuntu.- /opt/lampp/lampp/etc/my.cnf
+    igual comenta esa linea (viene \r\n                                 descomentada),
+    por cierto, debes de cambiar antes el \r\n                                 propietario
+    con el comando &gt; chown TUUSUARIO my.cnf \r\n                                 (para
+    poder modificar el archivo)\r\n\r\nY listo, ya desde netbeans puedes acceder desde
+    tus bases de datos a mysql, con tu nombre de usuario, password, en el puerto 3306
+    y con nombre de servidor localhost\r\n\r\n=) saludos!!!"
+- id: 9962
+  author: Agustin Suaña
+  author_email: snitsugas@hotmail.com
+  author_url: ''
+  date: '2010-06-13 19:02:33 +0200'
+  date_gmt: '2010-06-13 17:02:33 +0200'
+  content: Hola, tengo una pregunta, agradeceria si pudieran ayudarme  y si quisiera
+    conectarme a una base de datos mysql que esta alojada en un servidor (000webhost.com)
+    como lo haria?
+- id: 10046
+  author: marco tulio corona
+  author_email: markoazul@gmail.com
+  author_url: http://8bitgeneration.blogspot.com
+  date: '2010-08-05 20:45:35 +0200'
+  date_gmt: '2010-08-05 18:45:35 +0200'
+  content: "1000 gracias, llevaba HORAS navegando por varios sitios y nadie lo explicaba
+    breve y conciso.\r\n\r\nSaludos y gracias"
+---
+<p>Aprovechando que he <a href="http://www.danilat.com/weblog/2007/06/12/instalar-apache-mysql-y-php-en-ubuntu-con-xampp/">instalado el XAMPP</a>, he estado probando la funcionalidad de NetBeans de conectar a bases de datos.</p>
+<p>Para esto nos situamos en la pestaña Runtime de Netbeans, allí nos encontramos los servidores, bases de datos, webservices del proyecto y el catálogo de DTD's y schemas XML.</p>
+<p>Desplegamos <em>Databases</em>Â  y, al menos en mi caso, encontramos dos conexiones a Java DB (<a href="http://db.apache.org/derby/">Derby</a>) que viene embebido y <em>Drivers</em> que es donde debemos añadir el driver de Mysql u otro gestor de base de datos al que quisieramos conectar.</p>
+<p>Pulsamos botón derecho sobre <em>Drivers</em> y <em>New Driver</em>, seguidamente buscamos el jar y lo añadimos, entonces ya nos sale dentro de nuestros <em>Drivers</em>.<br />
+Seleccionamos el driver de Mysql, pulsamos botón derecho y le damos a <em>Connect Using...</em>, ya sólo nos queda poner la típica cadena de la URL de la conexión jdbc, por ejemplo <strong>jdbc:mysql://localhost:3306/test</strong>, para la base de datos test que tengo en local, y el nombre de usuario y password de Mysql.</p>
+<p>Y ya podemos conectar a la base de datos, donde podremos ver tablas, vistas y procedimientos almacenados además de, como no, ejecutar comandos SQL.</p>

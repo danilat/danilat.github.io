@@ -1,0 +1,100 @@
+---
+layout: post
+status: publish
+published: true
+title: 'SQL con Javascript: Web SQL Database'
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 803
+wordpress_url: http://www.danilat.com/weblog/?p=803
+date: '2010-05-18 02:20:56 +0200'
+date_gmt: '2010-05-18 00:20:56 +0200'
+categories:
+- Programación
+- Javascript
+- Aplicaciones Web
+tags: []
+comments:
+- id: 10068
+  author: Joaquin Becerra
+  author_email: joaquin.becerra@gmail.com
+  author_url: http://javascriptsql.sourceforge.net
+  date: '2010-08-19 21:26:32 +0200'
+  date_gmt: '2010-08-19 19:26:32 +0200'
+  content: "Hola, yo estoy desarrollando una libreria que permita tener un motor de
+    bases de de datos en javascript, si te interesa:\r\n\r\njavascriptsql.sourceforge.net\r\n\r\nno
+    dejes de ver la demo!\r\n(http://javascriptsql.sourceforge.net/ARCH/JSBD/demo.html)\r\n\r\nSaludos"
+- id: 10086
+  author: 'HTML 5: un esquema de enlaces'
+  author_email: ''
+  author_url: http://www.programania.net/diseno-web/html-5-un-esquema-de-enlaces/
+  date: '2010-09-16 09:57:29 +0200'
+  date_gmt: '2010-09-16 07:57:29 +0200'
+  content: "[...] Web SQL Database: http://www.danilat.com/weblog/2010/05/18/sql-con-javascript-web-sql-database/
+    [...]"
+---
+<p>Como supongo que muchos ya sabréis, una especificación de HTML5 es <a href="http://dev.w3.org/html5/webdatabase/">Web SQL Database</a> para persirtir datos en una base de datos relacional embebidos en el navegador web(la otra alternativa es <a href="http://dev.w3.org/html5/webstorage/">Web Storage</a>, para persistir datos como clave valor). Esto puede tener muchas aplicaciones, en mi caso lo he utilizado para implementar el sistema de favoritos de <a href="http://www.dndzgz.com/">DNDzgz</a>.</p>
+<p>Cuando pretendamos sacar partido de las nuevas características de HTML5 debemos tener en cuenta que cada navegador puede soportar sólo algunas especificaciones, no es un todo o nada, por lo que lo primero que deberemos hacer es comprobar que soporta la especificación que queremos usar, por ejemplo:</p>
+<p><code> function supports_local_database() {<br />
+  return !!window.openDatabase;<br />
+}</code></p>
+<p>Si existe openDatabase, crearemos la conexión a la base de datos:</p>
+<p><code><br />
+db = openDatabase('dndzgz', '1.0',  'DNDzgz', 65536);</code></p>
+<p>Una vez abierta la conexión, podremos ejecutar cualquier tipo de query SQL(compatible con <a href="http://www.sqlite.org/">SQLite</a>), dentro de una transacción. Por ejemplo crear una tabla:</p>
+<p><code>db.transaction(<br />
+function(transaction) {<br />
+transaction.executeSql(<br />
+'CREATE TABLE IF NOT EXISTS favorites ' +<br />
+' (id INTEGER NOT NULL, ' +<br />
+' service VARCHAR(255) NOT NULL, ' +<br />
+' date DATE NOT NULL,' +<br />
+' name VARCHAR(255) NOT NULL, ' +<br />
+' latitude REAL NOT NULL, ' +<br />
+' longitude REAL NOT NULL, ' +<br />
+' PRIMARY KEY (id,service));'<br />
+);<br />
+}<br />
+);</code></p>
+<p>Insertar datos:</p>
+<p><code>db.transaction(<br />
+function(transaction) {<br />
+transaction.executeSql(<br />
+'INSERT INTO favorites (id, service, date, name, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?);',<br />
+[id, service, new Date(), name, latitude, longitude],<br />
+callBack,<br />
+errorCallBack<br />
+);<br />
+}<br />
+);</code></p>
+<p>Eliminar datos:</p>
+<p><code>db.transaction(<br />
+function(transaction) {<br />
+transaction.executeSql('DELETE FROM favorites WHERE id=? AND service=?;',<br />
+[id,service], null, errorCallBack);<br />
+}<br />
+);</code></p>
+<p>Y por supuesto mostrarlos:</p>
+<p><code>db.readTransaction(<br />
+function(transaction) {<br />
+transaction.executeSql(<br />
+'Select * from favorites;', [],<br />
+function(transaction, result){<br />
+for (var i=0; i < result.rows.length; i++) {<br />
+var row = result.rows.item(i);<br />
+alert(row.name);<br />
+alert(row.service);<br />
+}<br />
+},<br />
+errorCallBack<br />
+);<br />
+}<br />
+);</code></p>
+<p>Como podéis ver, a <strong>executeSql</strong> se le pasa primero la query, seguidamente un array con los valores de los argumentos de la query, y finalmente una función de callback y otra de callback para el caso de que existan errores. Y existen dos tipos de transacciones: <strong>transaction</strong> y <strong>readTransaction</strong>, la primera es de lectura-escritura, mientras que la segunda es de sólo lectura.</p>
+<p>En fin, supongo que a otros también os pasará lo mismo, resulta bastante raro estar tirando queries SQL desde javascript. Pero puede resultar útil para muchos casos, empezando por descargar de responsabilidades y carga al lado servidor.</p>

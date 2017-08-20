@@ -1,0 +1,32 @@
+---
+layout: post
+status: publish
+published: true
+title: Renderiza cualquier tag HTML con htmlTag (JSF)
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 56
+wordpress_url: http://www.danilat.com/weblog/2007/04/11/renderiza-cualquier-tag-html-con-htmltag-jsf/
+date: '2007-04-11 21:24:08 +0200'
+date_gmt: '2007-04-11 19:24:08 +0200'
+categories:
+- Programación
+- Java
+- JavaServer Faces
+tags: []
+comments: []
+---
+<p>Estoy empezando a aprender JavaServer Faces gracias al curso de <a href="http://www.javaconganas.com">javaconganas</a>.<br />
+Como curiosidad, estaba intentando colocar saltos de línea(<em>br</em>) dentro de un <em>h:column</em> entre otros dos componentes, acostumbrado a struts, y me he encontrado con que no se renderizaban.</p>
+<p>Finalmente he encontrado entre los componentes de <a href="http://myfaces.apache.org/tomahawk/">tomahawk</a> el <em>htmlTag.</em></p>
+<p>Su uso es muy simple, tan sólo poniendo:</p>
+<p><strong><em>[ <em>htmlTag value="br"/]</em></em></strong></p>
+<p>O<br />
+<em><strong>[ <em>htmlTag value="div"]</em> </strong><strong>componenteJSF[ <em>/htmlTag]</em></strong></em></p>
+<p>(Sustituir los corchetes por los símbolos mayor y menor)</p>

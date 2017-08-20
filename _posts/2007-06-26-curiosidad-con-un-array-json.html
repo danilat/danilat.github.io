@@ -1,0 +1,69 @@
+---
+layout: post
+status: publish
+published: true
+title: Curiosidad con un array JSON
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 87
+wordpress_url: http://www.danilat.com/weblog/2007/06/26/curiosidad-con-un-array-json/
+date: '2007-06-26 20:29:59 +0200'
+date_gmt: '2007-06-26 18:29:59 +0200'
+categories:
+- Javascript
+tags: []
+comments:
+- id: 6089
+  author: mark
+  author_email: mark@salemterrano.com.ar
+  author_url: http://blog.comunidadpython.com.ar
+  date: '2008-09-16 04:03:01 +0200'
+  date_gmt: '2008-09-16 02:03:01 +0200'
+  content: "Que IE deje de existir seria lo mas corecto.\r\n\r\n=]"
+- id: 8300
+  author: SirChokolate
+  author_email: tsd_mazatlan@hotmail.com
+  author_url: ''
+  date: '2008-12-23 06:31:42 +0100'
+  date_gmt: '2008-12-23 04:31:42 +0100'
+  content: Coincido con mark, eso seria lo mas correcto, acabemos con internet explorer
+- id: 9525
+  author: Ocioso
+  author_email: oskijob@gmail.com
+  author_url: ''
+  date: '2009-03-09 14:30:28 +0100'
+  date_gmt: '2009-03-09 22:30:28 +0100'
+  content: Sin ser defensor de nada de Microsoft, yo a veces flipo con la gente. Sin
+    entrar en si es mejor un navegador u otro, el hecho de que Firefox se trague el
+    error no es nada bueno porque si no empezamos todos a codificar con el nabo y
+    que se encargue el navegador de solucionarlo :)
+- id: 9720
+  author: fraguelo
+  author_email: fraguelo@yahoo.es
+  author_url: ''
+  date: '2009-10-30 03:10:36 +0100'
+  date_gmt: '2009-10-30 01:10:36 +0100'
+  content: de cualquier modo en IE se tiene que cometer unos atropellos contra la
+    programacion web que no tienen nombre, y siempre hay que estar inventando hacks
+    extraños para poder hacer funcionar el codigo correctamente.
+---
+<p>Últimamente estoy empezando a utilizar <a title="JSON en la wikipedia" href="http://es.wikipedia.org/wiki/JSON">JSON</a> en vez de XML para recuperar datos con llamadas al objeto <a href="http://es.wikipedia.org/wiki/XMLHttpRequest">XMLHTTPRequest</a>.<br />
+Trasteando, me he encontrado al devolver un array de objetos , que me daba un error en Iexplorer mientras que en Firefox funcionaba correctamente.</p>
+<p>Esto se debía a un error mío, simplemente, a que me había colado al montar el array en el lado del servidor poniendo una coma ',' al final del último objeto del array y explorer contaba como si tuviera un objeto más, mientras que firefox no.</p>
+<p>Ej:</p>
+<pre><code>{"menuitem": [</code></pre>
+<pre><code><code>{"value": "New", "onclick": "CreateNewDoc()"},</code></code></pre>
+<pre><code>{"value": "New", "onclick": "CreateNewDoc()"},</code></pre>
+<pre><code>]}</code></pre>
+<p>En vez de:</p>
+<pre><code>{"menuitem": [</code><code /></pre>
+<pre><code>{"value": "New", "onclick": "CreateNewDoc()"},</code></pre>
+<pre><code><code>{"value": "New", "onclick": "CreateNewDoc()"}</code></code></pre>
+<pre>]}</pre>
+<p>El error era mío, esto está claro, ¿pero no sería más lógico que los dos navegadores, al hacer el eval(), dieran error de javascript?, ¿o cuál sería el comportamiento más correcto?</p>

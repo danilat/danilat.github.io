@@ -1,0 +1,44 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Contextos en tomcat '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 43
+wordpress_url: http://www.danilat.com/wordpress/?p=43
+date: '2007-03-29 17:42:14 +0200'
+date_gmt: '2007-03-29 15:42:14 +0200'
+categories:
+- Programación
+- Java
+tags: []
+comments: []
+---
+<p>Para decirle al <a target="_blank" href="http://tomcat.apache.org/">tomcat</a> un path diferente al de webapps, debemos utilizar la etiqueta context dentro del fichero server.xml.</p>
+<p>El fichero server.xml está en el directorio pathdetomcat/conf</p>
+<p>Busca la etiqueta Host y dentro de ésta, introduce el contexto de la aplicación.</p>
+<p>Y si lo necesitas, dentro del context, se puede definir Resource con un Datasource, en este caso para <a target="_blank" href="http://www.mysql.org/">MySql</a><br />
+<code /></p>
+<p>Context<br />
+docBase="pathdelproyecto/directorioweb"<br />
+path="/contexto1"<br />
+privileged="true"<br />
+reloadable="true"</p>
+<p>Resource<br />
+name="jdbc/prueba"<br />
+type="javax.sql.DataSource"<br />
+password=""<br />
+driverClassName="com.mysql.jdbc.Driver"<br />
+maxIdle="2"<br />
+maxWait="5000"<br />
+username="root"<br />
+url="jdbc:mysql://127.0.0.1/prueba"<br />
+maxActive="10"<br />
+Personalmente lo utilizo, para cuando estando en desarrollo, no tener que generar el war o copiar el proyeto entero cada vez que realizo cambios, también podría automatizarlo con <a target="_blank" href="http://ant.apache.org/">Ant</a>, pero me resulta más cómodo así.</p>

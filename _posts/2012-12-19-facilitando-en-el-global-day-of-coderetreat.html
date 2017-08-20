@@ -1,0 +1,58 @@
+---
+layout: post
+status: publish
+published: true
+title: Facilitando en el Global Day of Coderetreat
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2349
+wordpress_url: http://www.danilat.com/weblog/?p=2349
+date: '2012-12-19 06:33:56 +0100'
+date_gmt: '2012-12-19 04:33:56 +0100'
+categories:
+- Programación
+tags: []
+comments:
+- id: 11489
+  author: JF
+  author_email: javierferraz@gmail.com
+  author_url: http://www.javierferraz.com
+  date: '2012-12-25 12:34:55 +0100'
+  date_gmt: '2012-12-25 10:34:55 +0100'
+  content: Sois l
+- id: 11490
+  author: JF
+  author_email: javierferraz@gmail.com
+  author_url: http://www.javierferraz.com
+  date: '2012-12-25 12:35:11 +0100'
+  date_gmt: '2012-12-25 10:35:11 +0100'
+  content: Sois los hechiceros del siglo XXI.. ;)
+---
+<p>El 8 de diciembre se celebraba el <strong><a href="http://globalday.coderetreat.org/">Global Day of Coderetreat</a></strong>, un evento a nivel mundial en el que en cada ciudad que se une se organiza un <a href="http://coderetreat.org/about">coderetreat</a>. En Zaragoza se organizaba desde <a href="http://agile-aragon.org/">Agile Aragón</a>, el principal responsable de ello fue <a href="https://twitter.com/ferpega_">Fernando Pérez</a>. Y, de rebote, al final me tocó a mi ejercer como facilitador.</p>
+<p>Para mi era un poco <em>marronazo</em> el hacerlo. Aparte de no haber facilitado nunca antes, tan sólo <a href="http://www.danilat.com/weblog/2010/12/14/dandole-al-tdd-en-el-coderetreat-zaragoza/">había asistido a uno hace ya un par de años</a> y a 2 <a href="http://codingdojo.org/cgi-bin/wiki.pl?WhatIsCodingDojo">coding dojos</a>. Tampoco soy muy dado a hacer katas sin hacerlo junto a otra persona.</p>
+<p>Tuve una semana previa apretadilla, pero saqué tiempo para poder volver a practicar un poco la kata del <a href="http://coderetreat.org/gol">juego de la vida</a> y empaparme de los <a href="http://coderetreat.org/facilitating">recursos para facilitadores</a> para ir un poco más preparado. Yo terminé el día relativamente satisfecho (y agotado), quizás porque al final que los asistentes le saquen el máximo partido al día depende de ellos mismos, de sus iteraciones, sus parejas <em>de baile</em> en cada una de ellas y su actitud. Yo me limité a introducir algunas variaciones y restricciones para ir complicándolo y darles otros puntos de vista para tratar de hacerlo más ameno.</p>
+<p>Por lo que sabía, en principio habían algo más de 30 personas apuntadas, de las cuales terminaron asistiendo un total de <strong>25 personas</strong> (si no conté mal), lo que no está nada mal para un sábado en mitad de un puente ¿no?. Antes de empezar, acumulamos fuerzas con un desayuno patrocinado por la gente de <a href="http://www.keensoft.es/">keensoft</a> mientras llegaban todos los asistentes al <a href="http://www.bssc.es/">BSSC</a>.</p>
+<p><a href="https://twitter.com/uncurioso/status/277336700299116544/photo/1"><img class="aligncenter" src="https://pbs.twimg.com/media/A9lMQnDCAAA8t8e.jpg" alt="null" /></a></p>
+<p>Tras ello mostré rápidamente un par de videos sobre el Global Day of Coderetreat, y posteriormente pedí que cada uno se presentara brevemente para explicar a qué se dedicaba y con qué lenguajes solía trabajar, así cada uno pudiera <em>fichar</em> con quien quería "aparearse" durante el día :).</p>
+<p>Al final hicimos 6 iteraciones de 45 minutos:</p>
+<ul>
+<li>La primera libre para familiarizarse con el problema, para calentar un poco el cerebro :)</li>
+<li>En la segunda propuse que se tratara de empezar a practicar <em>Test First</em>, o al menos hacer Tests. En la anterior ya mucha gente empezó al menos haciendo tests, por lo que propuse que todas las parejas lo hicieran ya. Y también que se pensara en empezar a solucionar las reglas una a una y no de golpe.</li>
+<li>En la tercera insistí en tratar de hacer <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a>, que buscaran el hacer antes el test siguiendo el flow de <em>rojo, verde, refactoring</em>. Y <em>prohibí</em> hacer el tablero/grid en los primeros 20-30 minutos de la iteración.</li>
+<li>Para la cuarta, con la modorra después de comer y viendo que la gente tenía la mecánica de hacer tests antes de la implementación, propuse que se practicara <a href="http://c2.com/cgi/wiki?PairProgrammingPingPongPattern">pair programming en ping pong</a>. Eso es que: <strong>Foo</strong> escribe un test, <strong>Bar</strong> la implementación, una vez implementado (y refactorizado) <strong>Bar</strong> escribe el siguente test y <strong>Foo</strong> la implementación... y así hasta el infinito, o acabar :).</li>
+<li>Para la quinta puse la restricción de que los métodos no debían tener más de 4 líneas de código. Además, justo en mitad de la iteración, hice un pequeño experimento haciendo un cambio de parejas. Alguien de la pareja se quedaba con el código la otra persona tenía que incorporarse a lo que hubiera adelantado otra pareja. Fue curioso ver que durante varios minutos las parejas hablaban para saber qué se había hecho y nadie tiraba una línea de código :P.</li>
+<li>En la sexta y última iteración sólo tenía pensado poner una restricción, que no hubieran flags y así forzar a tener que usar polimorfismo. Al ser la última no quería proponer nada más, que la gente procurara aplicar lo aprendido durante el día pero forzando a darle un enfoque un poco diferente.</li>
+</ul>
+<p>Entre medias de las sesiones surgieron temas como los <a href="http://en.wikipedia.org/wiki/Magic_number_(programming)">magic numbers</a>, la dificultad de encontrar buenos nombres a métodos o variables, la expresividad del código, las bondades del testing o el pair programming, encapsulación, orientación a objetos...</p>
+<p><a href="https://twitter.com/semurat/status/277344483304148993"><img class="aligncenter" src="https://o.twimg.com/1/proxy.jpg?t=FQQVBBgpaHR0cHM6Ly90d2l0cGljLmNvbS9zaG93L2xhcmdlL2JrMzQ3ZC5qcGcUAhYAEgA&s=MGhYE7Irm0_b-qdLUEC0rCnMhLEDFA1mP_6ZV_CSMFc"></a></p>
+<p>En cuanto a lenguajes, aunque había predominio de <strong>Java</strong> y <strong>C#</strong>, se utilizaron un buen puñado. Si no me dejo ninguno: <strong>Python</strong>, <strong>Groovy</strong>, <strong>Javascript</strong>, <strong>Objective-C</strong>, <strong>C++</strong>, <strong>PHP</strong> y algunos aventureros probaron <strong>TypeScript</strong>. No fue así, pero esperaba que en algún momento se hubiera animado alguien a alguna iteración con Ruby, o incluso con CoffeeScript :P.</p>
+<p>Al final del día hicimos lo que llaman <b>cerrar el círculo</b>, cada persona tenía que hacerse (en alto) tres preguntas y compartirlo con el grupo: <em>¿qué has aprendido hoy?, ¿que te ha sorprendido hoy?, ¿que vas a hacer diferente a partir de hoy?</em>. Personalmente, como otros también compartieron cerrando el círculo, me quedó la espinita clavada de quienes no veían posible aplicar en sus trabajos diarios las cosas de practicadas durante el día. No sé, no creo que sea fácil <em>desde abajo</em> imponer según que prácticas a una organización de golpe, pero hay pequeñas cosas que pienso que sí se pueden intentar para que las empresas empiecen a ser más receptivas para hacer las cosas de <em>otra forma</em>; pero esto es otro tema :P.</p>
+<p>Como curiosidades, tuvimos <a href="http://twitpic.com/bk2qx5/full">una partida</a> en el <a href="http://instagram.com/p/S-NgyNDdqD/">futbolín</a> del BSSC lista desde primera de la mañana y ni nos acordamos de jugar al menos un par de bolas. Además en Zaragoza teníamos un <em>bonus</em>, <a href="http://francho.org/">Francho</a> trajo un pequeño tirador de cerveza que fue la sensación del día, puro <strong>Beer Driven Development</strong> de la que final del día no quedó ni gota ;).</p>
+<p>Para terminar el día, antes de recoger la sala e irnos de cañas, conectamos por hangout con el Coderetreat de Madrid; nos saludamos y estuvimos charlando un poco de como habíamos pasado el día. Fue el momento en el que se hizo patente que la estrella del día fue el tirador de cerveza :D.</p>
+<p>En definitiva, creo que fue un buen día, yo terminé agotado del fin de semana y con mono de no poder haberme <em>apareado</em> para hacer la kata :P.</p>

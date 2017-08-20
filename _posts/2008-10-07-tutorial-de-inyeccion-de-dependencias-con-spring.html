@@ -1,0 +1,125 @@
+---
+layout: post
+status: publish
+published: true
+title: Tutorial de inyección de dependencias con Spring
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 193
+wordpress_url: http://www.danilat.com/weblog/2008/10/07/tutorial-de-inyeccion-de-dependencias-con-spring/
+date: '2008-10-07 03:53:56 +0200'
+date_gmt: '2008-10-07 01:53:56 +0200'
+categories:
+- Spring
+tags: []
+comments:
+- id: 6529
+  author: David Calavera
+  author_email: david.calavera@gmail.com
+  author_url: http://thinkincode.net
+  date: '2008-10-07 09:48:50 +0200'
+  date_gmt: '2008-10-07 07:48:50 +0200'
+  content: "Siento llevarte la contraria Dani, pero mi opinión es totalmente la contraria
+    XD.\r\n\r\nPrimero, se supone que cuando eliges un framework es porque crees que
+    es la mejor opción para ese desarrollo, con lo cual atar las clases a ese determinado
+    framework no es una pega, y si lo es, es porque te has equivocado en la elección.\r\n\r\nSegundo,
+    trabajar con anotaciones es una bendición, no tener que pensar en escribir un
+    xml que al final acaba siendo un cúmulo de basura sin utilidad hace tu trabajo
+    más eficiente. Tuve que migrar una aplicación de String 2.0 a 2.5 y pasó de tener
+    más de 1000 líneas de xml que iban a seguir creciendo a menos de 200 que nunca
+    cambian."
+- id: 6533
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-10-07 12:38:28 +0200'
+  date_gmt: '2008-10-07 10:38:28 +0200'
+  content: "Hola David, no hay porqué sentirlo :), tú lo has probado y te ha convencido.\r\n\r\nCompletamente
+    de acuerdo en que si eliges un framework es por que crees que es la mejor opción,
+    aunque siempre existe la posibilidad de cambio, en el caso de spring parece que
+    ha habido bastante gente tirándose de los pelos por el nuevo modelo de mantenimiento(no
+    sé si hasta el punto de cambiar). También creo recordar que, en su momento, que
+    no fuera intrusivo se \"vendía\" como una ventaja de usar spring, pero bueno...
+    depende hacia donde sople el aire se venden unas cosas u otras :).\r\n\r\nDe todas
+    formas, aunque no me terminen de convencer completamente, sí me gustaría probar
+    a usar las anotaciones en algún proyecto para comprobar si cambio de opinión :P."
+- id: 6537
+  author: jcesarperez
+  author_email: julio.cesar.perez.arques@gmail.com
+  author_url: http://jcesarperez.blogspot.com
+  date: '2008-10-07 15:20:24 +0200'
+  date_gmt: '2008-10-07 13:20:24 +0200'
+  content: "Hola Dani.\r\n\r\nA mi tampoco me convencen las anotaciones para lo que
+    son las clases Java de la aplicación. Prefiero tener la configuración de Spring
+    repartida entre ficheros (tenerla en un sólo fichero es de locos). Minimo suelo
+    hacer un data, dao, services y web (sin contar con los ficheros para test). Si
+    la aplicacion se divide en modulos pues los ficheros tb. Pero supongo que es cuestión
+    de gustos, porque por ejemplo para hibernate si que las uso y me gustan.\r\n\r\nDonde
+    si veo mas útil usar las anotaciones de Spring es en las clases de test, sobreescribiendo
+    la configuración del xml en caso necesario.\r\n\r\nPor otro lado, no estoy nada
+    de acuerdo en que Spring sea un framework intrusivo. Si usas un framework tienes
+    una fuerte dependencia con él, te guste o no. Pero de todos los frameworks que
+    uso, creo que Spring es el menos intrusivo que conozco."
+- id: 6539
+  author: chuidiang
+  author_email: chuidiang@gmail.com
+  author_url: http://blog.chuidiang.com
+  date: '2008-10-07 16:00:28 +0200'
+  date_gmt: '2008-10-07 14:00:28 +0200'
+  content: "Hola:\r\n\r\nA mí tampoco me gustan las anotaciones ni casarme con un
+    framework.\r\n\r\nPor un lado, la ventaja de usar ficheros de configuración, reconfigurar
+    la aplicación sin necesidad de recompilarla, se pierde con las anotaciones, ya
+    que están en el código.\r\n\r\nPor otro lado, el framework bueno hoy, puede no
+    serlo mañana. El código es más reutilizable en más proyectos de diversa índole
+    si no depende de frameworks.\r\n\r\nPor ejemplo, si ponemos las anotaciones que
+    se mencionan en el tutorial para que spring pueda meter directamente cosas en
+    los atributos privados sin usar el método set(), que no nos molestamos en hacer....
+    ¿cómo podemos usar ese bean sin tocarlo en otro proyecto no spring? ¿Se ahorra
+    mucho tiempo y no se pierde en claridad usando estas anotaciones? lo dudo.\r\n\r\nSed
+    buenos."
+- id: 6541
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-10-07 17:09:00 +0200'
+  date_gmt: '2008-10-07 15:09:00 +0200'
+  content: "@jcesarperez, como dices, seguramente es por un lado cuestión de gustos
+    y sobre todo por el tipo de proyecto/s al/los que te enfrentes. \r\n\r\nTambién
+    veo que me he explicado mal con la \"intrusividad\" de Spring, me refería al caso
+    de usar anotaciones, recuerdo que muchos defensores de Spring criticaron esto
+    de Google Guice cuando salió.\r\n\r\n@chuidiang, por lo que entiendo siguiendo
+    tu blog, para el tipo de proyectos en los que trabajas veo normal que evites al
+    máximo las dependencias con frameworks. \r\n\r\nEn mi caso, la mayoría de proyectos
+    en los que trabajo últimamente esto no es algo tan importante.\r\n\r\nPD: Muchas
+    gracias a los tres por vuestros puntos de vista, se agradece que gente de nivel
+    los de :)"
+- id: 6604
+  author: domix
+  author_email: domingo.suarez@gmail.com
+  author_url: http://www.domix.org
+  date: '2008-10-10 06:32:40 +0200'
+  date_gmt: '2008-10-10 04:32:40 +0200'
+  content: Para gustos los colores, una característica excelente de Spring es que
+    te permite elegir que mecanismo de configuración usar. Desde mi punto de vista,
+    el uso de anotaciones con el escaneo de classpath simplifica mucho la labor de
+    configuración. He hecho aplicaciones sumamente grandes con Spring (20k lineas
+    de XML de configuración), con anotaciones y escaneo de classpath, se redujeron
+    a 380 lineas. Ademas de que cada bean nuevo se configuraba automáticamente.
+- id: 8543
+  author: Rafael
+  author_email: embedded2000@gmail.com
+  author_url: ''
+  date: '2009-01-06 20:45:40 +0100'
+  date_gmt: '2009-01-06 18:45:40 +0100'
+  content: Se nota que aca saben lo que hablan, no asi en los foros .net
+---
+<p><a href="http://www.jroller.com/RickHigh/entry/di_tutorial_first_draft">Rick Hightower</a> está trabajando en un interesante <a href="http://code.google.com/p/arc-pocs/wiki/DIIntroTutorial">tutorial sobre inyección de dependencias</a> usando <a href="http://www.springframework.org/">Spring</a>. Realmente el tutorial empieza explicando explicando las bondades de la inyección de dependencias para desacoplar nuestro código; y sigue con una explicación de cómo hacerlo <em>a mano</em>, sin la ayuda de frameworks, con nuestro propio código <em>pegamento</em>.</p>
+<p>Una vez introducidos, va explicando las diferentes formas con las que se inyectan dependencias con Spring, empezando desde la forma clásica usando sólo configuración XML, sigue adentrándose en algunas de las diferentes anotaciones de Spring que podemos utilizar(@Required, @Autowire, @Qualifier, @Component...), después en la configuración de objetos con tipos primitivos y acaba con el ciclo de vida y los ámbitos(scopes) de los objetos inyectados. En definitiva, un muy buen recurso para introducirse a la inyección de dependencias, a Spring y a sus anotaciones.</p>
+<p>Sobre las anotaciones para la configuración de depenencias con Spring, bajo una opinión completamente personal y sin haberlas utilizado todavía, no me termina de convencer usarlas: Por un lado atamos nuestras clases a Spring con la configuración <em>hardcodeada</em> y por otro tenemos la configuración repartida en múltiples clases.</p>
+<p>Quizás esté equivocado en lo segundo y sea más mantenible tener repartida la configuración en las mismas clases que tenerla en uno o varios XML, por esto me gustaría conocer las opiniones de los que pasáis por aquí que uséis Spring con o sin anotaciones y vuestras experiencias.</p>

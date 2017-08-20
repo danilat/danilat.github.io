@@ -1,0 +1,131 @@
+---
+layout: post
+status: publish
+published: true
+title: Desplegando una aplicación Grails en Morph
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 161
+wordpress_url: http://www.danilat.com/weblog/2008/06/08/desplegando-una-aplicacion-grails-en-morph/
+date: '2008-06-08 21:14:42 +0200'
+date_gmt: '2008-06-08 19:14:42 +0200'
+categories:
+- Grails
+tags: []
+comments:
+- id: 4175
+  author: Blaxter
+  author_email: blaxter@gmail.com
+  author_url: http://bicosyes.com
+  date: '2008-06-08 21:30:17 +0200'
+  date_gmt: '2008-06-08 19:30:17 +0200'
+  content: Casi que como me quedo con el deploy de aplicaciones php o rails (con mod_rails).
+    Que se reduce a hacer copy paste de la aplicación y punto. (configurar la db y
+    como mucho te podrían salir problemas de permisos).
+- id: 4177
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-06-08 22:21:42 +0200'
+  date_gmt: '2008-06-08 20:21:42 +0200'
+  content: "Hola Blaxter\r\n\r\nPor lo general te doy la razón, pero más que por lo
+    fácil sobre todo por no tener que reiniciar un servidor en producción, que siempre
+    será molesto para los usuarios que estén en ese momento.\r\n\r\nEn caso que tengamos
+    un servidor propio, el deploy se limitaría a ejecutar el comando grails war, copiarlo
+    y reiniciar el servidor(con esos mimsmos ajustes de db y permisos).\r\n\r\nPero
+    se puede ver que para el caso de desplegar aplicaciones en morph con Rails no
+    parece que sea más sencillo: http://assets.mor.ph/guides/rails_dev_cookbook.pdf"
+- id: 4180
+  author: dahernan
+  author_email: dahernan@gmail.com
+  author_url: http://dahernan.net/
+  date: '2008-06-08 23:06:59 +0200'
+  date_gmt: '2008-06-08 21:06:59 +0200'
+  content: "Mola.\r\n\r\nSe me ocure que se puede hacer un plugin muy sencillo, que
+    modifique el web.xml pa no tener que andar cambiandolo."
+- id: 4182
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-06-09 02:03:17 +0200'
+  date_gmt: '2008-06-09 00:03:17 +0200'
+  content: "Hola dahernan,\r\n\r\nDicho y hecho, mañana mismo lo subo a google code
+    :)"
+- id: 4194
+  author: carlos orrego
+  author_email: orrego@gmail.com
+  author_url: http://orbitando.com
+  date: '2008-06-09 16:21:58 +0200'
+  date_gmt: '2008-06-09 14:21:58 +0200'
+  content: "gran recuerso\r\n\r\nmuchas gracias por el tutorial\r\n\r\nsaludos desde
+    Chile"
+- id: 4195
+  author: "&raquo; Grails Morph Plugin"
+  author_email: ''
+  author_url: http://www.danilat.com/weblog/2008/06/09/grails-morph-plugin/
+  date: '2008-06-09 17:25:50 +0200'
+  date_gmt: '2008-06-09 15:25:50 +0200'
+  content: "[...] Ayer hablaba de los pasos para desarrollar una micro-aplicación
+    con Grails y cómo desplegarla en Morph, había un paso molesto teniendo que generar
+    y modificar el web.xml para añadir un recurso, que había que quitar para ejecutar
+    la aplicación en entornos diferentes al de producción en Morph. [...]"
+---
+<p><a href="http://www.mor.ph/">Morph</a> es un servicio de hosting, que utiliza por detrás los servicios de Amazon, hasta no hace mucho sólo tenía soporte para Rails pero <a href="http://blog.mor.ph/2008/05/morph-goes-bi-lingual-with-platform-as.html">han añadido soporte a Java</a> (vía <a href="http://www.mortbay.org/jetty-6/">Jetty</a>), que todavía está en beta.</p>
+<p>Morph tiene un plan gratuito para desarrolladores, y he probado a subir una micro-aplicación desarrollada con <a href="http://grails.org/">Grails</a>. Como lo interesante es ver lo sencillo que es desplegar una aplicación, he creado una <strong>TODO list</strong> muy básica, sin gestión de usuarios y utilizando <a href="http://grails.org/doc/1.0.x/ref/Plug-ins/scaffolding.html">el scaffolding dinámico</a>, que también podría servir para iniciarse en éste framework.</p>
+<p>Primero deberemos registrarnos, y tras esto descargar el morph_deploy.jar y el morph_deploy.properties que usaremos para desplegar nuestra aplicación cuando la tengamos terminada.</p>
+<p>Creamos la aplicación y, dentro del directorio de la aplicación que se ha creado, una clase del dominio:<br />
+<code><br />
+grails create-app todo<br />
+grails create-domain-class task<br />
+</code></p>
+<p>En la clase Task.groovy le añadimos algún atributo:<br />
+<code><br />
+class Task {<br />
+    String task<br />
+}<br />
+</code></p>
+<p>Creamos un controller vacío:<br />
+<code><br />
+grails create-controller task<br />
+</code></p>
+<p>Y para el andamiaje, añadimos al controller:<br />
+<code><br />
+def scaffold = true<br />
+</code> </p>
+<p>Para verlo en local (http://localhost:8080/todo/):<br />
+<code><br />
+grails run-app<br />
+</code></p>
+<p>Podríamos dejar la configuración a la base de datos con hsqldb y no tener que hacer ninguna modificación al estar embebida, pero para usar PostgreSQL, deberemos descargarnos el driver, añadirlo al directorio /lib de nuestra aplicación y hacer las siguientes modificaciones en el DataSource.groovy, en el entorno de producción:<br />
+<code><br />
+  driverClassName = "org.postgresql.Driver"<br />
+  url = "jdbc:postgresql://XXX.XXX.XXX.XXX/db_XXX"<br />
+  username = "XXX"<br />
+  password = "XXX"<br />
+</code></p>
+<p><strong>Inicio Actualización 09/06/2008:</strong> Utilizando <a href="http://code.google.com/p/morphplugin/">el plugin para Morph</a>, ya no es necesario este paso.</p>
+<p>Debemos añadir el recurso del DataSource en el web.xml, que se genera con <code>grails install-templates</code>:<br />
+<code><br />
+ &lt;resource-ref&gt;<br />
+     &lt;description&gt;Morphlabs Datasource&lt;/description&gt;<br />
+     &lt;res-ref-name&gt;jdbc/morph-ds&lt;/res-ref-name&gt;<br />
+     &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;<br />
+     &lt;res-auth&gt;Container&lt;/res-auth&gt;<br />
+ &lt;/resource-ref&gt;<br />
+</code><br />
+Este recurso, lo tendremos que comentar para probarlo en local, ya que nos dará errores al ejecutar la aplicación.</p>
+<p><strong>Fin Actualización</strong></p>
+<p>Ya sólo nos quedaría empaquetarlo en un .war:<br />
+<code>grails war</code><br />
+Y desplegarlo:<br />
+<code>java -jar morph_deploy.jar --config morph_deploy.properties <em>pathdelwar</em>/todo-0.1.war</code><br />
+Que posteriormente, pedirá nuestro usuario/password con los que nos hemos dado de alta en morph y nos desplegará la aplicación.</p>
+<p>Tras esto, sólo nos queda esperar unos minutos a que haga se efectúe el despliegue, y ya tenemos la aplicación corriendo. El ejemplo está disponible en <a href="http://danilat.morphexchange.com/">http://danilat.morphexchange.com/</a>, como se puede ver, me ha costado más escribir el post que la aplicación+despliegue :P.</p>
+<p>Los despliegues se pueden hacer también con <a href="http://ant.apache.org/">Ant</a> y <a href="http://maven.apache.org/">Maven</a>, esto y alguna cosita más se puede encontrar en el <a href="http://assets.mor.ph/guides/java_dev_cookbook.pdf">Java Cookbook de Morph</a>.</p>
+<p>Lo que no tengo demasiado claro son las limitaciones que tendrá el servicio, a parte de poder usar sólo PostgreSQL, estando todavía en beta y si habrá muchas diferencias de los planes de pago con el plan gratuito.</p>

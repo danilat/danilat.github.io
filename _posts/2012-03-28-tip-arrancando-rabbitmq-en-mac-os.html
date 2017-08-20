@@ -1,0 +1,39 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Tip: Arrancando RabbitMQ en Mac OS'
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2024
+wordpress_url: http://www.danilat.com/weblog/?p=2024
+date: '2012-03-28 20:11:37 +0200'
+date_gmt: '2012-03-28 18:11:37 +0200'
+categories:
+- Programación
+- Linux
+- Mac
+tags: []
+comments: []
+---
+<p>He empezado a trastear con <a href="http://www.rabbitmq.com/">RabbitMQ</a>, que hacía mucho que lo tenía entre ceja y ceja. La instalación en un servidor con <a href="http://www.rabbitmq.com/install-debian.html">ubuntu fue trivial</a>, en unos minutos estaba instalado y en marcha, pero no fue así en mi Mac.</p>
+<p>Tras <a href="http://www.rabbitmq.com/install-homebrew.html">instalarlo con homebrew</a> no conseguía arrancarlo, me daba el siguiente error:</p>
+<p><code>ERROR: epmd error for host "vodkalimon": address (unable to establish tcp connection)<br />
+</code></p>
+<p>Al parecer se intentaba conectar con mi máquina por su nombre (efectivamente se llama <strong>vodkalimon</strong> ;)), no por localhost o la ip de loopback.</p>
+<p>La solución es muy simple, aunque a mi me costó un buen rato darme cuenta, que uno es un poco torpe para los sistemas. </p>
+<p>Simplemente añadir en <em>/private/etc/hosts</em> el nombre de la máquina apuntando a la ip de loopback. Lo que a mi me ha quedado como algo así:</p>
+<p><code><br />
+...<br />
+127.0.0.1       localhost<br />
+127.0.0.1       vodkalimon<br />
+255.255.255.255 broadcasthost<br />
+...<br />
+</code></p>
+<p>Y con esto, ya podemos arrancar normalmente RabbitMQ.</p>

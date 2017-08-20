@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: De MySQL 5 a MySQL 4
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 63
+wordpress_url: http://www.danilat.com/weblog/2007/05/02/de-mysql-5-a-mysql-4/
+date: '2007-05-02 18:49:49 +0200'
+date_gmt: '2007-05-02 16:49:49 +0200'
+categories:
+- Programación
+tags: []
+comments:
+- id: 4027
+  author: aca463
+  author_email: amador@meteored.com
+  author_url: http://www.zonainmobiliaria.es
+  date: '2008-05-27 17:28:55 +0200'
+  date_gmt: '2008-05-27 15:28:55 +0200'
+  content: "MySql es una maravilla. Un motor de BBDD tan potente que hasta google
+    confía en ello.\r\nSaludos!"
+---
+<p>Hoy me he encontrado con la situación de que en un proyecto desarrollado sobre un gestor de bases de datos <a href="http://www.mysql.org/">MySQL</a> 5, debíamos realizar un <em>downgrade</em> a MySQL 4 por el servidor de producción del cliente.</p>
+<p>Pensaba que sería más tedioso el paso, sobre todo porque sólo podía accerder a <a href="http://www.phpmyadmin.net/">phpMyAdmin</a>, ni soy un experto en MySQL.<br />
+Para este caso, al no utilizar las <em>nuevas</em> características de MySQL (triggers,vistas,procedures...), ha sido bastante sencillo, en sólo dos intentos hemos <em>downgradeado</em>.</p>
+<p>Con phpMyAdmin para exportar con compatibilidad a otros gestores de bases de datos debemos modificar el <strong>SQL compatibility mode</strong>, en este caso a <strong>MYSQL40</strong>, y nos genera un SQL compatible con este.</p>
+<p>Con gestores diferentes a MySQL, no lo he probado más que con Oracle (no recuerdo la versión), pero no me funcionó correctamente.</p>

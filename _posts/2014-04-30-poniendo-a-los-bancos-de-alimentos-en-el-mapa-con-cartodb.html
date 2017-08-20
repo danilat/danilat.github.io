@@ -1,0 +1,47 @@
+---
+layout: post
+status: publish
+published: true
+title: Poniendo a los bancos de alimentos en el mapa con CartoDB
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 3015
+wordpress_url: http://www.danilat.com/weblog/?p=3015
+date: '2014-04-30 03:06:57 +0200'
+date_gmt: '2014-04-30 01:06:57 +0200'
+categories:
+- Proyectos
+tags: []
+comments: []
+---
+<p>Hace cosa de un mes que escribí y me publicaron un <em>guest post</em> en el blog de <a href="http://cartodb.com/">CartoDB</a>: <strong><a href="http://blog.cartodb.com/post/81582763163/mapping-food-banks-in-spain-with-cartodb">Mapping food banks in Spain with CartoDB</a></strong>, en el que explicaba como hice mi pequeño proyecto sobre los <a href="http://bancosdealimentos.herokuapp.com/">Bancos de Alimentos</a>.</p>
+<p>Si ya me cuestan mis esfuerzos el escribir, mi inglés es bastante flojo, por lo que lo escribí antes en castellano para centrarme en lo que quería explicar y dejar para después la traducción y revisión. En fin, que lo dejo a continuación en castellano.</p>
+<hr />
+<p>Hace ya cosa de un par de meses que me propuse buscar información de bancos de alimentos, tras navegar bastante por ahí tan sólo encontré un listado de los miembros de FESBAL (Federación Española de Bancos de Alimentos). Pero mi principal era tratar de recopilar el máximo, fueran de esa federación, de organizaciones religiosas o totalmente autogestionados.</p>
+<p>No me gusta la caridad, una cita que leía hace poco de <strong>Eduardo Galeano</strong> decía: <em>"A diferencia de la solidaridad, que es horizontal y se ejerce de igual a igual, la caridad se practica de arriba-abajo, humilla a quien la recibe y jamás altera ni un poquito las relaciones de poder"</em>. Estando de acuerdo y viendo que la solidaridad por parte del estado es más bien poca, más importante es que alguien pueda tener un plato en su mesa, aunque sea por caridad.</p>
+<p>En fin, la cosa es que a esto se sumaba que hacía tiempo que conozco CartoDB y tenía pendiente probarlo en algún momento, y esto encajaba a la perfección. Debo decir que no pasarían de las 2 horas desde que tuve los datos en crudo hasta que tenía hecho el mapa y lo tenía integrado con la web hecha con Sinatrarb.</p>
+<h4>Obteniendo los datos</h4>
+<p>Para empezar estuve haciendo un <a href="https://github.com/danilat/bancos-de-alimentos/blob/master/fesbal.py">web scraper de la web de FESBAL</a> con python (usando <a href="http://mechanize.rubyforge.org/">Mechanize</a> y <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>) para generar un CSV con todos los datos[1] en crudo para poderlo importar a una tabla de CartoDB.</p>
+<h4>Importando los datos a CartoDB</h4>
+<p style="text-align: center;"><img class="aligncenter" alt="" src="http://i.imgur.com/Z4Vr4AY.png" width="520" /></p>
+<p>Una vez en el dashboard de CartoDB, simplemente tuve que crear una nueva tabla importando datos desde ese CSV. Una vez procesados los datos utilizando la opción de georeferenciación automática de las direcciones de cada banco de alimentos (tuve que arreglar unas pocas a mano al ser direcciones un tanto extrañas).</p>
+<p style="text-align: center;"><img class="aligncenter" alt="" src="http://i.imgur.com/ZFiibmt.png" width="520" /></p>
+<h4>Dándole estilo a la visualización</h4>
+<p>Y luego crear la visualización a partir de esa tabla, para jugar con el wizard de visualizaciones. Elegir el estilo de los marcadores, el contenido de los infowindow, los tiles del mapa...</p>
+<p>Una vez teniendo la visualización la incrusté en una pequeña web hecha con <a href="http://www.sinatrarb.com/">sinatrarb</a> y <a href="http://foundation.zurb.com/">Foundation CSS</a> para darle la estructura.</p>
+<h4>Usando el API de CartoDB</h4>
+<p>En esta web también hay una integración (bastante simple) con el <a href="http://developers.cartodb.com/documentation/sql-api.html">SQL API</a> para mostrar el forma de listado los banco de alimentos y el poder añadir más por parte de los visitantes. Desde luego que es un API para que el que teniendo tiene mucho potencial a nada que se tengan conocimientos de SQL y manejar mínimamente las respuestas en JSON.</p>
+<p>Para el listado se muestran sólo los que estén georeferenciados, cosa que se hace desde la gestión de tablas de cartoDB, de este modo sirve también de moderación de contenidos: si no está georeferenciado no aparece en el mapa ni en el listado.</p>
+<p>Aunque no se conozca mucho Ruby, el código es bastante explicativo:</p>
+<p><script type="text/javascript" src="https://gist.github.com/furilo/9954401.js"></script></p>
+<p>El añadir nuevos bancos de alimentos, también resulta bastante evidente con unos mínimos conocimientos de SQL, como puede verse en este snippet de código:</p>
+<p><script type="text/javascript" src="https://gist.github.com/furilo/9955356.js"></script></p>
+<p>El resultado se puede ver en <a href="http://bancosdealimentos.herokuapp.com/">http://bancosdealimentos.herokuapp.com/</a>, mientras que tanto el código de scraping como de la aplicación Sinatra están disponibles para su libre consulta y uso <a href="https://github.com/danilat/bancos-de-alimentos">en mi cuenta de Github</a>.</p>
+<p>&nbsp;</p>
+<p style="text-align: center;"><a href="http://bancosdealimentos.herokuapp.com/"><img class="aligncenter" alt="Mapa de Bancos de Alimentos" src="http://i.imgur.com/goRd1UL.png" width="520" /></a></p>

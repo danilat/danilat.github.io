@@ -1,0 +1,26 @@
+---
+layout: post
+status: publish
+published: true
+title: Contar los usuarios online
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 119
+wordpress_url: http://www.danilat.com/weblog/2007/11/08/contar-los-usuarios-online/
+date: '2007-11-08 01:09:53 +0100'
+date_gmt: '2007-11-07 23:09:53 +0100'
+categories:
+- Java
+tags: []
+comments: []
+---
+<p>Para conocer el número de usuarios conectados en nuestra web, existe un sencilla forma de hacerlo que nos da el mismo API de Servlets de java.</p>
+<p>Simplemente tenemos que crear un listener que implemente la interface <a href="http://java.sun.com/javaee/5/docs/api/javax/servlet/http/HttpSessionListener.html">HttpSessionListener</a>, dónde implementaremos los métodos <strong>sessionCreated</strong>, donde incrementaremos el contador total de usuarios, y <strong>sessionDestroyed</strong>, dónde lo decrementaremos. Por último deberemos declarar el listener en el web.xml, así ya tendremos implementado nuestro contador de usuarios online.</p>
+<p>También hay ocasiones, que nos puede interesar conocer el número de usuarios autentificados que están conectados en un momento dado en nuestra aplicación web. Esto lo podemos hacer también de una forma muy sencilla, gracias a la interface <a href="http://java.sun.com/javaee/5/docs/api/javax/servlet/http/HttpSessionBindingListener.html">HttpSessionBindingListener</a>, que causa que el objeto que implementa ésta interface sepa cuando se le está añadiendo y quitando de la sesión. Ésto se consigue a partir de los métodos <strong>valueBound</strong> y <strong>valueUnbound</strong>, el valueBound será llamado al establecer en sesión el objeto que implementa la interface(incementar) y el valueUnbound al quitarlo de la sesión(decrementar).</p>
+<p>Por último, con el número de usuarios autentificados y el total disponible, tenemos también disponible la cantidad de usuarios anónimos.</p>

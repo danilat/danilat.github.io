@@ -1,0 +1,89 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Conocer el último id insertado de un campo serial con PostgreSQL y adodb '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 14
+wordpress_url: http://www.danilat.com/wordpress/?p=14
+date: '2006-09-30 17:17:02 +0200'
+date_gmt: '2006-09-30 15:17:02 +0200'
+categories:
+- Programación
+- Php
+tags: []
+comments:
+- id: 82
+  author: rafarods
+  author_email: megatrash@gmail.com
+  author_url: ''
+  date: '2007-07-19 17:17:34 +0200'
+  date_gmt: '2007-07-19 15:17:34 +0200'
+  content: Oye muchas gracias, ya me estaba rompiendo la cabeza investigando porque
+    no devolvía el último ID.
+- id: 182
+  author: Jopehi
+  author_email: jopehi37@yahoo.es
+  author_url: ''
+  date: '2007-08-13 23:57:16 +0200'
+  date_gmt: '2007-08-13 21:57:16 +0200'
+  content: "Hola, interesante. veo que tu la habias utilizado con mysql, como se hace
+    con mysql y campos auto_increment.\r\n\r\nGracias"
+- id: 189
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-08-14 12:37:03 +0200'
+  date_gmt: '2007-08-14 10:37:03 +0200'
+  content: "Hola Jopehi,\r\n\r\ndespués de ejecutar el execute(\"insert...\") con
+    el método InsertID() recuperas el valor del auto_increment insertado."
+- id: 193
+  author: Jopehi
+  author_email: jopehi37@yahoo.es
+  author_url: ''
+  date: '2007-08-14 15:25:22 +0200'
+  date_gmt: '2007-08-14 13:25:22 +0200'
+  content: "Genial, funciona aunque en realidad me toco hacerlo haciendo referencia
+    a la conexion, asi:\r\n\r\n\r\n$conex = NewADOConnection($driver);\r\n$conex-&gt;Connect($host_db,$user_db,$passwd_db,$db);\r\n$conex-&gt;debug=$debug_adodb;\r\nif
+    (!$conex) {\r\n\techo \"Error\";\r\n\tdie( $error_con_db );\r\n\texit;\r\n} \r\n\r\n$query=\"insert
+    into ...... bla bla\";\r\n$conex-&gt;Execute($query);\r\n$lastID=$conex-&gt;Insert_ID();
+    \r\n\r\nPero funciona, gracias"
+- id: 2929
+  author: javier
+  author_email: jandres_g@hotmail.com
+  author_url: ''
+  date: '2008-03-24 23:30:35 +0100'
+  date_gmt: '2008-03-24 21:30:35 +0100'
+  content: No me convence, http://www.bartbusschots.ie/blog/?p=614 esto esta mejor
+- id: 2931
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-03-25 01:54:09 +0100'
+  date_gmt: '2008-03-24 23:54:09 +0100'
+  content: "Hola javier,\r\n\r\nSegún leo en ese post no está(o estaba) implementado
+    el getGeneratedKeys en el driver de Postgres y por eso lo tuvo que hacer de esa
+    forma, es algo así a lo que me ocurrió con InsertID.\r\n\r\nPersonalmente prefiero
+    esta forma de hacerlo, aunque la opción de hacerlo con una query siempre está
+    disponible, por ser lo más parecido a usar InsertID y por que veo más portable
+    el código en caso de un cambio de gestor de base de datos."
+---
+<p>Me he encontrado con un problema respecto al tipo de datos <strong>serial</strong> de <a target="_blank" href="http://www.postgresql.org/">PostgreSQl</a> utilizando el framework de acceso a datos <a target="_blank" href="http://adodb.sourceforge.net/">adodb </a>para php.</p>
+<p>El método <strong>Insert_ID()</strong> no funciona como esperaba con el tipo de datos serial, al haber utilizado este framework siempre con <a target="_blank" href="http://www.mysql.org/">Mysql</a> y para los id's suelo utilizar tipos int con auto_increment.<br />
+Así el método siempre devuelve el último id insertado.</p>
+<p>El caso es que al final, buscando en la documentación de <a target="_blank" href="http://www.lacorona.com.mx/fortiz/adodb/docs-adodb-es.htm">adodb en español</a> he encontrado el método <strong>GenID($seqName = 'adodbseq',$startID=1)</strong>, que lo que hace es generar un número de secuencia, y si no existe lo creará.</p>
+<p>$<strong>seqName</strong>, es el nombre que tiene la secuencia del tipo serial.<br />
+<strong>$startID=1</strong>, es el primer número de la secuencia si la secuencia no existe y la debe crear, por defecto 1.</p>
+<p>Según la documentación:<br />
+<em>Funciona para interbase, mysql, postgresql, oci8, oci8po, mssql, y los drivers basados en ODBC.</em></p>
+<p><strong>Uuuupss actualización:</strong></p>
+<p>Se me había olvidado... GenId() genera el siguiente número de la secuencia, y no el último número de la secuencia insertado.</p>
+<p>Para que su función sea como la de Insert_ID():</p>
+<p><code>GenId(seqName)-1</code></p>

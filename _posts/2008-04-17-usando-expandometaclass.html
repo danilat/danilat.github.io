@@ -1,0 +1,102 @@
+---
+layout: post
+status: publish
+published: true
+title: Usando ExpandoMetaClass
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 148
+wordpress_url: http://www.danilat.com/weblog/2008/04/17/usando-expandometaclass/
+date: '2008-04-17 12:35:04 +0200'
+date_gmt: '2008-04-17 10:35:04 +0200'
+categories:
+- Groovy
+tags: []
+comments:
+- id: 3238
+  author: Blaxter
+  author_email: blaxter@gmail.com
+  author_url: http://bicosyes.com
+  date: '2008-04-17 15:03:40 +0200'
+  date_gmt: '2008-04-17 13:03:40 +0200'
+  content: "¿Se puede en groovy sobreescribir el propio método append guardando su
+    funcionalidad? Vamos lo que se denomina normalmente un method chaining."
+- id: 3268
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-04-18 18:46:31 +0200'
+  date_gmt: '2008-04-18 16:46:31 +0200'
+  content: "Hola Blaxter,\r\n\r\nEn teoría se pueden sobreescribir métodos, pero he
+    hecho un par de pruebas y no lo he conseguido(soy algo torpe:P), por esto no puedo
+    asegurarte nada sobre si puede modificarse un método manteniendo el comportamiento
+    anterior, tampoco he visto documentación acerca de mantener el comportamiento
+    existente... a ver si con más tiempo trato de ver si es posible.\r\n\r\nPor cierto,
+    el método append ya devuelve la instancia del mismo objeto, se podría hacer stringBuilder.append(\"bla\").append(\"bla\")"
+- id: 3412
+  author: Julio
+  author_email: juliolarri@gmail.com
+  author_url: http://juliolarri.blogspot.com
+  date: '2008-04-25 06:57:44 +0200'
+  date_gmt: '2008-04-25 04:57:44 +0200'
+  content: "Si utilizas '&lt;&lt;' para agregar el método, se lanza una excepción
+    de que el método ya existe.\r\n\r\nSi lo haces como en el ejemplo de arriba, es
+    decir:\r\n\r\nString.metaClass.toLowerCase = { -&gt; \"prohibido minúsculas\"}\r\n\r\ncuando
+    ejecutes \"HOLA\".toLowerCase() verás que se ha reemplazado el método y ya no
+    podrás convertir a minúsculas XD.\r\n\r\nPero también recuerda que un método se
+    diferencia de otro por firma (nombre del método, número, tipo y orden de sus parámetros),
+    así que puedes agregar muchas versiones de toLowerCase pero variando los parámetros.\r\n\r\nPueden
+    revisar éste enlace donde se explica ésto: <a href='http://groovy.codehaus.org/ExpandoMetaClass+-+Methods'
+    rel=\"nofollow\">http://groovy.codehaus.org/ExpandoMetaClass+-+Methods</a>"
+- id: 3425
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-04-25 15:04:27 +0200'
+  date_gmt: '2008-04-25 13:04:27 +0200'
+  content: "Hola Julio,\r\n\r\nYa tenía en cuenta eso, probablemente mi problema venía
+    de estar ejecutando groovy desde eclipse y no lo probé en consola.\r\n\r\nEra
+    curioso ver que con StringBuilder.metaClass.append(...) no hacía nada y con StringBuilder.metaClass.append<<...
+    saltaba la excepción que mencionas."
+- id: 7702
+  author: Alberto Vilches
+  author_email: soypicapica@yahoo.es
+  author_url: http://albertovilches.com
+  date: '2008-11-17 01:30:41 +0100'
+  date_gmt: '2008-11-16 23:30:41 +0100'
+  content: StringBuilder, al igual que la mayoría de clases del JDK, son finales por
+    lo que no se pueden extender, así que el uso de ExpandoMetaClass es realmente
+    indispensable para hacer esta pequeñas grandes cosas que solo Groovy puede hacer
+    :)
+- id: 7704
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-11-17 02:03:07 +0100'
+  date_gmt: '2008-11-17 00:03:07 +0100'
+  content: "Uh! Metedura de pata, se me pasó que era final :P. Gracias Alberto.\r\n\r\nLa
+    verdad que, estas \"pequeñas\" cosas que dan algunos lenguajes dinámicos, están
+    muy bien tanto para este caso que es una clase final como para parchear alguna
+    cosita de las librerías que usemos sin tener que tocar su código original :)"
+---
+<p>Como <a href="http://www.danilat.com/weblog/2008/03/26/algunas-impresiones-sobre-groovy/">ya comenté</a>, una de las cosas interesantes que veía en groovy era <a href="http://groovy.codehaus.org/ExpandoMetaClass">ExpandoMetaClass</a>.</p>
+<p>Este sería un ejemplo de uso, añadiendo a la clase StringBuilder un método en tiempo de ejecución. Es un método para que se hiciera el append sólo si el parámetro pasado no es nulo, de esta forma nos podríamos ahorrar una buena cantidad de <em>if</em> si necesitaramos hacer esta comprobación antes de cada append.</p>
+<p><code><br />
+StringBuilder.metaClass.appendNotNull={ str -><br />
+     if(str){<br />
+        append(str)<br />
+     }<br />
+}<br />
+//Lo usaríamos como cualquier otro método<br />
+StringBuilder builder = new StringBuilder()<br />
+builder.appendNotNull("hola")<br />
+builder.appendNotNull(null)<br />
+builder.appendNotNull("mundo")<br />
+</code></p>
+<p>Este ejemplo es un poco trivial, ya que se podría hacer esto simplemente creando una clase que extendiera de StringBuilder e implementando el método. Aunque por otro lado, si sólo necesitamos hacerlo en un punto de nuestro código, esta podría ser una solución.</p>

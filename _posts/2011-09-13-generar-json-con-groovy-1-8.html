@@ -1,0 +1,81 @@
+---
+layout: post
+status: publish
+published: true
+title: Generar JSON con Groovy 1.8
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1735
+wordpress_url: http://www.danilat.com/weblog/?p=1735
+date: '2011-09-13 02:58:06 +0200'
+date_gmt: '2011-09-13 00:58:06 +0200'
+categories:
+- Groovy
+tags: []
+comments:
+- id: 10521
+  author: GarrasRojas
+  author_email: yodo.betadine@gmail.com
+  author_url: ''
+  date: '2011-09-13 09:11:51 +0200'
+  date_gmt: '2011-09-13 07:11:51 +0200'
+  content: Básicamente el JSON es un string con un formato concreto y predefinido.
+    ¿Hasta que punto te facilita el trabajo una herramienta de este tipo? He trabajado
+    recientemente con JSON  y no le veo la dificultar, cierto es que utilicé una API
+    que te convierte el JSON en un object con la estructura definida en el mismo,
+    pero la generación del JSON es realmente sencilla.
+- id: 10522
+  author: jordim
+  author_email: jmonne@gmail.com
+  author_url: ''
+  date: '2011-09-13 09:25:28 +0200'
+  date_gmt: '2011-09-13 07:25:28 +0200'
+  content: Interesante!
+- id: 10523
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2011-09-13 10:56:56 +0200'
+  date_gmt: '2011-09-13 08:56:56 +0200'
+  content: "@GarrasRojas efectivamente JSON no es más que contenido de texto con formato
+    estructurado. Igual que muchos usos que se le da a XML.\r\n\r\nAunque sea posible
+    escribirlo \"a pelo\", el utilizar alguna herramienta de este tipo puede evitar
+    posibles errores en le generación, más si hablamos de estructuras más complejas,
+    donde también se gana legibilidad del código. \r\nPor otro lado, otra de las ventajas
+    de JsonBuilder es que facilita bastante el mapeo de Collections de objetos simples
+    a JSON.\r\n\r\nPero en fin, de todos modos es una alternativa más, hasta donde
+    yo sé hay bastantes librerías que hacen cosas parecidas."
+---
+<p>Una de las muchas <a href="http://docs.codehaus.org/display/GROOVY/Groovy+1.8+release+notes">novedades que vinieron con Groovy 1.8</a> fue el <a href="http://docs.codehaus.org/display/GROOVY/Groovy+1.8+release+notes#Groovy1.8releasenotes-NativeJSONsupport">soporte nativo para generar y leer JSON</a>. </p>
+<p>Llevo un par de días estando trabajando con este soporte JSON para reunir datos importados de distintas fuentes, y luego poder mantener los datos resultantes en un formato estructurado. Principalmente porque no todos son necesarios a día de hoy, pero a futuras se puede echar mano de ellos.</p>
+<p>Después de hacer todo lo necesario unificar todos los datos en un <a href="http://groovy.codehaus.org/JN1035-Maps">map</a> en memoria, para persistir el JSON, he hecho uso de <a href="http://groovy.codehaus.org/gapi/groovy/json/JsonBuilder.html">JsonBuilder</a>.</p>
+<p>Sería algo así:<br />
+<code><br />
+def builder = new groovy.json.JsonBuilder()<br />
+builder.data(){<br />
+&nbsp;&nbsp;for (item in items){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"${item['name']}"() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zone(item['zone'])<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position(item['position'])<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;}<br />
+}</code></p>
+<p>Esto lo que generaría es algo de una estructura como:<br />
+<code><br />
+{"data":<br />
+&nbsp;&nbsp;{"name1": { "zone" : "zone1", "position": "position1", ... }}<br />
+&nbsp;&nbsp;{"name2": { "zone" : "zone2", "position": "position2", ... }}<br />
+&nbsp;&nbsp;...<br />
+&nbsp;&nbsp;...<br />
+}</code></p>
+<p>Después tan sólo debía escribirlo en un fichero:</p>
+<p><code>new File("path/to/file.json").write(builder.toString())</code></p>
+<p>Y listo.</p>

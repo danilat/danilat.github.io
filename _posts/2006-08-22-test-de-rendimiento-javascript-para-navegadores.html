@@ -1,0 +1,72 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Test de rendimiento javascript para navegadores '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 9
+wordpress_url: http://www.danilat.com/wordpress/?p=9
+date: '2006-08-22 17:07:50 +0200'
+date_gmt: '2006-08-22 15:07:50 +0200'
+categories:
+- Javascript
+- Aplicaciones Web
+tags: []
+comments: []
+---
+<p>Vía el blog de <a target="_blank" href="http://guti.bitacoras.com/index.php?entry=entry060821-225546">Javier Gutiérrez (Guti)</a>, he encontrado un <a target="_blank" href="http://celtickane.com/projects/jsspeed.php">test de rendimiento de Javascript</a> para navegadores.</p>
+<p>Lo he probado con Firefox 1.5 y Iexplorer 6.0, y estos han sido los resultados que me ha dado al pasar el test:</p>
+<p><code><br />
+<em><strong>Firefox:</strong></em></code></p>
+<p>Try/Catch with errors 188<br />
+Layer movement 296<br />
+Random number engine 282<br />
+Math engine 328<br />
+DOM speed 266<br />
+Array functions 156<br />
+String functions 78<br />
+Ajax declaration 204<br />
+<strong>Total Duration 1798ms</strong></p>
+<p><em><br />
+<strong>Iexplorer:</strong></em></p>
+<p>Try/Catch with errors 47<br />
+Layer movement 500<br />
+Random number engine 78<br />
+Math engine 172<br />
+DOM speed 391<br />
+Array functions 31<br />
+String functions 31<br />
+Ajax declaration 344<br />
+<strong>Total Duration 1594ms </strong></p>
+<p>En este test, Explorer gana por bastante diferencia en todas las pruebas excepto en el <code>Layer movement</code>, pero al parecer en este test Opera les gana con mucha diferencia como podéis ver en <a target="_blank" href="http://celtickane.com/projects/jsspeed.php">la misma web del test</a>, sería interesante conocer datos de otros como Safari o <del>Konqueror</del>.</p>
+<p><strong>Actualización 24/08/2006:</strong><br />
+<code><br />
+<em><strong>Konqueror 3.5.2:</strong></em> (Sobre Kubuntu)</code></p>
+<p>Try/Catch with errors 37<br />
+Layer movement 295<br />
+Random number engine 383<br />
+Math engine 447<br />
+DOM speed 116<br />
+Array functions 92<br />
+String functions 62<br />
+Ajax declaration 225<br />
+<strong>Total Duration 1657ms </strong></p>
+<p>Curioso el Konqueror... esto es en la primera ejecución pero si lo vuelves a ejecutar varias veces, a ratos bajan los tiempos muchísimo (unos 700ms en total).</p>
+<p><code><br />
+<em><strong>Otra ejecución con Konqueror:</strong></em></code></p>
+<p>Try/Catch with errors 17<br />
+Layer movement 127<br />
+Random number engine 163<br />
+Math engine 191<br />
+DOM speed 50<br />
+Array functions 39<br />
+String functions 27<br />
+Ajax declaration 98<br />
+<strong>Total Duration 712ms </strong></p>

@@ -1,0 +1,200 @@
+---
+layout: post
+status: publish
+published: true
+title: "¿Flex, GWT, Rails y Grails los frameworks del futuro?"
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 174
+wordpress_url: http://www.danilat.com/weblog/2008/07/24/%c2%bfflex-gwt-rails-y-grails-los-frameworks-del-futuro/
+date: '2008-07-24 19:07:00 +0200'
+date_gmt: '2008-07-24 17:07:00 +0200'
+categories:
+- General
+- Java
+- Grails
+- Rails
+tags: []
+comments:
+- id: 4881
+  author: Pablo Morales
+  author_email: pablofmorales@gmail.com
+  author_url: http://blog.pablo-morales.com
+  date: '2008-07-24 19:17:20 +0200'
+  date_gmt: '2008-07-24 17:17:20 +0200'
+  content: "Flex viene bien, pero RoR no puede dar mas de lo que hay, sin el framework
+    simple que tienen no existiria, y aun asi, creo que no sirve para grandes aplicaciones.
+    \r\n\r\nDesktop: Air/Flex\r\nWeb: PHP/Zend Framework"
+- id: 4884
+  author: Erick Camacho
+  author_email: ecamacho.mx@gmail.com
+  author_url: ''
+  date: '2008-07-24 21:21:02 +0200'
+  date_gmt: '2008-07-24 19:21:02 +0200'
+  content: "Yo separaría Flex y GWT como frameworks para clientes RIA de Grails, Rails,
+    etc que son para la lógica del servidor y se pueden combinar con los primeros.
+    De hecho Matt lo hace así en su presentación (aunque no se porque no puso la opción
+    Flex + Grails ni GWT + Rails). \r\nFlex es ya tan grande que dentro de poco estaremos
+    discutiendo más bien que framework Flex conviene usar si PureMVC, Guasax, etc
+    en vez de estar discutiendo si usamos Flex o no. GWT creo que no ha tenido el
+    impacto que se esperaba y tomando en cuenta que ni siquiera Google lo usa extensivamente
+    creo que nunca llegará a dominar en el sector Javascript, la verdad es que no
+    me imagino a un programador php o .net aprendiendo Java e instalándose Eclipse
+    solo para hacer sus interfaces web si con jquery o prototype se las apaña bastante
+    bien. \r\nDel lado del servidor yo agregaría el que tu ya mencionaste: GAE. El
+    hecho de ofrecer hosting gratuito es un plus que ni a las empresas ni a los freelancers
+    pasará desapercibido."
+- id: 4887
+  author: Blaxter
+  author_email: blaxter@gmail.com
+  author_url: http://bicosyes.com
+  date: '2008-07-24 22:04:44 +0200'
+  date_gmt: '2008-07-24 20:04:44 +0200'
+  content: "Flex no me gusta porque, en mi opinión, la web debería seguir siendo html
+    y no flash (no entiendo como pone en <em>pros</em> Flash UI). GWT lo he usado
+    en el pasado bastante, si solo sabes Java es una buena opción, pero sabiendo js
+    y css creo que es mucho mejor dejar GWT (que en definitiva solo te resuelve la
+    parte cliente) y optar por la segunda opción (personalmente, sabiendo tanto Java
+    como Js+css estoy seguro que me hubiese costado menos hacerlo con js y hubiese
+    quedado igual o mejor, y más reutilizable).\r\n\r\nRails (y supongo que lo mismo
+    se puede aplicar a grails, pero lo desconozco por completo) es realmente bueno,
+    pero hay que tener cuidado cuando entramos en aplicaciones web grandes (e.g. &gt;20kloc),
+    especialmente con el tema de versiones y plugins maliciosos que nos monkeypatchean
+    cosas y es imposible encontrar luego el porqué está broken algo que antes funcionaba
+    perfectamente.\r\n\r\nRespecto a Zend (o symfony, o cualquiera php) por muy bueno
+    que sea el framework, no puede ser bueno. Quien prefiera usar php conociendo otros
+    lenguajes que me lo comente, es algo que no creo que podría llegar a comprender
+    nunca. Si hay que usar php por restricción del entorno de producción, ok; pero
+    por gusto elegir php... no lo entiendo, que me lo expliquen (teniendo tantísimas
+    alternativas. bueno el único argumento a favor es la facilidad de encontrar programadores
+    php).\r\n\r\n<strong>Erlyweb</strong> es el que quiero mirar, y probar, a fondo
+    :)."
+- id: 4890
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-07-25 01:03:28 +0200'
+  date_gmt: '2008-07-24 23:03:28 +0200'
+  content: "@Pablo, no termino de entender tu comentario, aunque no veo qué aplicaciones
+    pueda cubrir Zend y no RoR, por lo poco que he tocado de Zend. Incluso he leído
+    en alguna ocasión que Zend Framework está \"por detrás\", pero ahí no me meto
+    que no llego a conocerlo tanto.\r\n\r\n@Erick, sí esos frameworks hay que separarlos,
+    aunque como en que la web debe seguir siendo html estoy de acuerdo con @Blaxter,
+    para mi Flex es ya para aplicaciones multimedia. GWT al competir con los frameworks/librerías
+    JS, como dices, lo tiene complicado aunque quizás en entornos java tenga su cuota.\r\n\r\nSupongo
+    que las combinaciones las habrá hecho por límite de tiempo o porque es hasta donde
+    él ha llegado.\r\n\r\nSobre GAE, es lo de siempre, te atas a google y son quien
+    guarda tus datos. Esto según el caso puede parecer bien o no, yo lo veo perfecto
+    para sideprojects con en los que me puedo \"olvidar\" del hosting si funciona
+    mejor de lo que me esperaba ;)\r\n\r\n@Blaxter que ponga como punto a favor flash
+    UI, quiero entender por que para el caso multimedia está instalado en un alto
+    porcentaje de navegadores, aunque para saberlo tendríamos que haber estado allí
+    ;). De GWT lo que se suele decir a su favor es el poder usar el plugin de Eclipse,
+    pero como tampoco lo he tocado tampoco me meto :P.\r\n\r\nRails y Grails son \"primos
+    hermanos\", Grails se basa en las ideas de Rails y tiene algunas cosas realmente
+    parecidas, si conoces el primero y además conoces java es muy fácil de aprender.
+    El tema de plugins, con los dos, es el riesgo de utilizar cosas de terceros que
+    impactan directamente en la lógica de la aplicación, todo es ver si compensa el
+    riesgo de tener esas dependecias.\r\n\r\nSobre php y sus frameworks, tengo que
+    empezar diciendo que como lenguaje tampoco me gusta, por su diseño permite hacer
+    muchas \"guarradas\" fácilmente, a ver si como dicen php6 soluciona un poco este
+    tema. Personalmente me planteo php para desarrollos pequeños, por eso mismo pienso
+    en codeigniter o para muy pequeños \"a pelo\", sobre todo por la facilidad de
+    encontrar hosting económico.\r\n\r\nErlyweb no lo conocía, la verdad que de Erlang
+    poco/nada sé, espero que comentes algo sobre ello ;)"
+- id: 4898
+  author: GreenEyed
+  author_email: greeneyed@dev.java.net
+  author_url: ''
+  date: '2008-07-25 08:08:16 +0200'
+  date_gmt: '2008-07-25 06:08:16 +0200'
+  content: "Yo de framework web ya voy bien servido (uno propio), aunque hay muchas
+    cosas que no hace, al menos tampoco se me mete en medio y para nuestra forma de
+    trabajar cubre lo que necesitamos. Cuando aparezca alguno que realmente nos guste
+    más, entonces cambiaremos pero de momento nada nos gusta y se adapta nuestra forma
+    de trabajar.\r\n\r\nNormalmente las aplicaciones que hacemos son web con poco
+    o nada de AJAX, asi que de RIA no tenemos elección fija.\r\n\r\nDe los proyectos
+    en los que he participado, de momento me quedo con que cuanto mas \"integrada
+    y completa\" la solucion, mas te sueles tener que atar a implementaciones/tecnologias.\r\n\r\nY
+    JavaScript... para aplicaciones grandes estilo escritorio, de momento me ha parecido
+    una pesadilla. Flex es el siguiente que quiero mirar, a ver que tal. Al menos
+    quitarse la dependencia de navegadores y pasar a depender del plugin puede ser
+    un avance."
+- id: 4900
+  author: dahernan
+  author_email: dahernan@gmail.com
+  author_url: http://dahernan.net
+  date: '2008-07-25 09:23:15 +0200'
+  date_gmt: '2008-07-25 07:23:15 +0200'
+  content: "Yo opino mas o menos lo mismo que Matt en la parte de UI, no me imagino
+    Gmail hecho en Flex, sin embargo para Parleys la mejor opción es Flex sin duda.\r\n\r\nEn
+    cuanto a la parte del servidor tras usar muchos frameworks Java, tanto propios
+    como los clasicos yo apuesto claramente por Grails y sus primos :) el trabajo
+    que ahorran es increible.\r\n\r\nY frameworks web a probar, pues no tengo ninguno
+    en mente, lo más cercano a probar que tengo por ahi es Solr.\r\n\r\nSaludos"
+- id: 4909
+  author: Joserra
+  author_email: joserra@najaraba.com
+  author_url: http://najaraba.blogspot.com
+  date: '2008-07-25 16:54:04 +0200'
+  date_gmt: '2008-07-25 14:54:04 +0200'
+  content: "Pues yo tengo intención de quemar las naves con Struts 1 muy pronto :)
+    Y creo que primeramente vamos a evaluar Wicket y Grails. Ahora mismo, mientras
+    tengamos que seguir generando HTML/Javascript, creo que son las mejores opciones.
+    Wicket es muy interesante, pero la verdad que la filosofía de RoR me gusta mucho
+    también.\r\nEl cambio a FLEX, bien puede funcionar con cualquiera de esas tecnologías
+    en servidor. Pero creo que esto será mucho más lento de ver en aplicaciones empresariales."
+- id: 4981
+  author: walter
+  author_email: walterx83@msn.com
+  author_url: ''
+  date: '2008-07-28 19:53:03 +0200'
+  date_gmt: '2008-07-28 17:53:03 +0200'
+  content: No hay q esperar el futuro. Desarrollo aplicaciones web tremendamente ricas
+    con la simpleza de xml y visualmente mejor o igual q flex. Vean www.openlaszlo.com
+    y las increible paginas que se pueden lograr en la decima parte de lo que demoraba
+    antes en java e interfaces muy amigables. Saludos.
+- id: 5014
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-07-30 12:03:57 +0200'
+  date_gmt: '2008-07-30 10:03:57 +0200'
+  content: "walter, cuando hablamos de futuro no hablamos de \"moderno\" o \"nuevo\".
+    \r\n\r\nTodos estos frameworks se pueden usar hace ya un tiempo, como openlaszlo,
+    del que he oído un poco de todo. Pero creo que a nivel de cuota de mercado lo
+    tiene complicado al tener enfrente bastante competencia, sobre todo a Adobe con
+    Flex."
+- id: 5174
+  author: elfrancia(Marcos Ivan Diaz Gomez)
+  author_email: match_elfrancia@hotmail.com
+  author_url: ''
+  date: '2008-08-06 22:08:24 +0200'
+  date_gmt: '2008-08-06 20:08:24 +0200'
+  content: que tal amantes programadores yo estoy haciendo una aplicacion en donde
+    ocupo EJB , Strut ,Ibatis  y porsupuesto Flex y en lo personal Flex esta Excelente
+    ..  es un Rial de altura  eprovado con ZK  el XUL de FireFox y estan algo interesantes
+    pero bueno en la red nunca se acavaran los proyectos y mucho menos los framework
+    asi que cada quien con los suyo .felizes Lineas de codigo
+- id: 8551
+  author: Chapeti
+  author_email: chapeti@gmail.com
+  author_url: ''
+  date: '2009-01-07 21:16:41 +0100'
+  date_gmt: '2009-01-07 19:16:41 +0100'
+  content: 'Yo estuve haciendo un par de cosas con GWT+EXT+Eclipse y la verdad que
+    me resultó cómodo. Si quieren echarle una ojeada : http://gwt-ext.com/demo/'
+---
+<p>Ayer estuve leyendo los posts de <a href="http://raibledesigns.com/">Matt Raible</a> sobre la <a href="http://en.oreilly.com/oscon2008/public/content/home">OSCON 2008</a>, recomiendo darles una ojeada a todos.</p>
+<p>También ha publicado su propia charla en el evento, sobre <a href="http://raibledesigns.com/rd/entry/oscon_2008_web_frameworks_of">frameworks <em>de futuro</em></a>: </p>
+<div style="width:425px;text-align:left" id="__ss_525747"><a style="font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;" href="http://www.slideshare.net/mraible/web-frameworks-of-the-future-flex-gwt-grail-and-rails-525747?src=embed" title="Web Frameworks of the Future: Flex, GWT, Grail, and Rails">Web Frameworks of the Future: Flex, GWT, Grail, and Rails</a><object style="margin:0px" width="425" height="355"><param name="movie" value="http://static.slideshare.net/swf/ssplayer2.swf?doc=webframeworksofthefutureflexgwtrailsandgrails-1216842992390310-9"/><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="http://static.slideshare.net/swf/ssplayer2.swf?doc=webframeworksofthefutureflexgwtrailsandgrails-1216842992390310-9" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object>
+<div style="font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;">view <a href="http://www.slideshare.net/mraible/web-frameworks-of-the-future-flex-gwt-grail-and-rails-525747?src=embed" title="View Web Frameworks of the Future: Flex, GWT, Grail, and Rails on SlideShare">presentation</a> (tags: <a style="text-decoration:underline;" href="http://slideshare.net/tag/grails">grails</a> <a style="text-decoration:underline;" href="http://slideshare.net/tag/webframeworks">webframeworks</a> <a style="text-decoration:underline;" href="http://slideshare.net/tag/rails">rails</a> <a style="text-decoration:underline;" href="http://slideshare.net/tag/flex">flex</a>)</div>
+</div>
+<p>Bajo mi punto de vista, osea en España donde en una inmensa mayoría de empresas aún no se plantea dejar el incombustible <a href="http://struts.apache.org/">Struts 1</a>, pienso que sobre <a href="http://www.rubyonrails.org/">Rails</a> y <a href="http://www.adobe.com/es/products/flex/">Flex</a> se puede decir que ya están aquí, ya que tienen cierta cuota de mercado; mientras que de <a href="http://code.google.com/webtoolkit/">GWT</a> y <a href="http://grails.org/">Grails</a> conozco muy pocos casos donde se esté(estemos) utilizando.</p>
+<p>Me gustaría conocer de los que os pasáis por aquí, además de qué framework/s web estáis usando, cuáles son los que llaman vuestra atención. Personalmente me interesa seguir aprendiendo más sobre Grails y Rails, pero además también me llaman la atención <a href="http://code.google.com/appengine/">GAE</a>, <a href="http://codeigniter.com/">CodeIgniter</a> y <a href="http://wicket.apache.org/">Wicket</a> para los que espero sacar tiempo, algún día :P.</p>

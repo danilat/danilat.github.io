@@ -1,0 +1,28 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Git tip: Aumentar el postBuffer para push con cambios grandes'
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2292
+wordpress_url: http://www.danilat.com/weblog/?p=2292
+date: '2012-11-06 13:15:32 +0100'
+date_gmt: '2012-11-06 11:15:32 +0100'
+categories:
+- SCM
+tags: []
+comments: []
+---
+<p>Ayer me surgió un problema al hacer push a un repositorio remoto de git (en bitbucket). El tema es que el repositorio, además de para las gestión de versiones del código en sí; se va a empezar a utilizar para mantener versiones del <em>.war</em> de una aplicación Grails, donde se va a usar también un hook para actualizar y desplegar la aplicación a un entorno de preproducción.</p>
+<p>Como resulta que git por defecto tiene un <a href="http://www.kernel.org/pub/software/scm/git/docs/git-config.html">postBuffer de 1MB</a>, y los <em>.war</em> pesan algo más de 40MB, me daba el siguiente error:</p>
+<p><code>Error: RPC failed; result=22, HTTP code = 411</code></p>
+<p>Para aumentar el postBuffer es tan sencillo como cambiar la configuración en el repositorio local:</p>
+<p><code>git config http.postBuffer <strong>bytes</strong></code> </p>
+<p>Donde <strong>bytes</strong> será el tamaño máximo de los que se permitirá hacer push.</p>

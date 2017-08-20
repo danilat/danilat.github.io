@@ -1,0 +1,31 @@
+---
+layout: post
+status: publish
+published: true
+title: Tuitermaps, jugando con google maps
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 86
+wordpress_url: http://www.danilat.com/weblog/2007/06/25/tuitermaps-jugando-con-google-maps/
+date: '2007-06-25 16:41:03 +0200'
+date_gmt: '2007-06-25 14:41:03 +0200'
+categories:
+- Programación
+- Proyectos
+- Php
+- Javascript
+- Aplicaciones Web
+tags: []
+comments: []
+---
+<p>Hace un tiempo, estuve un par de días jugando un poco con el <a href="http://www.google.com/apis/maps/">api de google maps</a> y <a href="http://twitter.com/help/api">el de twitter</a>, más que nada por la excusa del google maps, la de twitter es muy sencilla (bueno, twitter en sí lo es). El resultado es <a href="http://www.danilat.com/tuitermaps/">TuiterMaps</a>.</p>
+<p>Es algo parecido a twittermap, puedes ver de dónde son las personas que escriben, siempre que tegan puesto en su perfil el location.<br />
+En un principio muestra los mensajes del public timeline, también se puede seleccionar un usario en concreto y un usuario con sus amigos.</p>
+<p>Es muy chorras, pero ya he visto lo fácil que es mostrar una localización gracias a la clase <strong>GClientGeocoder</strong>, simplemente le pasas al método <strong>getLatLng </strong>una cadena de la localización y una función callback que recibe un obeto <strong>GLatLng</strong>, y a partir de ahí puedes crear un <strong>GMarker </strong>para añadir al mapa.</p>
+<p>Lo que le falta es un poco de diseño, pero para eso yo soy muy malo.</p>

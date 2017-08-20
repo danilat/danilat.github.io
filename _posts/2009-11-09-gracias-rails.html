@@ -1,0 +1,64 @@
+---
+layout: post
+status: publish
+published: true
+title: Gracias Rails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 577
+wordpress_url: http://www.danilat.com/weblog/?p=577
+date: '2009-11-09 03:51:40 +0100'
+date_gmt: '2009-11-09 01:51:40 +0100'
+categories:
+- Programación
+- Java
+- Rails
+tags: []
+comments:
+- id: 9747
+  author: Federico
+  author_email: fefo22@adinet.com.uy
+  author_url: ''
+  date: '2009-11-20 23:36:51 +0100'
+  date_gmt: '2009-11-20 21:36:51 +0100'
+  content: "Hola, felicitaciones  por el blog, tengo una consulta sobre Grails, ¿al
+    generar un war los fuentes groovies son compilados a .class como si fueran clases
+    Java? ¿En tiempo de ejecución hay código interpretado que penalice la performance
+    si lo comparamos con un war tradicional?\r\n\r\nGracias\r\n\r\nFederico"
+- id: 9748
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2009-11-21 01:11:15 +0100'
+  date_gmt: '2009-11-20 23:11:15 +0100'
+  content: "Hola Federico.\r\n\r\nSí, el war no tiene nada raro, las clases groovy
+    se compilan a bytecode igual que las clases java. \r\nY en los war no existe código
+    interpretado, aunque es posible que tenga algo menos de performance que otros
+    frameworks java puros, principalmente por que la \"magia\" de groovy evidentemente
+    tiene un coste. Aunque hay que tener en cuenta que el principal cuello de botella
+    de las aplicaciones web, tanto para escalar como para mejorar la performance,
+    suele ser la base de datos(optimizar queries, índices, cachear, desnormalizar...).
+    \r\n\r\nPero bueno, yo te recomendaría que pruebes, compares y decidas :)"
+---
+<p>Gracias a <a href="http://twitter.com/tomaslin/status/5478632440">@tomaslin</a>, me encuentro un más que interesante post llamado <a href="http://jacobian.org/writing/thank-you-rails/">Thank you, Rails</a> de <a href="http://jacobian.org/">Jacob Kaplan-Moss</a>, presidente de la <a href="http://www.djangoproject.com/foundation/">Django Software Foundation</a>, con quien no podría estar más de acuerdo!</p>
+<p>Es más que habitual ver gente de dentro de una comunidad de un framework inspirado en <a href="http://rubyonrails.org/">Rails</a> hacer críticas más o menos feroces hacia el propio Rails, y comparar el framework de turno con Rails para "demostrar" que tiene mejor rendimiento, que escala mejor(en cualquier caso, pienso que sería más correcto decir que es más <em>fácil</em> escalar), etc., afirmaciones que pueden ser más o menos reales, aunque hay por ahí algunos benchmarks/comparativas que hay que cogerlos con pinzas. </p>
+<p>A mi, en la mayoría de los casos, me parece una actitud negativa que "enfrenta" comunidades, a ver quien la tiene más larga, y no lleva a ninguna parte. Es mucho más inteligente observar, aplaudir y por qué no copiar o adaptar, los avances de frameworks diferentes al "mío".</p>
+<p>Para mi, el gran mérito de Rails, además de que se haya creado una comunidad más que interesante alrededor suyo, es que replanteó a muchos como se llevaba a cabo el desarrollo web, y por ello que hayan salido tantos frameworks web que lo han tenido como ejemplo para tener algo similar en otros lenguajes de programación  (<a href="http://grails.org/">Grails</a>, <a href="http://www.djangoproject.com/">Django</a>, <a href="http://cakephp.org/">CakePHP</a>, <a href="http://www.symfony-project.org/">Symfony</a>, <a href="http://www.springsource.org/roo">Roo</a>, <a href="http://framework.zend.com/">Zend</a>, <a href="http://www.playframework.org/">Play!</a>, y otros muchos que me dejo).</p>
+<p>Y volviendo al post de Jacob Kaplan-Moss, agradece principalmente dos cosas de Rails:</p>
+<ul>
+<li><strong>La programación debe ser divertida</strong>(pienso que Ruby dentro de Rails tiene mucha culpa en este punto): Creo que la mayoría que nos metimos en este mundillo, lo hicimos porque nos parecía que iba a ser divertido (bueno... otra razón era que la informática era el futuro y se iba a cobrar mucho dinero XD).
+<p>Jacob habla de que la comunidad Python a veces se toma a ella misma demasiado en serio: necesitaba ser un lenguaje serio, usado por gente seria, para empresas serias y grandes desarrollos(a.k.a. "enterprisey"). </p>
+<p>Y llegó Rails para recordar que el desarrollo web debería ser algo divertido, la comunidad Rails en general desprende que se pueden desarrollar productos pequeños, divertidos, ligeros y además hacer dinero con ellos.
+</li>
+<li><strong>La simplicidad es una feature</strong>, o lo que sería <em>menos es más</em>: Pone como anti-ejemplo el caso de los CMS y la típica obsesión de cubrir el máximo de casos de uso posibles, terminando siendo productos mastodónticos. Aunque no exclusivo de los CMS, seguro que muchos de los que hemos trabajado con gestión de contenidos, lo hemos vivido.
+<p>Rails, por un lado no pretende cubrir el máximo de casos de uso reales, para eso hay plugins que pueden facilitar la vida; y por otro, es un framework <em>opinado</em> (aquí entra lo de <a href="http://es.wikipedia.org/wiki/Convenci%C3%B3n_sobre_Configuraci%C3%B3n">Convention over Configuration</a> ;)). Lo que quiere decir que el framework tiene un funcionamiento por defecto que no es necesario configurar, para ahorrar decisiones al desarrollador, lo que lo hace más simple.</p>
+<p>Resumiendo, gracias a Rails, estos nuevos frameworks tratan de minimizar el trabajo "genérico" de los desarrolladores, sin querer llegar a cubrir cada caso de uso.</li>
+</ul>
+<p>¿He dicho que el lenguaje con el que más he trabajado(y sigo trabajando) es Java? Considerado uno de los lenguajes más "serios" y más complejos en cuanto a configuraciones, especificaciones... pero sobre todo en la forma que se ha venido utilizando. Y gracias a Rails han aparecido algunos frameworks web interesantes como Grails o Play!, y creo que algunos otros de los que no hablo porque no tengo suficientes referencias, que son más divertidos y minimizan el trabajo. </p>
+<p>Por esto, además de porque he trabajado con Rails y que tengo pendiente retomarlo XD, <strong>gracias</strong>!</p>

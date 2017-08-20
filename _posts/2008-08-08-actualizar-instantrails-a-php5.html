@@ -1,0 +1,53 @@
+---
+layout: post
+status: publish
+published: true
+title: Actualizar InstantRails a PHP5
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 178
+wordpress_url: http://www.danilat.com/weblog/2008/08/08/actualizar-instantrails-a-php5/
+date: '2008-08-08 04:07:52 +0200'
+date_gmt: '2008-08-08 02:07:52 +0200'
+categories:
+- Php
+- Rails
+tags: []
+comments:
+- id: 7581
+  author: juan
+  author_email: joeblackcool@gmail.com
+  author_url: ''
+  date: '2008-11-11 23:44:06 +0100'
+  date_gmt: '2008-11-11 21:44:06 +0100'
+  content: Para actualizar el mysql de instalarlo de nuevo o existen procedimientos
+    como este para la actualizacion de php??
+- id: 7583
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-11-12 00:42:51 +0100'
+  date_gmt: '2008-11-11 22:42:51 +0100'
+  content: "Hola juan,\r\n\r\nPrecisamente hace poco hice el intento para pasar a
+    MySQL 5.1 siguiendo los pasos que salen en ésta web: http://blog.guitarati.com/2008/01/upgrading-mysql-50xx-to-mysql-51xx-for.html
+    \r\n\r\nFinalmente no pude hacer que funcionara correctamente y tuve que recuperar
+    la versión 5.0, a ver cuando saco tiempo y vuelvo a intentarlo."
+---
+<p>En el momento empecé a trabajar con Ruby on Rails, elegí la opción de instalar uno de esos paquetes <em>precocinados</em> para instalar y listo, en este caso, sin duda, <a href="http://instantrails.rubyforge.org/wiki/wiki.pl">InstantRails</a>. Como ya trae instalado PHP, desinstalé <a href="http://www.apachefriends.org/en/xampp.html">XAMPP</a> por no andar matando procesos, además de que para qué quiero dos de estos paquetes casi equivalentes. </p>
+<p>El problema es que instantrails viene con PHP4 y no con PHP5, como iba a estar un tiempo sin trabajar con PHP lo dejé así(aparte de un micro-proyecto que puede correr perfectamente con PHP4), hasta que un amigo me pasó un pequeño desarrollo usando el soporte <a href="http://www.php.net/manual/es/language.oop5.php">OO de PHP5</a> para que le pegara una ojeada a un par de cositas, lo que me ha obligado a andar cambiando configuraciones.</p>
+<p>En fin, los pasos para actualizar <a href="http://huynhcaoky.spaces.live.com/blog/cns!6005AD4EF8586233!174.entry">son estos</a>:</p>
+<ul>
+<li>Para empezar debemos descargar el .zip de <a href="http://www.php.net/downloads.php">la última versión de php</a>.</li>
+<li>Renombrar la carpeta de instantrails php a php4, por si acaso.</li>
+<li>Extraer el contenido del .zip a una carpeta php dentro de instantrails.</li>
+<li>En conf_files/httpd.conf, modificar <strong>LoadModule php4_module "${path}/php/php4apache.dll"</strong> por <strong>LoadModule php5_module "${path}/php/php5apache.dll"</strong> y <strong>AddModule mod_php4.c</strong> por <strong>AddModule mod_php5.c</strong>.</li>
+<li>En conf_files/php.ini, modificar <strong>extension_dir = "${path}\php\extensions\"</strong> a <strong>extension_dir = "${path}\php\ext\"</strong></li>
+<li>Por último reiniciar apache</li>
+</ul>
+<p>Y ya hemos actualizado a PHP5</p>

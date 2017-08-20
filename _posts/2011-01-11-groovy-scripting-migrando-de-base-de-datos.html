@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Groovy scripting: migrando de base de datos'
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1327
+wordpress_url: http://www.danilat.com/weblog/?p=1327
+date: '2011-01-11 03:22:28 +0100'
+date_gmt: '2011-01-11 01:22:28 +0100'
+categories:
+- Groovy
+tags: []
+comments: []
+---
+<p>Como algunos ya sabréis, una de las cosas que podemos hacer con Groovy es escribir scripts al estilo de Ruby, Perl, Python... para realizar alguna tarea repetitiva. Desde mi humilde punto de vista(y de gente que sabe mucho más que yo), un programador debe tener en su <em>caja de herramientas</em> un lenguaje para escribir scripts que sirva para automatizar tareas. </p>
+<p>Hace poco he estado haciendo unos retoques a uno que tenía casi olvidado, cuya responsabilidad era hacer una migración de una base de datos a otra, con esquemas <strong>muy</strong> distintos(por lo que tocó sudar sangre :P). Para esto me ayudé de un par de scripts escritos en groovy que cumplieron perfectamente con su función.</p>
+<p>Hablando ya del código, una de las cosas interesantes que tiene groovy en sus últimas versiones es la incorporación de <a href="http://groovy.codehaus.org/Grape">Grape</a> en el lenguaje. Con Grape podemos manejar las dependencias a librerías externas utilizando los mismos repositorios que hay para maven, por ejemplo yo necesitaba el driver jdbc de mysql:</p>
+<p><code>import groovy.grape.Grape<br />
+Grape.grab(group:'mysql', module:'mysql-connector-java', version:'5.1.6',classLoader: this.class.classLoader.rootLoader)<br />
+</code></p>
+<p>Otra cosa que está muy bien es lo que facilita el trabajo con bases de datos, groovy nos da el paquete <strong>groovy.sql.*</strong> para ello. Un ejemplo con código limpiado para que sea más fácilmente legible:</p>
+<p><code>def sql = Sql.newInstance("jdbc:mysql://localhost:3306/vieja", "root","pass", "com.mysql.jdbc.Driver")</p>
+<p>sql.eachRow("select * from contenidos_secciones where seccionId = 2"){<br />
+ println it.id<br />
+ println it.titulo<br />
+//acciones reales a ejecutar<br />
+}</code></p>
+<p>El <em>it</em> dentro de <em>eachRow</em>, efectivamente representa una fila del resultado obtenido de la consulta. </p>
+<p>En mis scripts en los eachRow trataba los datos recibidos para finalmente generar los inserts sql para el esquema de la base de datos nueva y los escribía en un fichero. Para tratar ficheros groovy también nos simplifica la vida, en mi caso tenía por ahí una función tal que así:</p>
+<p><code>def writeToAFile(query, fileName){<br />
+	def file = new File("${fileName}.sql")<br />
+	file.append(query+"\n","UTF-8")<br />
+}<br />
+</code></p>
+<p>A este código habría que añadirles muchas líneas pero no quiero aburrir con cosas genéricas que no aportan gran cosa, como el porrón de consultas y subconsultas diferentes, cambios de estructuras, tratamientos de cadenas para generar inserts...</p>
+<p>En fin, que si no tienes ningún lenguaje para escribir scripts, ya puedes dejar las excusas/pereza y empezar a aprender uno! </p>
+<p>Y si eres programador Java, groovy es el que resulta tener una menor barrera de entrada que los lenguajes <em>sospechosos habituales</em> para esas tareas, la mayoría de la sintaxis ya la conoces :)</p>

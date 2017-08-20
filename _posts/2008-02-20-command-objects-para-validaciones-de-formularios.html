@@ -1,0 +1,32 @@
+---
+layout: post
+status: publish
+published: true
+title: Command Objects para validaciones de formularios
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 137
+wordpress_url: http://www.danilat.com/weblog/2008/02/20/command-objects-para-validaciones-de-formularios/
+date: '2008-02-20 00:27:42 +0100'
+date_gmt: '2008-02-19 22:27:42 +0100'
+categories:
+- Grails
+tags: []
+comments: []
+---
+<p>Llevo unos días jugando un poco con <a href="http://grails.org/">Grails</a> y es un framework que estoy viendo bastante interesante, como también ir aprendiendo <a href="http://groovy.codehaus.org/">groovy</a>.</p>
+<p>La cuestión es que después de ir probando diferentes cosas del framework, y ver la facilidad que dan los constraints para las <a href="http://grails.org/Validation">validaciones en las clases del dominio</a>, pensé la situación de registro de un usuario. En esta situación, se suele utilizar un segundo campo para confirmar la contraseña, por lo que no podía validar esta situación en los constraints de la clase de dominio del usuario ya que <strong>password2</strong> no forma parte de él.</p>
+<p>La solución es utilizar los <a href="http://grails.org/doc/1.0.x/guide/6.%20The%20Web%20Layer.html#6.1.9%20Command%20Objects">Command Objects</a>, que tal y como dice la documentación sería algo como los form bean en struts. Estas clases se suelen declarar en el mismo fichero que el Controller que lo va a utilizar, y se definen los constraints de la misma forma que en las clases del dominio.</p>
+<p>En mi caso, necesitaba comparar dos parámetros del formulario, para esto debía usar un <a href="http://grails.org/Validation+Reference#ValidationReference-validator">constraint propio</a>:</p>
+<p><code>password1( validator: {<br />
+   val, obj -><br />
+      obj.password2 == val<br />
+})</code></p>
+<p>La validación se hace sobre <strong>password1</strong>, <strong>val</strong> es password1, <strong>obj -></strong> es MiCommandObject y con <strong>obj.password2==val</strong> vemos si son iguales. Esto es porque si el clousure recibe dos parámetros, el primero toma el valor y el segundo el objeto de referencia(en este caso el Command Object).</p>
+<p>Mi conclusión en cuanto a la documentación oficial de Grails, es que ya hay bastante cantidad de información pero en algunos momentos demasiado dispersa.</p>

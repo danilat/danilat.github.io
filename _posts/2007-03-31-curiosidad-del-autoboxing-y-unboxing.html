@@ -1,0 +1,27 @@
+---
+layout: post
+status: publish
+published: true
+title: Curiosidad del autoboxing y unboxing
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 52
+wordpress_url: http://www.danilat.com/weblog/2007/03/31/curiosidad-del-autoboxing-y-unboxing/
+date: '2007-03-31 12:29:17 +0200'
+date_gmt: '2007-03-31 10:29:17 +0200'
+categories:
+- Programación
+- Java
+tags: []
+comments: []
+---
+<p>Me ha gustado mucho, y recomiendo, la explicación de <a href="http://blog.riolambre.com/?p=63">autoboxing y unboxing en java</a> del blog <a href="http://blog.riolambre.com/">Mis cosas de programación</a>.</p>
+<p>Me ha parecido muy interesante una curiosidad, que no conocía (más bien no me había parado a pensar), con este código:</p>
+<p><em>if (a == (b+1)) </em></p>
+<p>Siendo <strong>a</strong> y <strong>b</strong> objetos <strong>Integer</strong>, compara los tipos básicos <strong>int</strong>. Hace el unboxing de <strong>b</strong>  para sumarlo con <strong>1</strong>, y de <strong>a</strong> para compararlo con el int (<strong>b</strong>+<strong>1</strong>).</p>

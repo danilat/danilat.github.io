@@ -1,0 +1,37 @@
+---
+layout: post
+status: publish
+published: true
+title: Integrar FCKeditor con MyFaces
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 108
+wordpress_url: http://www.danilat.com/weblog/2007/09/06/integrar-fckeditor-con-myfaces/
+date: '2007-09-06 21:20:08 +0200'
+date_gmt: '2007-09-06 19:20:08 +0200'
+categories:
+- JavaServer Faces
+tags: []
+comments: []
+---
+<p><a href="http://www.fckeditor.net/">FCKeditor</a> es probablemente uno de los editores <a href="http://es.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> más conocidos y utilizados.<br />
+Gracias a la librería <a href="http://sourceforge.net/projects/fck-faces/">FCK Faces</a>, podemos utilizar éste editor nativamente en <a href="http://myfaces.apache.org/">MyFaces</a> como un componente más y olvidarnos de usar javascript. Quizás funcione en otras implementaciones de JSF, pero parece los mismos creadores sólo aseguran que funcione correctamente en la implementación de apache.</p>
+<p>Para poder utilizar éste componente, después de habernos descargado el .jar, necesitamos añadir un servlet a nuestro web.xml:</p>
+<p class="source-code">[servlet]<br />
+[servlet-name]FCKServlet[/servlet-name]<br />
+[servlet-class]org.fckfaces.util.Servlet[/servlet-class]<br />
+[/servlet]<br />
+[servlet-mapping]<br />
+[servlet-name]FCKServlet[/servlet-name]<br />
+[url-pattern]/fckfaces/*[/url-pattern]<br />
+[/servlet-mapping]</p>
+<p>En el jsp añadimos el taglib:</p>
+<p class="source-code">[%@taglib uri="http://www.fck-faces.org/fck-faces" prefix="fck"%]</p>
+<p>Y ya podemos utilizarlo:</p>
+<p class="source-code">[fck:editor value="valor_de_ejemplo" width="100%" toolbarSet="Basic"/]</p>

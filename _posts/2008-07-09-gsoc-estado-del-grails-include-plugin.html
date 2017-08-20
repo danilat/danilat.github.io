@@ -1,0 +1,66 @@
+---
+layout: post
+status: publish
+published: true
+title: 'GSoC: Estado del Grails Include Plugin'
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 172
+wordpress_url: http://www.danilat.com/weblog/2008/07/09/gsoc-estado-del-grails-include-plugin/
+date: '2008-07-09 02:42:59 +0200'
+date_gmt: '2008-07-09 00:42:59 +0200'
+categories:
+- Grails
+tags: []
+comments:
+- id: 4621
+  author: dahernan
+  author_email: dahernan@gmail.com
+  author_url: http://dahernan.net
+  date: '2008-07-09 08:23:10 +0200'
+  date_gmt: '2008-07-09 06:23:10 +0200'
+  content: "¿Hay tanta diferencia entre Eclipse y IDEA, trabajando con Groovy?\r\n\r\nYo
+    siempre uso eclipse, mas que nada por no pagar :D, pero si hay mucha diferencia
+    quiza lo pruebe."
+- id: 4622
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-07-09 10:55:36 +0200'
+  date_gmt: '2008-07-09 08:55:36 +0200'
+  content: "Hola dahernan,\r\n\r\nSin utilizar prácticamente nada de lo que tiene
+    IDEA por estar demasiado \"viciado\" a eclipse, para el caso de trabajar con Groovy/Grails
+    para mi hay mucha diferencia.\r\n\r\nPero como para gustos colores, lo mejor es
+    que pruebes la versión de 30 días tú mismo y saques tus opiniones :)"
+- id: 5498
+  author: "&raquo; Grails Include Plugin 0.3, acabando el GSoC"
+  author_email: ''
+  author_url: http://www.danilat.com/weblog/2008/08/25/grails-include-plugin-03-acabando-el-gsoc/
+  date: '2008-08-25 02:23:13 +0200'
+  date_gmt: '2008-08-25 00:23:13 +0200'
+  content: "[...] Hace días que no escribo sobre mi proyecto del Google Summer of
+    Code, y eso que ya había puesto disponibles un par de releases del Include Plugin
+    de Grails. Sólo lo he ido anunciando en la lista de correo de Grails para ir recibiendo
+    feedback y mejorarlo. [...]"
+---
+<p>Desde que empezó el <a href="http://code.google.com/soc/2008">Google Summer of Code</a> no he explicado exáctamente qué es y el por qué de mi proyecto, ahora que veo cerca la primera versión (a falta de un problema con las <a href="http://grails.org/doc/1.0.x/guide/6.%20The%20Web%20Layer.html#6.4.3%20Mapping%20to%20Views">urls que mapean a vistas</a>) ya empieza a ser hora de hacerlo.</p>
+<p>La cuestión es que <a href="http://grails.org/">Grails</a> no tiene el comportamiento <em>típico</em> de include, tiene el tag <a href="http://grails.org/doc/1.0.x/ref/Tags/render.html">render</a> que es parecido(para el caso de un template estático sería igual) pero se orienta al principio Don't Repeat Yourself en la vista, por lo que al render hay que pasarle los objetos o colecciones de objetos que se utilizarán para renderizar el template.</p>
+<p>Esto puede llevar a un problema de repetición de código en los controllers, por lo que aquí rompemos el Don't Repeat Yourself, siendo sensibles a futuros cambios. Ésto no quiere decir que el render no valga, en mi opinión para conseguir no repetir código dependiendo de los casos, lo mejor es combinar ambos comportamientos. Aunque el problema de la repetición de código se puede solucionar con nuestras propias librerías de tags, que con Grails son sencillas de crear, pero pienso que debería ser todavía más sencillo y limpio utilizando una acción de un controller que además podríamos reutilizar para por ejemplo peticiones XMLHttpRequest.</p>
+<p>Metiéndonos ya en el uso del  plugin, existen dos formas de hacer el include, la forma <em>clásica</em> con el tag <strong>includeURL</strong>:<br />
+<code><br />
+&lt;g:includeUrl url="/prueba/show?param=value"/&gt;<br />
+</code></p>
+<p>Los posibles valores de <em>url</em> pueden ser tanto urls que mapean a controllers/acciones/vistas de nuestra aplicación grails, como a recursos estáticos como puede ser un html plano o un fichero de texto que se encuentren en el mismo contexto. Para el caso de las urls mapeadas, los parámetros se pueden pasar por los posibles valores de la url mapeada tipo REST como con parámetros de la request <em>de los de siempre</em>.</p>
+<p>Y la segunda forma es para mi es la forma recomendada para los caso de hacer un include a acciones de nuestros controllers, <strong>includeController</strong>:<br />
+<code><br />
+&lt;g:includeController controller="prueba" action="show" params="[param:'value']"/&gt;<br />
+</code></p>
+<p>Al que se le pasa el nombre del controller, acción y mapa de parámetros. Hay que decir que por la convención de nombres, en el caso de prueba buscará en controlador PruebaController. La recomendación es simplemente por la probabilidad mucho mayor de una cambio de mapeo de url que del nombre de un controller, cada uno verá de qué manera prefiere hacerlo ;).</p>
+<p>Hablando ya sobre la experiencia desarrollando éste plugin, la verdad que me esperaba que fuera más sencillo de desarrollar, estaba claro que sería necesario un wrapper del response para hacer el <a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/RequestDispatcher.html#include(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse)">include con el RequestDispatcher</a>. Al final he tenido que escribir también un wrapper para el request y re-escribir parte del filtrado del mapeo de urls de grails, al ser la misma petición y no estar contemplado este comportamiento anteriormente, ha habido que hacer un poco de trabajo extra investigando el código del framework en cuanto a mapeo de urls y hacer mucho debug por no conocer el código (gracias <a href="http://www.jetbrains.com/idea/features/groovy_grails.html">IDEA + JetGroovy</a>! :)).</p>
+<p>A ver si dejo una versión estable de éste plugin en las próximas semanas, y comienzo a colaborar con el <a href="http://grails.org/JCR+Plugin+Proposal">plugin de Java Content Repository</a> para poder trabajar con ésta especificación de una forma más o menos parecida a como se usa <a href="http://grails.org/GORM">GORM con Hibernate</a> por debajo.</p>

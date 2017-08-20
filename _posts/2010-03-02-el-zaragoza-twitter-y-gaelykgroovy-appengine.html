@@ -1,0 +1,72 @@
+---
+layout: post
+status: publish
+published: true
+title: El Real Zaragoza, twitter y Gaelyk(Groovy + AppEngine)
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 714
+wordpress_url: http://www.danilat.com/weblog/?p=714
+date: '2010-03-02 03:24:41 +0100'
+date_gmt: '2010-03-02 01:24:41 +0100'
+categories:
+- Proyectos
+- Groovy
+tags: []
+comments:
+- id: 9865
+  author: ecamacho
+  author_email: ecamacho.mx@gmail.com
+  author_url: ''
+  date: '2010-03-02 06:00:24 +0100'
+  date_gmt: '2010-03-02 04:00:24 +0100'
+  content: "Muy buena la idea, yo también estoy usando Groovy + Gaelyk + AppEngine
+    para la web de mi empresa. Esto junto con el plugin de AppEngine para Eclipse
+    me ha encantado la agilidad que me da para programar y hacer el deploy. \r\nNo
+    he tenido oportunidad de usar el SDK completo de AppEngine, pero cosas como la
+    Queue de Tareas, la integración con Jabber + la integración que ha hecho Guillaume
+    con Gaelyk para facilitar el uso de esas APIs desde Groovy, prometen tener un
+    entorno muy ágil, ligero y muy poderoso a la mano para los desarrolladores que
+    no necesitan un entorno RAD completo como el de Grails."
+- id: 9873
+  author: adrian
+  author_email: adrian@otero.ws
+  author_url: http://adrian.otero.ws
+  date: '2010-03-05 11:23:05 +0100'
+  date_gmt: '2010-03-05 09:23:05 +0100'
+  content: Interesante... yo había probado AppEngine con Grails hace ya un tiempo,
+    y las cosas no funcionaban como deberían. Quizá con algo como Gaelyk tenga más
+    sentido.
+- id: 9874
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2010-03-05 13:05:17 +0100'
+  date_gmt: '2010-03-05 11:05:17 +0100'
+  content: Me pasó lo mismo cuando probé Grails+AppEngine, no iba nada fino. Eso sí,
+    Gaelyk es un framework muy diferente a Grails.
+---
+<p>Este viernes noche después de cenar me puse a programar(o a jugar) uno de esos mini-pet-projects, lo suficientemente pequeño para no comprometerme a dedicarle más tiempo fuera del fin de semana y lo suficientemente grande para que sea algo más que un <strong>hello world</strong>. Y salvo a que tenga algún momento de aburrimiento en el que me de por mejorar o añadir alguna cosilla, así se va a quedar.</p>
+<p>El proyecto es un agregador de <a href="http://real-zaragoza.appspot.com/"><em>twitts</em> que hablan del Real Zaragoza</a>(o #realzaragoza :)). Y como uno no quiere hacerse de oro, no lo hace ni del Madrid ni del Barça :P.</p>
+<p style="text-align: center;"><a href="http://real-zaragoza.appspot.com/"><img class="aligncenter" src="http://real-zaragoza.appspot.com/images/escudo.jpg" alt="Real Zaragoza" /></a></p>
+<p>Hablando ya desde el punto de vista puramente técnico, es una aplicación muy sencillita que corre en <em>la nube</em> de Google, osea en <a href="http://code.google.com/appengine/">App Engine</a> (aquí voy a ahorrarme varios comentarios de lo que mola la nube, además de confundirlo con internet... No voy a dar nombres... ;))</p>
+<p>He utilizado un framework web ligero, hecho expresamente para correr en App Engine y muy sencillo llamado <a href="http://gaelyk.appspot.com/">gaelyk</a>, donde el código que escribimos es Groovy. </p>
+<p>Gaelyk permite separar las vistas(<a href="http://groovy.codehaus.org/Groovy+Templates">Groovy Tempaltes</a>) de las acciones(<a href="http://groovy.codehaus.org/Groovlets">Groovlets</a>). Inyecta en las acciones los elementos del SDK de GAE(datastore, memcache, mail, images...), y algunas variables para facilitar la vida y tener un código más escueto.</p>
+<p>En mi caso he dejado la <em>lógica de negocio</em> en los mismos scripts de los Groovlets. Tan sólo hay tres: la home, la vista de un usuario(ej: <a href="http://real-zaragoza.appspot.com/user.groovy?user=dani_latorre">@dani_latorre</a>) y otro que es llamado cada 10 min para hacer una búsqueda en twitter e insertar los twitts nuevos.</p>
+<p>Para la búsqueda de twitts, se hacen tan sólo dos peticiones cada 10 min y se parsea la respuesta atom de la búsqueda con XmlSlurper, se comprueba si no está duplicado y se crea y guarda una nueva <a href="http://code.google.com/intl/es/appengine/docs/java/javadoc/com/google/appengine/api/datastore/Entity.html">Entity de GAE</a> (gaelyk facilita su uso, para que sea más <em>a la groovy</em>).</p>
+<p>Para recuperar lo que hemos persistido, por el momento no aporta novedades, a partir del datastore lanzaremos las queries. En el futuro es posible que surjan novedades en este apartado.</p>
+<p>Para quien le interese conocer más detalles de gaelyk, le recomendaría pegarle una ojeada <a href="http://gaelyk.appspot.com/tutorial">al tutorial</a>.</p>
+<p>Ver una <a href="http://www.slideshare.net/glaforge/google-app-engine-java-groovy-baby">presentación de Guillaume Laforge y Patrick Chanezon</a>.</p>
+<div style="width:425px" id="__ss_2540031"><strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/glaforge/google-app-engine-java-groovy-baby" title="Google App Engine Java, Groovy and Gaelyk">Google App Engine Java, Groovy and Gaelyk</a></strong><object width="425" height="355"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=gaej-groovy-gaelyk-091119150835-phpapp02&stripped_title=google-app-engine-java-groovy-baby" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=gaej-groovy-gaelyk-091119150835-phpapp02&stripped_title=google-app-engine-java-groovy-baby" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object>
+<div style="padding:5px 0 12px">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/glaforge">Guillaume Laforge</a>.</div>
+</div>
+<p>O un <a href="http://www.vimeo.com/6844104">screencast de Pratik Patel</a>(ojo, que a los elementos de GAE inyectados ya no se les llama <em>loqueseaService</em>, sólo <em>loquesea</em>)<br />
+<object width="400" height="225"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6844104&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6844104&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="225"></embed></object>
+<p><a href="http://vimeo.com/6844104">Gaelyk & Groovy & Google App Engine - ATL2G</a> from <a href="http://vimeo.com/user2380601">Pratik Patel</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+<p>Y aunque este año nos toca sufrir, <strong>aupa Zaragoza!</strong> XD</p>

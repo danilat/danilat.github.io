@@ -1,0 +1,55 @@
+---
+layout: post
+status: publish
+published: true
+title: 'ByteStreamInfo, implementeción de la interface StreamInfo '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 44
+wordpress_url: http://www.danilat.com/wordpress/?p=44
+date: '2007-03-06 17:43:20 +0100'
+date_gmt: '2007-03-06 15:43:20 +0100'
+categories:
+- Programación
+- Java
+- Struts
+tags: []
+comments: []
+---
+<p>La semana pasada, me encontré con que tenía que descargar un array de bytes con <a target="_blank" href="http://struts.apache.org/">Struts</a> 1.2.9, como las implementaciones de la interface <a target="_blank" href="http://struts.apache.org/1.2.9/api/org/apache/struts/actions/DownloadAction.StreamInfo.html">StreamInfo</a> para los <a target="_blank" href="http://struts.apache.org/1.2.9/api/org/apache/struts/actions/DownloadAction.html">DownloadAction</a>,  no me valían, <em>piqué</em> mi propia implementación, por si alguien la necesita, la copio aquí:</p>
+<p><code>import java.io.ByteArrayInputStream;<br />
+import java.io.IOException;<br />
+import java.io.InputStream;</p>
+<p>import org.apache.struts.actions.DownloadAction.StreamInfo;</p>
+<p>/**<br />
+* Implementacion completa de la interfaz StreamInfo, para la descarga de bytes desde el servidor<br />
+* @author dlatorre<br />
+*<br />
+*/<br />
+public class ByteStreamInfo implements StreamInfo{<br />
+private String contentType;<br />
+private byte[] data;<br />
+public ByteStreamInfo(String contentType,byte[] data){<br />
+this.contentType=contentType;<br />
+this.data=data;<br />
+}</p>
+<p>/**<br />
+*  Retorna el content type del stream a descargar<br />
+*/<br />
+public String getContentType() {<br />
+return contentType;<br />
+}</p>
+<p>/**<br />
+* Retorna un input stream del array de bytes a descargar<br />
+*/<br />
+public InputStream getInputStream() throws IOException {<br />
+InputStream inpt=new ByteArrayInputStream(data);<br />
+return inpt;<br />
+}<br />
+}</code></p>

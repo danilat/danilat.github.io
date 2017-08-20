@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: SQLite, booleanos y buenas prácticas
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 300
+wordpress_url: http://www.danilat.com/weblog/?p=300
+date: '2009-04-21 12:31:02 +0200'
+date_gmt: '2009-04-21 10:31:02 +0200'
+categories:
+- Rails
+tags: []
+comments: []
+---
+<p>Hace unas semanas estuve implementando un sencillo sistema de votaciones con la ayuda del plugin <a href="http://github.com/jaggederest/acts_as_voteable/tree/master">acts_as_voteable</a>, para un proyecto con Rails, donde me surgió un <em>problemilla</em> que gracias a los tests resultó menos <em>doloroso</em>.</p>
+<p>Tras tener ya prácticamente escrita la acción para votar, implementé el test para el controlador con sus diferentes <a href="http://dev.thoughtbot.com/shoulda/classes/Shoulda/ClassMethods.html#M000028">contextos</a>(que sí, que <a href="http://es.wikipedia.org/wiki/TDD">TDD</a>, pero uno todavía está en la fase de acostumbrarse :P). Cuando ejecuté el test por primera vez, esperando que me diera algunos fallos en mi código, me llevé la sopresa de un error SQL con origen en el plugin, que no existía la columna TRUE ¿¿en el where vote = TRUE??. </p>
+<p>Lo primero fue pensar que no era posible, con ActiveRecord de por medio eso era un poco raro, por lo que las sospechas fueron para SQLite, que era el gestor de bases de datos en el entorno de tests. Probando a ejecutar los tests con una base de datos MySQL, fallaba mi código y no el del plugin, se confirmó la sospecha.</p>
+<p>Una vez implementada completamente la funcionalidad y los tests pasando, tocó perder unos minutos para ver qué estaba pasando y <a href="http://www.google.es/search?q=sqlite+boolean&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:es-ES:official&client=firefox-a">google contesta rápido</a>. Resulta que para utilizar booleanos en queries con SQLite debe utilizarse <a href="http://chriscraig.net/blog/sqlite-boolean-true-or-false/">'true' y 'false'</a>, al mirar el código del plugin se confirmaba el problema:</p>
+<p><code><br />
+votes = Vote.find(:all, :conditions => [<br />
+  "voteable_id = ? AND voteable_type = ? AND vote = TRUE",<br />
+  id, self.type.name<br />
+])<br />
+</code></p>
+<p>El valor de vote estaba <em>hardcoded</em>, pues como tocaba cambiar el código, aproveché a cambiar self.type que está deprecated, por self.class:</p>
+<p><code><br />
+votes = Vote.find(:all, :conditions => [<br />
+  "voteable_id = ? AND voteable_type = ? AND vote = ?",<br />
+  id, self.class.name, true<br />
+])<br />
+</code></p>
+<p>Y al ejecutar los tests con SQLite, los pasó. Pero luego resulta que había alguien que ya había solucionado el problema, como era de esperar en la comunidad Rails, en el plugin <a href="http://github.com/peteonrails/vote_fu/tree/master">vote_fu</a> (llegando a combinar funcionalidades complementarias de tres plugins distintos).</p>
+<p>Después de crear la migración para eliminar la tabla de acts_as_voteable y crear la de vote_fu, ejecuté los tests del controlador para ver si tocaba cambiar algo, pero pasaban correctamente.</p>
+<p>Conclusiones, además de lo aprendido con los booleanos de SQLite:</p>
+<ul>
+<li>Aprovechar (en la medida de lo posible) la independencia de bases de datos que aportan ActiveRecord u otros ORMs, sobre todo si estamos desarrollando componentes reutilizables.</li>
+<li>Y a procurar seguir mejorando en cuanto a la automatización de tests. Desde que empecé a escribir tests, hago commits con la conciencia más tranquila :).</li>
+</ul>

@@ -1,0 +1,142 @@
+---
+layout: post
+status: publish
+published: true
+title: Reutilizar un custom validator en Grails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2171
+wordpress_url: http://www.danilat.com/weblog/?p=2171
+date: '2012-05-24 02:01:58 +0200'
+date_gmt: '2012-05-24 00:01:58 +0200'
+categories:
+- Grails
+tags: []
+comments:
+- id: 11032
+  author: jneira
+  author_email: atreyu.bbb@gmail.com
+  author_url: http://twitter.com/jneira
+  date: '2012-05-24 08:14:10 +0200'
+  date_gmt: '2012-05-24 06:14:10 +0200'
+  content: "Elegante lo de crear el finder al vuelo y usar \"propertyName\" que no
+    sabia que estaba disponible en los validator como variable implicita.\r\nUna duda
+    me ha entrado comparando vuestra solucion con la que suelo usar yo: ¿por que una
+    closure estatica en lugar de un metodo de instancia? Los metodos se pueden sobrecargar/sobreescribir
+    en las clases hijas.\r\nEl coste es que no se puede poner directamente en las
+    constraints pero a cambio tiene mas \"vida propia\" como un metodo dentro de la
+    logica de negocio de la entidad.\r\nOs dejo una version usando metodos:\r\nhttps://gist.github.com/047517ecb12d404f74ec"
+- id: 11033
+  author: dmcom
+  author_email: dmcom@ya.com
+  author_url: ''
+  date: '2012-05-24 09:31:53 +0200'
+  date_gmt: '2012-05-24 07:31:53 +0200'
+  content: Un pequeño detalle, puedes usar propertyName.capitalize() que queda más
+    elegante.
+- id: 11035
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2012-05-24 10:00:41 +0200'
+  date_gmt: '2012-05-24 08:00:41 +0200'
+  content: "@jneira la verdad que no nos lo habíamos planteado por le hecho que llegamos
+    hasta algo que nos valía y era razonablemente bueno para nosotros. Probaré tu
+    aproximación :).\r\n\r\n@dmcom cierto! Me empané con eso y me dio por pensar que
+    capitalize dejaba todo en minúscula excepto el primer carácter (con lo fácil que
+    hubiera sido leer la doc o probarlo XD)"
+- id: 11036
+  author: Iván
+  author_email: lopez.ivan@gmail.com
+  author_url: http://lopezivan.blogspot.com
+  date: '2012-05-24 10:46:55 +0200'
+  date_gmt: '2012-05-24 08:46:55 +0200'
+  content: "Muy interesante. Una pequeña duda.\r\n\r\n¿No tienes problemas al herededar
+    las clases de dominio de una padre? Me refiero a cuando se crean las tablas físicas
+    en bd, o todas dependen de la padre o están padres e hijas en la misma tabla.\r\n\r\nSaludos,
+    Iván."
+- id: 11038
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2012-05-24 13:16:21 +0200'
+  date_gmt: '2012-05-24 11:16:21 +0200'
+  content: "Hasta el momento no he encontrado problemas con esto. Depende del caso
+    utilizo una estrategia u otra, según me encaje.\r\n\r\nEn este caso, he utilizado
+    como estrategia table-per-subclass, porque no necesito hacer búsquedas desde el
+    padre, sólo comparten algún comportamiento.\r\n\r\nPor contra, en otro proyecto
+    sí saco provecho al table-per-hierarchy, y que esté todo persistido en la misma
+    tabla. En ocasiones necesito hacer búsquedas por el tipo padre."
+- id: 11040
+  author: Iván
+  author_email: lopez.ivan@gmail.com
+  author_url: http://lopezivan.blogspot.com
+  date: '2012-05-24 17:19:11 +0200'
+  date_gmt: '2012-05-24 15:19:11 +0200'
+  content: "Gracias Dani.\r\n\r\nYo, en un proyecto anterior tuve alguna mala expericencia
+    con las jerarquías, porque al hacer queries en las tablas hijas, siempre se tiraba
+    un join automática en la tabla padre (lo cual tiene sentido). El problema era
+    que las tablas tenían muchos registros y el hecho de tener que hacer un join implicaba
+    que todo iba un poco más lento.\r\n\r\nAhora nos pensamos mucho más el hacer una
+    jerarquía para las clases de dominio.\r\n\r\nSaludos, Iván."
+- id: 11043
+  author: jneira
+  author_email: atreyu.bbb@gmail.com
+  author_url: http://twitter.com/jneira
+  date: '2012-05-25 07:32:05 +0200'
+  date_gmt: '2012-05-25 05:32:05 +0200'
+  content: "Otra duda que me ha entrado despues: ¿por que no usais la forma estandar
+    de declarar restricciones unicas en plan:\r\n\r\nconstraints {\r\npropiedad unique:'user'\r\n}\r\n\r\no\r\n\r\nconstraints
+    {\r\npropiedad unique:['otraProp','user']\r\n}\r\n?"
+- id: 11055
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2012-05-29 00:35:53 +0200'
+  date_gmt: '2012-05-28 22:35:53 +0200'
+  content: "Pues mira... por no conocer su existencia. Estaba convencido que no estaba
+    implementado \"de serie\", no tengo claro a partir de que versión tenía soporte
+    a crear uniques en base de otros atributos.\r\n\r\nGracias por el aporte Javier
+    :)"
+---
+<p>En estos momentos ando colaborando con <a href="http://sergiodelamo.es/">Sergio del Amo</a> en un producto propio para su empresa <a href="http://softamo.com/">Softamo</a>, un producto que estamos desarrollando con Grails.</p>
+<p>El tema es que teníamos un puñado de clases de dominio que están relacionadas con un propietario, una clase User. Cada instancia de esa clase de dominio debía tener un nombre único por propietario, por lo que debíamos usar un <a href="http://www.grails.org/doc/latest/ref/Constraints/validator.html">custom validator</a>. Al final, tras varias refactorizaciones llegamos a una solución que creo que quedó bastante elegante.</p>
+<p>Las clases de dominio heredan de una clase padre con varios métodos comunes, además de una clausura estática que contiene la lógica de la validación <strong>uniqueByUser</strong>, que es lo que nos interesa para esto.</p>
+<p><code>static uniqueByUser = { value, object -><br />
+&nbsp;&nbsp;  propertyName = propertyName[0].toUpperCase() + propertyName[1..propertyName.size()-1]<br />
+&nbsp;&nbsp;  def methodName = "findByUserAnd${propertyName}"<br />
+&nbsp;&nbsp;  def obj = object.class."$methodName"(object.user, value)<br />
+&nbsp;&nbsp;  if(obj && (obj.id != object.id)) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;    return 'unique'<br />
+&nbsp;&nbsp;  }<br />
+}<br />
+</code></p>
+<p>Vale, por si no queda del todo claro, intento detallar que hace el código:</p>
+<ul>
+<li><em>propertyName</em>, es el nombre de la propiedad/atributo sobre la que se ejecutará la validación, variable que está implícita en la clausura.
+</li>
+<li><em>propertyName[0].toUpperCase() + propertyName[1..propertyName.size()-1]</em>, ponemos en mayúscula el primer carácter del nombre del atributo (por ejemplo "name" pasa a "Name").
+</li>
+<li><em>def methodName = "findByUserAnd${propertyName}"</em>, ponemos el método al que vamos a llamar para saber si ya existe un valor con mismo usuario y atributo buscado (por ej: findByUserAndName).
+</li>
+<li><em>def obj = object.class."$methodName"(object.user, value)</em>, ejecutamos ese findBy* estático sobre la clase del objeto instanciado que se está validando, pasándole el usuario relacionado y el valor del atributo (algo que podría ser equivalente por ejemplo a Drink.findByUserAndName(drink.user, "vodka")).
+</li>
+<li><em>if(obj && (obj.id != object.id))</em>, comprobamos que si se devuelve un valor, no sea el mismo que la instancia del actual.
+</li>
+<li><em>return 'unique'</em>, en este caso devolvemos el código de mensaje de validación como unique, por lo que aprovecharemos los mismos mensajes i18n del unique estándar de grails.
+</li>
+</ul>
+<p>Entonces, en nuestras clases de domino que hereden de ahí, para el atributo donde queramos utilizar ese constraint simplemente deberemos indicar <strong>validator: uniqueByUser</strong>. Algo como:</p>
+<p><code>static constraints = {<br />
+&nbsp;&nbsp;  name blank: false, validator: uniqueByUser<br />
+&nbsp;&nbsp;  description blank: false<br />
+}</code></p>
+<p>Lo único que no contempla ahora mismo esta solución es tener más de un custom validator, principalmente porque no nos ha hecho falta. Si lo llegamos a necesitar, veremos como lo hacemos, claro :P.</p>
+<p>Mejoras y propuestas bienvenidas.</p>
+<p><strong>ACTUALIZACIÓN:</strong> Mejor que darle tantas vueltas como hicimos nosotros, es utilizar el soporte <em>multi-column</em> de la constraint <a href="http://grails.org/doc/latest/ref/Constraints/unique.html">unique</a> (Nota mental: No dar por supuestas según que cosas, e ir a verlo a la documentación). Gracias al comentario de @jneira.</p>

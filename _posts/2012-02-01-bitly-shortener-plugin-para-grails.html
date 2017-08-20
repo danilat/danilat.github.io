@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: Bitly Shortener Plugin para Grails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1931
+wordpress_url: http://www.danilat.com/weblog/?p=1931
+date: '2012-02-01 04:01:54 +0100'
+date_gmt: '2012-02-01 02:01:54 +0100'
+categories:
+- Grails
+tags: []
+comments: []
+---
+<p>A raíz de mi colaboración trabajando con <a href="http://universalplaces.com/">UniversalPlaces</a>, surgió la necesidad de integrar el acortador de urls de bit.ly. Principalmente para aprovechar las estadísticas que da este servicio alrededor de los enlaces compartidos, teniendo además <strong>uplac.es</strong> como dominio propio para este uso.</p>
+<p>Lo desarrollé en un plugin que usamos internamente a modo de <em>core</em>, donde tenemos funcionalidad común. Porque, entre otras cosas, había que implementarlo en el buscador de <a href="http://playas.universalplaces.com/">hoteles en playas</a>, en el <a href="http://reservaplayas.com/">portal de playas</a> y en otro buscador vertical que saldrá a la luz próximamente.</p>
+<p>Durante la semana pasada saqué un rato un par de noches para extraer la funcionalidad y  escribir la documentación para poder publicarlo a modo de <a href="http://www.grails.org/plugin/bitly-shortener">plugin de grails</a>. No es gran cosa, pero quizás a alguien le ahorre un poco de trabajo :).</p>
+<p>La documentación en inglés está <a href="https://github.com/danilat/bitly-shortener/blob/master/README.md">en el README</a> del repositorio en github, pero la dejo aquí en español:</p>
+<p><strong>¿Qué es?</strong></p>
+<p>Un plugin para grails que encapsula el método shorten <a href="http://code.google.com/p/bitly-api/wiki/ApiDocumentation">de la API</a> de <a href="http://bitly.com">bitly</a>, para acortar urls.</p>
+<p><strong>Instalación</strong></p>
+<p><code>grails install-plugin bitly-shortener</code></p>
+<p><strong>Configuración:</strong></p>
+<p>En el <em>Config.groovy</em> se debe configurar el login de usuario de bitly, el apiKey de ese usuario; y si corresponde el dominio que se quiera utilizar.</p>
+<p><code>bitly.login = "danilat"<br />
+bitly.apiKey = "R_FooBar"<br />
+bitly.domain = "j.mp" //optional<br />
+</code></p>
+<p><strong>Cómo usarlo:</strong></p>
+<p>Hay 2 artefactos de grails que se pueden utilizar, un servicio <em>bitlyService</em>:</p>
+<p><code>def shortened = bitlyService.shorten("http://www.danilat.com")<br />
+shortened.statusCode // 200 si la petición ha ido bien.<br />
+shortened.statusText // "OK" si la petición ha ido bien.<br />
+shortened.url // Nos da la url acortada si todo ha ido bien.<br />
+</code></p>
+<p>Y un taglib <em>bitly:shorten</em>:</p>
+<p><code>${bitly.shorten(url:'http://www.danilat.com')}</p>
+<p>&lt;bitly:shorten url="http://www.danilat.com" /&gt;</code></p>

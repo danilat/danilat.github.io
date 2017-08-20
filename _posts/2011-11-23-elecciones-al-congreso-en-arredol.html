@@ -1,0 +1,39 @@
+---
+layout: post
+status: publish
+published: true
+title: Elecciones al Congreso en Arredol
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1844
+wordpress_url: http://www.danilat.com/weblog/?p=1844
+date: '2011-11-23 20:05:29 +0100'
+date_gmt: '2011-11-23 18:05:29 +0100'
+categories:
+- Proyectos
+- Php
+- Javascript
+tags: []
+comments: []
+---
+<p> Como <a href="https://twitter.com/#!/dani_latorre/status/138354700322996224">publiqué en twitter el mismo domingo</a> del 20-N (el día de las elecciones, vamos :P), colaboré con <a href="http://www.arredol.com/">Arredol</a>, un pequeño diario online publicado en aragonés, desarrollando las gráficas de los <a href="http://www.arredol.com/eleccions-espanyolas-2011/">resultados electorales a las elecciones del congreso español</a>.</p>
+<p>Fue un desarrollo exprés, ya que tenía otros compromisos que no podía dejar de lado. Fueron unas 6 o 7 horas de trabajo a tope ese mismo fin de semana, pero me apetecía colaborar por fin con algún medio, aunque fuera tan pequeñito como lo es arredol :).</p>
+<p>Herramientas utilizadas:</p>
+<ul>
+<li>El <a href="http://politica.elpais.com/politica/2011/11/13/actualidad/1321193831_901025.html">API que puso a disposición El País</a>. Que básicamente hizo el trabajo que según los que defendemos el OpenData debería ser responsabilidad del Ministerio del Interior, poner a disposición de cualquier persona o entidad esos datos de forma estructurada para poder procesarlos.
+</li>
+<li>
+El <a href="http://code.google.com/intl/es-ES/apis/chart/">API de Google Charts</a> para las representaciones gráficas. No pude adaptar los colores por partido por las limitaciones que tiene, o al menos no logré dar con la solución.
+</li>
+<li>En el lado del servidor <a href="http://php.net/manual/en/function.simplexml-load-file.php">PHP y simplexml</a> para procesar la información de El País. Básicamente por que el hosting de arredol sólo soporta php, no por otra cosa en especial.</li>
+</ul>
+<p><a href="http://www.flickr.com/photos/dlato/6390268891/" title="Elecciones en arredol.com por Dani Latorre, en Flickr"><img src="http://farm7.staticflickr.com/6043/6390268891_b3b02e95e4.jpg" width="456" height="429" alt="Elecciones en arredol.com"></a></p>
+<p>Como podréis comprender, por haber sido un pequeño desarrollo hecho a toda prisa, el código en general es muy mejorable; pero el resultado cara al usuario creo que no está del todo mal. </p>
+<p>Seguramente fuera una solución muy alejada de las herramientas de visualización de algunos grandes medios de comunicación, con una posibilidad de interacción mucho mayor. Pero en Aragón quizás fuera de lo mejor, cosa que casi me entristece. </p>
+<p>No vi que tuviera mucho que envidiar a lo que vi que hicieron por ejemplo en la web de <a href="http://www.heraldo.es/">Heraldo</a>, y no digamos de <a href="http://elperiodicodearagon.com/">El Periódico de Aragón</a> donde no vi nada especial para la ocasión... Supongo que no dedicarían muchos esfuerzos...</p>

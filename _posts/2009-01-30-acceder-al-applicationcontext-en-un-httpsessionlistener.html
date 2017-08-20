@@ -1,0 +1,36 @@
+---
+layout: post
+status: publish
+published: true
+title: Acceder al ApplicationContext en un HttpSessionListener
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 208
+wordpress_url: http://www.danilat.com/weblog/2009/01/30/acceder-al-applicationcontext-en-un-httpsessionlistener/
+date: '2009-01-30 04:08:03 +0100'
+date_gmt: '2009-01-30 02:08:03 +0100'
+categories:
+- Spring
+tags: []
+comments: []
+---
+<p><script src="http://gist.github.com/53639.js"></script></p>
+<noscript>
+private ApplicationContext getApplicationContext(HttpSessionEvent event){<br />
+  ServletContext servletContext = event.getSession().getServletContext();<br />
+  ApplicationContext context = (ApplicationContext) servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);<br />
+  return context;<br />
+}</p>
+<p>public void sessionCreated(HttpSessionEvent event) {<br />
+  TestService testService = (TestService) getApplicationContext(event).getBean("testService");<br />
+  //....<br />
+}<br />
+</noscript>
+<p>PD: Esto es una <em>nota mental</em> para no olvidarlo, y si de paso le sirve a alguien, pues mejor aún :)<br />
+PDD: Están muy bien servicios como <a href="http://gist.github.com/">gist</a> o <a href="http://pastie.org/">pastie</a>, para compartir pequeños trozos de código ;)</p>

@@ -1,0 +1,134 @@
+---
+layout: post
+status: publish
+published: true
+title: Usando Cucumber con Grails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 884
+wordpress_url: http://www.danilat.com/weblog/?p=884
+date: '2010-07-12 19:11:09 +0200'
+date_gmt: '2010-07-12 17:11:09 +0200'
+categories:
+- Groovy
+- Grails
+tags: []
+comments:
+- id: 10001
+  author: de la red &ndash; 12/07/2010 &laquo; Tecnologías y su contexto
+  author_email: ''
+  author_url: http://tecpol.wordpress.com/2010/07/13/de-la-red-12072010/
+  date: '2010-07-13 03:42:30 +0200'
+  date_gmt: '2010-07-13 01:42:30 +0200'
+  content: "[...] Usando Cucumber con Grails (&#8230;) Cucumber es una herramienta
+    para hacer tests de aceptación(a la Behaviour Driven Development) escrita en Ruby
+    que ayuda a bajar la barrera que separa a la gente de negocio o de testing(&#8230;)
+    con los programadores, utilizando un DSL de por medio&#8230; [...]"
+- id: 10002
+  author: "&nbsp; Usando Cucumber con Grails&nbsp;-&nbsp;Observatorio de Grails"
+  author_email: ''
+  author_url: http://observatoriodegrails.com/2010/07/13/usando-cucumber-con-grails/
+  date: '2010-07-13 11:15:22 +0200'
+  date_gmt: '2010-07-13 09:15:22 +0200'
+  content: "[...] Más información aquí. [...]"
+- id: 10003
+  author: Carlos Rico
+  author_email: crico.aven@gmail.com
+  author_url: http://cuestamenos.com
+  date: '2010-07-13 11:32:59 +0200'
+  date_gmt: '2010-07-13 09:32:59 +0200'
+  content: "Muy interesante el artículo. No he trabajado nunca con Cucumber, pero
+    lo conocía de oidas, ahora me queda mucho más claro su uso y su posible integración
+    con Grails.\r\n\r\nSaludos!"
+- id: 10004
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2010-07-13 17:57:32 +0200'
+  date_gmt: '2010-07-13 15:57:32 +0200'
+  content: "Hola Carlos!\r\n\r\nMe alegro que te haya resultado interesante :)\r\n\r\nSaludos
+    y mucha suerte con cuestamenos.com! ;)"
+- id: 10722
+  author: German
+  author_email: german.otero@gmail.com
+  author_url: ''
+  date: '2011-12-21 17:14:43 +0100'
+  date_gmt: '2011-12-21 15:14:43 +0100'
+  content: "Cuando intento correr los test, me dice que no encuentra las clases que
+    estamos importando\r\nimport org.openqa.selenium.By\r\nimport org.openqa.selenium.WebDriver\r\nimport
+    org.openqa.selenium.WebElement\r\nimport org.openqa.selenium.htmlunit.HtmlUnitDriver\r\nimport
+    static groovy.util.GroovyTestCase.*\r\n\r\nunable to resolve class org.openqa.selenium.WebDriver\r\n\r\n\r\ntenes
+    idea de como instalar selenium o el WebDriver?"
+- id: 11814
+  author: Javier
+  author_email: f_terron@hotmail.com
+  author_url: ''
+  date: '2013-11-15 13:18:37 +0100'
+  date_gmt: '2013-11-15 11:18:37 +0100'
+  content: "Buenas\r\n\r\nTrato de integrar cucumber con Jenkins....\r\npero\r\n\r\nal
+    tratar de configurar una tarea de jenkins q lance el comando cucumber desde linea
+    de comandos, no funciona.\r\n\r\nSin embargo, si en vez de poner solo \"cucumber\"
+    desde linea de comandos , pongo DEVICE=Iphone NO_LAUNCH= 1 cucumber, va perfecto.\r\n\r\nEL
+    NO_LAUNCH=1, vale pero tengo que arrancar manualmente desde el XCODE el simulador.\r\n\r\nLA
+    desventaja, es que como quiero usar JEnkins como lanzador y olvidarme, si uso
+    el comando cucumber ejecuta todos los scripts que haya dentro de la carpeta features,
+    pero si lanzo con el NO_LAUNCH=1, se para en el primer fallo que haya y ahì se
+    queda, todo lo que reste falla por timeout al no arrancar con cada script la aplicación.\r\n\r\n?Sabéis
+    cómo puedo resolverlo?\r\n\r\nMuchas gracias de antemano\r\nsaludos"
+---
+<p>Desde que trabajé hace algo más de un año con los cracks de <a href="http://www.linkingpaths.com/">Linking Paths</a> y Rails que no tocaba <a href="http://cukes.info/">Cucumber</a>,  hasta este fin de semana, que he estado haciendo algunas pruebas con el <a href="http://github.com/danklynn/grails-cucumber">plugin grails-cucumber</a>. Cucumber es una herramienta para hacer tests de aceptación(a la Behaviour Driven Development) escrita en Ruby que ayuda a bajar la barrera que separa a la gente <em>de negocio</em> o <em>de testing</em>(hay una leyenda urbana que dice que existen XD) con los programadores, utilizando un DSL de por medio.</p>
+<p>Por un lado gracias a la JVM y JRuby podíamos aprovecharnos de esta interesante herramienta utilizando Ruby, y por otro, hace cosa de un año y algo que se han ido añadiendo soporte a otros lenguajes de la JVM con el proyecto <a href="http://wiki.github.com/aslakhellesoy/cuke4duke/">cuke4duke</a>. A día de hoy, también podemos escribir los tests con Java, Groovy, Scala, Clojure, Javascript y Ioke; cada uno que elija el lenguaje que más le guste :). Y siguiendo con la recapitulación, a principios de primavera surgió el plugin para grails y desde entonces que tenía pendiente probarlo, pero por falta de tiempo unas veces o simplemente no acordarme otras, lo había ido retrasando :P.</p>
+<p>En fin, pues después de encontrarme varios problemas para instalar y hacer funcionar el plugin, preferí hacer un fork para modificar el código bajo mis necesidades y luego hacer un pull request en github para que se <a href="http://github.com/danklynn/grails-cucumber/compare/ada4f46ac8...f25d00e337">pudieran aprovechar los cambios</a>. Arreglé un problemilla con el script Gant de ejecución de cucumber con mi versión de grails(1.2.2), aproveché a actualizar las depenencias con jruby y cuke4duke a las últimas versiones y eliminé la dependencia con picocontainer. </p>
+<p>Tras estos pasos me puse a escribir una <a href="http://wiki.github.com/aslakhellesoy/cucumber/feature-introduction">feature</a> como esta:</p>
+<p><code><br />
+Feature: Search job offers<br />
+&nbsp;&nbsp;Scenario: Search job offers in zaragoza, we should have results<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Given I'm at jobsket.es<br />
+&nbsp;&nbsp;&nbsp;&nbsp;And I write zaragoza into the seachbox<br />
+&nbsp;&nbsp;&nbsp;&nbsp;When I submit the form<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Then the result should contains Promotora<br />
+&nbsp;&nbsp;&nbsp;&nbsp;And the result should contains zaragoza</code></p>
+<p>Supongo que a los que conozcáis otras herramientas de BDD os resultará familiar o imaginaréis por donde van los tiros del significado de este DSL(pre-condiciones, proceso, post-condiciones). Pero como supongo que a algunos les resultará útil, ahí va una mini-explicación con mis palabras :P</p>
+<p><strong>Feature</strong>: Es la funcionalidad que vamos a testear, en este caso la búsqueda de ofertas de empleo en jobsket.<br />
+<strong>Scenario</strong>: El escenario vendría a ser una <em>historia de usario</em> de la funcionalidad, esto quiere decir que cada scenario sería probar una funcionalidad en un contexto distinto.<br />
+<strong>Given</strong>: El estado inicial del escenario, se pueden concatenar varios con And's.<br />
+<strong>When</strong>: El <em>proceso</em> que queremos probar, también se pueden concatenar varios usando And's... pero de inicio no tiene sentido, deberíamos probar sólo una cosa en cada escenario.<br />
+<strong>Then</strong>: Las comprobaciones para saber si el escenario se está ejecutando correctamente o no.</p>
+<p>Bueno, una vez escritos los pasos de la feature, nos queda escribir los <a href="http://wiki.github.com/aslakhellesoy/cucumber/step-definitions">steps</a> para que se ejecute el test del escenario. Como en nuestro caso queremos aplicar el test de aceptación a una interfaz web, utilizaremos el archi-conocido <a href="http://seleniumhq.org/">Selenium</a>. El código en Groovy quedaría algo parecido a esto:</p>
+<p><code><br />
+import org.openqa.selenium.By<br />
+import org.openqa.selenium.WebDriver<br />
+import org.openqa.selenium.WebElement<br />
+import org.openqa.selenium.htmlunit.HtmlUnitDriver<br />
+import static groovy.util.GroovyTestCase.*<br />
+this.metaClass.mixin(cuke4duke.GroovyDsl)<br />
+</code><code><br />
+WebDriver driver<br />
+WebElement element<br />
+Before() {<br />
+&nbsp;driver = new HtmlUnitDriver()<br />
+}<br />
+Given(~"I'm at jobsket.es") {<br />
+&nbsp;driver.get("http://www.jobsket.es/home")<br />
+}<br />
+Given(~"I write (\\w+) into the seachbox") {keywords -><br />
+&nbsp;element = driver.findElement(By.id("keywords"))<br />
+&nbsp;element.sendKeys(keywords)<br />
+}<br />
+When(~"I submit the form"){<br />
+&nbsp;element.submit()<br />
+}<br />
+Then(~"the result should contains (\\w+)") { someContent -><br />
+&nbsp;assertFalse(-1 == driver.getPageSource().indexOf(someContent))<br />
+}</code></p>
+<p>Si os fijáis, lo único raro es <em>this.metaClass.mixin(cuke4duke.GroovyDsl)</em>, que hace la "magia" para que funcione el DSL. Los <em>Given, When y Then</em> se ejecutarán cuando coincida una cadena de las features, internamente funcina mediante expresiones regulares. El <em>Before()</em> se ejecuta antes de cada escenario, y para ser re-utilizable entre features distintas debería estar en el directorio support. El resto del código no deja de ser de selenium/webdriver normal y corriente, además de usar GroovyTest(basado en JUnit) para comprobar que se cumplen las post-condiciones.</p>
+<p>Hasta aquí no hay diferencias con utilizar cuke4duke con Groovy sin Grails. Lo que aporta el plugin de grails es que ayuda a olvidarse de instalar jruby y la gema de cuke4duke, lo integra como herramienta de línea de comandos(ejecutando <strong>grails cucumber</strong>) y entonces tampoco es necesario configurar nada nuevo en el servidor de integracion contínua para ejecutar estos tests.</p>
+<p>En mi opinión, todavía está lejos de la integración de Cucumber con Rails, al menos por lo que yo recuerdo. Con Rails tras cada escenario se devuelve la base de datos al mismo estado inicial, es posibl combinar comprobaciones a nivel de interfaz y a la vez acceder a los métodos de los modelos para preparar o comprobar el escenario... vamos, que ayuda a que puedan ser tests menos frágiles, que es lo negativo que se suele ver en los test de aceptación(también llamados funcionales o de sistema). </p>
+<p>De todas formas, sigue siendo un plugin muy interesante por poder conocer en un lenguaje cercano al natural si un escenario está en un estado <em>aceptable</em> o no, y si hay gente no técnica de por medio puede ser una herramienta perfecta para acercar <em>mundos</em>.</p>
+<p>Ala! Fin del tocho! XD</p>

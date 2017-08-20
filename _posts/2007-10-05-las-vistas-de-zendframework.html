@@ -1,0 +1,31 @@
+---
+layout: post
+status: publish
+published: true
+title: Las vistas de ZendFramework
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 113
+wordpress_url: http://www.danilat.com/weblog/2007/10/05/las-vistas-de-zendframework/
+date: '2007-10-05 19:12:12 +0200'
+date_gmt: '2007-10-05 17:12:12 +0200'
+categories:
+- Php
+tags: []
+comments: []
+---
+<p>Últimamente, estoy sacando algunos ratos para desarrollar una pequeña web para ir probando el ZenFramework. Hasta el momento he encontrado cosas que me han gustado y que no.</p>
+<p>La <strong>Convention over Configuration</strong> te ahorra el pelearte con ficheros de configuración (como la mayoría de los frameworks más conocidos de php), el patrón ActiveRecord y la cantidad de <a href="http://framework.zend.com/manual/components">componentes</a> que trae de serie(por lo que parece sino todos, la mayoría vienen "reciclados" de <a href="http://pear.php.net/">PEAR</a>).</p>
+<p>Lo que no me ha gustado ha sido la combinación de los componentes  <a href="http://framework.zend.com/manual/en/zend.view.html">Zend_View</a> y <a href="http://framework.zend.com/manual/en/zend.controller.html">Zend_Controller</a> para la vista,  que es un sistema de plantillas basado en php.<br />
+El primer problema que encuentro es que no hay forma de definir una página maestra, por lo que para poner por ejemplo una cabecera y un pie hay que hacer algo parecido a los includes.</p>
+<div class="source-code">echo $this->render('cabecera.phtml')<br />
+...codigo...<br />
+echo $this->render('pie.phtml')</div>
+<p>El segundo me parece todavía más molesto, al ser php combinado con html, se complica mucho el código de las plantillas. Y si para un programador le puede ser ya difícil de seguir donde se habre y cierra un foreach o un if, un diseñador o maquetador puede pasar un rato <em>divertido</em>.</p>
+<p>En conclusión, que acaba pareciendo código spaghetti. Eso sí,parece que se puede <a href="http://kpumuk.info/php/zend-framework-using-smarty-as-template-engine/">utilizar Smarty</a> como motor de plantillas, con el que en su día no estuve demasiado cómodo trabajando y no me motiva demasiado probarlo.</p>

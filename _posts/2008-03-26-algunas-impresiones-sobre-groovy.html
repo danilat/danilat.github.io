@@ -1,0 +1,97 @@
+---
+layout: post
+status: publish
+published: true
+title: Algunas impresiones sobre Groovy
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 144
+wordpress_url: http://www.danilat.com/weblog/2008/03/26/algunas-impresiones-sobre-groovy/
+date: '2008-03-26 03:53:03 +0100'
+date_gmt: '2008-03-26 01:53:03 +0100'
+categories:
+- Groovy
+tags: []
+comments:
+- id: 2956
+  author: Christian Barahona
+  author_email: cbarahona@kruger.com.ec
+  author_url: http://www2.kruger.com.ec
+  date: '2008-03-26 18:16:20 +0100'
+  date_gmt: '2008-03-26 16:16:20 +0100'
+  content: A mí me desanima el rendimiento de Groovy contra Java, es en promedio el
+    doble más lento que Java.
+- id: 2957
+  author: Jordi
+  author_email: jmonne@gmail.com
+  author_url: http://jmonne.blogspot.com
+  date: '2008-03-26 18:36:27 +0100'
+  date_gmt: '2008-03-26 16:36:27 +0100'
+  content: "Jeje, tiempo al tiempo Christian, lo que no se puede es obtener un rendimiento
+    similar al de Java en tan poco tiempo cuando hace practicamente nada que tenemos
+    la 1.5.\r\n\r\nPor otra parte para mi una de las grandes ventajas de utilizar
+    groovy es utilizarlo como complemento. Puedes utilizar tus procesos críticos con
+    Java y lo que no importe tanto en rendimiento groovy :).\r\n\r\nPor otra parte
+    creo que estamos demasiado obsesionados en intentar obtener un rendimiento brutal
+    en todo lo que hacemos. Personalmente si tengo que perder un poco de rendimiento
+    pero ganarlo en productividad estoy encantado de pagarlo (en según que procesos,
+    ojo).\r\n\r\nSaludos."
+- id: 2962
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-03-26 20:04:44 +0100'
+  date_gmt: '2008-03-26 18:04:44 +0100'
+  content: "Como dice Jordi, habrá que dejar que madure Groovy. No se van a centrar
+    en tratar de tener un rendimiento fantástico desde el principio, sin saber a ciencia
+    cierta por dónde les vendrán los problemas. Y lo dicho, con su integración con
+    java no hay ningún problema en combinarlos si tienes necesidades de mejoras de
+    rendimiento.\r\n\r\nPor cierto, creo haber leído en alguna parte que para la 1.6
+    trabajarían en mejorar el rendimiento."
+- id: 2965
+  author: Kike
+  author_email: kikejf@gmail.com
+  author_url: ''
+  date: '2008-03-27 01:15:25 +0100'
+  date_gmt: '2008-03-26 23:15:25 +0100'
+  content: 'Una preguntilla, que me interesa el tema: ¿con qué framework trabajas?
+    No logro instalar la del netbeans 6M1....'
+- id: 3235
+  author: "&raquo; Usando ExpandoMetaClass"
+  author_email: ''
+  author_url: http://www.danilat.com/weblog/2008/04/17/usando-expandometaclass/
+  date: '2008-04-17 12:35:09 +0200'
+  date_gmt: '2008-04-17 10:35:09 +0200'
+  content: "[...] Como ya comenté, una de las cosas interesantes que veía en groovy
+    era ExpandoMetaClass. [...]"
+- id: 8019
+  author: idecasso
+  author_email: idecasso@yahoo.com.mx
+  author_url: ''
+  date: '2008-12-06 04:30:04 +0100'
+  date_gmt: '2008-12-06 02:30:04 +0100'
+  content: "Hola, se supone que el rendimiento de Groovy en 1.6 es de 150% a 450%
+    más rápido de lo que era hasta ahora. En realidad su sintaxis es sencilla, lo
+    que necesitamos es acostumbrarnos al uso de las clousure y otras cosas. Aparte
+    de los Expando, podemos usar MetaClass para añadir nuevos métodos y atributos
+    a las clases existentes, aunque por experiencia propia no puedes modificar ciertas
+    clases y metodos; por ejemplo, para añadir un objeto String nombre a la clase
+    String(una clase final y que no podemos extender) seria el código asi:\r\n\r\nString.metaClass.nombre
+    = \"\"\r\nString s = \"Hola mundo\"\r\nprintln s\r\nprintln s.nombre\r\ns.nombre
+    = \" idecasso\"\r\nprintln s\r\nprintln s.nombre\r\n\r\nla salida de la consola
+    es\r\nHola mundo\r\n\r\nHola mundo\r\n idecasso\r\n\r\nGroovy viene integrado
+    en Netbeans 6.5, para estoy hay que instalar la version completa.\r\n\r\nGroovy
+    resulta útil para implementar rápido grandes partes del sistema y dejar las partes
+    críticas a Java, además de que se integra por completo con Java(Salvo los Expando
+    y los MetaClass que no se pueden usar en Java)."
+---
+<p>Poco a poco me está gustando más <a href="http://groovy.codehaus.org/">Groovy</a>, a priori, se puede pensar que como es un lenguaje de programación dinámico es un lenguaje sencillo, nada más lejos de la realidad. </p>
+<p>Es un lenguaje que tiene una sintaxis parecida a Java pero con sus añadidos resulta más compleja, existe un documento donde se nombran las <a href="http://groovy.codehaus.org/Differences+from+Java">principales diferencias entre Groovy y Java</a>. Además, usando Groovy contamos con la ventaja de que podemos aprovechar el conocimiento que ya tenemos, además de por su sintaxis,  por su <a href="http://groovy.codehaus.org/Integration">integración con librerías java</a>.</p>
+<p>Además, me gustan las <a href="http://groovy.codehaus.org/Dynamic+Groovy">capacidades dinámicas</a> del lenguaje y su <a href="http://groovy.codehaus.org/ExpandoMetaClass">ExpandoMetaClass</a> para añadir comportamientos a una clase(añadir métodos, atributos y constructores usando closures), me falta empezar a utilizar estas features del lenguaje a las que les tengo ganas :) y que me ayuda a pensar cómo estarán desarrolladas algunas partes de grails.</p>
+<p>Para empezar a "jugar" con el lenguaje no puedo dejar de recomendar los artículos que escribió <a href="http://www.jroller.com/aalmiray/">Andrés Almiray</a> en <a href="http://www.groovy.org.es/">groovy.org.es</a> de <a href="http://groovy.org.es/home/story/89">Introducción a Groovy</a>(partes <a href="http://www.groovy.org.es/home/story/99">2</a> y <a href="http://www.groovy.org.es/home/story/128">3</a>), dónde explica con detalle muchas de esas diferencias entre Java y Groovy.</p>

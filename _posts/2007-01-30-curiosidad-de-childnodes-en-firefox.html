@@ -1,0 +1,75 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Curiosidad de childNodes (en firefox) '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 34
+wordpress_url: http://www.danilat.com/wordpress/?p=34
+date: '2007-01-30 17:35:17 +0100'
+date_gmt: '2007-01-30 15:35:17 +0100'
+categories:
+- Programación
+- Javascript
+tags: []
+comments:
+- id: 9994
+  author: Marqués
+  author_email: mendas.meriendas@gmail.com
+  author_url: http://Nin-guna
+  date: '2010-07-08 17:40:31 +0200'
+  date_gmt: '2010-07-08 15:40:31 +0200'
+  content: "Buenas, he ab-usado de tu truco con muy buen resultado.\r\n\r\nXD.\r\n\r\nDanke!!!"
+- id: 9995
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2010-07-08 18:09:29 +0200'
+  date_gmt: '2010-07-08 16:09:29 +0200'
+  content: "Un placer y una sor-presa haberle servido de ayuda señor Marqués XDD\r\n\r\nSupongo
+    que has llegado a través de google, porque ni yo me acordaba de escribir esto!!
+    Eso sí, yo que tú, si te dejan, me pillaría algún framework javascript para poder
+    \"vivir mejor\" y evitar estos dolores de huevos XD\r\n\r\nLa internete es un
+    pañuelo jejeje"
+- id: 9997
+  author: Marqués
+  author_email: mendas.meriendas@gmail.com
+  author_url: http://Nin-guna
+  date: '2010-07-08 19:14:01 +0200'
+  date_gmt: '2010-07-08 17:14:01 +0200'
+  content: "El placer ha sido mío, jeejej.\r\n\r\nYa me contarás cuál es bueno que
+    haré probatinas, pero no se si me dejarán usar semejante modernez. XD"
+- id: 9998
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2010-07-09 01:13:36 +0200'
+  date_gmt: '2010-07-08 23:13:36 +0200'
+  content: Últimamente  estoy tocando jquery, aunque prototype también me funcionaba
+    muy bien. Yo creo que va más a gustos que otra cosa, pero si no me equivoco ahora
+    mismo se suele usar más jquery.
+---
+<p>Me he encontrado una <em>curiosidad</em>, montando una función que recuperara el html dentro de un td.</p>
+<p>La <em>curiosidad </em>en cuestion es childNodes, me esperaba que este método, recuperara sólo los nodos html hijos y, si existe, los nodos de texto.</p>
+<p>Pero me he encontrado con que, en firefox, recupera también los saltos de línea tal y cómo explican en <a target="_blank" href="http://www.dhtmlya.com.ar/temarios/descripcion.php?cod=76&punto=5">dhtmlya</a> más detalladamente.</p>
+<p>Este es el código javascript:</p>
+<p><code><br />
+tr=document.getElementById(idTr);<br />
+td=tr.childNodes[0];<br />
+return td.innerHTML;<br />
+</code></p>
+<p>Para que funcionara correctamente, como simplemente busco el html que contienen los</p>
+<p>, lo he modificado así:<code><br />
+tr=document.getElementById(idTr);<br />
+tds=tr.getElementsByTagName("td");<br />
+td=tds[0];<br />
+return td.innerHTML;<br />
+</code></p>
+<p>Que es la forma que debería haber utilizado desde un principio, pero así nunca hubiera conocido la <em>curiosidad </em>del childNodes :P</p>

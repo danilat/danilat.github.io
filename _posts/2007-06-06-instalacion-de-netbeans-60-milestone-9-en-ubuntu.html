@@ -1,0 +1,52 @@
+---
+layout: post
+status: publish
+published: true
+title: Instalación de NetBeans 6.0 milestone 9 en Ubuntu
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 80
+wordpress_url: http://www.danilat.com/weblog/2007/06/06/instalacion-de-netbeans-60-milestone-9-en-ubuntu/
+date: '2007-06-06 12:47:28 +0200'
+date_gmt: '2007-06-06 10:47:28 +0200'
+categories:
+- Programación
+- Java
+- Linux
+tags: []
+comments:
+- id: 10
+  author: Kiwa
+  author_email: equihua_j@msn.com
+  author_url: ''
+  date: '2007-06-27 02:50:37 +0200'
+  date_gmt: '2007-06-27 00:50:37 +0200'
+  content: "Oye, como le haces para instalar el netbenas paso a paso, ya que soy nuevo
+    en esto de linux, recientemente me llego el disco de netbeans pero no tengo idea
+    de como instalarlo.\r\n Mi SO es ubuntu 6.10 edge\r\n El JDK ya lo instale desde
+    el automatix\r\n\r\n El problema es que acabo de dejar de usar windows para pasar
+    al linux y no tengo idea de como instalar, en el automatix ponen en descarga el
+    eclipse pero yo tenfo varios proyectos de windows que quiero pasar aca.\r\n\r\nGracias
+    y Saludos\r\n\r\nPD. El archivo lo tengo con extencion .bin en el escritorio"
+- id: 11
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-06-27 09:30:09 +0200'
+  date_gmt: '2007-06-27 07:30:09 +0200'
+  content: "Hola Kiwa, \r\n\r\nsi no me equivoco, deberías ejecutarlo con sudo sh
+    netbeans.bin y asegurate que el archivo tiene permisos de ejecución.\r\n\r\nSaludos."
+---
+<p>Ayer estuve instalando <a href="http://www.netbeans.org/">NetBeans</a> 6.0 en <a href="http://www.danilat.com/weblog/2007/05/26/probando-ubuntu-feisty/">mi partición de Ubuntu</a>, para empezar a tocar las novedades de JEE 5 y apoyarme en las ayudas del IDE, veremos si retiramos el <a href="http://www.eclipse.org/">eclipse</a>.</p>
+<p>Estos son los pasos que seguí para instalar NetBeans:</p>
+<p>1- Descargar el IDE de la web de <a href="http://www.netbeans.org/community/releases/60/index.html">netbeans</a>.</p>
+<p>2- Una vez descargado, hay que asegurarse de tener permisos de ejecución sobre el archivo .sh, y ejecutar el archivo <strong>./netbeans-6.0m9-standard-linux.sh</strong>.</p>
+<p>En mi caso, el instalador no encontraba la JDK, la solución, simplemente poner al parámetro ...“...“javahome el path dónde se encuentra la JDK <strong>./netbeans-6.0m9-standard-linux.sh  ...“...“javahome pathJava</strong></p>
+<p>3- El resto ya es la típica configuración gráfica de NetBeans, así que al gusto.</p>
+<p>Conclusión: Como se puede ver no es nada difícil la instalación y en caso de atasco se le puede pedir ayuda al señor google.</p>

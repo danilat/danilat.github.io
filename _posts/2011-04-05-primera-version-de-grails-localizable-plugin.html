@@ -1,0 +1,51 @@
+---
+layout: post
+status: publish
+published: true
+title: Primera versión de Grails Localizable Plugin
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1527
+wordpress_url: http://www.danilat.com/weblog/?p=1527
+date: '2011-04-05 02:29:38 +0200'
+date_gmt: '2011-04-05 00:29:38 +0200'
+categories:
+- Grails
+tags: []
+comments:
+- id: 10651
+  author: Fernando
+  author_email: fernandospr@yahoo.com
+  author_url: ''
+  date: '2011-12-01 14:53:57 +0100'
+  date_gmt: '2011-12-01 12:53:57 +0100'
+  content: "Muy bueno tu plugin, tal vez te interese agregarle la siguiente funcionalidad
+    a tu servicio para poder calcular la distancia entre coordenadas:\r\n\r\n\tprivate
+    static final double FACTOR = 0.06 * 1.1515 * 1.609344 * 1000 * 1000\r\n\t\r\n
+    \   public float getDistanceInMeters(coord1, coord2){\r\n\t\treturn Math.toDegrees(Math.acos(Math.sin(Math.toRadians(coord1['lat']))
+    * Math.sin(Math.toRadians(coord2['lat'])) +\r\n\t\t\tMath.cos(Math.toRadians(coord1['lat']))
+    * Math.cos(Math.toRadians(coord2['lat'])) *\r\n\t\t\tMath.cos(Math.toRadians(coord1['lng']
+    - coord2['lng'])))) * FACTOR\r\n    }"
+---
+<p>Hacía un par de meses que tenía medio terminado un plugin de grails llamado <a href="https://github.com/danilat/localizable">localizable</a>, y al fin he limpiado un poco las dependencias para que cumpla unos mínimos antes de hacerlo público.</p>
+<p>Es una pequeña utilidad para facilitar la integración con el API del <a href="http://code.google.com/apis/maps/documentation/geocoding/">servicio de Geocoding de Google Maps</a> para los proyectos desarrollados con grails. </p>
+<p>Se puede obtener la latitud y longitud a raíz de una dirección, o las direcciones a partir de la latitud y longitud.</p>
+<p>Para instalarlo:<br />
+<code>grails install-plugin localizable</code></p>
+<p>Tras haberlo instalado, tendremos a nuestra disposición un servicio de grails(<strong>geocodingService</strong>) que nos facilitará el trabajo de geolocalización a partir de un puñado de métodos:</p>
+<p><code>findLatLngsByAddress(address) //Devuelve un array con las posiciones encontradas a partir de una posición.</code></p>
+<p><code>findLatLngByAddress(address) //Devuelve sólo la primera posición encontrada a raíz de una posición.</code></p>
+<p><code>findAddressesByLatLng(lat, lng) //Devuelve un array con las diferentes direcciones coincidentes con una latitud y longitud.</code></p>
+<p><code>findAddressByLatLng(lat, lng) //Devuelve la dirección más completa que coincida con la latitud y longitud.</code></p>
+<p><code>findPointsByAddress(address) //Devuelve un array de <a href="http://grails.org/doc/latest/api/org/codehaus/groovy/grails/web/json/JSONObject.html">JSONObject</a> que representan los puntos coincidentes con la dirección.</code></p>
+<p><code>findPointsByLatLng(lat, lng) //Devuelve un array de <a href="http://grails.org/doc/latest/api/org/codehaus/groovy/grails/web/json/JSONObject.html">JSONObject</a>  que representan los puntos coincidentes con la latitud y longitud.<br />
+</code></p>
+<p>Podéis ver <a href="https://github.com/danilat/primerviernes-workshop/blob/master/grails-app/controllers/example/WifiController.groovy#L155">un pequeño ejemplo de uso</a> en el código que utilizamos para un taller de hace unas semanas con primerviernes</p>
+<p>Próximos pasos: Preparar la documentación de uso del plugin en inglés, espero que me cueste menos tiempo :P. </p>
+<p>No entra en mis planes añadirle más funcionalidades, pero por supuesto que estoy abierto a sugerencias y/o contribuciones.</p>

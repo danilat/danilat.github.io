@@ -1,0 +1,58 @@
+---
+layout: post
+status: publish
+published: true
+title: Cambiando de prototype a YUI con Grails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 508
+wordpress_url: http://www.danilat.com/weblog/?p=508
+date: '2009-09-08 01:46:25 +0200'
+date_gmt: '2009-09-07 23:46:25 +0200'
+categories:
+- Javascript
+- Grails
+tags: []
+comments:
+- id: 9678
+  author: Alvaro Sánchez-Mariscal
+  author_email: alvaro.sanchez@salenda.es
+  author_url: http://blogs.salenda.es/alvaro_sanchez
+  date: '2009-09-08 07:46:45 +0200'
+  date_gmt: '2009-09-08 05:46:45 +0200'
+  content: Nosotros lo que hacemos es usar YUI (GrailsUI) y jQuery. No se solapan
+    y tienes lo mejor de ambos. En ese sentido, para mí jQuery está muy por encima
+    del resto.
+- id: 9680
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2009-09-08 16:08:52 +0200'
+  date_gmt: '2009-09-08 14:08:52 +0200'
+  content: "En nuestro caso simplemente queríamos quitarnos esa dependencia para optimizar
+    en lo posible el peso en cada petición, y tocó elegir, aún sabiendo que para cosas
+    \"normales\" YUI no es ni de lejos la mejor librería. \r\n\r\nTengo pendiente
+    tocar jQuery de verdad, he hecho alguna cosita pero todavía no he tenido oportunidad
+    para sacarle demasiado jugo."
+---
+<p>Días antes del último despliegue de <a href="http://www.jobsket.com/">Jobsket</a>, estuve dándole vueltas a un problemilla con <strong>Grails 1.0.5</strong> y los <a href="http://grails.org/doc/1.0.x/guide/6.%20The%20Web%20Layer.html#6.7%20Ajax">taglibs estándar para usar Ajax</a>, por defecto Grails utiliza la librería javascript <a href="http://www.prototypejs.org/">prototype</a> para abstraerse de los distintos navegadores. Para que funcionen los taglibs remoteFunction, remoteLink y formRemote debemos utilizar <em>&lt;g:javascript library="prototype" /&gt;</em> para que cargue el .js de la librería, la cuestión es que estamos utilizando algunos componentes de <a href="http://developer.yahoo.com/yui/">YahooUI</a>(y de <a href="http://grails.org/plugin/grails-ui">GrailsUI</a>) y para aligerar el peso de las peticiones, queríamos quitar todas nuestras dependencias con prototype.</p>
+<p>Después de refactorizar nuestro código javascript dependiente de prototype, donde hemos encontrado que hay efectos muy sencillos de implementar gracias a <a href="http://script.aculo.us/">script.aculo.us</a> que no lo son tanto con YahooUI(la librería <a href="http://blog.davglass.com/files/yui/effects/">Effects Widget</a> nos ha ayudado en esta transición), nos encontramos que teniendo en el layout la declaración de qué librería deben usar para renderizar esos taglibs de Ajax, en las vistas seguía haciéndolo con el código para prototype, por lo que daba errores javascript. Para que en cada vista renderizara usando el código de YUI, debemos poner la declaración <em>&lt;g:javascript library="yui" /&gt;</em> en cada vista, yendo con cuidado en el orden de las dependencias, ya que si hay un <em>&lt;g:javascript library="yui"/&gt;</em> en el layout y en la vista sólo se renderizará el segundo, por lo que habría que hacer algo así:</p>
+<p>En el layout:<br />
+<code>&lt;g:javascript library="yui" /&gt;<br />
+&lt;g:layoutHead /&gt;<br />
+&lt;yui:javascript dir="..." file="..." /&gt;<br />
+&lt;yui:javascript dir="..." file="..." /&gt;<br />
+&lt;g:javascript library="application" /&gt;</code></p>
+<p>En la vista:<br />
+<code>&lt;g:javascript library="yui" /&gt;<br />
+&lt;yui:javascript dir="..." file="..." /&gt;</code></p>
+<p>En este orden se renderizarán primero las dependencias básicas de la librería YUI, luego las que necesitemos para usar componentes, y por último nuestro propio código que puede depender de algún componente.</p>
+<p>En fin, no es una solución DRY, pero funciona para los pocos casos en los que lo necesitamos.</p>
+<p>Otra de las soluciones de las que nos hemos ayudado, como muchos seguro que imaginaréis ;), es implementar una función $(), que aunque no nos dé las bondades de las <a href="http://www.prototypejs.org/learn/extensions">extensiones DOM de prototype</a>, nos ha ayudado a tener que cambiar mucho menos código:</p>
+<p><code>function $(id){ return YAHOO.util.Dom.get(id)}</code></p>

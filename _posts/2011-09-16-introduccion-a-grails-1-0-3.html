@@ -1,0 +1,66 @@
+---
+layout: post
+status: publish
+published: true
+title: Introducción a Grails (1.0.3)
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1758
+wordpress_url: http://www.danilat.com/weblog/?p=1758
+date: '2011-09-16 01:44:30 +0200'
+date_gmt: '2011-09-15 23:44:30 +0200'
+categories:
+- Grails
+tags: []
+comments: []
+---
+<p><em><a href="http://es.debugmodeon.com/articulo/introduccion-a-grails">Artículo publicado hace un par de años en debug_mode=on</a> y recuperado a mi blog depués del último <a href="https://twitter.com/#!/debugmodeon/status/114379295144681472">tuit de la cuenta oficial</a> y <a href="https://twitter.com/#!/jlbelmonte/status/114378880445452288">de Belmonte</a>. Aunque no sea (ni de muy lejos) el mejor contenido que me haya trabajado, me hace duelo pensar en perderlo, por eso lo reproduzco aquí:<br />
+</em></p>
+<blockquote><p><strong>Introducción:</strong></p>
+<p><a href="http://grails.org/" target="_blank">Grails</a> es un framework web open source para la plataforma Java, que sigue los principios Don't Repeat Your Self(No te repitas) y Convention over Configuration(Convención sobre configuración). Grails se inspiró de incio en Ruby on Rails, llegándose a llamar de inicio Groovy on Rails con el que además de estos principios comparten otras similitudes como: scaffolding, layouts, taglibs(en rails helpers), sistema de plugins...</p>
+<p>Grails es algo más que un framework MVC, también nos ofrece capa de persistencia, capa de servicio, contenedor de servlets y gestor de bases de datos. Se sustenta sobre varios frameworks y librerías Java muy conocidas y probadas como son Spring Framework, Hibernate, Sitemesh, Log4j, Jetty, Hsqldb... y del lenguaje de programación Groovy.</p>
+<p><strong>Instalación:</strong></p>
+<p>Para instalar Grails debemos descargarnos la última versión(en éste momento 1.0.3) en <a href="http://www.grails.org/Download" target="_blank">http://www.grails.org/Download</a>y extraer el contenido del archivo comprimido.<br />
+Crear la variable de entorno GRAILS<em>HOME apuntando hacia el directorio que hemos extraído y añadir el GRAIL</em>HOME/bin en la variable de entorno PATH.<br />
+Tras esto ejecutamos en una consola el comando grails help y con el que nos debería salir el listado de comandos de grails.</p>
+<p>¡Ya podemos crear nuestra primera aplicación!</p>
+<p><strong>La aplicación:</strong></p>
+<p>Veremos una aplicación de ejemplo que se compondrá tan sólo de una clase de dominio para una gestión de un catálogo de productos.</p>
+<p>Creamos la aplicación con:</p>
+<pre>grails create-app catalog</pre>
+<p>Una vez ejecutado entramos al directorio de nuestra aplicación:</p>
+<pre>cd catalog</pre>
+<p>Aquí podemos ver la estructura de directorios que se ha generado:</p>
+<ul>
+<li>grails-app: Artefactos de Grails(controllers, vistas, clases de dominio, taglibs, configuraciones...)</li>
+<li>lib: Librerías para nuestro proyecto (que no traiga Grails de serie, claro)</li>
+<li>plugins: Plugins instalados</li>
+<li>scripts: Scripts Gant</li>
+<li>src: Clases java o groovy que no sean artefactos de Grails</li>
+<li>test: Tests de nuestra aplicación</li>
+<li>web-app: css, imágenes, ficheros html estáticos...</li>
+</ul>
+<p>Tras ésto creamos la clase de dominio:</p>
+<pre>grails create-domain-class product</pre>
+<p>Vemos que en grails-app/domain se ha creado Product.groovy(además en los tests ProductTest.groovy), que abriremos y añadiremos los atributos a la clase(por ejemplo: name, description y provider)</p>
+<pre>class Product{
+String name
+String description
+String provider
+int quantity
+}</pre>
+<p>Y con ésto hemos terminado de definirlo, al ser un POGO no son necesarios getters y setters, ya que Groovy es quien se encargará de generarlos en tiempo de ejecución.<br />
+Tras esto utilizaremos el scaffolding, que nos creará un controller con las acciones básicas y susrespectivas vistas:</p>
+<pre>grails generate-all product</pre>
+<p>Veremos que en grails-app/controllers tendremos un ProductController.groovy y en grails-app/views/product los .gsp que son las respectivas vistas de las acciones de ProductController.</p>
+<p>Tras ésto, podemos arrancar el servidor embebido que trae Grails y una vez arrancado podemos ver el resultado en<a href="http://localhost:8080/catalog/:" target="_blank">http://localhost:8080/catalog/:</a></p>
+<pre>grails run-app</pre>
+<p>Con esto tenemos generado el esqueleto de nuestra aplicación sin crear un war, sin ir a crear tablas en la base de datos, sin configurar nada...</p>
+<p>Con esto no hemos hecho más que empezar, como ejercicio es recomendable mirar el código que se ha generado en el controller y en las vistas, modificar algo, tratar de añadir alguna acción nueva como podría ser una acción para sumar 1 a la cantidad de un producto. Y cómo no, no dejar de seguir <a href="http://grails.org/doc/1.0.x/" target="_blank">la guía de referencia</a></p></blockquote>
+<p>Ojalá aparezca alguien con capacidad y motivación suficiente para reflotar y mantener <a href="http://es.debugmodeon.com/">debugmodeon</a>.</p>

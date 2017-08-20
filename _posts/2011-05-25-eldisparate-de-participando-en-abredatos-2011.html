@@ -1,0 +1,84 @@
+---
+layout: post
+status: publish
+published: true
+title: elDisparate.de, participando en AbreDatos 2011
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1637
+wordpress_url: http://www.danilat.com/weblog/?p=1637
+date: '2011-05-25 19:17:22 +0200'
+date_gmt: '2011-05-25 17:17:22 +0200'
+categories:
+- Proyectos
+- Grails
+- Open Data
+tags: []
+comments:
+- id: 10439
+  author: aragoneame.com
+  author_email: ''
+  author_url: http://www.aragoneame.com/story.php?id=20359
+  date: '2011-05-25 19:21:16 +0200'
+  date_gmt: '2011-05-25 17:21:16 +0200'
+  content: |-
+    <strong>Un proyecto altoaragonés sobre la exportación de armas finalista del Concurso Abredatos...</strong>
+
+    Un proyecto altoaragonés sobre la exportación de armas finalista del Concurso Abredatos. Daniel Latorre nos explica cómo y por qué del proyecto. Bravo!...
+- id: 10440
+  author: Yeray Darias
+  author_email: ydarias@gmail.com
+  author_url: http://developerscookbook.blogspot.com/
+  date: '2011-05-26 09:00:05 +0200'
+  date_gmt: '2011-05-26 07:00:05 +0200'
+  content: "Genial Dani!!\r\n\r\nEs uno de los proyectos que más me ha gustado de
+    entre los que he visto. Parece que la opción de contar con gente que no sean técnicos
+    ha estado bien porque es precisamente el aspecto y la facilidad de uso la que
+    llama la atención (sin desmerecer tu parte del trabajo claro :-)) Además la información
+    es muy clara y fácil de entender, que creo es lo que \"falla\" un poco en otros
+    de los proyectos.\r\n\r\nMe alegra que os lo hayáis pasado tan bien y espero que
+    ganéis el concurso :-D"
+- id: 11102
+  author: Arragonán &raquo; Blog Archive &raquo; Como se hizo elDisparate.de, en BetaBeers
+    Zaragoza
+  author_email: ''
+  author_url: http://www.danilat.com/weblog/2012/06/11/como-se-hizo-eldisparate-de-en-betabeers-zaragoza/
+  date: '2012-06-11 01:25:32 +0200'
+  date_gmt: '2012-06-10 23:25:32 +0200'
+  content: "[...] Y un post del año pasado en el que expliqué un poco lo que fue la
+    parte de obtención de datos y programación. [...]"
+---
+<p>Por fin he sacado un rato para escribir sobre nuestra participación en el <a href="http://www.abredatos.es/">Desafío AbreDatos 2011</a> con <a href="http://www.eldisparate.de/">elDisparate</a>.</p>
+<p><strong>El equipo y la idea:</strong></p>
+<p>Hice equipo con <a href="http://www.biotive.com/pensieve/">Mamen Pradel</a> (diseño), <a href="http://www.shakingbox.com/">Toño García</a> (ilustración y animación) y <a href="http://twitter.com/pordeciralgo">Agustín Raluy</a> (márketing); vamos, que arriesgamos en cuanto a la formación del equipo, descargando importancia a la parte de programación y dándosela a la de diseño/presentación. Y no, no hubo muchas discusiones en cuanto al código XD.</p>
+<p>Como <strong>altoaragonés</strong>, tenía ganas de participar con un equipo desde la provincia de Huesca, que hay que intentar descentralizar un poco el <em>foco</em> que tiene Zaragoza en cuanto a temas tecnológicos y repartirlo por el resto de Aragón. Por eso nos fuimos a nuestros respectivos pueblos (<em>"secuestrando"</em> a Mamen de tierras mañas ;)), y montamos el cuartel general el fin de semana en las oficinas de <a href="http://www.integralstand.com/">Integral Stand</a> en Barbastro.</p>
+<p>El origen de la idea es un poco de rebote, un día "tuiteé" un post (en aragonés) de <a href="http://twitter.com/purnas">@purnas</a>: <a href="http://www.purnas.com/2011/04/16/gaddafi-bombardeya-con-armas-zaragozanas-a-historia-dinstalaza/">Gaddafi bombardeya con armas zaragozanas (A historia d’Instalaza)</a>, y <a href="http://twitter.com/dcabo">@dcabo</a> me remitió al <a href="http://foros.abredatos.es/topic/exportaciones-de-armas-desde-espana">foro de AbreDatos por si me interesaba el tema</a> de la exportación de armas. </p>
+<p>Tras el <a href="http://cachirulovalley.com/2011/beerstorming-abredatos-2011-quedada-para-compartir-ideas-y-crear-equipos/">beersotrimng pre-abredatos de cachirulovalley</a> dejamos cerrada la temática y casi el equipo con Mamen y Agustín. Hubo otro programador oscense que estuvo a punto de formar parte el equipo, pero que finalmente no podía participar ese fin de semana. Por lo que surgió la idea de convencer a Toño y darle un enfoque completamente de visualización de información.</p>
+<p>En cuanto a lo que íbamos a implementar, fueron Mamen y Toño quienes estuvieron conceptualizándolo. Yo sabía que iba a tener que pellear con <a href="http://aduanas.camaras.org/">la web de aduanas</a>, y sólo me iba a tener que preocupar como sacar la información.</p>
+<div style="text-align:center"><a href="http://www.eldisparate.de/"><img src="http://www.eldisparate.de/img/logo.png" alt="elDisparate" /></a></div>
+<p><strong>El desarrollo:</strong></p>
+<p>Tenía bastante claro que iba a desarrollar la web con Grails, aunque el front iba a ser muy sencillo y podría haber utilizado frameworks más minimalistas, fui a asegurar con el framework web que mejor conozco y más productivo puedo ser.</p>
+<p>Tengo que confesar que iba muy confiado con la extracción de datos, había unos ficheros con formato <em>"tipo CSV"</em> que podía <em>scrapear</em> desde la web para descargarlos, y así poder procesar y cargar esos datos a la web en Grails.</p>
+<p>Para el scarpping pretendía utilizar python y <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>, una librería que ya conozco del año pasado y que facilita mucho trabajar en extraer información de HTML. </p>
+<p>Pero la web de aduanas tenía una <em>curiosidad</em>, al hacer la primera petición a la web, esta te devolvía un documento HTML con sólo un código javascript para redirigir a la home. Supongo que ahí deben escribir alguna cookie en el navegador con alguna finalidad que mi cerebro no ha sabido suponer, y entonces ya permite navegar libremente.</p>
+<p>Estuve probando con herramientas tipo <a href="http://wwwsearch.sourceforge.net/mechanize/">mechanize para python</a> y <a href="http://mechanize.rubyforge.org/mechanize/">ruby</a>. Pero con la presión del tiempo, al ver que no conseguía que me funcionaran y me cansé de ver como pasaban las horas inútilmente.</p>
+<p>Finalmente tomamos la decisión de descargar los datos a mano (limitándonos sólo a exportaciones de 2009 y sin poder entrar a detallar el tipo de armas). Ya traía aprendido del año pasado que es mejor acotar el alcance en caso de problemas.</p>
+<p>En cuanto la aplicación Grails, me centré exclusivamente en terminar, olvidad ver soluciones sofisticadas y elegantes en mi código:</p>
+<ul>
+<li>La base de datos es la <a href="https://github.com/danilat/eldisparate/blob/master/grails-app/conf/DataSource.groovy">HSQLDB embebida de Grails</a>, pero cargada en memoria para que resulte más rápido.</li>
+<li>Cada vez que se arranca la aplicación <a href="https://github.com/danilat/eldisparate/blob/master/grails-app/conf/BootStrap.groovy">se cargan todos los datos</a>, que realmente están persistidos <a href="https://github.com/danilat/eldisparate/tree/master/web-app/data">en ficheros de texto</a>.</li>
+<li>No hay tests y el código en general tiene bastante margen de mejora.</li>
+</ul>
+<p><strong>El despliegue:</strong></p>
+<p>Tenía ganas de probar <a href="http://www.cloudfoundry.com/">cloudfoundry</a> por fin, que hacía unas semanas que me habían dado acceso a la beta. Cuál fue nuestra sorpresa cuando ya desplegamos la primera versión, que no había manera de apuntar el dominio a cloudfoundry, que aún lo no soporta (Y hasta que no lo soporte no me planteo utilizarlo).</p>
+<p>Entonces pensé en <a href="http://aws.amazon.com/elasticbeanstalk/">Amazon Beanstalk</a> y en <a href="http://www.cloudbees.com/">CloudBees</a> como <a href="http://en.wikipedia.org/wiki/Platform_as_a_service">PaaS</a> alternativas para webs en Java, ya que evidentemente no había mucho tiempo de preparar una máquina desde 0. Y tras algunas <em>gestiones</em> en paralelo para ver donde desplegábamos, terminé desplegando en CloudBees y el dominio pasó a apuntar allí.</p>
+<p>Os dejo unas fotos para que veais lo mucho que sufrimos y lo mal que lo pasamos :)</p>
+<div style="text-align:center"><object width="400" height="300"><param name="flashvars" value="offsite=true&lang=es-us&page_show_url=%2Fphotos%2Feldisparate%2Fsets%2F72157626668765912%2Fshow%2F&page_show_back_url=%2Fphotos%2Feldisparate%2Fsets%2F72157626668765912%2F&set_id=72157626668765912&jump_to="></param><param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=71649"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=71649" allowFullScreen="true" flashvars="offsite=true&lang=es-us&page_show_url=%2Fphotos%2Feldisparate%2Fsets%2F72157626668765912%2Fshow%2F&page_show_back_url=%2Fphotos%2Feldisparate%2Fsets%2F72157626668765912%2F&set_id=72157626668765912&jump_to=" width="400" height="300"></embed></object></div>
+<p>Comimos genial, haciendo parrilladas en Monzón y Barbastro, no faltaron la cerveza, las risas y tampoco las tensiones de última hora :).</p>
+<p>Por cierto, que resulta que hemos entrado entre los 8 finalistas del AbreDatos. Quien quiera puede valorarnos a nosotros y al resto de participantes en <a href="http://live.abredatos.es/vote">la web de votaciones de AbreDatos</a>.</p>

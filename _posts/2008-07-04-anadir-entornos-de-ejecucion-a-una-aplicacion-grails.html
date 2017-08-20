@@ -1,0 +1,27 @@
+---
+layout: post
+status: publish
+published: true
+title: Añadir entornos de ejecución a una aplicación Grails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 171
+wordpress_url: http://www.danilat.com/weblog/2008/07/04/anadir-entornos-de-ejecucion-a-una-aplicacion-grails/
+date: '2008-07-04 16:42:15 +0200'
+date_gmt: '2008-07-04 14:42:15 +0200'
+categories:
+- Grails
+tags: []
+comments: []
+---
+<p>En la sesión del <a href="http://www.javahispano.org/openjavaday/detalle.html?id=158">openjavaday sobre grails</a>, surgió la pregunta de si se podían añadir entornos además de los que vienen por defecto: <em>development</em>, <em>test</em> y <em>production</em>.</p>
+<p>Me quedé con la duda si era posible o no, convencido que eso no se les habría pasado por alto a los desarrolladores y se podría hacer de alguna forma, casualmente he tenido que hacer unas pruebas con bases de datos desde cero y no tenía ganas de andar haciendo backups de la base de datos para recuperar el estado inicial (uno que es vago :P), por lo que me venía como anillo al dedo.</p>
+<p>En fin que, tal y como <a href="http://grails.org/Environments">pone en la documentación</a>, en este caso sólo he tenido que añadir al DataSource.groovy el entorno con su respectiva configuración, pero si lo necesitamos, también podemos añadir otros parámetros de configuración en el Config.groovy. Para arrancar la aplicación en nuevos entornos, deberemos ejecutar:</p>
+<p><code>grails -Dgrails.env=mientorno run-app</code></p>
+<p>Por ponerle una pega, estaría muy bien que fuera sólo con el nombre del entorno.</p>

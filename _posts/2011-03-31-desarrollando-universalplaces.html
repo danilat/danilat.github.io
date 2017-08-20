@@ -1,0 +1,86 @@
+---
+layout: post
+status: publish
+published: true
+title: Desarrollando UniversalPlaces
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1496
+wordpress_url: http://www.danilat.com/weblog/?p=1496
+date: '2011-03-31 17:50:48 +0200'
+date_gmt: '2011-03-31 15:50:48 +0200'
+categories:
+- Proyectos
+- Grails
+tags: []
+comments:
+- id: 10398
+  author: Manuel Jesús Recena Soto
+  author_email: recena@gmail.com
+  author_url: http://www.manuelrecena.com
+  date: '2011-03-31 20:24:31 +0200'
+  date_gmt: '2011-03-31 18:24:31 +0200'
+  content: "Hola Dani:\r\n\r\nCurioso el dato de 2K líneas de código. @mivecindad
+    tiene casi 14K líneas de código java. También es muy significativo que hay muchos
+    ficheros que sus 70 primeras líneas son imports y otras tantas de anotaciones
+    ;) A pesar el volumen de líneas de código, estamos contentos con el diseño.\r\n\r\nUn
+    saludo, y enhorabuena por el trabajo que estáis realizando."
+- id: 10400
+  author: torresburriel
+  author_email: dani@torresburriel.com
+  author_url: http://www.torresburriel.com
+  date: '2011-04-01 00:57:44 +0200'
+  date_gmt: '2011-03-31 22:57:44 +0200'
+  content: Vaya post molón te ha quedao!
+- id: 10401
+  author: ivan
+  author_email: ivan@iloire.com
+  author_url: http://www.iloire.com
+  date: '2011-04-01 01:07:31 +0200'
+  date_gmt: '2011-03-31 23:07:31 +0200'
+  content: No conocía Postmark, interesante!
+- id: 10403
+  author: Mcallan
+  author_email: javier@universalplaces.com
+  author_url: http://www.universalplaces.com
+  date: '2011-04-01 16:30:51 +0200'
+  date_gmt: '2011-04-01 14:30:51 +0200'
+  content: "Por alusiones: Es una auténtica gozada trabajar contigo y resto del equipo
+    #losepas\r\ny como #loquemolaescontarlo pues eso ;)"
+- id: 10405
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2011-04-01 17:19:44 +0200'
+  date_gmt: '2011-04-01 15:19:44 +0200'
+  content: "@Manuel gracias!! :) Aún seguro que mivecindad y universalplaces no tendrán
+    mucho que ver, yo creo que si lo hubiéramos hecho con un framework Java tendría
+    mucha más líneas(también muchos más imports y annotations:P)\r\n\r\n@torresburriel
+    :P\r\n\r\n@ivan me habían hablado muy bien de ese servicio, ahora es un problema
+    del que me puedo \"olvidar\" :)\r\n\r\n@mcalllan es lo que mola! :)"
+---
+<p>Ando metido en un proyecto muy chulo llamado <a href="http://www.universalplaces.com">UniversalPlaces</a>, <a href="http://www.torresburriel.com/weblog/2011/03/10/universal-places-lo-que-mola-es-contarlo/"> TorresBurriel ya publicó un post</a> hablando sobre el lanzamiento inicial y el equipo(<strong>equipazo!</strong>).</p>
+<p><strong>UniversalPlaces</strong> es una web donde se pueden reservar estancias en hoteles. A día de hoy todavía en fases iniciales de lo que se pretende que llegue a ser, pero seguro que en los próximos meses dará mucho que hablar :)</p>
+<p>Si indagáis un poco, veréis que el equipo es de todo menos convencional. Y no me refiero a que el equipo esté por encima de la media(que lo está!), si no a que es un equipo "a medida" para el proyecto. Cada miembro del equipo trabajamos independientemente a los demás, y aunque alguna vez hayamos podido/podemos/podamos coincidir, tenemos otros <em>jaleos</em> :). Una apuesta diferente a la habitual por parte de <a href="http://twitter.com/mcallan">Javier Mcallan</a>, para entrar a competir en un sector tan duro como es el del turismo en internet.</p>
+<p>Mi rol dentro del equipo ha resultado ser programador y algo así como el responsable(o irresponsable :P) de la parte técnica. Nuestro objetivo desde la parte técnica, es que la tecnología existente resulte la menor limitación posible para ofrecer una mejor experiencia de usuario, y os aseguro que está siendo todo un reto!</p>
+<div style="text-align:center">
+<a href="http://www.universalplaces.com/" title="UniversalPlaces"><img src="http://farm6.static.flickr.com/5105/5575304883_fb230ca903_m.jpg" width="240" height="240" alt="UniversalPlaces"></a>
+</div>
+<p>Bueno, y cómo imagino que no esperaríais otra cosa de mi, os voy a contar un poco acerca de que tecnologías estamos utilizando(por ahora nada excesivamente especial):</p>
+<ul>
+<li>Es una aplicación web hecha con <em>Grails</em>. Es el framework que más domino a día de hoy, y para este proyecto encaja perfectamente. Como se puede suponer, también hay un trabajo muy importante de integración, y la plataforma Java tiene multitud de herramientas para ello.</li>
+<li>Corre sobre un <em>Apache Tomcat 6</em> en producción.</li>
+<li>Usamos <em>MySQL</em> y <em>MongoDB</em> para las bases de datos. La primera para guardar lo relacionado con reservas, clientes... Y la segunda a día de hoy es poco más que una caché de búsquedas de estancias, para lo que podríamos estar utilizando otras muchas herramientas tipo clave/valor, pero mientras ganamos experiencia para experimentar con algunas características de Mongo que pueden encajar muy bien con funcionalidades que están en el <em>roadmap</em>.
+</li>
+<li>El servidor es un dedicado bastante resultón, que ahora mismo va bastante sobrado.
+</li>
+<li>También estamos utilizando <em>Amazon S3</em> para servir las imágenes y <em>Postmark</em> para mandar por email la confirmación de las reservas. Son servicios que hemos externalizado desde ya.
+</li>
+</ul>
+<p>Y como curiosidad una métrica, a día de hoy, con la funcionalidad que se puede ver, tenemos poco más de 2200 líneas de código groovy y java. </p>

@@ -1,0 +1,27 @@
+---
+layout: post
+status: publish
+published: true
+title: Bug con IE 6 y LiveValidation
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 131
+wordpress_url: http://www.danilat.com/weblog/2008/01/17/bug-con-ie-6-y-livevalidation/
+date: '2008-01-17 18:56:00 +0100'
+date_gmt: '2008-01-17 16:56:00 +0100'
+categories:
+- Javascript
+tags: []
+comments: []
+---
+<p>Este dolor de cabeza en forma de bug hacía bastantes días que lo tenía, utilizando la librería <a href="http://www.livevalidation.com/">LiveValidation</a> para validaciones con javascript con IE 6.</p>
+<p>Pues resulta que cuando intentaba crear una nueva validación a un textarea concreto en un formulario, me daba un error:</p>
+<p><strong>LiveValidation::getElementType - Element must be an input, select, or textarea!</strong>. </p>
+<p>A base de "debuggar" el código de la librería vi que al final la causa era porque ese textarea tenía un <strong>id=description</strong>,  y al hacer la comprobación de si el elemento con ese id es un <em>input</em>, un <em>textarea</em> o un <em>select</em> devolvía un <em>meta</em> por el <em>meta name=description...</em> del header.</p>
+<p>La solución tan sencilla como cambiar el dichoso id y seguidamente informar a los autores de la librería sobre el bug.</p>

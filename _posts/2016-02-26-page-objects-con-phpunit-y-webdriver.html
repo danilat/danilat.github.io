@@ -1,0 +1,68 @@
+---
+layout: post
+status: publish
+published: true
+title: Page Objects con PHPUnit y Webdriver
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 3690
+wordpress_url: http://www.danilat.com/weblog/?p=3690
+date: '2016-02-26 22:19:49 +0100'
+date_gmt: '2016-02-26 20:19:49 +0100'
+categories:
+- Programación
+- Php
+tags: []
+comments:
+- id: 52175
+  author: Ian
+  author_email: ian_scho@hotmail.com
+  author_url: ''
+  date: '2016-02-28 14:53:16 +0100'
+  date_gmt: '2016-02-28 12:53:16 +0100'
+  content: "phpUnit + Selenium...  Mejor para tu porfolio también me imagino.  \r\nMe
+    he encantado meterme en ese agujero negro."
+- id: 52342
+  author: Jesús
+  author_email: jesus.arnas@gmail.com
+  author_url: ''
+  date: '2016-03-09 17:21:51 +0100'
+  date_gmt: '2016-03-09 15:21:51 +0100'
+  content: "Estaba comenzando a investigar sobre Selenium y no conocía los PageObjects,
+    pero parece adaptarse bastante bien a lo que buscamos.\r\nGracias por el aporte!"
+---
+<p>A finales del año pasado me llegó la posibilidad de colaboración a modo de consultoría con <strong>Funidelia</strong>, un comercio electrónico de <a href="http://www.funidelia.es/">disfraces</a>. Un comercio electrónico que además <a href="http://www.expansion.com/economia-digital/companias/2016/01/23/569e11ecca4741db3c8b460f.html">va como un tiro</a>, por cierto.</p>
+<p>Me contactaron para echarles una mano para empezar con el <strong>testing funcional</strong> (o de sistema, o end-to-end, o...). Ya que al parecer intentaron en el pasado ponerse con ello pero, como ocurre en muchas ocasiones, el día a día de una startup no permite que el equipo técnico pueda focalizarse en ello.</p>
+<p>Así que tras una reunión inicial y alguna otra conversación teníamos claro que mi papel era sentar unas bases sobre las que ellos pudieran seguir.</p>
+<p><strong>¿Cuáles eran esas bases?</strong>:</p>
+<ul>
+<li>Implementar casos los tests automáticos para la parte más crítica del negocio: los diferentes puntos dentro del proceso de compra.</li>
+<li>Saber cuanto antes cuando se rompe un test. Así que se pueda lanzar correctamente desde un servidor de integración continua (que en su caso era un jenkins) sobre entornos de desarrollo.</li>
+<li>Además del entorno de desarrollo que pudieran lanzar contra entornos de staging, o incluso producción. Teniendo en cuenta que la misma base de código del comercio electrónico se ejecuta en diferentes instancias y configuraciones (por país).</li>
+<li>También se debían lanzar los tests con diferentes navegadores, es crítico que funcione correctamente con todos lo navegadores mayoritarios.</li>
+<li>El lenguaje de programación a utilizar iba a ser PHP, ya que es el utilizado por el equipo.</li>
+</ul>
+<p>Una cosa que estuvimos hablando fue el que los tests sólo cubrirían los escenarios optimistas del proceso de compra, esto es cuando se supone que al usuario todo le va bien y termina con su compra de disfraces hecha. No sólo para lo que yo iba a hacer, si no también para cuando el equipo siguiera evolucionando las baterías de tests. Al final son tests lentos, frágiles y mantenerlos tiene bastante coste, pero luego volvemos a ello.</p>
+<p><strong>Las herramientas</strong>:</p>
+<p>Hacía mucho que no programaba en PHP y no estoy para nada al día de sus novedades, pero para esto estábamos de acuerdo que no creíamos que iba a ser un gran problema.</p>
+<p>Aunque no estuviera muy al día sí tenía referencias de cosas como <a href="https://getcomposer.org/">composer</a> para gestionar las dependencias y era el punto de partida.</p>
+<p>En cuanto al framework de testing se me pasó un momento por la cabeza el cacharrear con <a href="http://docs.behat.org/en/v3.0/">behat</a>, pero como al final iban a ser tests sólo para los programadores me parecía añadir una indirección que no aportaba nada; así que tiramos a lo seguro con <a href="https://phpunit.de/">PHPUnit</a>, que ir con algún framewrk <em>xUnit </em> es ir sobre seguro.</p>
+<p>Para el lanzamiento de acciones de navegador también tenía claro la elección con <a href="http://www.seleniumhq.org/projects/webdriver/">Selenium Webdriver</a> y el <a href="https://github.com/facebook/php-webdriver">cliente PHP implementado por la gente de facebook</a>.</p>
+<p>Mientras para que para el soporte de ejecución frente a diferentes entornos, monté algo de código a medida para poder cargar configuraciones de ficheros json a partir de un parámetro enviado al comando de ejecución de la batería de tests.</p>
+<p><strong>Page Objects</strong>:</p>
+<p>Y ya respecto a los propios tests, como escribía algo más arriba, los funcionales suelen ser considerados frágiles y lentos.</p>
+<p>Decimos <strong>lentos</strong> para el contexto de que no nos sirven para dar feedback rápido de si algún cambio que hayamos introducido en el código ha roto algo, si los intentas usar para ello serán una tortura para tu <em>flow</em>. Si a alguno no le suena la Pirámide de Test siempre puede informarse de ello <a href="http://martinfowler.com/bliki/TestPyramid.html">en la web de Fowler</a>.</p>
+<p><a href="http://martinfowler.com/bliki/TestPyramid.html"><img src="http://i.imgur.com/cwDFwNx.png" alt="Pirámide de Test" /></a></p>
+<p>Y decimos <strong>frágiles</strong> principalmente porque cualquier cambio de maquetación html por pequeño que sea puede romper el test: un texto, un class, un id... Así que, salvo que la UI no evolucione, suelen resultar caros de mantener frente a otros tipos de tests. </p>
+<p>Una forma de abaratar bastante el mantenimiento de esos tests es el uso <strong><a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects">Page Objects</a></strong>. De modo que para cada página (aunque también podríamos tener Page Objects de elementos comunes, como quizás un menú de navegación) que queremos que participe en los tests abstraeremos sus detalles de implementación para utilizarlo como un objeto en cada caso de test, reduciendo de esta manera la duplicidad de código y mejorando la legibilidad de los propios tests.</p>
+<p>En los Page Objects expondremos tanto métodos que crean/llevan a otros Page Objects como otros que lanzarán acciones para que sean ejecutadas en el navegador (un click, completar un formulario...) y de los que opcionalmente esperaremos algo en el retorno. </p>
+<p>Además en mi caso implemento los Page Objects con la responsabilidad de los asserts en el propio Page Object. Ahí decido lo mucho o poco que quiero acoplarlo a la maquetación exponiéndolo como un assert con un lenguaje más <em>de negocio</em>. Esto lo comento porque al implementar Page Objects existen 2 vertientes ligeramente diferentes: incluir los asserts o proveer un modo para que el test sea el responsable de cómo se le hacen los asserts y así separar responsabilidades. El propio <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects#summary">resumen final que enlazo</a>, por lo general, desaconseja lo asserts en estos objetos; aunque a mi por el momento no me ha resultado problemático el hacerlo y se adapta más a mi gusto. </p>
+<p>Y ya desde un punto de vista más práctico y sin meterme en detalle, este es como quedaría test de añadir un producto al carro de la compra:</p>
+<p><script src="https://gist.github.com/danilat/140e99c4904819c2a613.js"></script></p>
+<p>Como se puede ver en el código, se mantiene encapsulado entre esos objetos. Podría cambiar completamente la maquetación de la UI y tendríamos que cambiar sólo la implementación de los Page Objects (que no es poco). Otro tema es que, por razones de diseño o negocio cambiara la lógica de navegación, claro.</p>

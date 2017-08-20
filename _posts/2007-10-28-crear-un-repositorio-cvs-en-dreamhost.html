@@ -1,0 +1,42 @@
+---
+layout: post
+status: publish
+published: true
+title: Crear un repositorio CVS en dreamhost
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 117
+wordpress_url: http://www.danilat.com/weblog/2007/10/28/crear-un-repositorio-cvs-en-dreamhost/
+date: '2007-10-28 00:03:12 +0200'
+date_gmt: '2007-10-27 22:03:12 +0200'
+categories:
+- SCM
+tags: []
+comments:
+- id: 1213
+  author: Blaxter
+  author_email: blaxter@gmail.com
+  author_url: http://bicosyes.com
+  date: '2007-10-28 11:55:52 +0100'
+  date_gmt: '2007-10-28 09:55:52 +0100'
+  content: esto... y para qué crear un repositorio cvs si ya tienes soportado por
+    dreamhost subverison? o_O
+- id: 1218
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-10-28 13:08:59 +0100'
+  date_gmt: '2007-10-28 11:08:59 +0100'
+  content: "Hola Blaxter.\r\n\r\nHay gente que prefiere trabajar con CVS que con SVN,
+    y bueno... para que voy a explicar cómo crear un repositorio de Subversion en
+    dreamhost puediéndose hacer desde el panel de control :)"
+---
+<p>Después de mucho tiempo sin trastear el hosting que tengo contratado con dreamhost. He configurado, por fin, un repositorio <a href="http://es.wikipedia.org/wiki/CVS">CVS</a>.</p>
+<p>Ni si quiera tenía configurado ningún usuario para acceder a la consola <a href="http://es.wikipedia.org/wiki/Secure_Shell">SSH</a>, para hacerlo, simplemente debemos entrar al panel de control, vía web, y crear o modificar un usuario para darle permisos de acceso de Shell, y en unos minutos tendremos habilitado el acceso SSH con ese usuario.</p>
+<p>Para crear el repositorio, una vez conectado al servidor, simplemente debemos ejecutar el comando <strong>cvs -d /home/usuario/directoriocvs init</strong>, y ya  podemos conectarnos desde nuestro cliente CVS favorito.</p>

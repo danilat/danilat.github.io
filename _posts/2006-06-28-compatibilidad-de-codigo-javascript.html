@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Compatibilidad de código javascript '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 3
+wordpress_url: http://www.danilat.com/wordpress/?p=3
+date: '2006-06-28 17:00:09 +0200'
+date_gmt: '2006-06-28 15:00:09 +0200'
+categories:
+- Programación
+- Javascript
+tags: []
+comments: []
+---
+<p>Como siempre, el problema con javascript es (además de hacer un código mantenible) es la compatibilidad con los navegadores, y eso que sólo pruebo el javascript que escribo con firefox y explorer, siempre utilizo firefox por la consola javascript y el plugin WebDeveloper, y luego vienen los problemas.</p>
+<p>Algunos problemas con los que me he encontrado han sido trabajando con el DOM de javascript, siempre (qué casualidad) con explorer, por ejemplo si quisieramos cambiar el class de una etiqueta, que me dió un pequeño dolor de cabeza hasta que buscando por internet ví que explorer no lo soportaba:</p>
+<pre>midiv=document.getElementById(...midiv...);</pre>
+<p>//Con DOM simplemente sería un cambio en el atributo class</p>
+<pre>midiv.setAttribute(...class...,...miclass...);</pre>
+<p>Probamos con fiefox y...¦ ¡funciona! Ahora explorer y...¦ vemos que no.</p>
+<p>La solución es utilizar el className:</p>
+<pre>midiv.className= ...œmiclass...;</pre>
+<p>Otro problema, pero menos por que está muy documentado enmuchísimas webs, es la creación del objeto XMLHttpRequest, para asegurarte la compatibilidad entre explorer y otros de los navegadores más utilizados esta es una posible solución:</p>
+<pre>ids=["Msxml2.XMLHTTP.5.0","Msxml2.XMLHTTP.4.0","Msxml2.XMLHTTP.3.0","Msxml2.XMLHTTP","Microsoft.XMLHTTP"];
+for(var cont=0; !xmlhttp && ids.lengh>cont;cont++)
+try {
+xmlhttp = new ActiveXObject(ids[cont]);
+}
+catch(ex) {
+xmlhttp = false; }
+}
+if (!xmlhttp && typeof XMLHttpRequest!="undefined") {
+xmlhttp = new XMLHttpRequest();
+}</pre>
+<p>Este es un ejemplo de los muchos problemas que nos da el dichoso explorer, que no soporta como debería el DOM y no daría tanto miedo el tocar AJAX en cuanto a compatibilidad entre navegadores.</p>
+<p>Por ahora la solución que he encontrado es visitar el msdn de microsoft, para ver qué puedo hacer y qué no, ya que pocas veces me ha ocurrido el caso contrario.</p>

@@ -1,0 +1,58 @@
+---
+layout: post
+status: publish
+published: true
+title: Instalando Maven
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 84
+wordpress_url: http://www.danilat.com/weblog/2007/06/19/instalando-maven/
+date: '2007-06-19 22:59:56 +0200'
+date_gmt: '2007-06-19 20:59:56 +0200'
+categories:
+- Programación
+- Maven
+tags: []
+comments:
+- id: 87
+  author: VictorR
+  author_email: victor@v-code.org
+  author_url: http://www.v-code.org
+  date: '2007-07-27 11:47:43 +0200'
+  date_gmt: '2007-07-27 09:47:43 +0200'
+  content: "Hola Dani,\r\n\r\nBueno el ejemplo que has puesto con Windows, pero sabrías
+    o tendrías idea de como hacerlo con Mac OS X? \r\n\r\nEn sí no es dificil, yo
+    lo he conseguido. Pero tengo un problema para mantener el path de maven en la
+    variable de entorno PATH. He encontrado la manera de modificar las variables de
+    entorno en Linux pero lo que he probado en Mac OS X no me ha funcionado. Alguna
+    idea?\r\n\r\ngracias!"
+- id: 88
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-07-27 12:52:52 +0200'
+  date_gmt: '2007-07-27 10:52:52 +0200'
+  content: "Hola Victor\r\n\r\nYa lo siento, pero con Mac nunca he trabajado, quizás
+    más adelante caiga uno :)\r\n\r\nSaludos!"
+- id: 104
+  author: VictorR
+  author_email: victor@v-code.org
+  author_url: http://www.v-code.org
+  date: '2007-07-30 18:08:28 +0200'
+  date_gmt: '2007-07-30 16:08:28 +0200'
+  content: "Hola Dani, un apunte por si algún día cae el Mac ;)\r\n\r\nAl final he
+    conseguido modificar el PATH. Lo he posteado en mi blog, por si le sucede lo mismo
+    que a mi a alguien.\r\n\r\nhttp://www.v-code.org/blog/configurar-variables-de-entorno-en-mac-os-x/\r\n\r\nun
+    saludo!"
+---
+<p>Como hay cosas que todavía las tengo en mi partición de windows, hoy me he instalado <a href="http://maven.apache.org/">maven</a> para empezar a tocarlo, por ahora no creo que le saque todo el jugo cuando no lo hago demasiado con <a href="http://ant.apache.org/">Ant</a>.</p>
+<p>La instalación es bastante sencilla, después de descomprimir el <a href="http://maven.apache.org/download.html">archivo descargado</a>, copiamos el directorio dónde nos parezca, luego simplemente vamos a las <strong>variables de entorno</strong> y le añadimos a la variable <strong>PATH</strong> el path de nuestro maven, en mi caso <strong>c:\maven-2.0.6\bin.</strong></p>
+<p>Debemos asegurarnos que tengamos creada también la variable de sistema <strong>JAVA_HOME</strong>, con el path de la instalación de la máquina virtual.</p>
+<p>Para ver que tenemos todo instalado correctamente, podemos probar en la consola el comando <strong>mvn --version</strong>, que nos dice que versión de Maven tenemos instalado.</p>
+<p><strong>Actualización:</strong> <a href="http://weblog.v-code.org/configurar-variables-de-entorno-en-mac-os-x/">VictorR nos cuenta como hacerlo</a> en Mac OS</p>

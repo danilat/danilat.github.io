@@ -1,0 +1,52 @@
+---
+layout: post
+status: publish
+published: true
+title: URLs amigables con UrlRewriteFilter
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 142
+wordpress_url: http://www.danilat.com/weblog/2008/03/07/urls-amigables-con-urlrewritefilter/
+date: '2008-03-07 18:23:09 +0100'
+date_gmt: '2008-03-07 16:23:09 +0100'
+categories:
+- Java
+tags: []
+comments:
+- id: 10294
+  author: Chino
+  author_email: alejandro.andino@gmail.com
+  author_url: http://alejandroandino.blogspot.com
+  date: '2011-02-03 21:06:15 +0100'
+  date_gmt: '2011-02-03 19:06:15 +0100'
+  content: "Hola, puede ser que haya un error en el ultimo ejemplo ?\r\n\r\nNo debería
+    quedar así:\r\n\r\n\r\n  ^/miaction.do?identificador=([0-9]+)$\r\n  /miaction/$1\r\n\r\n\r\nSaludos."
+---
+<p><a href="http://tuckey.org/urlrewrite/">UrlRewriteFilter</a> es un filtro que se basa en el <a href="http://httpd.apache.org/docs-2.0/mod/mod_rewrite.html">mod_rewrite</a> de <a href="http://httpd.apache.org/">Apache HTTP Server</a>, para permitir el uso de urls amigables en aplicaciones J2EE y que hacía bastante tiempo que tenía pendiente de probar.</p>
+<p>La forma de usar este filtro es realmente sencilla, simplemente debemos añadir el filtro a nuestro web.xml:</p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>filter</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>filter-name</span><span style='color:#a65700; '>></span>UrlRewriteFilter<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>filter-name</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>filter-class</span><span style='color:#a65700; '>></span>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>filter-class</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>init-param</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>param-name</span><span style='color:#a65700; '>></span>logLevel<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>param-name</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>param-value</span><span style='color:#a65700; '>></span>INFO<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>param-value</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>init-param</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>filter</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>filter-mapping</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>filter-name</span><span style='color:#a65700; '>></span>UrlRewriteFilter<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>filter-name</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>url-pattern</span><span style='color:#a65700; '>></span>/*<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>url-pattern</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>filter-mapping</span><span style='color:#a65700; '>></span>
+</pre>
+<p>Y debemos tener en el directorio WEB-INF el archivo urlrewrite.xml, donde configuraremos nuestras urls amigables. Por ejemplo si quisieramos cambiar unas urls de struts como <em>miaction.do?identificador=1</em> para que fueran más amigables para los buscadores por ejemplo de esta forma <em>miaction/1</em>.</p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>rule</span><span style='color:#a65700; '>></span>
+  <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>from</span><span style='color:#a65700; '>></span>^/miaction/([0-9]+)$<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>from</span><span style='color:#a65700; '>></span>
+  <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>to</span> <span style='color:#274796; '>type</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>forward</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>/miaction.do?identificador=$1<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>to</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>rule</span><span style='color:#a65700; '>></span>
+</pre>
+<p>Hay varios <a href="http://tuckey.org/urlrewrite/manual/2.6/guide.html">ejemplos de uso</a> en la web del proyecto si quieres ver otras situaciones más concretas dónde utilizar este filtro.</p>

@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Instalar gemas en Dreamhost
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1071
+wordpress_url: http://www.danilat.com/weblog/?p=1071
+date: '2010-11-06 20:43:06 +0100'
+date_gmt: '2010-11-06 18:43:06 +0100'
+categories:
+- Linux
+- Ruby
+tags: []
+comments: []
+---
+<p>Estoy haciendo unas pequeñas pruebas con <a href="http://www.sinatrarb.com/">Sinatra</a> para un pequeño proyecto personal. El caso es que al ir a instalar la gema de sinatra(y un par más que estoy usando) en dreamhost, me surgió el error de no tener permisos de escritura.</p>
+<p><code>$ gem install sinatra<br />
+ERROR:  While executing gem ... (Gem::FilePermissionError)<br />
+    You don't have write permissions into the /usr/lib/ruby/gems/1.8 directory.<br />
+</code></p>
+<p><a href="http://discussion.dreamhost.com/archive/index.php/thread-126974.html">La solución</a> es simplemente añadir unos exports al <em>.bash_profile</em></p>
+<p><code><br />
+export GEM_HOME="$HOME/.gems"<br />
+export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/1.8"<br />
+export PATH="$HOME/.gems/bin:$PATH"<br />
+</code></p>
+<p>Y tras ejecutar <em>source .bash_profile</em> para que coja los cambios, ya podemos instalar nuevas gemas.</p>

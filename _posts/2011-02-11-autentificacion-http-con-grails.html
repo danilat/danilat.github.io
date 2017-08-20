@@ -1,0 +1,54 @@
+---
+layout: post
+status: publish
+published: true
+title: Autentificación HTTP con Grails
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1384
+wordpress_url: http://www.danilat.com/weblog/?p=1384
+date: '2011-02-11 02:45:53 +0100'
+date_gmt: '2011-02-11 00:45:53 +0100'
+categories:
+- Grails
+tags: []
+comments:
+- id: 10304
+  author: Alberto Vilches
+  author_email: vilches@gmail.com
+  author_url: http://albertovilches.com
+  date: '2011-02-11 14:19:52 +0100'
+  date_gmt: '2011-02-11 12:19:52 +0100'
+  content: Cristalino! :)
+---
+<p>Todo el mundo en algún momento ha necesitado implementar autentificación HTTP en una aplicación o página web(o no :D). </p>
+<p>Con grails me ha vuelto a tocar hacerlo, por medio de un filtro para que fuera muy fácil de poner o quitar. El código queda como algo así:</p>
+<p><code><br />
+class AuthFilters {<br />
+&nbsp;def USERNAME = "user"<br />
+&nbsp;def PASSWORD = "pass"</p>
+<p>&nbsp;static filters = {<br />
+&nbsp;&nbsp;httpAuth(uri:"/**") {<br />
+&nbsp;&nbsp;&nbsp;before = {<br />
+&nbsp;&nbsp;&nbsp;def authHeader = request.getHeader('Authorization')<br />
+&nbsp;&nbsp;&nbsp;if (authHeader) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;def usernamePassword = new String(authHeader.split(' ')[1].decodeBase64())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (usernamePassword == "$USERNAME:$PASSWORD") {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;response.setHeader('WWW-Authenticate', 'basic realm="myRealm"')<br />
+&nbsp;&nbsp;&nbsp;response.sendError(response.SC_UNAUTHORIZED)<br />
+&nbsp;&nbsp;&nbsp;return false<br />
+&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;}<br />
+&nbsp;}<br />
+}<br />
+</code></p>
+<p>¿Hace falta explicar algo? :P</p>

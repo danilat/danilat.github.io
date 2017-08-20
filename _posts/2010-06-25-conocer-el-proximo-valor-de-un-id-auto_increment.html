@@ -1,0 +1,59 @@
+---
+layout: post
+status: publish
+published: true
+title: Conocer el próximo valor de un id AUTO_INCREMENT
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 863
+wordpress_url: http://www.danilat.com/weblog/?p=863
+date: '2010-06-25 01:03:25 +0200'
+date_gmt: '2010-06-24 23:03:25 +0200'
+categories:
+- Programación
+tags: []
+comments:
+- id: 9986
+  author: Venkman
+  author_email: gnz.garcia@gmail.com
+  author_url: ''
+  date: '2010-06-25 10:36:47 +0200'
+  date_gmt: '2010-06-25 08:36:47 +0200'
+  content: "También hay otra forma. No sé cuál será más aconsejable/rápida/elegante/whatever,
+    pero te cuento la que yo conozco y tú decides :)\r\n\r\nHaces es un SHOW TABLE
+    STATUS LIKE 'mitabla' y eso te devuelve todo el estado de la tabla. Una de las
+    columnas devueltas es Auto_increment y ahí está lo que buscas.\r\n\r\n¿Diferencias?
+    No te metes en las tablas de information_schema. Te da un montón de información
+    más que seguramente no necesitas. En cuanto a rendimiento y demás... ni idea xD\r\n\r\nSaludos!"
+- id: 9987
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2010-06-26 01:03:20 +0200'
+  date_gmt: '2010-06-25 23:03:20 +0200'
+  content: "Gracias, no tenía ni idea que era posible hacerlo también así :)\r\n\r\nLa
+    verdad que he estado buscango alguna referencia que hable de las dos y no lo he
+    encontrado(y como supondrás, no, al no ser algo crítico no me he esforzado demasiado
+    :P)"
+- id: 58674
+  author: Antonio Lopez
+  author_email: anloma@gmail.com
+  author_url: http://softlopez.com
+  date: '2017-01-20 19:53:28 +0100'
+  date_gmt: '2017-01-20 17:53:28 +0100'
+  content: 'Puedes obtener el primer registro haciendo una consulta de tu campo AUTO_INCREMENT
+    ordenando de forma desendente: ejemplo: SELECT Campo_Auto FROM ´MiTabla´ ORDER
+    BY Campo_Auto DESC'
+---
+<p>Estoy con un pequeño trabajillo entre manos, una migración de una base de datos, y necesitaba conocer el próximo valor de un identificador <strong>AUTO_INCREMENT</strong> de MySQL. Por si a alguien le sirve(o tengo que echar mano en el futuro :P), es tan sencillo como hacer una consulta a la tabla  <em>tables</em> de <em>information_schema</em>.</p>
+<p><code>select AUTO_INCREMENT from information_schema.TABLES where TABLE_SCHEMA='soy_la_db' and TABLE_NAME='y_yo_la_tabla';</code></p>
+<p><strong>Actualización 26/07/2010:</strong><br />
+Gracias a un <a href="http://www.danilat.com/weblog/2010/06/25/conocer-el-proximo-valor-de-un-id-auto_increment/comment-page-1/#comment-9986">comentario de Venkman</a>, me entero que es posible conocerlo del siguiente modo:</p>
+<p><code>SHOW TABLE STATUS LIKE ‘mitabla’</code></p>
+<p>Si alguien sabe si hay grandes diferencias y lo quiere compartir, será bienvenido ;)</p>

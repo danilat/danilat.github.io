@@ -1,0 +1,109 @@
+---
+layout: post
+status: publish
+published: true
+title: Sobre el modelo anémico y la POO
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1033
+wordpress_url: http://www.danilat.com/weblog/?p=1033
+date: '2010-10-28 02:43:33 +0200'
+date_gmt: '2010-10-28 00:43:33 +0200'
+categories:
+- Programación
+- Java
+tags: []
+comments:
+- id: 10111
+  author: jneira
+  author_email: atreyu.bbb@gmail.com
+  author_url: http://twitter.com/jneira
+  date: '2010-10-28 07:48:37 +0200'
+  date_gmt: '2010-10-28 05:48:37 +0200'
+  content: "Bueno ya sabemos que el \"depende\" es un topico muy socorrido pero en
+    el mundo de la programacion es casi inevitable en la mayoria de los casos (aunque
+    creo que sí que hay formas mas correctas que otras de hacer las cosas en otros
+    muchos casos) \r\nSin embargo en este caso no hay una respuesta unica y el compartir
+    del que depende nos puede hacer pensar un poquito mas la proxima vez que le demos
+    al \"generate-all-setters-and-getters\" del ide. \r\nPorque como bien dices (o
+    ha comentado @albertovilches) tenemos que tener en cuenta el http://www.objectmentor.com/resources/articles/srp.pdf.
+    Y no siempre esta clara quien tiene la responsabilidad de un codigo que afecta
+    a varios objetos.\r\nEL problema es que el ni siquiera plantearse donde hay que
+    poner esa responsabilidad ha hecho que se programe mucho codigo infumable ya que
+    por defecto se pone la logica fuera de clases de dominio incluso en los casos
+    que esta meridianamente claro que deberia estar en ellas. De ahi la reaccion contraria
+    un poco radical a veces."
+- id: 10112
+  author: Kinisoftware
+  author_email: kinisoftware@gmail.com
+  author_url: http://kinisoftware.lacoctelera.net
+  date: '2010-10-28 08:54:31 +0200'
+  date_gmt: '2010-10-28 06:54:31 +0200'
+  content: "Claro que sí, aportando el granito de arena a la discusión! :) \r\n\r\nEs
+    normal y además sano que no todo vaya en la lógica de dominio, cuando decimos
+    anémico no hay que \"engordarlo\" de repente sino, darle las responsabilidades
+    que le corresponde, que no serán todas. Habrá veces, como bien dices, que para
+    historias de usuarios o funcionalidades la lógica abarque varias clases del modelo
+    y el encargado de \"orquestar\" todo eso es la capa de servicio o como le llamemos.
+    Es decir, que ayer había gente que decía que no podía meter todo en el modelo,
+    efectivamente, NO hay que meter todo en el modelo pero TAMPOCO todo en el servicio.
+    Cuando hablamos de colaboración de clases de dominio hay que hacerlo de forma
+    externa porque sino creamos acoplamientos entre ellas y es, precisamente, eso
+    lo que queremos evitar.\r\n\r\nAle, ya he realizado mi comentario mañanero! Ahora
+    a trabajar (algo) :D"
+- id: 10113
+  author: Yeray Darias Camacho
+  author_email: ydarias@gmail.com
+  author_url: http://developerscookbook.blogspot.com/
+  date: '2010-10-28 09:26:20 +0200'
+  date_gmt: '2010-10-28 07:26:20 +0200'
+  content: "Bien visto Dani, al igual que Kini soy de la opinión de no ser demasiado
+    fanático de ninguna práctica en concreto sino de usar las herramientas en su justa
+    medida, por lo tanto estoy de acuerdo contigo en que tampoco hay que pasarse ahora
+    a meter toda la lógica en el modelo. Por supuesto habrá lógica que pertenece al
+    objeto de dominio y otra que pertenece al servicio porque por ejemplo representa
+    la interacción entre dos objetos de dominio (o más).\r\n\r\nBuena aportación a
+    la discusión que solo he podido seguir por partes, un saludo :-D"
+- id: 10114
+  author: Nubeblog
+  author_email: diego.parrilla.santamaria@gmail.com
+  author_url: http://Nubeblog.com
+  date: '2010-10-28 10:06:12 +0200'
+  date_gmt: '2010-10-28 08:06:12 +0200'
+  content: "Esta conversación la tuve por primera vez en 1998. Usando CORBA y C++.
+    Y he visto como ha evolucionado al mundo Java, .NET, por ejemplo. De hecho hace
+    3 años en una arquitectura para la ESA que aún usa C++ y CORBA volvió a surgir.
+    \r\n\r\nY recuerdo como EJB3 y JPA nos iban a liberar de este anti-patrón. Pero
+    no ha así. La razón por la que el antipatrón ha sobrevivido tanto tiempo es porque
+    su beneficio supera al perjuicio (jodido mantenimiento y modelos mierdosos que
+    no capturan el modelo de negocio real).\r\n\r\nAunque la verdadera causa creo
+    que son los gurús del análisis basado en objetos tipo Craig Larman, que modelan
+    sistemas basados en objetos sin considerar las restricciones técnicas que se imponen
+    en el diseño orientado a objetos. La traducción de un modelo de análisis a un
+    diseño es jodida, cuando no imposible. Esta es la causa del antipatrón.\r\n\r\nPor
+    cierto, que parte de mi trabajo Fin de Carrera (entregado en el siglo XX) precisamente
+    trata sobre este mismatch entre analisis y diseño orientado a objetos y trato
+    el problema de los Objetos serializables."
+---
+<p>Ayer, unas horas después de leer el post de <a href="http://twitter.com/Kinisoftware">@kinisoftware</a>, <a href="http://kinisoftware.lacoctelera.net/post/2010/10/27/modelos-dominio-anemicos-pojos-y-demas-seres-del-lugar">Modelos de dominio anémicos, POJOs y demás seres del lugar</a>, me encontré una discusión en twitter a varias bandas(sitio que no es ni mucho menos el mejor para debates así... sigo echando de menos las conversaciones/discusiones que teníamos entre una micro-comunidad en jaiku, pero ese es otro tema) sobre el anti-patrón del <a href="http://martinfowler.com/bliki/AnemicDomainModel.html">modelo anémico</a>.</p>
+<p>Hablando del tema vi <em>tuits</em> de <a href="http://twitter.com/kinisoftware">@kinisoftware</a>, <a href="http://twitter.com/albertovilches">@albertovilches</a>, <a href="http://twitter.com/jmbeas">@jmbeas</a>, <a href="http://twitter.com/genezeta">@genezeta</a>, <a href="http://twitter.com/jneira">@jneira</a>, <a href="http://twitter.com/jlhuertas">@jlhuertas</a>... y fijo que me pierdo a algunos más de gente que no sigo. Como es habitual, yo no me mojé demasiado :P. Por un lado soy un chaquetero, y por otro esta gente sabe mucho y me pueden dejar a la altura del betún en cualquier momento :D </p>
+<p>Por resumir un poco esto del modelo anémico, viene a ser que el modelo está implementado con <a href="http://en.wikipedia.org/wiki/Data_transfer_object">DTOs</a>, cuya única responsabilidad es encapsular datos para transferirlos a otra parte(ej: de una base de datos a la vista de una app). Cosa que creo aún es bastante habitual en muchas aplicaciones que utilizan ORMs o <em>similares</em>(llámense Hibernate, ActiveRecord, GORM, Doctrine, MyBatis... o soluciones <em>home-made</em>)... Pues resulta que eso es un anti-patrón, más que nada porque por hacer eso probablemente estemos rompiendo el paradigma de <em>programación orientada a objetos</em>. </p>
+<p>Recuerdo cuando me enseñaban POO(con Java) que una clase <strong>Rectangulo</strong> tenía un atributo <strong>base</strong> y otro <strong>altura</strong> con sus getters y setters y un método <strong>calculaArea()</strong> que devolvía su área(vale, y probablemente extendería de Poligono :P). Vamos, que se supone que un objeto combina estado y comportamiento, por eso veo por ejemplo hablando una clase de dominio <strong>Noticia</strong> que tiene un atributo <strong>propietario</strong> puede tener un método del estilo:</p>
+<p><code> public boolean esPropiedadDe(Usuario usuario){<br />
+ &nbsp;&nbsp; return propietario.equals(usuario)<br />
+}</code></p>
+<p>La cosa es que en los frameworks MVC ese tipo de lógica la he visto(y sí, también la he puesto! XD) en la capa del controlador, cuando se supone que es una capa que debe ser lo más tonta posible en cuanto a lógica de negocio (o ya puestos, tonta del todo :D, <a href="http://weblog.jamisbuck.org/2006/10/18/skinny-controller-fat-model">skinny controller-fat model</a>), y con la <em>moda</em> de las capas de servicio con los Spring & co(Grails como una de esas <em>víctimas colaterales</em>) ha resultado que esa lógica se pone en la capa de servicio para evitar ponerla en el controlador y seguir dejando a las clases de dominio como DTOs(o modelos anémicos).</p>
+<p><strong>¿Eso quiere decir que siempre pongo la lógica en las clases de dominio?</strong><br />
+No, pero procuro hacerlo siempre que puedo identificar responsabilidades en una clase del dominio. Aún así, en ocasiones me encuentro con lógica que pasa a alguna clase en la capa de servicio, principalmente porque no consigo identificar qué clase debería ser la responsable, afecte a varias clases de dominio o simplemente sean comportamientos que no tienen que ver con la lógica de negocio pura y dura. Por supuesto teniendo en cuenta que esas decisiones sean cosa mía :D</p>
+<p>De todas formas, ya se sabe que en esto del desarrollo de software todo depende de muchos factores(principalmente de los gustos y costumbres de los desarrolladores) y nadie tiene LA respuesta. Eso es lo que hace más interesante el mundillo, ¿o no? :D</p>
+<div align="center">
+<a href="http://www.flickr.com/photos/dlato/5122048038/" title="sort() por Dani Latorre, en Flickr"><img src="http://farm2.static.flickr.com/1196/5122048038_78949236f8.jpg" width="354" height="500" alt="sort()" /></a><br />
+Viñeta de <a href="http://geekandpoke.typepad.com/geekandpoke/2010/04/simply-explained.html">Geek And Poke</a>, como no ;)
+</div>
+<p>PD: Disculpad  que os tengáis que imaginar parte del código y el spanglish rarillo en los ejemplos, el código <em>de verdad</em> hace tiempo que procuro escribirlo siempre en inglés :P</p>

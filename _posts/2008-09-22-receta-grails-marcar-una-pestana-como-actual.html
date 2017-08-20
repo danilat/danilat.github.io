@@ -1,0 +1,82 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Receta Grails: Marcar una pestaña como actual'
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 187
+wordpress_url: http://www.danilat.com/weblog/2008/09/22/receta-grails-marcar-una-pestana-como-actual/
+date: '2008-09-22 04:57:51 +0200'
+date_gmt: '2008-09-22 02:57:51 +0200'
+categories:
+- Grails
+tags: []
+comments:
+- id: 6232
+  author: plunchete
+  author_email: plunchete@gmail.com
+  author_url: http://plunchete.wordpress.com
+  date: '2008-09-22 10:40:27 +0200'
+  date_gmt: '2008-09-22 08:40:27 +0200'
+  content: Buen artículo, pero yo lo echo en falta en una web :P
+- id: 6234
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-09-22 11:51:02 +0200'
+  date_gmt: '2008-09-22 09:51:02 +0200'
+  content: "Jejeje,\r\n\r\nA falta de algún retoque, tengo un artículo preparado para
+    esa web :)"
+---
+<p>Es bastante habitual en el desarrollo web que, teniendo un sistema de pestañas, se requiera marcar la que corresponde a la actual. Esto habitualmente se realiza con listas y CSS, luego comprobando programáticamente qué se está ejecutando y aplicar el estilo al elemento correspondiente.</p>
+<p><code><br />
+&lt;ul&gt;<br />
+&lt;li class="act"&gt; &lt;a href="..."&gt;News&lt;/a&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;a href="..."&gt;Forum&lt;/a&gt;&lt;/li&gt;<br />
+...<br />
+...<br />
+&lt;/ul&gt;<br />
+</code></p>
+<p>Tanto con Grails como con cualquier framework podemos acceder a la petición en la vista, comprobar los parámetros para ver qué elemento de la lista es el actual, y en cada elemento de la lista comprobar si se la acción está relacionada con dicho elemento para asignarle el class. En fin, nuestra vista quedaría algo así:</p>
+<p><code><br />
+&lt;ul&gt;<br />
+&lt;li ${(params.controller=='news' &&(!params.action || params.action=='index'))?'class="act"':''}&gt;&lt;g.link controller="news"&gt;News&lt;/g.link&gt;&lt;/li&gt;<br />
+&lt;li ${(params.controller=='forum' && params.action=='last')?'class="act"':''}&gt;&lt;g.link controller="forum" action="last"&gt;Forum&lt;/g.link&gt;&lt;/li&gt;<br />
+...<br />
+...<br />
+&lt;/ul&gt;<br />
+</code></p>
+<p>Pero gracias al sistema de taglibs de grails, lo podemos hacer de forma mucho más limpia y más DRY.</p>
+<p>Creamos un taglib, por ejemplo TabsTagLib:</p>
+<p><code>grails create-tag-lib tabs</code></p>
+<p>Ya se nos habrá creado en nuestrapp/grails-app/taglib/TabsTagLib.groovy, donde deberemos añadir una closure que actuará como nuestro tag para esto, el código quedará algo así:</p>
+<p><code><br />
+class TabsTagLib {<br />
+&nbsp;def actualTabWithLink={ attrs, body -><br />
+&nbsp;&nbsp;def selectedClass=(attrs.controller==controllerName && (attrs.action?attrs.action==actionName:true))?'class="act"':''<br />
+&nbsp;&nbsp;out &lt;&lt; '&lt;li '+selectedClass+'&gt;'+ g.link(attrs){body()}+'&lt;/li&gt;'<br />
+&nbsp;}<br />
+}<br />
+</code></p>
+<p>Y nuestra visa pasaría a quedar así:<br />
+<code><br />
+&lt;ul&gt;<br />
+&lt;actualTabWithLink controller="news"&gt; News &lt;/actualTabWithLink&gt;<br />
+&lt;actualTabWithLink controller="forum" action="last"&gt; Forum &lt;/actualTabWithLink&gt;<br />
+...<br />
+...<br />
+&lt;/ul&gt;<br />
+</code></p>
+<p>La explicación rápida del taglib(para más información la <a href="http://grails.org/doc/1.0.x/guide/single.html#6.3%20Tag%20Libraries">documentación de taglibs de Grails</a>):</p>
+<p>(attrs, body ->) <strong>attrs</strong> son atributos del tag(controller, action...) y <strong>body</strong> el cuerpo dentro del tag(en nuestro caso <em>News</em> o <em>Forum</em>).</p>
+<p>Comparamos <strong>controllerName</strong> y <strong>actionName</strong> con los atributos pasados al taglib, <strong>attrs.controller</strong> siempre y el <strong>attrs.action</strong> éste último sólo si tiene valor. Si el resultado es que es el actual asignamos a <em>selectedClass</em> <em>class="act"</em>, si no es así una cadena vacía.</p>
+<p>Como desde un taglib podemos acceder a otros taglibs, llamamos al taglib <strong>g.link</strong> de forma parecida a la vista, en este caso le pasamos todos los atributos y el cuerpo que vengan de la llamada a <em>actualTabWithLink</em> <strong>g.link(attrs){body()}</strong>, que nos devolverá la cadena del link.</p>
+<p>Por último, sólo debemos concatenar la cadena del link a los tags <em>li</em> con el <em>class="act"</em> en el controller/action actual y hacemos el append a la variable implícita <em>out</em>, que no es otra cosa que el <em>Writer</em> de salida.</p>
+<p>En fin, que esta es una forma simple de aprovechar los taglibs de Grails para tener un código mucho más legible en las vistas y más DRY. Veáse también que de ésta forma no debemos preocuparnos de los cambios de mapping de URLs ni de si un acción es la de por defecto en un controller, que entonces no es necesario especificarla en la URL para que se ejecute. También hay que tener en cuenta que para éste caso sólo controlamos los controllers y actions, nos encontraremos en casos dónde podríamos necesitar controlar algún otro parámetro.</p>

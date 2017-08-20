@@ -1,0 +1,30 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Problemas con YUI (la librería de componentes javascript de yahoo) '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 35
+wordpress_url: http://www.danilat.com/wordpress/?p=35
+date: '2007-02-16 17:37:00 +0100'
+date_gmt: '2007-02-16 15:37:00 +0100'
+categories:
+- Programación
+- Javascript
+tags: []
+comments: []
+---
+<p>Estos últimos días, me he estado <em>peleando</em> con la librería <a target="_blank" href="http://developer.yahoo.com/yui/">yui</a>, de yahoo (y me va a tocar seguir una temporada) para usar los componentes que trae de serie.</p>
+<p>Estaba trabajando con la versión 0.11.1, el caso es que necesitaba que el componente <a target="_blank" href="http://developer.yahoo.com/yui/calendar/">calendar</a> mostrara un botón para cerrarse, y siguiendo la documentación, sólo conseguía que me dieran errores de javascript.</p>
+<p>Después de mucho trastear, hoy al final, me he dado cuenta que no estaba utilizando la última versión (la 0.12.2). Al ver esto, me he dado cuenta que lo más probable es que fuera este el problema.</p>
+<p>Me he descargado la última versión, he reescrito algunos pequeños cambios que le hice al componente del calendario y cuando, siguiendo la documentación, he conseguido que mostrara el botón... no ejecutaba el método (o función, que no sé cómo llamar esa pseudo POO con javascript) que anteriormente cargaba la configuración personalizada del componente (customConfig), y me aparecía el calendario en inglés.</p>
+<p>He tenido que utilizar el calendarioYahoo.cfg.setProperty(), pruebo otra vez... y nada, finalmente esto era porque antes de renderizar el componente hacía una llamada al setupConfig (que este a su vez, anteriormente, hacía la llamada a customConfig), y al parecer me machacaba la personalización. Al quitar esta llamada todo <em>"perfecto"</em>, al menos hasta la próxima.</p>
+<p>Con esta librería se me está quedando grabado algo, que ya he leído muchas veces... NUNCA UTILIZAR VERSIONES ANTERIORES A 1.0, que luego te puedes llevar los disgustos.</p>
+<p>Bueno es viernes y me tenía que desahogar antes del fin de semana:P.</p>

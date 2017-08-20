@@ -1,0 +1,42 @@
+---
+layout: post
+status: publish
+published: true
+title: Contenido duplicado y el canonical link
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 1947
+wordpress_url: http://www.danilat.com/weblog/?p=1947
+date: '2012-02-09 02:58:23 +0100'
+date_gmt: '2012-02-09 00:58:23 +0100'
+categories:
+- General
+- Programación
+tags: []
+comments:
+- id: 10784
+  author: Noticias Tecnologia
+  author_email: info@alroranet.com
+  author_url: http://www.noticiastecnologicas.com
+  date: '2012-02-09 11:01:24 +0100'
+  date_gmt: '2012-02-09 09:01:24 +0100'
+  content: Buena explicación  dani, la verdad que no tenía yo muy claro lo de las
+    URL canonicas y me lo has dejado más claro. Saludos y encantado de leer tu blog
+    ;)
+---
+<p>Como desarrolladores, si seguimos buenas prácticas, deberíamos procurar que cada  recurso (o llámalo documento, o página...) de nuestras webs tuviera una url única, que no hubiera más que una posibilidad de acceder a ese recurso. </p>
+<p>Pero en ocasiones, en nuestras aplicaciones web, nos encontraremos con casos en los que un recurso es muy similar a otro en su contenido, por lo que muy posiblemente tendremos problemas de penalización por <strong>contenido duplicado</strong> con los buscadores.</p>
+<p>Un ejemplo típico podría ser el de algún <em>item</em> que puede pertenecer a varias <em>categorías</em>. Depende del camino escogido podríamos tener urls diferentes, donde cambiaría el <a href="http://es.wikipedia.org/wiki/Hilo_de_Ariadna">breadcrumb</a> para poder volver atrás en la navegación y muy poco más. Imaginemos por ejemplo que ese <em>item</em> fuera una noticia, una ficha de un producto, un evento... el grueso del contenido sería el mismo y podría ser considerado contenido duplicado.</p>
+<p>Aparte de otro problema muy habitual es el de los ids de sesión en las urls (<em>jsessionid</em>, <em>phpsessid</em>...). Si no ha cambiado la cosa, cada vez que un robot de los buscadores encuentra uno de esos identificadores diferente, se toma como una url distinta y el contenido como duplicado. </p>
+<p>Pues <a href="http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html">ya hace bastante tiempo</a> que podemos especificar una url como canónica para estos casos. Esto quiere decir, que le diremos a los buscadores cuál es la url <em>buena</em> del siguiente modo:</p>
+<p><code><br />
+&lt;link rel="canonical" href="http://mikillerapp.com/soy-una-url-que-mola" /&gt;<br />
+</code></p>
+<p>Esta una de esas pequeñas cosas con las que puedes mejorar el SEO de tus aplicaciones web en internet, seguramente lo más "complejo" para muchos casos sea decidir cuál es la url canónica e implementar su lógica.</p>
+<p>En fin, yo escribiendo de algo relacionado con SEO... si un día lo hago de social (co)media o cosas de esas, llamad a la policía ;). De cualquier modo, si necesitas una mano en estas cuestiones, seguro que la gente de <a href="https://www.vgsystems.es/tiendas-online">VGS tecnologías web</a> pueden ayudarte.</p>

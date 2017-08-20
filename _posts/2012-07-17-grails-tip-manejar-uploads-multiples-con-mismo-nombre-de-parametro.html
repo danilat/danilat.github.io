@@ -1,0 +1,52 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Grails tip: Manejar uploads múltiples con mismo nombre de parámetro.'
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2225
+wordpress_url: http://www.danilat.com/weblog/?p=2225
+date: '2012-07-17 05:30:53 +0200'
+date_gmt: '2012-07-17 03:30:53 +0200'
+categories:
+- Grails
+tags: []
+comments:
+- id: 11198
+  author: 'Questa settimana in Grails (2012-29) - luca-canducci.com - Il blog di Luca
+    Canducci: notizie, tips e nuove tecnologie dal mondo dell’IT.'
+  author_email: ''
+  author_url: http://www.luca-canducci.com/2012/07/questa-settimana-in-grails-2012-29/
+  date: '2012-07-24 13:45:46 +0200'
+  date_gmt: '2012-07-24 11:45:46 +0200'
+  content: "[...] Grails tip: Manejar uploads múltiples con mismo nombre de parámetro
+    [...]"
+- id: 11200
+  author: An Army of Solipsists &raquo; Blog Archive &raquo; This Week in Grails (2012-29)
+  author_email: ''
+  author_url: http://burtbeckwith.com/blog/?p=1482
+  date: '2012-07-25 10:26:21 +0200'
+  date_gmt: '2012-07-25 08:26:21 +0200'
+  content: "[...] Grails tip: Manejar uploads múltiples con mismo nombre de parámetro
+    [...]"
+---
+<p>Una cosilla que he tenido que volver a hacer últimamente es tener que implementar un upload múltiple sencillito. En esta ocasión, sin necesidad de utilizar flash-javascript de por medio, gracias a la capacidad de <a href="http://www.w3schools.com/html5/att_input_multiple.asp">selección multiple que viene con Html5</a>:</p>
+<p><code>&lt;input name="images" type="file" accept="image/*" multiple="multiple"&gt;</code></p>
+<p>El problema es que así todos los archivos que queremos subir vienen con el mismo nombre de parámetro, y el código habitual no se puede más que recuperar los ficheros subidos con distinto nombre.</p>
+<p><code>request.fileNames.each { fileName -><br />
+&nbsp;&nbsp; def file = request.getFile(fileName)<br />
+&nbsp;&nbsp; //hacer cosas<br />
+}<br />
+</code></p>
+<p>Pues bien, tras un par de búsquedas encontré una de esas <em>pequeñas</em> cosas que (por desgracia) no eres capaz de encontrar fácilmente en la documentación de grails: <a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/web/multipart/MultipartRequest.html#getMultiFileMap(">getMultiFileMap</a>, que viene implementado desde Spring 3.</p>
+<p>En fin, su uso en un controller de grails es el siguiente, es un map que contiene la colección de elementos que representa a cada fichero. Colección que recorreremos normalmente, o trataremos para lo que queramos hacer.</p>
+<p><code>request.multiFileMap.images.each { file -><br />
+&nbsp;&nbsp; //hacer cosas<br />
+}</code></p>

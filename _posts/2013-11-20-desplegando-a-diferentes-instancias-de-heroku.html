@@ -1,0 +1,70 @@
+---
+layout: post
+status: publish
+published: true
+title: Desplegando a diferentes instancias de heroku
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2769
+wordpress_url: http://www.danilat.com/weblog/?p=2769
+date: '2013-11-20 11:59:49 +0100'
+date_gmt: '2013-11-20 09:59:49 +0100'
+categories:
+- Programación
+- Rails
+tags: []
+comments:
+- id: 11817
+  author: Pablo
+  author_email: pdjimeno@gmail.com
+  author_url: http://blog.pablojimeno.com
+  date: '2013-11-20 12:26:31 +0100'
+  date_gmt: '2013-11-20 10:26:31 +0100'
+  content: "¿Además configuras la aplicación agregando un entorno nuevo de rails 'staging'
+    o usas 'production'?\r\nEsto es muy útil y evita que las ramas diverjan."
+- id: 11818
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2013-11-20 12:35:36 +0100'
+  date_gmt: '2013-11-20 10:35:36 +0100'
+  content: Por ahora no he visto la necesidad, es la configuración tal cual de producción.
+    El único pero es que comparten el bucket de s3, que ahora mismo es un mal menor,
+    aunque si veo que se convierte en un problema terminaré creando un entorno propio.
+- id: 11819
+  author: Rafael
+  author_email: rrasmo@gmail.com
+  author_url: ''
+  date: '2013-11-20 14:41:38 +0100'
+  date_gmt: '2013-11-20 12:41:38 +0100'
+  content: También pudes cambiar variables de configuración en cada app manteniendo
+    el environment, e.g. 'heroku config:set S3_URL=s3://foo/bar -a my-app-staging'.
+    Lo mismo sirve para otros servicios, RDS, Elasticsearch...
+- id: 11820
+  author: dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog/
+  date: '2013-11-20 15:41:17 +0100'
+  date_gmt: '2013-11-20 13:41:17 +0100'
+  content: Cierto! No había caído en eso
+---
+<p>Lo iba a apuntar en un documento para no olvidarlo, no es gran cosa, pero ya puestos lo hago en el blog por si a alguien le sirve también. </p>
+<p>En uno de los proyectos que estoy trabajando es una aplicación rails que está montada en <a href="http://www.heroku.com/">heroku</a>, por lo típico que no quiero andar preocupándome de sistemas y de poder que aumentar de máquinas en caso de ir creciendo. Además del entorno de producción, tenía que montar uno de staging, por lo que tenía que configurar dos instancias/aplicaciones de heroku para la misma base de código.</p>
+<p>Para ello el primer paso es añadir el remote al git, en mi caso lo llamo <em>staging</em>.</p>
+<p><code>git remote add staging  git@heroku.com:my-app-staging.git</code></p>
+<p>Lo siguiente es hacer el despliegue haciendo push, en este caso trabajo sobre una rama <em>dev</em> que es desde la que hago el despliegue al entorno de <em>staging</em>. </p>
+<p><code>git push staging dev:master</code></p>
+<p>Quede dicho que el manejo de ramas es <em>master</em> para producción y <em>dev</em> para desarrollo/staging, al trabajar sólo (salvo para cosas puntuales de maquetación) por el momento me resulta más que suficiente.</p>
+<p>Una de las cosas que pasa es que necesitaremos pasarle el parámetro <em>--app</em> para decirle sobre que instancia queremos hacerlo. Algo así:</p>
+<p><code><br />
+heroku rollback --app my-app<br />
+heroku run rake db:migrate --app my-app-staging<br />
+heroku logs --app my-app<br />
+</code></p>
+<p>Y ya, en un pispas está todo listo.</p>

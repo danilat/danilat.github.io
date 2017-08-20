@@ -1,0 +1,59 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Internacionalización con struts '
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 38
+wordpress_url: http://www.danilat.com/wordpress/?p=38
+date: '2007-02-26 17:38:33 +0100'
+date_gmt: '2007-02-26 15:38:33 +0100'
+categories:
+- Programación
+- Java
+- Struts
+tags: []
+comments:
+- id: 9690
+  author: mario
+  author_email: chivas@mail.com
+  author_url: ''
+  date: '2009-09-25 01:15:25 +0200'
+  date_gmt: '2009-09-24 23:15:25 +0200'
+  content: no muy bien explicado que digamos
+---
+<p>Existen dos formas de configurar los .properties para la internacionalización en struts:</p>
+<p>en struts-config.xml:</p>
+<p><code><message-resources parameter="paquete1.paquete2.ApplicationResources" null="false" key="probatinas"/> </code></p>
+<p>null(opcional[true]),si null=true da una excepcion si no encuentra la clave, si null=false muestra "???nombreclave???"</p>
+<p>key(opcional)clave para guardar el bundle como un atributo del ServletContext.</p>
+<p>en web.xml:</p>
+<p><code><servlet><br />
+<servlet-name>action</servlet-name><br />
+<servlet-class><br />
+org.apache.struts.action.ActionServlet<br />
+</servlet-class><br />
+<init-param></p>
+<param-name>
+application
+</param-name>
+<param-value>
+paquete1.paquete2.ApplicationResources
+</param-value>
+</init-param><br />
+</servlet></code></p>
+<p>Ejemplo de ApplicationResources.properties:<br />
+prueba.titulo= Bienvenido a la web<br />
+prueba.fecha=Fecha</p>
+<p>En las jsp la directiva:</p>
+<p><code><%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %></code></p>
+<p>Para mostrar el mensaje internacionalizado:</p>
+<p><code><bean:message key="prueba.titulo"/><br />
+<bean:message bundle="probatinas" key="prueba.titulo"/</code>> recupera el bundle del atributo del ServletContext</p>

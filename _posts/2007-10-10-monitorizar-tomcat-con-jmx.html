@@ -1,0 +1,108 @@
+---
+layout: post
+status: publish
+published: true
+title: Monitorizar Tomcat con JMX
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 115
+wordpress_url: http://www.danilat.com/weblog/2007/10/10/monitorizar-tomcat-con-jmx/
+date: '2007-10-10 20:14:40 +0200'
+date_gmt: '2007-10-10 18:14:40 +0200'
+categories:
+- Java
+- JMX
+tags: []
+comments:
+- id: 918
+  author: Enrique Rodriguez Lasterra
+  author_email: lasterra@javahispano.org
+  author_url: http://weblogs.javahispano.org/lasterra
+  date: '2007-10-11 13:46:36 +0200'
+  date_gmt: '2007-10-11 11:46:36 +0200'
+  content: "Sabes si, en caso de crear un agente JMX de mis proyectos, podría \"alojarlo\"
+    en ese mismo directorio de agentes?\r\n\r\nLa verdad es que de JMX he leido algo
+    y he entendido poco :-("
+- id: 919
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-10-12 02:57:31 +0200'
+  date_gmt: '2007-10-12 00:57:31 +0200'
+  content: "Hola Enrique,\r\n\r\nYa siento no poder ayudarte, por ahora sólo he estado
+    mirando el nivel de instrumentación.\r\n\r\nA mi JMX también se me está haciendo
+    un poco complicado."
+- id: 1326
+  author: Manuel Jesús Recena Soto
+  author_email: recena@eii.us.es
+  author_url: http://www.manuelrecena.com
+  date: '2007-11-05 14:16:41 +0100'
+  date_gmt: '2007-11-05 12:16:41 +0100'
+  content: "Hola Dani:\r\n\r\nLe habéis echado un vistazo a:\r\nhttp://www.lambdaprobe.org\r\n\r\nUn
+    saludo"
+- id: 1327
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-11-05 17:14:35 +0100'
+  date_gmt: '2007-11-05 15:14:35 +0100'
+  content: "Hola Manuel,\r\n\r\nPues no lo conocía, saca buena pinta, a ver si saco
+    un rato para probarlo.\r\n\r\nMuchas gracias."
+- id: 2800
+  author: José I
+  author_email: jisuhuaylas@cpsaa.com.pe
+  author_url: ''
+  date: '2008-03-14 22:27:33 +0100'
+  date_gmt: '2008-03-14 20:27:33 +0100'
+  content: Amigos tengo mi servidor linux con el tomcat conteniendo 12 Aplicaciones
+    Web corriendo, el tema es que necesito conocer el consumo de memoria para cada
+    una de mis aplicaciones, conocen alguna forma de hacerlo?
+- id: 2829
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-03-17 02:54:20 +0100'
+  date_gmt: '2008-03-17 00:54:20 +0100'
+  content: "Hola José,\r\n\r\nPues la verdad que, al menos con jconsole, no hay forma
+    de hacerlo. Aunque quizás con herramientas específicas de monitorización de tomcat
+    como lambdaprobe se pueda llegar a hacer.\r\n\r\nPor simple curiosidad, ya que
+    me choca tener 12 aplicaciones en un mismo servidor (si no son aplicaciones de
+    uso interno, claro): ¿Aproximadamente, cuántos usuarios tienes entre todas las
+    aplicaciones?, ¿qué características tiene el servidor?"
+- id: 9533
+  author: torsanmon
+  author_email: torsanmon@gmail.com
+  author_url: ''
+  date: '2009-03-23 06:57:21 +0100'
+  date_gmt: '2009-03-23 14:57:21 +0100'
+  content: "Hola.\r\n\r\nAparte de la consola tienes la opción de crearte un script
+    con los comandos que necesites, ponerlo en la cron y monitorizarlo automáticamente
+    sin consola.\r\n\r\nSabéis cómo realizar un adaptador que monitorice balanceando
+    varios servidores?\r\n\r\nSé que la cuestión no es baladí."
+- id: 9664
+  author: Hans
+  author_email: h.verduguez@gmail.com
+  author_url: ''
+  date: '2009-08-04 17:02:04 +0200'
+  date_gmt: '2009-08-04 15:02:04 +0200'
+  content: "Hola\r\n\r\nUna excelente herramienta para monitorear servicios, aplicaciones
+    y el estado del servidor en uno solo es el Hyperic HQ(free), es necesario correr
+    un agente en el servidor que consume pocos recursos y configurar el jmx para tomcat,
+    websphere o cada aplicación java, les recomiendo.\r\n\r\nSaludos"
+---
+<p>He estado haciendo mis primeras pruebas con <a href="http://java.sun.com/javase/technologies/core/mntr-mgmt/javamanagement/">JMX</a>(<a href="http://es.wikipedia.org/wiki/JMX">JMX en la wikipedia</a>), que sirve para entre otras cosas para monitorizar aplicaciones java.</p>
+<p>La herramienta para monitorizar que nos viene por defecto en la JDK es <a href="http://java.sun.com/developer/technicalArticles/J2SE/jconsole.html">JConsole</a>, a partir de Java 5, que se encuentra dentro del directorio bin de nuestro JAVA_HOME.</p>
+<p>Para habilitar la instrumentación de JMX en Tomcat debemos buscar, dentro de catalina.bat, la variable <strong>JAVA_OPTS</strong> y añadirle los siguientes valores, separados por un espacio:</p>
+<ul>
+<li>-Dcom.sun.management.jmxremote</li>
+<li>-Dcom.sun.management.jmxremote.port="9004"</li>
+<li>-Dcom.sun.management.jmxremote.authenticate="false"</li>
+<li>-Dcom.sun.management.jmxremote.ssl="false"</li>
+</ul>
+<p>Una vez modificado, arrancamos el Tomcat y el JConsole, que nos debe dar la opción a conectarnos, en la pestaña Local, al Tomcat para monitorizarlo. Una vez conectados ya podemos ver parámetros como el consumo de memoria, número de threads...</p>

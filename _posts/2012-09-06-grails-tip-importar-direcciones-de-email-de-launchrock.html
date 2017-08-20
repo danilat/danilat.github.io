@@ -1,0 +1,56 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Grails tip: Importar direcciones de email de LaunchRock'
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2242
+wordpress_url: http://www.danilat.com/weblog/?p=2242
+date: '2012-09-06 17:18:17 +0200'
+date_gmt: '2012-09-06 15:18:17 +0200'
+categories:
+- Grails
+- Minchador
+tags: []
+comments: []
+---
+<p>Sigo trabajando en <a href="http://minchador.com/">minchador</a>, no al ritmo que hubiera querido (espero escribir sobre ello), pero sigo dándole.</p>
+<p>Estoy ya preparando el lanzamiento de la <strong>beta cerrada</strong> arreglando detalles: mejorando textos, ajustando cositas de la UI, dándole vueltas al email de bienvenida, importando los mails de los que se han ido registrando en la landing hecha con <a href="http://launchrock.com/">LaunchRock</a>...</p>
+<p>Pues bien, para sacar las direcciones de LaunchRock dejan a tu disposición la posibilidad de descargar los datos en un fichero en formato CSV con la siguiente estructura:</p>
+<p><em>"timestamp","email","domain","user_clicks","user_signups","referred_by","ref_url"</em></p>
+<p>Entonces lo que hice fue prepararme un sencillo <em>Service</em> de grails para importar tan sólo las direcciones, el código es el siguiente:<br />
+&nbsp;</p>
+<div id="LC1">class LaunchRockService {</div>
+<div id="LC2">def emails</div>
+<div id="LC3"></div>
+<div id="LC4">    def getEmailsFromCSV(csv) {</div>
+<div id="LC5">     def emails = []</div>
+<div id="LC6">     def lines = csv.split('\n')</div>
+<div id="LC7">     lines.each{</div>
+<div id="LC8">     def email = it.split(',')[1]</div>
+<div id="LC9">     emails &lt;&lt; email.replaceAll('"','')</div>
+<div id="LC10">     }</div>
+<div id="LC11">     return emails</div>
+<div id="LC12">    }</div>
+<div id="LC13"></div>
+<div id="LC14">    def getEmailsFromFile(file){</div>
+<div id="LC15">     def lines = file.text.split('\n')</div>
+<div id="LC16">     def total = lines.size()-1</div>
+<div id="LC17">     lines = lines[1..total]</div>
+<div id="LC18">     emails = getEmailsFromCSV(lines.join('\n'))</div>
+<div id="LC19">    }</div>
+<div id="LC20"></div>
+<div id="LC21">    def emailIsForBeta(email){</div>
+<div id="LC22">     return emails.contains(email)</div>
+<div id="LC23">    }</div>
+<div id="LC24">}</div>
+<p>&nbsp;</p>
+<p>Lo que hago es pasarle una instancia de <code>File</code> del csv de LaunchRock a <code>getEmailsFromFile</code> y recuperar todas las direcciones de email. En mi caso ejecuto ese método en el BootStrap de grails para tenerlas cargadas en memoria y acceder a <code>launchRockService.emails</code> desde otras partes de mi aplicación.</p>
+<p>Ya puestos dejo el código junto a los tests los hice con <a href="http://code.google.com/p/spock/wiki/SpockBasics">especificaciones de Spock</a> en <a href="https://gist.github.com/3657079">un gist</a>, por si a alguien le interesa.</p>

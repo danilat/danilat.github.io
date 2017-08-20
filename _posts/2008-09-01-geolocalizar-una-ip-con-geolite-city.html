@@ -1,0 +1,41 @@
+---
+layout: post
+status: publish
+published: true
+title: Geolocalizar una IP con GeoLite City
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 182
+wordpress_url: http://www.danilat.com/weblog/2008/09/01/geolocalizar-una-ip-con-geolite-city/
+date: '2008-09-01 06:30:31 +0200'
+date_gmt: '2008-09-01 04:30:31 +0200'
+categories:
+- Java
+tags: []
+comments: []
+---
+<p><a href="http://www.maxmind.com/app/geolitecity">GeoLite City</a> es la versión gratuita de <a href="http://www.maxmind.com/app/city">Geo City</a>, sirve para conocer la localización aproximada de una IP. Como se puede imaginar, tiene muchas aplicaciones, por ejemplo a partir de los visitantes online en una web tener un mapa o una estadística por países o... Hay que destacar también otra funcionalidad interesante, que es poder consultar la información de un dominio igual que una IP.</p>
+<p>Para utilizar este producto, que como es de imaginar tiene menos detalle de datos respecto a la versión de pago, podemos descargarnos los csv y cargarlo en nuestra base de datos, o utilizar un fichero .dat binario con un <a href="http://www.maxmind.com/app/api">API</a> open source disponible para varios lenguajes de programación(en mi caso <a href="http://www.maxmind.com/app/java">el API Java</a>).</p>
+<p>Un ejemplo básico con el API de java, para conocer dónde están los servidores de danilat.com ;):<br />
+<code><br />
+try {<br />
+LookupService cl = new LookupService("mypath/GeoLiteCity.dat", LookupService.GEOIP_MEMORY_CACHE );<br />
+//Se podría hacer cl.getLocation de una IP de la misma forma<br />
+Location location = cl.getLocation("danilat.com");<br />
+System.out.println("País: " + location.countryName +<br />
+ "\n latitud: " + location.latitude +<br />
+ "\n longitud: " + location.longitude));<br />
+cl.close();<br />
+}<br />
+catch (IOException e) {<br />
+ e.printStackTrace();<br />
+}<br />
+</code></p>
+<p>Y ahora un poco de crítica, los atributos de la clase Location están como <code>public</code>(en algunas otras también y en otras usan set/get...), también hay dos clases que sólo tienen métodos estáticos con nombre en minúscula, supongo que para diferenciarlas como clases de utilidades... ¿no sería mejor llamarla por ejemplo TimeZoneUtils que timeZone, y así no salirse de la convención de que los nombres de las clases comiencen con mayúscula?</p>
+<p>En conclusión, un producto con funcionalidades interesantes, pero con una implementación del API (de Java) que deberían retocar.</p>

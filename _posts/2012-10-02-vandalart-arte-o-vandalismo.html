@@ -1,0 +1,52 @@
+---
+layout: post
+status: publish
+published: true
+title: VandalArt, ¿arte o vandalismo?
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 2259
+wordpress_url: http://www.danilat.com/weblog/?p=2259
+date: '2012-10-02 02:27:47 +0200'
+date_gmt: '2012-10-02 00:27:47 +0200'
+categories:
+- Proyectos
+- Grails
+tags: []
+comments:
+- id: 11320
+  author: k40s
+  author_email: zgz.alberto@gmail.com
+  author_url: http://k40s.org
+  date: '2012-10-03 20:02:02 +0200'
+  date_gmt: '2012-10-03 18:02:02 +0200'
+  content: "La vi hace unos días. Y la llevaba viendo ya varios días seguidos hasta
+    que me dí cuenta por el pie de página que era tuya jejeje\r\n\r\n¡¡Me gusta!!
+    y lo de tiempo real ¡¡se saldría!!"
+---
+<p>Los últimos meses he andado trabajando en proyectos de esos en los que <em>no se luce</em>, que bien son más <em>empresariales</em>, que se ha retrasado su salida al público y/o es trabajo alejado de la interfaz de usuario.</p>
+<p>Quizás sea por eso que desde este verano ande un tanto disperso entre proyectos personales, tanto arreglando pequeñas cosas de <a href="http://www.dndzgz.com/app">algunos</a> <a href="http://www.eldisparate.de/">existentes</a>, como trabajando en algunos nuevos. Tema aparte es el auto-enmarronamiento de la coordinación del grupo de trabajo de <a href="https://github.com/danilat/CachiruloHub">CachiruloHub</a>, pero ese es otro tema.</p>
+<p>Pues bien, uno de los pequeños experimentos a los que le he ido dedicando algunas horas es <strong><a href="http://vandalart.org/">VandalArt.org</a></strong>. Una aplicación web que extrae referencias a fotos en <strong>instagram</strong> que se hayan etiquetado con ciertos hashtags (en este caso varios relacionados con arte urbano).</p>
+<p><a href="http://vandalart.org/"><img class="aligncenter" src="http://desmond.imageshack.us/Himg834/scaled.php?server=834&filename=vandalart.png&res=landing" alt="" /></a></p>
+<p><strong>¿Por qué?</strong></p>
+<p>Por un lado porque instagram es uno de esos servicios que consulto y uso a diario, me gusta. Por otro, porque me gusta caminar por la calle y sorprenderme encontrando graffitis u otro tipo de obras que no conocía, o quedarme mirando de vez en cuando alguna que ya conozco. </p>
+<p>Y al final se me pasó por la cabeza mezclar ambas cosas para poder ver arte urbano de cualquier parte del mundo.</p>
+<p><strong>¿Cómo?</strong></p>
+<p>La verdad que es una aplicación bastante simple. Desarrollada con <em>Grails</em> (el <em>look and feel</em> de la web lo delata ;)), utilizando el plugin de <em>Quartz</em> para hacer peticiones al <a href="http://instagram.com/developer/endpoints/tags/">API de instagram</a> cada 30 minutos, de donde extrae la información de la foto y sus enlaces, pero las fotos siguen estando en instagram, por supuesto.</p>
+<p>Como una cosa que me parecía muy curiosa era ver <a href="http://vandalart.org/map">fotos sobre un mapa</a>, implementé esa funcionalidad para las últimas 50 fotos subidas (y geolocalizadas). Se muestran usando la librería <a href="http://leaflet.cloudmade.com/">leaflet</a> para interactuar con mapas, y los tiles son de <a href="http://cloudmade.com/">cloudmade</a>. Realmente no es gran cosa, pero creo que queda resultón.</p>
+<p>El <a href="https://github.com/danilat/vandalart">código está publicado en github</a> con licencia MIT.</p>
+<p><a href="http://vandalart.org/home/show/2632"><img class="aligncenter" src="http://distilleryimage8.instagram.com/9e7b71c0a5d511e1b00112313800c5e4_6.jpg" alt="Be like a panda" /></a></p>
+<p><strong>¿Roadmap?</strong></p>
+<p>Tengo varias funcionalidades en mente, que supongo que haré poco a poco, principalmente:</p>
+<ul>
+<li>Que te puedas registrar para guardar fotos como favoritas, simplemente porque te gusten o te puedan servir como forma de inspiración o por lo que sea...</li>
+<li>Que funcione en tiempo real. Para este caso pienso que quedaría muy molón ver como aparecen nuevas fotos, y me apetece bastante jugar con el <a href="http://instagram.com/developer/realtime/">API Real-Time</a>.</li>
+</ul>
+<p>Y por cierto, que el proyecto ya tiene su primer fork. Para la <a href="http://www.scife.es/">Semana del Cine y de la Imagen de Fuentes de Ebro</a> estaban organizando un concurso de instagram, tomando unas cervezas les comenté que posiblemente podrían aprovechar el código para hacer la web del concurso. </p>
+<p>Y vaya si lo han hecho! Me encanta como les ha quedado la web del <strong><a href="http://instagram.scife.es/">concurso de instagram de SCIFE</a></strong> :)</p>

@@ -1,0 +1,34 @@
+---
+layout: post
+status: publish
+published: true
+title: Apunte sobre autoincrementales (autonuméricos) en oracle
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 46
+wordpress_url: http://www.danilat.com/wordpress/?p=46
+date: '2007-02-10 17:44:16 +0100'
+date_gmt: '2007-02-10 15:44:16 +0100'
+categories:
+- Programación
+tags: []
+comments: []
+---
+<p>En orcale no existen los autoincrementales, para que se incremente un valor, debemos utilizar una secuencia para el campo a incrementar y un trigger para la tabla.</p>
+<p>Creamos la secuencia:</p>
+<p><code>CREATE SEQUENCE nombredelasecuencia increment by 1 start with 1;</code></p>
+<p>Creamos el trigger:</p>
+<p><code>CREATE OR REPLACE TRIGGER nombredeltrigger<br />
+before insert on nombredelatabla    for each row begin<br />
+if inserting then<br />
+if :NEW.autonumerico is null then<br />
+select nombredelasecuencia.nextval into :NEW.autonumerico from dual;<br />
+end if;<br />
+end if;<br />
+end;</code></p>

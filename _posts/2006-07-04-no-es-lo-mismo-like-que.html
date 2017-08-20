@@ -1,0 +1,31 @@
+---
+layout: post
+status: publish
+published: true
+title: No es lo mismo like que =
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 5
+wordpress_url: http://www.danilat.com/wordpress/?p=5
+date: '2006-07-04 17:03:21 +0200'
+date_gmt: '2006-07-04 15:03:21 +0200'
+categories:
+- Programación
+tags: []
+comments: []
+---
+<p>Acostumbro a pasarme por algún foro de vez en cuando, tanto para ver si puedo ayudar a alguien como a pedir ayuda.</p>
+<p>En muchos foros de SQL o bases de datos me he encontrado con alguna pregunta de porqué da error una consulta del tipo:<br />
+<strong>SELECT * FROM personas WHERE nombre = perico</strong></p>
+<p>Y la respuesta suele ser:<br />
+<strong>SELECT * FROM personas WHERE nombre = 'perico'</strong></p>
+<p>Que no es del todo correcto, pero en <a target="_blank" href="http://www.mysql.org/">MySql</a> funciona correctamente y como es un gestor de bases de datos muy extendido, por costumbre, se puede tomar como respuesta correcta, pero si utiliza otro gestor distinto puede dar errores, por eso hay que intentar escribir siempre en SQL-92 ya que la inmensa mayoría lo soportan, además de darle añadidos al lenguaje como por ejemplo este caso, o <a target="_blank" href="http://en.wikipedia.org/wiki/Transact-SQL">Transact-SQL</a> y <a target="_blank" href="http://es.wikipedia.org/wiki/PL/SQL">PL/SQL</a></p>
+<p>Respuesta con SQL-92:<br />
+<strong>SELECT * FROM personas WHERE nombre like 'perico'</strong></p>
+<p>Con esta respuesta nos aseguramos que siempre que el SGBD soporte el SQL-92, como en la mayoría de ocasiones (por no decir siempre), va a funcionar sin ningún problema.</p>

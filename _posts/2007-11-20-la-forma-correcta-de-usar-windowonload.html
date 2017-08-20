@@ -1,0 +1,164 @@
+---
+layout: post
+status: publish
+published: true
+title: La forma correcta de usar window.onload
+author:
+  display_name: dani
+  login: dani
+  email: danilat83@gmail.com
+  url: http://www.danilat.com/weblog/
+author_login: dani
+author_email: danilat83@gmail.com
+author_url: http://www.danilat.com/weblog/
+wordpress_id: 123
+wordpress_url: http://www.danilat.com/weblog/2007/11/20/la-forma-correcta-de-usar-windowonload/
+date: '2007-11-20 01:18:00 +0100'
+date_gmt: '2007-11-19 23:18:00 +0100'
+categories:
+- Javascript
+tags: []
+comments:
+- id: 1679
+  author: Francisco
+  author_email: nflamel@gmail.com
+  author_url: http://otrobloggeek.com
+  date: '2007-11-20 14:30:17 +0100'
+  date_gmt: '2007-11-20 12:30:17 +0100'
+  content: Otra solución que también da bastante buen resultado es usar alguna librería
+    como mootools o jQuery, que generalmente incluyen un sistema para controlar este
+    tipo de eventos bastante bien.
+- id: 1682
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-11-20 16:55:52 +0100'
+  date_gmt: '2007-11-20 14:55:52 +0100'
+  content: "Hola Francisco,\r\n\r\nÉsto sería si no se utiliza alguna de las librerías
+    que incluyen el sistema para manejar eventos. \r\nSi trabajas con alguna de ellas,
+    está claro, mejor hacerlo a su manera ¿para qué rehacer trabajo?"
+- id: 1684
+  author: Jaime Simo
+  author_email: jaimesimo@wanadoo.es
+  author_url: ''
+  date: '2007-11-20 19:32:57 +0100'
+  date_gmt: '2007-11-20 17:32:57 +0100'
+  content: Me interesa mucho esto, por que yo tengo un problema con dos script que
+    cargan html en un div y como usa window.onload= function()pues eso que solo se
+    ve uno, el problema es que no tengo ni idea de ajax ni de javaScript y no se que
+    tengo que hacer con la solución que das. gracias
+- id: 1685
+  author: José M. Aguilar
+  author_email: josemague@gmail.com
+  author_url: http://www.variablenotfound.com
+  date: '2007-11-20 19:55:36 +0100'
+  date_gmt: '2007-11-20 17:55:36 +0100'
+  content: "Hola.\r\n\r\nLa forma que comentas en el post es muy elegante.\r\n\r\nHace
+    unas semanas publique en Variable Not Found dos entradas que muestran otras formas
+    de hacerlo:\r\n\r\n<a href='http://www.variablenotfound.com/2007/10/scripts-de-arranque-en-pginas-web.html'
+    rel=\"nofollow\">Incluir scripts de arranque en webs</a>\r\n<a href='http://www.variablenotfound.com/2007/11/aadir-funciones-con-parmetros-al-evento.html'
+    rel=\"nofollow\">Añadir funciones con parámetros</a>\r\n\r\nSaludos y felicidades
+    por el blog."
+- id: 1688
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-11-20 21:44:55 +0100'
+  date_gmt: '2007-11-20 19:44:55 +0100'
+  content: "Hola Jaime,\r\n\r\nSi tienes dos window.onload=function(), cámbialo por
+    dos funciones normales con nombre: function mifuncion1(){... \r\n\r\nEscribe la
+    función makeDoubleDelegate y luego úsala así:\r\nwindow.onload = makeDoubleDelegate(window.onload,mifuncion1);\r\nwindow.onload
+    = makeDoubleDelegate(window.onload,mifuncion2);\r\n\r\nSi las funciones están
+    bien escritas te debería funcionar."
+- id: 1689
+  author: programame.net
+  author_email: ''
+  author_url: http://programame.net/story/forma-correcta-usar-window.onload
+  date: '2007-11-21 00:34:02 +0100'
+  date_gmt: '2007-11-20 22:34:02 +0100'
+  content: |-
+    <strong>La forma correcta de usar window.onload...</strong>
+
+    Cómo se debe utilizar window.onload correctamente, sin librerías javascript....
+- id: 1690
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-11-21 01:23:53 +0100'
+  date_gmt: '2007-11-20 23:23:53 +0100'
+  content: "Hola José M.\r\n\r\nVeo que con la función addOnLoad() también se soluciona
+    el problema, y parece incluso más cómoda de utilizar.\r\n\r\nDiscúlpame por tardar
+    en publicar tu comentario, ni me había dado cuenta que estaba por moderar.\r\n\r\nSaludos!"
+- id: 1695
+  author: Jaime Simo
+  author_email: jaimesimo@wanadoo.es
+  author_url: ''
+  date: '2007-11-21 11:42:07 +0100'
+  date_gmt: '2007-11-21 09:42:07 +0100'
+  content: Perdoname pero no lo se hacer, ¿puedo poner aquí mi Script?
+- id: 1696
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2007-11-21 12:26:17 +0100'
+  date_gmt: '2007-11-21 10:26:17 +0100'
+  content: "Hola Jaime,\r\nte he mandado un correo."
+- id: 2096
+  author: Daniel
+  author_email: elmagodeozmx@hotmail.com
+  author_url: ''
+  date: '2008-01-17 01:17:29 +0100'
+  date_gmt: '2008-01-16 23:17:29 +0100'
+  content: oye una pregunta quiero cargar varias paginas php en diferentes divs pero
+    no funciona a que se debe
+- id: 6942
+  author: aei
+  author_email: loprimeroquesemeocurrio@gmail.com
+  author_url: http://www.artedraw.com.ar
+  date: '2008-10-21 03:42:10 +0200'
+  date_gmt: '2008-10-21 01:42:10 +0200'
+  content: "Tu funcion no me funciono, y es cierto, la funcion addOnLoad() tambien
+    soluciona el problema de cargar varias funciones a la vez y es mas comoda de usar.\r\nPara
+    quienes el interese la funcio addOnLoad() es esta:\r\n\r\nfunction addLoadEvent(func){\r\n
+    \   var oldonload = window.onload;\r\n    if (typeof window.onload != 'function')\r\n
+    \   {\r\n        window.onload = func;\r\n    }else{\r\n        window.onload
+    = function(){\r\n            if (oldonload)\r\n            {\r\n                oldonload();\r\n
+    \           }\r\n            func();\r\n        }\r\n    }\r\n}\r\ny se usa asi:\r\naddLoadEvent(function(){\r\nfuncion1();\r\nfuncion2();\r\nfuncion3();\r\n});\r\nOtra
+    cosa que tambien funcionaria rapidamente sin mucho script es crear una funcion
+    y ponerle todas las funciones que se quiere ejecutar detro de ésta, y luego llamarla
+    con window.onload y listo. No será super elegante pero funciona."
+- id: 6956
+  author: Dani
+  author_email: danilat83@gmail.com
+  author_url: http://www.danilat.com/weblog
+  date: '2008-10-21 12:00:29 +0200'
+  date_gmt: '2008-10-21 10:00:29 +0200'
+  content: "Hola aei,\r\n\r\nHombre... esa es la solución evidente, en alguna ocasión
+    puedes no necesitar nada más, pero si estás haciendo algo más o menos grande es
+    muy probable que resulte complicado de mantener.\r\n\r\nSaludos!"
+- id: 9656
+  author: Martín
+  author_email: luchoparalosamigos@hotmail.com
+  author_url: ''
+  date: '2009-07-28 02:08:29 +0200'
+  date_gmt: '2009-07-28 00:08:29 +0200'
+  content: "¡Gracias! ¡Gracias! ¡Gracias!"
+---
+<p>En ocasiones, necesitamos ejecutar funciones javascript al cargarse una página (validaciones, autocompletados...).</p>
+<p>Lo típico es hacerlo en el evento onload del body o poniendo las llamadas a nuestras funciones javascript dentro del código para que se vayan ejecutando mientras se carga la página, ésta sería la forma intrusiva de hacerlo, la forma no intrusiva sería utilizar window.onload.</p>
+<p align="center"><strong>window.onload = mifuncion();</strong></p>
+<p>Hay un problema que fácilmente nos puede surgir, cuando tenemos varias asignaciones a window.onload, ya que se ejecutará sólo la última.</p>
+<p>En un principio se me ocurrió solucionarlo con una asignación común para toda la web, el problema es evidente, para una web más o menos grande llegaría a ser una macro-función, además de ser una solución nada elegante.<br />
+Al final a googleando un poco, acabé encontrando la solución <a href="http://blog.roberthahn.ca/articles/2007/02/02/how-to-use-window-onload-the-right-way">en el blog de Robert Hahn</a>, donde plantea tres formas de hacerlo para <em>"que funcione"</em>, y una solución que al parecer es la ideal, simplemente es asignar a window.onload ésta función que nos devuelve una función anónima:</p>
+<pre style="background: #ffffff none repeat scroll 0% 50%; color: #000000; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial">function makeDoubleDelegate(function1, function2) {
+return function() {
+if (function1)
+function1();
+if (function2)
+function2();
+}
+}</pre>
+<p>Para probarlo simplemente con éste código, podemos ver que funcina correctamente:</p>
+<pre style="background: #ffffff none repeat scroll 0% 50%; color: #000000; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial">window<span style="color: #008c00">.</span>onload = makeDoubleDelegate(window<span style="color: #008c00">.</span>onload, alert('<span style="color: #008c00">1</span>'));
+window<span style="color: #008c00">.</span>onload = makeDoubleDelegate(window<span style="color: #008c00">.</span>onload, alert('<span style="color: #008c00">2</span>'));
+window<span style="color: #008c00">.</span>onload = makeDoubleDelegate(window<span style="color: #008c00">.</span>onload, alert('<span style="color: #008c00">3</span>'));</pre>
