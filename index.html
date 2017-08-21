@@ -1,0 +1,113 @@
+---
+layout: default
+---
+
+<div class="site-content">
+  <div class="site-content-left">
+    {% for post in paginator.posts %}
+      <article>
+        <header class="entry-header">
+          <h2><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
+          <div class="entry-meta">
+            <a href="{{ post.url | prepend: site.baseurl }}" rel="bookmark">
+              <time class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            </a>
+            <span class="byline"> por <span class="author vcard">Dani</span></span>
+          </div><!-- .entry-meta -->
+        </header><!-- .entry-header -->
+
+        <div class="entry-content">
+          {{ post.content }}
+        </div><!-- .entry-content -->
+
+        <footer class="entry-meta">
+          <span class="cat-links">
+            Publicado en
+              {% for category in post.categories %}
+                {{category}}
+              {% endfor %}
+            </span>
+          <span class="sep"> | </span>
+          <span class="comments-link"><a href="{{ post.url | prepend: site.baseurl }}/#respond">Deja un comentario</a></span>
+        </footer><!-- .entry-meta -->
+      </article><!-- #post-## -->
+    {% endfor %}
+
+    <nav role="navigation" id="nav-below" class="navigation-paging">
+      {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">Anterior</a>
+      {% else %}
+        <span class="previous">Anterior</span>
+      {% endif %}
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="next">Siguiente</a>
+      {% else %}
+        <span class="next ">Siguiente</span>
+      {% endif %}
+    </nav><!-- #nav-below -->
+  </div>
+
+  <aside class="site-content-right" id="site-content-right">
+    <p><a href="http://feeds.feedburner.com/danilat" title="Subscribe to my feed" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon32x32.png" alt="" style="border:0"></a><a href="http://feeds.feedburner.com/danilat" title="Subscribe to my feed" rel="alternate" type="application/rss+xml"> Subscribir al RSS</a></p>
+    <p><strong>Mi nombre es Dani Latorre. Soy un programador independiente, en <a href="http://codingstones.com/" target="blank">Coding Stones</a>, especializado en el desarrollo web backend y en la conceptualización de productos tecnológicos.</strong></p>
+    <p>También ando por twitter como <a href="https://twitter.com/dani_latorre" target="blank">@dani_latorre</a></p>
+
+    <aside id="categories">
+      <h3>Categorías</h3>
+      <ul>
+        	<li class="cat-item cat-item-14"><a href="http://www.danilat.com/weblog/category/software/aplicaciones-web/">Aplicaciones Web</a>
+        </li>
+        <li class="cat-item cat-item-35"><a href="http://www.danilat.com/weblog/category/entrevistas/developars/">Developars</a>
+        </li>
+        <li class="cat-item cat-item-3"><a href="http://www.danilat.com/weblog/category/diseno/">Diseño</a>
+        </li>
+        <li class="cat-item cat-item-32"><a href="http://www.danilat.com/weblog/category/entrevistas/">Entrevistas</a>
+        </li>
+        <li class="cat-item cat-item-1"><a href="http://www.danilat.com/weblog/category/general/">General</a>
+        </li>
+        <li class="cat-item cat-item-26"><a href="http://www.danilat.com/weblog/category/programacion/java/groovy/grails/">Grails</a>
+        </li>
+        <li class="cat-item cat-item-24"><a href="http://www.danilat.com/weblog/category/programacion/java/groovy/">Groovy</a>
+        </li>
+        <li class="cat-item cat-item-8"><a href="http://www.danilat.com/weblog/category/humor/">Humor</a>
+        </li>
+        <li class="cat-item cat-item-9"><a href="http://www.danilat.com/weblog/category/programacion/java/">Java</a>
+        </li>
+        <li class="cat-item cat-item-12"><a href="http://www.danilat.com/weblog/category/programacion/javascript/">Javascript</a>
+        </li>
+        <li class="cat-item cat-item-29"><a href="http://www.danilat.com/weblog/category/proyectos/jobsket/">Jobsket</a>
+        </li>
+        <li class="cat-item cat-item-20"><a href="http://www.danilat.com/weblog/category/software/linux/">Linux</a>
+        </li>
+        <li class="cat-item cat-item-28"><a href="http://www.danilat.com/weblog/category/software/mac/">Mac</a>
+        </li>
+        <li class="cat-item cat-item-31"><a href="http://www.danilat.com/weblog/category/proyectos/minchador/">Minchador</a>
+        </li>
+        <li class="cat-item cat-item-30"><a href="http://www.danilat.com/weblog/category/open-data/">Open Data</a>
+        </li>
+        <li class="cat-item cat-item-7"><a href="http://www.danilat.com/weblog/category/personal/">Personal</a>
+        </li>
+        <li class="cat-item cat-item-11"><a href="http://www.danilat.com/weblog/category/programacion/php/">Php</a>
+        </li>
+        <li class="cat-item cat-item-2"><a href="http://www.danilat.com/weblog/category/programacion/">Programación</a>
+        </li>
+        <li class="cat-item cat-item-4"><a href="http://www.danilat.com/weblog/category/proyectos/">Proyectos</a>
+        </li>
+        <li class="cat-item cat-item-34"><a href="http://www.danilat.com/weblog/category/programacion/python/">Python</a>
+        </li>
+        <li class="cat-item cat-item-27"><a href="http://www.danilat.com/weblog/category/programacion/ruby/rails/">Rails</a>
+        </li>
+        <li class="cat-item cat-item-33"><a href="http://www.danilat.com/weblog/category/general/retro-semanal/">Retro semanal</a>
+        </li>
+        <li class="cat-item cat-item-21"><a href="http://www.danilat.com/weblog/category/programacion/ruby/">Ruby</a>
+        </li>
+        <li class="cat-item cat-item-18"><a href="http://www.danilat.com/weblog/category/programacion/scm/" title="Sistemas de control de versiones">SCM</a>
+        </li>
+        <li class="cat-item cat-item-25"><a href="http://www.danilat.com/weblog/category/programacion/java/spring/">Spring</a>
+        </li>
+        <li class="cat-item cat-item-19"><a href="http://www.danilat.com/weblog/category/diseno/usabilidad/">Usabilidad</a>
+        </li>
+      </ul>
+    </aside>
+  </aside>
+</div>
