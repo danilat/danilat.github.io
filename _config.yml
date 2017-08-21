@@ -6,7 +6,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: dani_latorre
 github_username:  danilat
 
-permalink: :year/:month/:day/:title
+permalink: /weblog/:year/:month/:day/:title
 
 # Build settings
 markdown: kramdown
@@ -17,6 +17,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
-paginate: 10
+paginate: 15
+paginate_path: "/weblog/page:num/"
 
 gems: [jekyll-paginate]
