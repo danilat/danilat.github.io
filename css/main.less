@@ -49,6 +49,14 @@ textarea {
 @blue: #2DB8DA;
 @green: #A9C73F;
 
+a{
+    text-decoration: none;
+    color: @blue;
+    &:hover{
+        color: @green;
+    }
+}
+
 .rounded-corners(@tl: 5px, @tr: 5px, @br: 5px, @bl: 5px) {
         -webkit-border-radius: @tl @tr @br @bl;
         -moz-border-radius: @tl @tr @br @bl;
@@ -107,19 +115,16 @@ body{
             padding: 0;
             a{
                 display: block;
-                color: @blue;
-                text-decoration: none;
                 padding: 5px 30px;
                 min-height: 22px;
                 text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
                 background: RGBA(46.00, 51.00, 54.00, 0.7) url(../img/menu.png) right 0px no-repeat;
                 font-weight: bold;
                 &:hover{
-                    color: #A8C63F;
                     background-position: right -29px;
                     text-shadow: 1px 1px 2px rgba(0,0,0,1);
                 }
-                
+
             }
             &:first-child{
                 a{
@@ -236,8 +241,6 @@ body{
             margin-bottom: 1.5em;
         }
         a{
-            text-decoration: none;
-            color: @blue;
             &:hover{
                 color: @green;
             }
@@ -292,7 +295,7 @@ body{
                     background-position: right -29px;
                     text-shadow: 1px 1px 2px rgba(0,0,0,1);
                 }
-                
+
             }
             &:first-child{
                 a{
