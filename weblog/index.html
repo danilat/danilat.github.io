@@ -1,19 +1,11 @@
 ---
-layout: default
+layout: by_lizano
 ---
-
-<div class="site-content">
-  <div class="site-content-left">
     {% for post in paginator.posts %}
       <article>
         <header class="entry-header">
-          <h2><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
-          <div class="entry-meta">
-            <a href="{{ post.url | prepend: site.baseurl }}" rel="bookmark">
-              <time class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-            </a>
-            <span class="byline"> por <span class="author vcard">Dani</span></span>
-          </div><!-- .entry-meta -->
+          <h2><a class="project" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
+          <time class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time> por <span class="author vcard">Dani</span>
         </header><!-- .entry-header -->
 
         <div class="entry-content">
@@ -38,11 +30,3 @@ layout: default
         <span class="next ">Siguiente</span>
       {% endif %}
     </nav><!-- #nav-below -->
-  </div>
-
-  <aside class="site-content-right" id="site-content-right">
-    <p><a href="http://feeds.feedburner.com/danilat" title="Subscribe to my feed" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon32x32.png" alt="" style="border:0"></a><a href="http://feeds.feedburner.com/danilat" title="Subscribe to my feed" rel="alternate" type="application/rss+xml"> Subscribir al RSS</a></p>
-    <p><strong>Mi nombre es Dani Latorre. Soy un programador independiente, en <a href="http://codingstones.com/" target="blank">Coding Stones</a>, especializado en el desarrollo web backend y en la conceptualización de productos tecnológicos.</strong></p>
-    <p>También ando por twitter como <a href="https://twitter.com/dani_latorre" target="blank">@dani_latorre</a></p>
-  </aside>
-</div>
