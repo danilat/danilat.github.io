@@ -2,13 +2,15 @@
 layout: by_lizano
 ---
     {% for post in paginator.posts %}
-      <article>
-        <header class="entry-header">
-          <h2><a class="project" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
-          <time class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time> por <span class="author vcard">Dani</span>
+      <article class="post">
+        <header>
+          <h2><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
+          <div class="entry-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time> por Dani
+          </div>
         </header><!-- .entry-header -->
 
-        <div class="entry-content">
+        <div>
           {{ post.content }}
         </div><!-- .entry-content -->
 
