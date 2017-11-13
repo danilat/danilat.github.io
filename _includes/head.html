@@ -1,0 +1,25 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <meta property="og:url" content="http://www.danilat.com/" />
+  <meta property="og:title" content="Dani Latorre - Desarrollador Web Freelance - danilat.com" />
+  <meta property="og:description" content="Soy un programador independiente especializado en el desarrollo web backend y en la conceptualización de productos tecnológicos. Mis habilidades: Grails, Groovy, Agile, Ruby, Rails, Testing, JavaScript, Conceptualización, Git, Java, Consultoría de Producto, Python, PHP, Web scraping..." />
+  <meta property="og:image" content="http://www.danilat.com/img/logo-200.jpg" / >
+  <meta property="og:site_name" content="danilat.com" />
+  <meta property="og:type" content="website" />
+</head>
