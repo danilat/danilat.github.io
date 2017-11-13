@@ -20,4 +20,4 @@ exclude:
 paginate: 15
 paginate_path: "/weblog/page:num/"
 
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, jekyll-feed]
