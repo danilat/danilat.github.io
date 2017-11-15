@@ -16,7 +16,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
-paginate: 10
+paginate: 5
 paginate_path: "/weblog/page:num/"
 
 gems: [jekyll-paginate, jekyll-feed]
