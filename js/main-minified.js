@@ -1,1 +1,0 @@
-$(function(){$(window).scroll(function(){var e=$("#site-content-right"),t=180,n=$(window).width(),r=$("#container").width(),i=(n-r)/2;if($(this).scrollTop()>t){e.addClass("fixed");e.css("top","20px");e.css("right",parseInt(i+1))}else{e.removeClass("fixed");e.css("top","auto");e.css("right","auto")}})});
