@@ -90,7 +90,7 @@ body{
     background: transparent url(../img/bg.png) center top no-repeat;
 }
 .container{
-    width: 950px;
+    max-width: 950px;
     margin: 0 auto;
 }//.container
 
@@ -148,11 +148,16 @@ body{
 }//.site-header
 
 .site-content{
-    position: relative;
-    overflow: hidden;
+    @media only screen and (min-width: 800px) {
+      position: relative;
+      overflow: hidden;
+    }
     .site-content-left{
-        width: 66.31%;
-        float: left;
+        width: 100%;
+        @media only screen and (min-width: 800px) {
+          width: 66.31%;
+          float: left;
+        }
         //background-color: RGBA(46.00, 51.00, 54.00, 0.3);
         background-color: RGBA(32.00, 36.00, 40.00, 0.5);
         .rounded-corners(2px, 2px, 2px, 2px);
@@ -243,8 +248,10 @@ body{
         }
     }//.site-content-left
     .site-content-right{
-        width: 270px;
-        float: right;
+        @media only screen and (min-width: 800px) {
+          width: 270px;
+          float: right;
+        }
         padding-bottom: 30px;
         background: transparent url(../img/linea.png) left bottom repeat-x;
         p{
