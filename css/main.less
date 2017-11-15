@@ -103,6 +103,9 @@ body{
 
 
 .site-header{
+    @media only screen and (max-width: 500px) {
+      font-size: 14px;
+    }
     margin-bottom: 50px;
     ul{
         margin: 0px 0px 60px 0px;
@@ -116,6 +119,9 @@ body{
             a{
                 display: block;
                 padding: 5px 30px;
+                @media only screen and (max-width: 500px) {
+                  padding: 2px 15px;
+                }
                 min-height: 22px;
                 text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
                 background: RGBA(46.00, 51.00, 54.00, 0.7) url(../img/menu.png) right 0px no-repeat;
@@ -153,10 +159,12 @@ body{
       overflow: hidden;
     }
     .site-content-left{
-        width: 100%;
+        width: 98%;
+        margin: 1%;
         @media only screen and (min-width: 800px) {
           width: 66.31%;
           float: left;
+          margin: 0%;
         }
         //background-color: RGBA(46.00, 51.00, 54.00, 0.3);
         background-color: RGBA(32.00, 36.00, 40.00, 0.5);
@@ -303,6 +311,9 @@ body{
                 color: @blue;
                 text-decoration: none;
                 padding: 5px 28px 0px 0px;
+                @media only screen and (max-width: 500px) {
+                  padding: 2px 14px 0px 0px;
+                }
                 height: 25px;
                 text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
                 background: transparent url(../img/menu.png) right 0px no-repeat;
