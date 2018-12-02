@@ -1,3 +1,6 @@
+---
+---
+
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
@@ -46,37 +49,37 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-@blue: #2DB8DA;
-@green: #A9C73F;
+$blue: #2DB8DA;
+$green: #A9C73F;
 
 a{
     text-decoration: none;
-    color: @blue;
+    color: $blue;
     &:hover{
-        color: @green;
+        color: $green;
     }
 }
 
-.rounded-corners(@tl: 5px, @tr: 5px, @br: 5px, @bl: 5px) {
-        -webkit-border-radius: @tl @tr @br @bl;
-        -moz-border-radius: @tl @tr @br @bl;
-        border-radius: @tl @tr @br @bl;
+@mixin rounded-corners($tl: 5px, $tr: 5px, $br: 5px, $bl: 5px){
+        -webkit-border-radius: $tl $tr $br $bl;
+        -moz-border-radius: $tl $tr $br $bl;
+        border-radius: $tl $tr $br $bl;
 }
 
-.box-shadow(@horizontal:0, @vertical:1px, @blur:2px, @color) {
-  -webkit-box-shadow: @horizontal @vertical @blur @color;
-  -moz-box-shadow: @horizontal @vertical @blur @color;
-  box-shadow: @horizontal @vertical @blur @color;
+@mixin box-shadow($color, $horizontal:0, $vertical:1px, $blur:2px){
+  -webkit-box-shadow: $horizontal $vertical $blur $color;
+  -moz-box-shadow: $horizontal $vertical $blur $color;
+  box-shadow: $horizontal $vertical $blur $color;
 }
-.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
-  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
-  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
-  box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+@mixin inner-shadow($horizontal:0, $vertical:1px, $blur:2px, $alpha: 0.4){
+  -webkit-box-shadow: inset $horizontal $vertical $blur rgba(0, 0, 0, $alpha);
+  -moz-box-shadow: inset $horizontal $vertical $blur rgba(0, 0, 0, $alpha);
+  box-shadow: inset $horizontal $vertical $blur rgba(0, 0, 0, $alpha);
 }
-.transition(@type: all, @delay: 0.3s){
-    -webkit-transition: @type @delay;
-    -moz-transition:    @type @delay;
-    -o-transition:      @type @delay;
+@mixin transition($type: all, $delay: 0.3s){
+    -webkit-transition: $type $delay;
+    -moz-transition:    $type $delay;
+    -o-transition:      $type $delay;
 }
 
 body{
@@ -90,7 +93,6 @@ body{
     background: transparent url(../img/bg.png) center top no-repeat;
 }
 .container{
-    max-width: 950px;
     margin: 0 auto;
 }//.container
 
@@ -134,12 +136,12 @@ body{
             }
             &:first-child{
                 a{
-                    .rounded-corners(0px, 0px, 0px, 5px);
+                    @include rounded-corners(0px, 0px, 0px, 5px);
                 }
             }
             &:last-child{
                 a{
-                    .rounded-corners(0px, 0px, 5px, 0px);
+                    @include rounded-corners(0px, 0px, 5px, 0px);
                 }
             }
         }
@@ -168,7 +170,7 @@ body{
         }
         //background-color: RGBA(46.00, 51.00, 54.00, 0.3);
         background-color: RGBA(32.00, 36.00, 40.00, 0.5);
-        .rounded-corners(2px, 2px, 2px, 2px);
+        @include rounded-corners(2px, 2px, 2px, 2px);
         h2.title{
             margin: 0;
             padding: 30px 40px 20px 40px;
@@ -190,7 +192,7 @@ body{
             padding: 30px 40px 30px 40px;
             position: relative;
             overflow: hidden;
-            .transition(all, 0.5s);
+            @include transition(all, 0.5s);
             span.ir{
                 display: none;
                 position: absolute;
@@ -210,8 +212,8 @@ body{
                 img{
                     max-width: 100%;
                     height: auto;
-                    .rounded-corners(3px, 3px, 3px, 3px);
-                    .box-shadow(0px, 0px, 1px, rgba(0,0,0,0.2));
+                    @include rounded-corners(3px, 3px, 3px, 3px);
+                    @include box-shadow(rgba(0,0,0,0.2), 0px, 0px, 1px);
                 }
             }//.img
             .info{
@@ -219,11 +221,11 @@ body{
                 h2{
                     margin: 0;
                     padding: 0;
-                    color: @blue;
+                    color: $blue;
                     font-size: 1.125em;
                     margin-bottom: 10px;
                     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-                    .transition(all, 0.5s);
+                    @include transition(all, 0.5s);
                 }
                 p{
                     display: block;
@@ -276,7 +278,7 @@ body{
         }
         a{
             &:hover{
-                color: @green;
+                color: $green;
             }
             &.mail{
                 display: inline-block;
@@ -317,7 +319,7 @@ body{
             padding: 0;
             a{
                 display: block;
-                color: @blue;
+                color: $blue;
                 text-decoration: none;
                 padding: 5px 28px 0px 0px;
                 @media only screen and (max-width: 500px) {
@@ -336,12 +338,12 @@ body{
             }
             &:first-child{
                 a{
-                    .rounded-corners(0px, 0px, 0px, 5px);
+                    @include rounded-corners(0px, 0px, 0px, 5px);
                 }
             }
             &:last-child{
                 a{
-                    .rounded-corners(0px, 0px, 5px, 0px);
+                    @include rounded-corners(0px, 0px, 5px, 0px);
                 }
             }
         }
@@ -420,10 +422,6 @@ body{
 
     img {
         max-width: 100% !important;
-    }
-
-    @page {
-        margin: 0.5cm;
     }
 
     p,
