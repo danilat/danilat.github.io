@@ -85,9 +85,13 @@ a{
 body{
     background: #2C3034 url(../img/body.jpg);
     color: #fff;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1.2rem;
+    line-height: 2rem;
     font-family: 'Open Sans', sans-serif;
+    @media only screen and (max-width: 425px) {
+        font-size: 1rem;
+        line-height: 1.6rem;
+    }
 }
 .super-container{
     background: transparent url(../img/bg.png) center top no-repeat;
@@ -106,44 +110,72 @@ body{
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
     @media only screen and (max-width: 500px) {
-      font-size: 14px;
-      margin-bottom: 30px;
+        flex-direction: column-reverse;
+        font-size: 14px;
+        margin-bottom: 30px;
     }
     ul{
         margin: 0px 0px 60px 0px;
-        padding: 0;
+        padding: 30px 0 0 0;
         text-align: right;
         list-style: none;
+        @media only screen and (max-width: 500px) {
+            margin: 40px 0px 0px 0px;
+            padding: 0;
+            text-align: left;
+        }
         li{
             display: inline-block;
-            margin: 0px;
+            margin: 0 0 0 13px;
             padding: 0;
+            @media only screen and (max-width: 425px) {
+                display: flex;
+                flex-direction: column;
+                margin:0;
+                text-align: center;
+                margin: 0 0 20px 0;
+            }
             a{
                 display: block;
-                padding: 5px 30px;
+                padding: 7px 44px;
+                @media only screen and (max-width: 638px) {
+                    font-size: 0.9em;
+                    padding: 5px 26px;
+                }
                 @media only screen and (max-width: 500px) {
-                  padding: 2px 15px;
+                    font-size: 1em;
+                    padding: 2px 25px;
+                }
+                @media only screen and (max-width: 425px) {
+                    font-size: 1.2em;
+                    padding: 9px 25px;
                 }
                 min-height: 22px;
-                text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-                background: RGBA(46.00, 51.00, 54.00, 0.7) url(../img/menu.png) right 0px no-repeat;
-                font-weight: bold;
+                font-weight: 500;
+                border: 2px #2DB8DA solid;
                 &:hover{
-                    background-position: right -29px;
-                    text-shadow: 1px 1px 2px rgba(0,0,0,1);
+                    background-color:#2DB8DA;
+                    color:white;
                 }
 
             }
             &:first-child{
-                a{
-                    @include rounded-corners(0px, 0px, 0px, 5px);
+                margin:0;
+                @media only screen and (max-width: 425px) {
+                    margin: 0 0 20px 0;
                 }
             }
             &:last-child{
-                a{
-                    @include rounded-corners(0px, 0px, 5px, 0px);
+                @media only screen and (max-width: 425px) {
+                    margin: 0 0 10px 0;
                 }
+            }
+            a.actual{
+                background-color:#2DB8DA;
+                color:white;
             }
         }
     }//ul
@@ -152,10 +184,13 @@ body{
             margin: 0;
             padding: 0;
             line-height: 1em;
+            @media only screen and (max-width: 500px) {
+                margin-top:30px;
+            }
         }
         img{
             @media only screen and (max-width: 500px) {
-               width: 70%;
+               width: 62%;
             }
         }
     }
@@ -163,9 +198,77 @@ body{
 
 .site-content{
     background-color: white;
-    padding:7% 10%;
+    padding:7% 16%;
     color: #2C3034;
-
+    @media only screen and (max-width: 425px) {
+        padding:7% 12%;
+    }
+    h2{
+        font-size: 2.1em;
+        line-height: 1.2em;
+        margin: .83em 0;
+        color: #2DB8DA;
+        font-weight: 500;
+        @media only screen and (max-width: 425px) {
+            font-size: 1.8em;
+            line-height: 1.2em;     
+        }
+    }
+    article{
+        margin-bottom: 80px;
+        @media only screen and (max-width: 425px) {
+            margin-bottom: 60px;
+        }
+        .entry-meta{
+            color: #2DB8DA;
+        }
+        footer{
+                padding: 50px 0 24px 0;
+                border-bottom: 2px #e1e8ed solid;
+                min-height: 50px;
+                @media only screen and (max-width: 425px) {
+                    padding: 30px 0 24px 0;
+                }
+            .comments-link a{
+                background-color: #2DB8DA;
+                border: 2px #2DB8DA solid;
+                padding: 9px 55px;
+                color: white;
+                text-align: center;
+                @media only screen and (max-width: 425px) {
+                    padding: 9px 0px;
+                    display: block;
+                }
+            }
+        }
+    }
+    #nav-below.navigation-paging{
+        position: relative;
+        min-height: 60px;
+        .previous{
+            color: #c1cdd6;
+            border: 2px #e1e8ed solid;
+            padding: 9px 55px;
+            position: absolute;
+            left: 0;
+            @media only screen and (max-width: 425px) {
+                padding: 6px 25px;
+                font-size: 0.88em;
+            }
+        }
+        .next{
+            right: 0;
+            position: absolute;
+            background-color: #2DB8DA;
+            border: 2px #2DB8DA solid;
+            padding: 9px 55px;
+            color: white;
+            @media only screen and (max-width: 425px) {
+                padding: 6px 25px;
+                font-size: 0.88em;
+            }
+        }
+    }
     @media only screen and (min-width: 800px) {
       position: relative;
       overflow: hidden;
@@ -319,6 +422,26 @@ body{
         width: 155px;
         height: 43px;
         float: left;
+        @media only screen and (max-width: 400px) {
+            width: 125px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .ico{
+        width:30px;
+        padding:10px 15px 0 15px;
+        @media only screen and (max-width: 460px) {
+            padding:10px 15px 0 5px;
+        }
+        @media only screen and (max-width: 400px) {
+            width: 25px;
+            padding: 7px 5px 0 5px;
+        }
+    }
+    nav.social{
+        float: right;
     }
     ul{
         display: inline-block;
