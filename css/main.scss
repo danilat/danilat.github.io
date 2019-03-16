@@ -112,7 +112,14 @@ body{
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width: 768px) {
+        margin-right: 8%;
+        margin-left: 8%;
+        margin-bottom: 30px;
+    }
     @media only screen and (max-width: 500px) {
+        margin-right: 10%;
+        margin-left: 10%;
         flex-direction: column-reverse;
         font-size: 14px;
         margin-bottom: 30px;
@@ -189,6 +196,9 @@ body{
             }
         }
         img{
+            @media only screen and (max-width: 768px) {
+               width: 38%;
+            }
             @media only screen and (max-width: 500px) {
                width: 62%;
             }
