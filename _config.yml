@@ -10,8 +10,6 @@ permalink: /weblog/:year/:month/:day/:title
 
 # Build settings
 markdown: kramdown
-gems:
-  - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -19,4 +17,4 @@ exclude:
 paginate: 5
 paginate_path: "/weblog/page:num/"
 
-gems: [jekyll-paginate, jekyll-feed]
+plugins: [jekyll-paginate, jekyll-feed]
