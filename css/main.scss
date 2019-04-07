@@ -243,6 +243,32 @@ body{
           border:none;
         }
     }
+    @media all and (min-width: 1440px){
+      .header{
+        height:120px;
+        line-height:120px;
+      }
+      .header span{
+        padding-left:50px;
+      }
+      .logo-dani{
+        width: 210px;
+      }
+      .menu{
+        top: 20px;
+      }
+      .menu ul li {
+        margin-right: 25px;
+      }
+      .menu ul li:last-child {
+        margin-right: 50px;
+      }
+      .menu ul li a {
+        padding: 7px 55px;
+        min-height: 22px;
+        font-size: 1.2rem;
+      }
+    }
 // end .header
 
 section.intro{
