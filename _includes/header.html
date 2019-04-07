@@ -1,14 +1,38 @@
-<header class="site-header">
-    <ul>
-        <li><a href="/" {% if page.url == '/' %}class="actual"{% endif %}>Hola!</a></li>
-        <li><a href="/weblog/" {% if page.url contains '/weblog/' %}class="actual"{% endif %}>Mi blog</a></li>
-        <li><a href="https://github.com/danilat" target="blank">Mi código</a></li>
-    </ul>
-    <div class="logo">
-        <h1>
-            <a href="/">
-                <img src="/img/logo.png" alt="Dani Latorre">
-            </a>
-        </h1>
-    </div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $( document ).ready(function() {
+
+    $( ".cross" ).hide();
+    $( ".menu" ).hide();
+    $( ".hamburger" ).click(function() {
+    $( ".menu" ).slideToggle( "slow", function() {
+    $( ".hamburger" ).hide();
+    $( ".cross" ).show();
+    });
+    });
+
+    $( ".cross" ).click(function() {
+    $( ".menu" ).slideToggle( "slow", function() {
+    $( ".cross" ).hide();
+    $( ".hamburger" ).show();
+    });
+    });
+
+    });
+</script>
+
+<header class="header">
+    <span>
+        <a href="/" target="_blank"><img src="/img/logo.png" class="logo-dani"></a>
+    </span>
+  <button class="hamburger">&#9776;</button>
+  <button class="cross">&#735;</button>
 </header>
+
+<div class="menu">
+  <ul>
+    <a href="/"><li class="link actual">¡Hola!</li></a>
+    <a href="/weblog/"><li class="link">Mi Blog</li></a>
+    <a href="https://github.com/danilat" target="blank"><li class="link">Mi código</li></a>
+  </ul>
+</div>
