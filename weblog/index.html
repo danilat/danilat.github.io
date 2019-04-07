@@ -9,7 +9,7 @@ layout: one_column
         <header>
           <h2><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
           <div class="entry-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time> por Dani
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time> por {% if post.author_name %}{{ post.author_name }}{% else %}{{ site.author_name }}{% endif %}
           </div>
         </header><!-- .entry-header -->
 
