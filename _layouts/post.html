@@ -5,7 +5,7 @@ layout: one_column
   <header>
     <h2>{{ page.title }}</h2>
     <div class="entry-meta">
-			<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time></a> por Dani</span>
+			<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time> por {% if page.author_name %}{{ page.author_name }}{% else %}{{ site.author_name }}{% endif %}
     </div>
   </header>
 
