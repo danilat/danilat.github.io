@@ -1,6 +1,9 @@
 ---
 layout: one_column
 ---
+
+<div class="site-content">
+  
     {% for post in paginator.posts %}
       <article class="post">
         <header>
@@ -28,3 +31,5 @@ layout: one_column
         <a href="{{ paginator.next_page_path }}" class="nav-button next">Siguiente</a>
       {% endif %}
     </nav><!-- #nav-below -->
+
+</div>
