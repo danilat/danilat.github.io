@@ -106,95 +106,141 @@ body{
 .cell{
     display: table-cell;
 }
-.site-header{
-    margin-right: 10%;
-    margin-left: 10%;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    @media only screen and (max-width: 500px) {
-        flex-direction: column-reverse;
-        font-size: 14px;
-        margin-bottom: 30px;
-    }
-    ul{
-        margin: 0px 0px 60px 0px;
-        padding: 30px 0 0 0;
-        text-align: right;
-        list-style: none;
-        @media only screen and (max-width: 500px) {
-            margin: 40px 0px 0px 0px;
-            padding: 0;
-            text-align: left;
-        }
-        li{
-            display: inline-block;
-            margin: 0 0 0 13px;
-            padding: 0;
-            @media only screen and (max-width: 425px) {
-                display: flex;
-                flex-direction: column;
-                margin:0;
-                text-align: center;
-                margin: 0 0 20px 0;
-            }
-            a{
-                display: block;
-                padding: 7px 44px;
-                @media only screen and (max-width: 638px) {
-                    font-size: 0.9em;
-                    padding: 5px 26px;
-                }
-                @media only screen and (max-width: 500px) {
-                    font-size: 1em;
-                    padding: 2px 25px;
-                }
-                @media only screen and (max-width: 425px) {
-                    font-size: 1.2em;
-                    padding: 9px 25px;
-                }
-                min-height: 22px;
-                font-weight: 500;
-                border: 2px #2DB8DA solid;
-                &:hover{
-                    background-color:#2DB8DA;
-                    color:white;
-                }
 
-            }
-            &:first-child{
-                margin:0;
-                @media only screen and (max-width: 425px) {
-                    margin: 0 0 20px 0;
-                }
-            }
-            &:last-child{
-                @media only screen and (max-width: 425px) {
-                    margin: 0 0 10px 0;
-                }
-            }
-            a.actual{
-                background-color:#2DB8DA;
-                color:white;
-            }
+// .header
+.header{
+        width:100%; 
+        background:#2C3034; 
+    }
+    .menu a{
+        text-decoration:none; color:#2DB8DA;
+    }
+    .menu a:hover{
+        text-decoration:none; color:#FFF;
+    }
+    .menu li:hover{
+        background:#2DB8DA;
+    }
+    @media all and (max-width: 700px){
+        .header{
+          height:60px; 
+          line-height:60px;
         }
-    }//ul
-    .logo{
-        h1{
-            margin: 0;
-            padding: 0;
-            line-height: 1em;
-            @media only screen and (max-width: 500px) {
-                margin-top:30px;
-            }
+        .hamburger{
+          background:none;
+          position:absolute;
+          top:0;
+          right:0;
+          line-height:45px;
+          padding:5px 15px 0px 15px;
+          color:#2DB8DA;
+          border:0;
+          font-size: 1.2em;
+          font-weight: 500;
+          cursor:pointer;
+          outline:none;
+          z-index:10000000000000;
         }
-        img{
-            @media only screen and (max-width: 500px) {
-               width: 62%;
-            }
+        .cross{
+          background:none;
+          position:absolute;
+          top:0px;
+          right:0;
+          padding:7px 15px 0px 15px;
+          color:#2DB8DA;
+          border:0;
+          font-size:3em;
+          line-height:65px;
+          font-weight:bold;
+          cursor:pointer;
+          outline:none;
+          z-index:10000000000000;
+        }
+        .menu{
+          z-index:1000000;
+          width:100%;
+          background:#2C3034;
+          position:absolute;
+          text-align:center;
+          font-size: 1.2em;
+          font-weight: 500;
+        }
+        .menu ul {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          list-style-image: none;
+        }
+        .menu li {
+          display: block;
+          padding:15px 0 15px 0;
+        }
+        .menu .link{
+          border-top:#2DB8DA 1px solid;
+        }
+        .menu li:hover{
+          display: block;
+          padding:15px 0 15px 0;
+        }
+        .menu ul li a {
+          text-decoration:none; margin: 0px;
+        }
+        .header span{
+          padding-left:20px;
+        }
+        .logo-dani{
+          width: 136px;
+          vertical-align: middle;
+        }
+        .header{
+          display: block;
         }
     }
-}//.site-header
+    @media all and (min-width: 700px){
+        .hamburger{
+          display: none!important;
+        }
+        .cross{
+          display: none!important;
+        }
+        .header{
+          height:100px; 
+          line-height:100px;
+        }
+        .logo-dani{
+          width: 190px;
+          vertical-align: middle;
+        }
+        .header span{
+          padding-left:30px;
+        }
+        .menu{
+          display: block!important;
+          position: absolute;
+          top: 10px;
+          right: 0px;
+        }
+        .menu ul{
+          display: flex;
+        }
+        .menu ul a {
+          margin-right: 15px;
+        }
+        .menu ul a:last-child {
+          margin-right: 30px;
+        }
+        .menu ul a li {
+          display: block;
+          padding: 7px 40px;
+          min-height: 22px;
+          font-weight: 500;
+          border: 1px #2DB8DA solid;
+          border-radius: 5px;
+          font-size: 1.05rem;
+          line-height: normal;
+        }
+    }
+// end .header
 
 .site-content{
     background-color: white;
@@ -232,6 +278,7 @@ body{
             .comments-link a{
                 background-color: #2DB8DA;
                 border: 2px #2DB8DA solid;
+                border-radius: 5px;
                 padding: 9px 55px;
                 color: white;
                 text-align: center;
@@ -245,28 +292,23 @@ body{
     #nav-below.navigation-paging{
         position: relative;
         min-height: 60px;
-        .previous{
-            color: #c1cdd6;
-            border: 2px #e1e8ed solid;
-            padding: 9px 55px;
-            position: absolute;
-            left: 0;
-            @media only screen and (max-width: 425px) {
-                padding: 6px 25px;
-                font-size: 0.88em;
-            }
-        }
-        .next{
-            right: 0;
-            position: absolute;
+        a{
             background-color: #2DB8DA;
             border: 2px #2DB8DA solid;
+            border-radius: 5px;
+            position: absolute;
             padding: 9px 55px;
             color: white;
             @media only screen and (max-width: 425px) {
                 padding: 6px 25px;
                 font-size: 0.88em;
             }
+        }
+        .previous{
+            left: 0;
+        }
+        .next{
+            right: 0;
         }
     }
     @media only screen and (min-width: 800px) {
