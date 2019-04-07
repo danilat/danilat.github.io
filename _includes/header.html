@@ -8,8 +8,8 @@
 
 <div class="menu">
   <ul>
-    <a href="/"><li class="link actual">¡Hola!</li></a>
-    <a href="/weblog/"><li class="link">Mi Blog</li></a>
+    <a href="/"><li class="link {% if page.url == '/' %}actual{% endif %}">¡Hola!</li></a>
+    <a href="/weblog/"><li class="link {% if page.url contains '/weblog/' %}actual{% endif %}">Mi Blog</li></a>
     <a href="https://github.com/danilat" target="blank"><li class="link">Mi código</li></a>
   </ul>
 </div>

@@ -173,10 +173,15 @@ body{
           padding:15px 0 15px 0;
         }
         .menu .link{
-          border-top:#2DB8DA 1px solid;
+          border-top: $blue 1px solid;
+        }
+        .menu .actual{
+          background-color: $blue;
+          text-decoration:none;
+          color:#FFF;
         }
         .menu ul{
-          border-bottom:#2DB8DA 1px solid;
+          border-bottom: $blue 1px solid;
         }
         .menu li:hover{
           display: block;
@@ -238,6 +243,11 @@ body{
           border-radius: 5px;
           font-size: 1.05rem;
           line-height: normal;
+        }
+        .menu .actual{
+          background-color: $blue;
+          text-decoration:none;
+          color:#FFF;
         }
         a:hover{
           border:none;
