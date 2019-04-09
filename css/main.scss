@@ -110,6 +110,9 @@ body{
 .header{
         width:100%;
         background:$black;
+        a.logo{
+          border:none;
+        }
     }
     .menu a{
         text-decoration:none; color:$blue;
