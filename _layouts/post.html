@@ -1,18 +1,22 @@
 ---
 layout: one_column
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    <h2>{{ page.title }}</h2>
-    <div class="entry-meta">
-			<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time></a> por Dani</span>
+<div class="site-content">
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h2>{{ page.title }}</h2>
+      <div class="entry-meta">
+  			<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time> por {% if page.author_name %}{{ page.author_name }}{% else %}{{ site.author_name }}{% endif %}
+      </div>
+    </header>
+
+    <div itemprop="articleBody">
+      {{ content }}
     </div>
-  </header>
 
-  <div itemprop="articleBody">
-    {{ content }}
-  </div>
+  </article>
 
-</article>
+  {% include disqus.html %}
 
-{% include disqus.html %}
+</div>

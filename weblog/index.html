@@ -1,12 +1,15 @@
 ---
 layout: one_column
 ---
+
+<div class="site-content">
+  
     {% for post in paginator.posts %}
       <article class="post">
         <header>
           <h2><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
           <div class="entry-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time> por Dani
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time> por {% if post.author_name %}{{ post.author_name }}{% else %}{{ site.author_name }}{% endif %}
           </div>
         </header><!-- .entry-header -->
 
@@ -22,9 +25,11 @@ layout: one_column
 
     <nav role="navigation" id="nav-below" class="navigation-paging">
       {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="previous">Anterior</a>
+        <a href="{{ paginator.previous_page_path }}" class="nav-button previous">Anterior</a>
       {% endif %}
       {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Siguiente</a>
+        <a href="{{ paginator.next_page_path }}" class="nav-button next">Siguiente</a>
       {% endif %}
     </nav><!-- #nav-below -->
+
+</div>
