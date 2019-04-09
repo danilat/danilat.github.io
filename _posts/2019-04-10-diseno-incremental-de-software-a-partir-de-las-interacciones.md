@@ -8,6 +8,8 @@ excerpt:
 
 Este post viene a cuento de que me quedé sin hacer la charla de la **[Bilbostack 2019](http://bilbostack.com/)** por andar pachucho durante varias semanas, teniendo que cancelar el compromiso al no haberme recuperado a los pocos días del evento. Me [quedó el contenido a medio preparar](https://twitter.com/dani_latorre/status/1104446061354074114) y tenía la espinita clavada de compartir mis ideas sobre el tema.
 
+![Dibujo representando la autosimilaridad de Lean Startup, ATDD y TDD](/img/posts/diseno-incremental/leanstartup_atdd_tdd.jpg "Lean Startup, ATDD y TDD")
+
 ### ¿Qué narices es eso del diseño incremental?
 
 Ahora que "agile" (nótese el entrecomillado ;)) es mainstream, parece que se va asumiendo en muchos sitios que hacer software de forma *iterativa* ayuda a hacer mejor software. Cada cierto tiempo hay entregas que permiten validar si se va por un camino correcto o no, comprobar malos entendidos, ver problemas que han surgido, adaptabilidad a cambios...
