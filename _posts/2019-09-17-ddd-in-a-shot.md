@@ -7,7 +7,7 @@ excerpt:
 image: /img/posts/ddd/shots.png
 ---
 
-Como parte de mi trabajo en [Zara.com](https://www.zara.com/) una de las cuestiones sobre la que trabajé con mis equipos fue en introducir conceptos de **Domain-Driven Design**, acompañado del estilo de arquitectura de **Ports & Adapters** (o Clean/Hexagonal Architecture). Había algunos productos que estábamos arrancando a los que se les presuponía que iban a tener una complejidad de negocio que iba a crecer, además tenían bastante incertidumbre inicialmente y se esperaba que su evolución perdurarse en el tiempo al menos un puñado de años.
+Como parte de mi trabajo en [Zara.com](https://www.zara.com/) una de las cuestiones sobre la que trabajé con mis equipos fue en introducir conceptos de **Domain-Driven Design**, acompañado del estilo de arquitectura de **Ports & Adapters** (o Clean/Hexagonal Architecture). Había algunos productos que estábamos arrancando a los que se les presuponía que iban a tener una complejidad de negocio que iba a crecer, además tenían bastante incertidumbre inicialmente y se esperaba que su evolución perdurase en el tiempo al menos un puñado de años.
 
 Empecé a intentar redactar de forma muy condensada un documento con los conceptos relacionados con DDD, por tratar de aligerar nuestras conversaciones sin necesidad de leerse los típicos libros [azul](https://www.goodreads.com/book/show/179133.Domain_Driven_Design), [rojo](https://www.goodreads.com/book/show/15756865-implementing-domain-driven-design) o [verde](https://www.goodreads.com/book/show/28602719-domain-driven-design-distilled); que además suelen resultar durillos o incluso confusos.
 
