@@ -11,7 +11,7 @@ Como parte de mi trabajo en [Zara.com](https://www.zara.com/) una de las cuestio
 
 Empecé a intentar redactar de forma muy condensada un documento con los conceptos relacionados con DDD, por tratar de aligerar nuestras conversaciones sin necesidad de leerse los típicos libros [azul](https://www.goodreads.com/book/show/179133.Domain_Driven_Design), [rojo](https://www.goodreads.com/book/show/15756865-implementing-domain-driven-design) o [verde](https://www.goodreads.com/book/show/28602719-domain-driven-design-distilled); que además suelen resultar durillos o incluso confusos.
 
-Y aunque finalmente terminamos trabajando en los equipos practicando DDD y Ports & Adapters, no fui capaz de terminar con este documento. El día a día no me permitió dedicarle el tiempo necesario, así que aprovechando ese borrador he ido dedicando ratos posteriormente para terminar de aterrizarlo y servir como complemento a **[Diseño incremental de software a partir de las interacciones](https://www.danilat.com/weblog/2019/04/10/diseno-incremental-de-software-a-partir-de-las-interacciones])**.
+Y aunque finalmente terminamos trabajando en los equipos practicando DDD y Ports & Adapters, no fui capaz de terminar con este documento. El día a día no me permitió dedicarle el tiempo necesario, así que aprovechando ese borrador he ido dedicando ratos posteriormente para terminar de aterrizarlo y servir como complemento a **[Diseño incremental de software a partir de las interacciones](https://www.danilat.com/weblog/2019/04/10/diseno-incremental-de-software-a-partir-de-las-interacciones)**.
 
 ![Foto de unos machacados, chupito especialidad de un garito de Zaragoza](/img/posts/ddd/shots.png  "Unos chupitos de machacados")
 
