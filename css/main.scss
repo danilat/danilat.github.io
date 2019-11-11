@@ -297,6 +297,9 @@ section.intro{
             width:50%;
             height:50%;
         }
+        article{
+          width: 50%;
+        }
         article p{
             font-weight: 100;
             font-size: 1.25em;
@@ -317,13 +320,14 @@ section.intro{
             height:100%;
         }
         article{
-            padding: 0% 12% 0% 12%;
+            padding: 7% 16%;
         }
         article p{
             font-size: 1.065rem;
             font-weight: lighter;
             padding-bottom: 20px;
         }
+        width: 100%;
     }
     h2 {
         font-size: 2.1em;
@@ -332,6 +336,7 @@ section.intro{
         color: $blue;
         font-weight: 500;
     }
+    width: 84%;
 } //.section.intro
 
 .site-content{
