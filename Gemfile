@@ -1,8 +1,8 @@
 source "https://rubygems.org"
-ruby RUBY_VERSION
+ruby "2.6.3"
 
 gem "jekyll", "3.7.4"
-gem 'jekyll-paginate'
+gem "jekyll-paginate"
 
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.11.0"
