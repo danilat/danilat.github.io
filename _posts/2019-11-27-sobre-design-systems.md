@@ -46,4 +46,4 @@ No tan habitual pero también necesario es tener artefactos como **guías de com
 
 Suelo insistir en que a lo que desde luego **no ayuda es a no contratar a alguien con skills de diseño**, pretender que un sistema de diseño sea una bala de plata que cubra todo es bastante ingenuo. Por mucho sistema de diseño que haya, luego se ven interfaces que son auténticas aberraciones.
 
-Además que hay que tener en cuenta que un sistema de diseño **debería estar en continua revisión**, *lo único constante es el cambio* y haciendo producto digital el cambio es bastante rápido.
+Además hay que tener en cuenta que un sistema de diseño **debería estar en continua revisión**, *lo único constante es el cambio* y haciendo producto digital el cambio es bastante rápido.
