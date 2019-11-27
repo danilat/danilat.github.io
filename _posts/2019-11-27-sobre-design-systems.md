@@ -3,7 +3,7 @@ layout: post
 title: Sobre Sistemas de Diseño
 categories:
 - General
-excerpt: ¿Qué es un sistema de diseño o design system? Consisitencia, eficiencia, y mejorar la comunicación dentro del equipo son sus principales beneficios
+excerpt: ¿Qué es un sistema de diseño o design system? Consistencia, eficiencia, y mejorar la comunicación dentro del equipo son sus principales beneficios
 image: /img/posts/design-systems/lego.jpg
 ---
 
