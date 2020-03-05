@@ -4,7 +4,7 @@ title: Diseño incremental de software a partir de las interacciones (parte 1)
 categories:
 - General
 excerpt: ¿Qué narices es eso del diseño incremental? ¿Y lo de diseñar a partir de las interacciones? Primera parte sobre descubrimiento de producto, formalización del backlog, refinamiento de historias de usuario, Specification by Example
-image: posts/diseno-incremental/leanstartup_atdd_tdd.jpg
+image: /img/posts/diseno-incremental/leanstartup_atdd_tdd.jpg
 ---
 
 Este post viene a cuento de que me quedé sin hacer la charla de la **[Bilbostack 2019](http://bilbostack.com/)** por andar pachucho durante varias semanas, teniendo que cancelar el compromiso al no haberme recuperado a los pocos días del evento. Me [quedó el contenido a medio preparar](https://twitter.com/dani_latorre/status/1104446061354074114) y tenía la espinita clavada de compartir mis ideas sobre el tema.
