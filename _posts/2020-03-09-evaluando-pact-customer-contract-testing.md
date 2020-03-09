@@ -53,6 +53,4 @@ La integración de Pact Broker en nuestro pipeline de CI con [Travis](https://tr
 
 Aunque ofrece un flujo donde el consumidor puede empezar a trabajar sin que el proveedor esté disponible, el consumidor debería tener buena comunicación e influencia sobre lo que publica el proveedor. Claramente tanto para servicios externos como equipos que trabajen aislados es una herramienta que no aportará valor.
 
-Y definitivamente creo que **cuadra genial con una aproximación API first**, acordando el equipo del proveedor con los de los consumidores cómo se va a hacer esa integración para poder empezar a trabajar en paralelo, asegurándonos así que estamos cumpliendo con lo que hemos acordado.
-
-Así que inicialmente pinta genial, pero está por ver cómo afecta al flujo del trabajo en el día a día y del contexto de cada uno.
+Y definitivamente creo que **cuadra genial con una aproximación API first**, acordando el equipo del proveedor con los de los consumidores cómo se va a hacer esa integración para poder empezar a trabajar en paralelo, asegurándonos así que estamos cumpliendo con lo que hemos acordado. Así que inicialmente pinta genial, pero está por ver cómo afecta al flujo del trabajo en el día a día y del contexto de cada uno.
