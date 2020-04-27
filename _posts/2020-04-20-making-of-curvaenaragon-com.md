@@ -11,7 +11,7 @@ El domingo 12 por la noche lanzamos **[CurvaEnAragón](https://curvaenaragon.com
 
 La motivación surge al no encontrar un sitio de referencia donde poder consultar la evolución de la crisis sanitaria a nivel de Aragón (todo lo que había encontrado hasta el momento era nivel estatal o mundial) y al ver que en Aragón Open Data [habían liberado los sets de datos oficiales sobre coronavirus](https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon). 
 
-En ese momento sólo estaba liberado el set de datos a nivel de Aragón que ofrece las evoluciones totales de algunos indicadores de forma diaria: el total de casos confirmados, ingresos hospitalarios y en UCI, casos de personal sanitario, fallecimientos y altas. Ahora, mientras escribo esto, hay también sets de datos a nivel provincial sobre nuevos ingresos en cada hospital y de nuevos profesionales sanitarios confirmados con el detalle de sus categorías.
+En ese momento sólo estaba liberado el set de datos a nivel de Aragón que ofrece las evoluciones totales de algunos indicadores de forma diaria: el total de casos confirmados, ingresos hospitalarios y en UCI, casos de personal sanitario, fallecimientos y altas. Ahora, mientras escribo esto, hay también sets de datos a nivel provincial, sobre nuevos ingresos en cada hospital y de nuevos profesionales sanitarios confirmados con el detalle de sus categorías.
 
 Con los datos que había inicialmente, hice un prototipo muy de andar por casa para traer los datos y dejarlos listos para consumir en web con una gráfica de evolución. De esta manera, junto a los sumatorios totales, se podía ver la evolución diaria y los porcentajes de casos activos, nuevos casos, altas y fallecimientos.
 
