@@ -53,4 +53,4 @@ Además, nos cuenta en qué consiste la iniciativa de Nextail en tiempos de Coro
 
 <br/>
 
-Vamos a seguir liando a más personas para grabar más conversaciones de este tipo, así que os animo a suscribiros al canal de youtube o, si preferís el formato podcast, también están disponibles en [Ivoox](https://www.ivoox.com/podcast-lo-que-dure-una-jarra-la-segunda_sq_f1879971_1.html), [iTunes](https://podcasts.apple.com/us/podcast/id1506038533) y [Spotify](https://open.spotify.com/show/6OPIOcDB4YMyFNMkHtpBpS?si=iBXfHFY1TBOi1jxmA-VbqQ). 
+Parece que vamos a seguir liando a más personas para grabar más conversaciones de este tipo. Así que os animo a suscribiros al canal de youtube o, si preferís el formato podcast, también están disponibles en [Ivoox](https://www.ivoox.com/podcast-lo-que-dure-una-jarra-la-segunda_sq_f1879971_1.html), [iTunes](https://podcasts.apple.com/us/podcast/id1506038533) y [Spotify](https://open.spotify.com/show/6OPIOcDB4YMyFNMkHtpBpS?si=iBXfHFY1TBOi1jxmA-VbqQ). 
