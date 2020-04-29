@@ -17,31 +17,31 @@ Así que le propuse hacerlo entre los dos centrándonos en la **creación de pro
 Durante estas semanas hemos grabado media docena de conversaciones que hemos publicado en youtube:
 
 ### Capítulo 0. "Presentamos Lo Que Dure Una Jarra"
-<iframe width="90%" height="400" src="https://www.youtube.com/embed/2Uj6y_Wr4c8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/2Uj6y_Wr4c8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Capítulo 01. "Ni Scrum ni Scram"
 
 Hablamos con [María Berenguer](https://www.linkedin.com/in/mariaberenguer/) ([@merybere](https://twitter.com/merybere)), que es scrum master y mentora ágil en [Vueling](https://www.vueling.com/), sobre su trabajo como mentora, cómo se organiza a grandes rasgos el departamento de tecnología de Vueling y cómo se han adaptado a la situación actual por el coronavirus.
 
-<iframe width="90%" height="400" src="https://www.youtube.com/embed/-VwYpbvRC_o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/-VwYpbvRC_o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Capítulo 02. "GitHub desde dentro"
 
 Hablamos con [Alberto Gimeno](https://gimenete.net/) ([@gimenete](https://twitter.com/gimenete)), que trabaja en [GitHub](https://github.com/) dentro de Actions. Sobre su trabajo en GitHub Actions, nos explicó su proceso de selección, cómo resulta trabajar en esa compañía destacando algunos de sus beneficios sociales, cómo han respondido a la crisis del coronavirus... Y cómo bola extra nos habló acerca de un proyecto que está arrancando para mejorar la forma en que fluye la comunicación en equipos remotos.
 
-<iframe width="90%" height="400" src="https://www.youtube.com/embed/MRNqYQwGVo0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/MRNqYQwGVo0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Capítulo 03. "¿Cómo se trabaja en Cuéntica?"
 
 En esta ocasión no tuvimos invitados, así que hablamos con Guillermo ([@superwillyfoc](https://twitter.com/superwillyfoc)) de algunos detalles sobre [Cuéntica](https://cuentica.com/): qué hacen y cómo lo hacen. Entramos en harina sobre cómo se organizan el trabajo, cómo toman decisiones de producto y cómo se han adaptado a la nueva realidad por el coronavirus.
 
-<iframe width="90%" height="400" src="https://www.youtube.com/embed/gjqv4S9sOKY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/gjqv4S9sOKY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Capítulo 04. "Sobreviviendo al BOOM del teletrabajo"
 
 En este capítulo hablamos con [Martín Pérez](https://dev.to/mpermar/) ([@mpermar](https://twitter.com/mpermar)), que trabaja como Tech Lead en [Webex](https://www.webex.com/), una suite de comunicación online para empresas de Cisco Systems. Como ya os podréis imaginar, está viviendo un momento “muy especial” con la crisis del coronavirus. Vemos cómo es su día a día y cómo están gestionando el enorme crecimiento de usuarios. Nos cuenta detalles, anécdotas e incluso errores y lecciones aprendidas. Hablamos sobre Webex y su enfoque de producto y no dejamos pasar la polémica generada por Zoom para poder hablar con Martín sobre seguridad y buenas prácticas.
 
-<iframe width="90%" height="400" src="https://www.youtube.com/embed/VzIhetZ3Xc0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/VzIhetZ3Xc0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Capítulo 05. "Haciendo producto en el sector retail"
 
@@ -49,7 +49,7 @@ Hablamos con [Blanca Lanaspa](https://www.linkedin.com/in/blancalanaspa/) ([@bla
 
 Además, nos cuenta en qué consiste la iniciativa de Nextail en tiempos de Coronavirus para ayudar en la logística y distribución de material sanitario.
 
-<iframe width="90%" height="400" src="https://www.youtube.com/embed/4xK7WAce8pQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/4xK7WAce8pQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br/>
 
