@@ -6,7 +6,7 @@ categories:
 excerpt:  Capítulos 0, 1, 2, 3, 4 y 5 de Lo Que Dure Una Jarra (la segunda). Un videocast con una serie de charlas informales con personas con perfiles variados, sobre temáticas relacionadas con la tecnología y su impacto en el día a día de las personas.
 image: /img/posts/lo_que_dure/screenshot.png
 ---
-**[Lo Que Dure Una Jarra (la segunda)](https://www.youtube.com/channel/UCFIS_GwJcMefk7BPJYb_fDg/)** es un videocast con una serie de charlas informales con personas con perfiles variados, sobre temáticas relacionadas con la tecnología y su impacto en el día a día de las personas.
+**[Lo Que Dure Una Jarra (la segunda)](https://www.youtube.com/c/Loquedureunajarra)** es un videocast con una serie de charlas informales con personas con perfiles variados, sobre temáticas relacionadas con la tecnología y su impacto en el día a día de las personas.
 
 Esto surge del primer par de semanas de confinamieno. En unas cervezas remotas con varios amigos, mi no-primo [Guillermo Latorre](https://guillermolatorre.com/) sugirió organizar charlitas en petit comité para hablar de cómo trabajamos y nos estamos adaptando unos y otros a esta crisis.
 
@@ -53,4 +53,4 @@ Además, nos cuenta en qué consiste la iniciativa de Nextail en tiempos de Coro
 
 <br/>
 
-Parece que vamos a seguir liando a más personas para grabar más conversaciones de este tipo. Así que os animo a suscribiros al canal de youtube o, si preferís el formato podcast, también están disponibles en [Ivoox](https://www.ivoox.com/podcast-lo-que-dure-una-jarra-la-segunda_sq_f1879971_1.html), [iTunes](https://podcasts.apple.com/us/podcast/id1506038533) y [Spotify](https://open.spotify.com/show/6OPIOcDB4YMyFNMkHtpBpS?si=iBXfHFY1TBOi1jxmA-VbqQ). 
+Parece que vamos a seguir liando a más personas para grabar más conversaciones de este tipo. Así que os animo a suscribiros al [canal de youtube](https://www.youtube.com/c/Loquedureunajarra) o, si preferís el formato podcast también están disponibles en [Ivoox](https://www.ivoox.com/podcast-lo-que-dure-una-jarra-la-segunda_sq_f1879971_1.html), [iTunes](https://podcasts.apple.com/us/podcast/id1506038533) y [Spotify](https://open.spotify.com/show/6OPIOcDB4YMyFNMkHtpBpS?si=iBXfHFY1TBOi1jxmA-VbqQ). 
