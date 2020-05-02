@@ -2,7 +2,7 @@ title: Arragonán - Dani Latorre
 email: dani@danilat.com
 description: Dani Latorre – Desarrollador y algunas cosas más
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://danilat.com"
 twitter_username: dani_latorre
 github_username:  danilat
 author_name: Dani Latorre
