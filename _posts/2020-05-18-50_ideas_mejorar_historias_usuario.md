@@ -20,11 +20,12 @@ Mientras lo leía estuve marcando lo que me parecieron los principales puntos de
 Estas ideas están agrupadas en cinco bloques:
 
 - [Creando historias]({{page.url}}/#creando-historias)
-- Planificando con historias
+- [Planificando con historias]({{page.url}}/#planificando-con-historias)
 - Discutiendo historias
 - Partiendo historias
 - Gestionando la entrega iterativa
 
+<br/>
 
 ### Creando historias
 **Cuenta historias, no las escribas**
@@ -74,11 +75,102 @@ Para evitar presiones innecesarias y emergencias auto inflingidas, comprueba si 
 
 No intentes poner fecha de "best before" en todas las historias, de lo contrario todo se convertirá en una emergencia.
 
----
-
-Próximamente iré completando las traducciones de las recopilaciones del resto de bloques:
+<br>
 
 ### Planificando con historias
+
+**Establece un deadline para abordar los principales riesgos**
+
+Tener un plan explícito para manejar los grandes riesgos permite a los stakeholders y al equipo a lograr un equilibrio entre los beneficios de negocio a corto plazo y la sostenibilidad a largo plazo.
+
+**Usa backlogs jerárquicos**
+
+Organizar el backlog en varios niveles permite a los equipos reducir significativamente el número total de items, proveyendo al mismo tiempo de una perspectiva general.
+
+Una manera de implementar esta idea es usar un tablero visual como múltiples carriles horizontales para representar los diferentes niveles. Si usas un tablero de planificación, puedes hacerlo mediante un código de colores o usando diferentes tamaños de tarjetas. Alternativamente puedes representar la misma información en un customer journey, un user story map o un impact map.
+
+**Agrupa las historias por impacto**
+
+Un impact map es una visualización (tipo mind map) de cómo el entregable esperado conecta con las metas de negocio y las hipótesis subyacentes en cuatro niveles: Goal/Actor/Impact/Deliverable.
+
+Organizar un grupo de historias como un impact map facilita varios niveles de discusiones sobre toma de decisiones y priorización.
+
+ **Crea un user story map** 
+
+Los user story map conectan los entregables de software con customer journeys y flujos de negocio, mostrando cómo las historias individuales contribuyen a la perspectiva general proveyendo de una buena representación visual de los planes de release.
+
+Ayuda a los equipos a tener un visión más clara de por qué están construyendo un software y cómo encaja en la  perspectiva general. 
+
+Los stakeholders a veces ven que pueden habilitar ciertas acciones eligiendo opciones con entregables más simples y posponiendo historias más complejas para releases posteriores.
+
+**Cambia el comportamiento usando el funnel CREATE**
+
+Las siglas CREATE significan Cue, Reaction, Evaluation, Ability, Timing y Executing.
+- Cue: La posibilidad de una acción cruza por la mente de la persona.
+- Reaction: la persona de forma automática e intuitiva reacciona a la idea en una fracción de segundo, generando una respuesta emocional.
+- Evaluation: la persona piensa sobre la acción conscientemente, evaluando costes y beneficios.
+- Ability: la persona evalúa si la acción es factible dado el contexto actual.
+- Timing: la persona juzga si debe actuar ahora o más tarde.
+- Executing.
+
+Las buenas historias de usuario generalmente tienen como objetivo lograr un cambio de comportamiento, así que se debería poder vincular una historia con una parte del funnel CREATE para una persona relevante.
+
+**Muestra las preocupaciones globales al inicio de una milestone**
+
+Los decisores clave probablemente pueden participar en una discusión aparte sobre las preocupaciones globales una vez por milestone. Esto hace que sea más fácil llegar a un acuerdo sobre los objetivos globales y hacer una lista de las preocupaciones transversales más importantes.
+
+**Prioriza según las etapas de crecimiento**
+
+Modelos de crecimiento para productos éxito:
+- Empathy: descubrir cómo resolver un problema real por el que gente pague.
+- Stickiness: crear el producto adecuado para mantener a los usuarios.
+- Virality: hacer crecer la base de usuarios de forma orgánica y/o artificial.
+- Revenue: establecer un modelo de negocio sostenible y escalable con los márgenes correctos en un ecosistema saludable.
+- Scale: crecimiento del negocio.
+
+Lograr que los stakeholders se pongan de acuerdo sobre la etapa actual de crecimiento ayuda con la priorización del ahora/ahora no.
+
+**Prioriza usando la alineación de propósito**
+
+El modelo requiere que los stakeholders respondan 2 preguntas por item:
+- ¿Es de crítico? (¿Puede el negocio funcionar sin él?)
+- ¿Es diferenciador en el mercado? (¿Trae clientes, proporciona una ventaja competitiva o algo similar?)
+
+Una vez que se han respondido estas preguntas, los items pueden terminar en una de estas cuatro categorías:
+
+- Parity si es de misión crítica.
+- Partner si es diferenciador en el mercado.
+- Differentiating si responde a ambas preguntas.
+- Who cares si no tiene ninguno.
+
+**Haz una mapa de stakeholders**
+
+- ¿Quién recibirá impacto por el proyecto?
+- ¿Quién es responsable del proyecto?
+- ¿Quién tendrá autoridad para tomar decisiones sobre el proyecto?
+- ¿Quién puede apoyar el proyecto?
+- ¿Quién puede dificultar el proyecto?
+- ¿Quién ha estado involucrado en este tipo de proyectos en el pasado?
+
+Es particularmente útil cuando la clave para lograr los outcomes deseados involucra cambiar el comportamiento de otras personas, especialmente en situaciones con mucha carga política.
+
+**Pon nombre a tus milestones**
+
+Elegir buenos nombres para las milestones mejora la participación de los stakeholder en el proceso de priorización de las historias y ayuda a la planificación con los backlogs jerárquicos.
+
+No confundas las milestones con épicas. Las verdaderas épicas son simplemente historias grandes que satisfacen todos los demás criterios de INVEST (Independent, Negotiable, Valuable, Estimable, Small, Testable), pero resultan demasiado grandes para ser implementadas en una iteración.
+
+**Enfoca las milestones en un número limitado de segmentos de usuario**
+
+Seleccionar un número limitado de segmentos para cada milestone evita que los stakeholders inventen constantemente nuevos roles de usuario.
+
+Obliga a las personas a considerar seriamente qué segmentos de usuario se beneficiarán de la historia, si lo hubiera y ayuda a evitar historias genéricas.
+
+<br/>
+
+---
+Próximamente iré completando las traducciones de las recopilaciones del resto de bloques:
+
 ### Discutiendo historias
 ### Partiendo historias
 ### Gestionando la entrega iterativa
