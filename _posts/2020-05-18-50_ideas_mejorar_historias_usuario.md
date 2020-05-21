@@ -4,7 +4,7 @@ title: Ideas para mejorar tus Historias de Usuario
 categories:
 - General
 excerpt: Extractos del libro Fifty Quick Ideas to Improve your User Stories en castellano. Creando historias. Planificando con historias. Discutiendo historias. Partiendo historias. Gestionando la entrega iterativa.
-image: 
+image: /img/posts/50_ideas_us/cover.jpg
 ---
 
 Me parecía un valor seguro hacerme con [**Fifty Quick Ideas to Improve your User Stories**](https://leanpub.com/50quickideas) de [Gojko Adzic](https://gojko.net/) y [David Evans](https://twitter.com/davidevans66). Venía siguiendo los artículos del blog de Gojko Adzic (de hecho algunas de esas ideas ya están desarrolladas ahí) a raíz de leer [Specification By Example](https://gojko.net/books/specification-by-example/) y además tenía buenas referencias del libro. Desde luego que [no me defraudó](https://twitter.com/dani_latorre/status/1246371869877567489).
