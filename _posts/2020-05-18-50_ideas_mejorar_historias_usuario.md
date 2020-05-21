@@ -19,8 +19,8 @@ Mientras lo leía estuve marcando lo que me parecieron los principales puntos de
 
 Estas ideas están agrupadas en cinco bloques:
 
-- [Creando historias]({{page.url}}/#creando-historias)
-- [Planificando con historias]({{page.url}}/#planificando-con-historias)
+- [Creando historias]({{page.url}}#creando-historias)
+- [Planificando con historias]({{page.url}}#planificando-con-historias)
 - Discutiendo historias
 - Partiendo historias
 - Gestionando la entrega iterativa
