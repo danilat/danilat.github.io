@@ -21,7 +21,7 @@ Estas ideas están agrupadas en cinco bloques:
 
 - [Creando historias]({{page.url}}#creando-historias)
 - [Planificando con historias]({{page.url}}#planificando-con-historias)
-- Discutiendo historias
+- [Discutiendo historias]({{page.url}}#discutiendo-historias)
 - Partiendo historias
 - Gestionando la entrega iterativa
 
@@ -168,10 +168,93 @@ Obliga a las personas a considerar seriamente qué segmentos de usuario se benef
 
 <br/>
 
+### Discutiendo historias
+ 
+**Usa baja tecnología para tener conversaciones sobre la historia**
+ 
+Las buenas historias de usuario son el recordatorio de una conversación.
+ 
+No usar herramientas técnicas durante la conversación permite a los equipos focalizarse en el asunto sin tener que preocuparse de cosas como el alineamiento del texto, formato de negritas o cuál es la sintaxis correcta. Es importante recordar los resultados de una conversación, pero volcarlo en ese tipo de herramientas puede ser pospuesto.
+
+Al provocar menos distracciones, las discusiones sobre pizarras son más rápidas y productivas que alrededor de herramientas técnicas.
+ 
+**Imagina la demostración**
+ 
+Cuando el equipo discute una historia, en el momento de entender el criterio de aceptación o de explorar los ejemplos clave, comienza respondiendo la pregunta "¿Cómo haremos la demostración de esta historia?"
+ 
+Fomenta y refuerza el compromiso del equipo con la idea de que la demo es la prueba de sus esfuerzos, la medida real de progreso, el momento de la verdad, la ceremonia de cierre de la iteración. Haz que sea un gran momento. Incluso trae comida. Que se sienta que es el momento de celebración que debería ser.
+ 
+**Diverge y converge para las discusiones de las historias**
+ 
+Nuestra forma preferida de facilitar las discusiones de historias para equipos de 10 a 20 personas es dividir el equipo en varios grupos más pequeños, hacer que los grupos capten su comprensión de una historia usando ejemplos y luego juntar a los grupos para comparar resultados.
+ 
+Focalízate en las diferencias entre los grupos:
+- En el formato o estructura de la información.
+- En los outcomes de ejemplos similares.
+- En los tachones y signos de interrogación.
+ 
+**Involucra a todos los roles en la discusión**
+ 
+Un error común es delegar la tarea de análisis de una historia en una sola persona.
+ 
+Crea pequeñas conversaciones que involucren al menos a una persona representando a los three-amigos; con roles de desarrollo, testing y análisis. Sin encasillarse con el número tres, que sean representados todos los roles relevantes que es necesario que contribuyan.
+ 
+Asegúrate de involucrar a personas que realmente vayan a trabajar en la entrega de la historia.
+ 
+**Mide el alineamiento usando ejercicios de feedback**
+ 
+Según la sabiduría popular hay que detener la discusión de una historia cuando no hay más preguntas. Esto puede ser engañoso cuando desarrolladores y testers carecen de experiencia en el dominio del negocio; simplemente pueden no saber qué pregunta adicional hacer.
+ 
+El ejercicio se basa en que alguien presenta un caso extremo complicado basado en la conversación que se ha tenido. En vez de discutir sobre esa condición, todo el mundo escribe cuál cree que es el resultado esperado. Después, todos lo enseñan a la vez y se comprueba si están alineados o hay que seguir discutiendo sobre la historia.
+ 
+Los ejercicios de feedback proporcionan un práctico mecanismo de cierre para talleres y discusiones de historias. Es lo más cercano que hemos encontrado a medir de forma objetiva el entendimiento compartido.
+ 
+**Juega al abogado del diablo**
+ 
+Un gran beneficio de esta técnica es descubrir pronto las malas ideas, para tirar o refinar las historias que podrían introducir complejidad innecesaria en el software.
+ 
+No se trata de ser negativo, se trata de buscar grietas para ver si una historia es sólida o no. Dos buenas formas de prevenir problemas personales son:
+ 
+- Elige a una persona para que desempeñe el rol inicialmente, luego que rote ese rol historia por historia para evitar que una sola persona focalice las reacciones negativas.
+- Haz que todo el grupo proponga ideas sobre por qué una historia puede ser incorrecta y haz turnos para presentarlas.
+ 
+**Divide la responsabilidad para definir historias**
+ 
+Hacer que los stakeholders de negocio diseñen soluciones no es la intención original de las historias de usuario, pero muchos equipos acaban cayendo en esta trampa. Este puede ser un experimento para ayudar a arreglar esas situaciones:
+ 
+- Los stakeholders de negocio especifican sólo lo "In order to.." u "As a..." de la historia.
+- El equipo propone varias opciones para el "I want..."
+- Ambos evalúan conjuntamente las opciones y los stakeholders deciden cuál de ellas deberías ser implementada.
+ 
+El mayor beneficio de esta aproximación es que fuerza a mantener una conversaciones para decidir cuál es la solución.
+ 
+**Divide las discusiones de negocio de las técnicas**
+ 
+Permite a los equipos tener discusiones sobre el negocio más cortas y usar el tiempo de los usuarios de negocio más eficientemente. También hace que los equipos consideren un conjunto de historias de usuario cuando están pensando en cambios en el diseño.
+ 
+Una discusión focalizada previene que los equipos vayan a los detalles de implementación demasiado pronto, haciendo que se invierta más tiempo en entender lo que realmente necesita hacerse.
+ 
+**Investiga el valor a múltiples niveles**
+ 
+Las buenas historias influencian en una cosa que luego llevan a otra para mejorar de algún modo el trabajo de alguien.
+ 
+Piensa en los dos niveles más típicos: el valor para el usuario y el valor para la organización que vende u opera el software. Si puedes encontrar una historia que contenga ambas cosas, entonces es una situación de win-win.
+ 
+**Discute métricas de escala variable con QUPER**
+ 
+Muchos aspectos de los sistemas de software no están relacionados con la presencia o ausencia de una funcionalidad en particular, sino por una combinación de ellas que proveen valor en una escala variable (estos aspectos se conocen como requisitos no-funcionales o atributos de calidad).
+ 
+El modelo QUality PERformance expone y visualiza dos tipos de información, la necesidad del negocio y las soluciones de arquitectura propuestas: breakpoints y barriers.
+ 
+Breakpoints son los umbrales (que vienen determinados por necesidades que se esperan de los usuarios y la competencia) de utilidad para un aspecto particular de un sistema. QUPER asume que la relación de coste-beneficio de las soluciones potenciales es similar a una curva en S. Los puntos donde la relación coste-beneficio cambia bruscamente se llaman barriers y están relacionados con potenciales soluciones arquitectónicas.
+ 
+Al enumerar claramente las opciones de costes y analizar los cambios en las funcionalidades, el modelo QUPER también ayuda a mostrar suposiciones ocultas sobre el crecimiento futuro.
+
+<br/>
+
 ---
 Próximamente iré completando las traducciones de las recopilaciones del resto de bloques:
 
-### Discutiendo historias
 ### Partiendo historias
 ### Gestionando la entrega iterativa
 
