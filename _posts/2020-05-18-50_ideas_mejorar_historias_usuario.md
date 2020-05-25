@@ -22,7 +22,7 @@ Estas ideas están agrupadas en cinco bloques:
 - [Creando historias]({{page.url}}#creando-historias)
 - [Planificando con historias]({{page.url}}#planificando-con-historias)
 - [Discutiendo historias]({{page.url}}#discutiendo-historias)
-- Partiendo historias
+- [Partiendo historias]({{page.url}}#partiendo-historias)
 - Gestionando la entrega iterativa
 
 <br/>
@@ -251,11 +251,97 @@ Breakpoints son los umbrales (que vienen determinados por necesidades que se esp
 Al enumerar claramente las opciones de costes y analizar los cambios en las funcionalidades, el modelo QUPER también ayuda a mostrar suposiciones ocultas sobre el crecimiento futuro.
 
 <br/>
+ 
+### Partiendo historias
+ 
+**Empieza con los outputs**
+ 
+La reescritura de un sistema legacy es posiblemente una de las situaciones más difíciles para partir los entregables en pequeñas piezas con historias de usuario.
+ 
+A menudo tienen metas ambiciosas, como acelerar la capacidad de entrega en el futuro, desbloquear oportunidades de negocio, adoptar una arquitectura que permita crecer... Esto suele verse como un trabajo para una espada, no para un bisturí.
+ 
+El beneficio clave de arrancar con los outputs es que facilita crear un plan de entrega incremental más refinado, porque permite dar a los usuarios funcionalidades antes y permite tener discusiones más fructíferas.
+ 
+**Olvida el walking skeleton, ponle muletas**
+ 
+Un walking skeleton es la implementación de una parte del sistema que realiza una pequeña función de extremo a extremo. No requiere utilizar la arquitectura de software final, pero debe enlazar los principales componentes arquitectónicos. La arquitectura y la funcionalidad deben evolucionar en paralelo.
+ 
+La idea central del esqueleto con muletas es lanzar una interfaz de usuario pronto y planear hacer despliegues iterativos de todo lo que se encuentra tras la interfaz de usuario.
+ 
+**Limita el segmento de clientes**
+ 
+Hay situaciones en las que las discusiones sobre si algo es requerido u opcional conducen a un callejón sin salida y es particularmente difícil partir el trabajo en trozos pequeños que aporten valor. Un buen truco es evitar la discusión de partir los entregables y centrarse en limitar el segmento de clientes objetivo. No le des a todos el 2% de lo que necesitan, dales al 2% de los usuarios todo lo que necesiten.
+ 
+El mayor beneficio de esta aproximación es que un subconjunto de usuarios empieza a usar el software pronto.  Y aunque no sean necesariamente el mercado objetivo, proveen feedback del mundo real.
+ 
+**Divide por ejemplos de utilidad**
+ 
+Una situación difícil es partir una historia cuando hay una gran tarea técnica que hacer, como cambiar una base de datos o un gran cambio de diseño. Esto a veces lleva a divisiones que son demasiado finas para ir a producción de forma independiente o a esas monstruosidades a veces conocidas como historias técnicas.
+ 
+En vez de partir por los entregables técnicos y luego agrupar el valor que hay en ellos, prueba lo contrario: parte de los entregables de valor de negocio y luego agrupa las necesidades técnicas.
+ 
+Esto evita caer en la trampa técnica del gran riesgo de hacer una gran migración al final. Este enfoque convierte los entregables en un flujo de pequeños cambios, cada uno lo suficientemente valioso como para que pueda pasar a producción y ser utilizado por alguien.
+ 
+**Divide por capacidad**
+ 
+Puedes abrir discusiones para conseguir historias más pequeñas y conseguir feedback antes si ves la capacidad como una dimensión que puede ser entregada progresivamente.
+ 
+Hay muchos tipos distintos acerca de la capacidad que pueden entregarse iterativamente, trata de considerar varias dimensiones al partir historias. Algunas ideas por dónde empezar:
+- Tamaño de ficheros.
+- Duración de las sesiones.
+- Número total de usuarios.
+- Pico de uso (en usuarios concurrentes o volumen de datos).
+- Número de elementos para un usuario (como ficheros o recursos).
+ 
+**Comienza con un dummy, luego hazlo dinámico**
+ 
+Hay entornos donde la posibilidad de acceder a datos de referencia involucra más tiempo de espera que de trabajo efectivo (necesidad de autorizaciones, falta de documentación, peculiaridades de sistemas legacy...).
+ 
+Partir las historias para poder trabajar con datos hard-coded al inicio mejora la predictibilidad para los planes a corto plazo y permite no bloquear el desarrollo de otras funcionalidades.
+ 
+Elegir correctamente los campos para dejar hard-coded es clave para que esta técnica funcione bien. Los candidatos ideales son los que aumentan significativamente el esfuerzo o la incertidumbre si se cargan dinámicamente, pero cambian con poca frecuencia.
+ 
+**Simplifica los outputs**
+ 
+Especialmente en sistemas enterprise complejos puede reducir el riesgo significativamente para los planes a corto plazo, ya que a menudo las historias que involucran sistemas externos o legacy se bloquean o quedan incompletas. Partir una historia en una que usa un canal de salida y otra que lo traslada los datos a un sistema legacy divide el riesgo.
+ 
+Por ejemplo, si una historia involucra exportar a PDF, Excel y fichero dividido por tabs, divídelo en una historia por cada uno de los formatos de salida.
+ 
+**Divide el aprendizaje de la ganancia**
+ 
+El desarrollo de software a veces involucra tratar con lo desconocido (sistemas de terceros, nuevos estándares, evaluar el riesgo de cambios de infraestructura...).
+ 
+Las historias de aprendizaje ayudan a los stakeholders a planear mejor. Mientras que las de ganancia ayudan a dar valor a los usuarios finales.
+ 
+Los criterios de aceptación de las historias de aprendizaje se tienen que trabajar con los stakeholders para identificar qué tipo de información necesitan para dar el trabajo como hecho o no. Decidiendo previamente cuánto tiempo quieren invertir en obtener esa información.
+ 
+Planificar historias de aprendizaje con duración limitada evita que la investigación se convierta en un trabajo vago e incontrolado que introduce variabilidad. También evita largos análisis iniciales.
+ 
+**Extrae la utilidad básica**
+ 
+En situaciones donde un proceso de negocio debe implementarse en su totalidad para que sea útil, una buena opción para dividir una historia es simplificar la interacción del usuario al mínimo. En lugar de usabilidad, brinde a los usuarios una utilidad básica.
+ 
+Esta técnica funciona especialmente bien para partir las historias que son críticas de entregar en el tiempo en una que se mantendrá crítica y otra que se puede gestionar sin un deadline.
+ 
+**Cuando todo lo demás falla, trocea la hamburguesa**
+ 
+User Story Hamburger es una técnica de facilitación que puede ayudar a los equipos a pensar en cómo partir de una forma orientada a valor cuando están atascados en cómo es el flujo técnico de una historia grande y en casos de uso de todo o nada.
+ 
+Cómo crear una hamburguesa:
+1. Lista los componentes técnicos involucrados de forma vertical.
+2. Define atributos de calidad para cada uno de los componentes.
+3. Lista las opciones de los diferentes niveles de calidad posibles para cada componente de forma horizontal.
+4. Elimina las opciones que no son satisfactorias para cumplir con un nivel de servicio útil.
+5. Elimina las opciones que cuestan aproximadamente el mismo esfuerzo o más que las de mayores niveles de calidad.
+6. Elige una rebanada.
+ 
+Al Mapear opciones, esta técnica facilita discusiones sobre completar las necesidades de un subgrupo de usuarios más rápidamente o para desplegar sólo una parte de un caso de uso que pueda proveer valor igualmente.
 
+<br/>
+ 
 ---
 Próximamente iré completando las traducciones de las recopilaciones del resto de bloques:
 
-### Partiendo historias
 ### Gestionando la entrega iterativa
 
 Obviamente estas anotaciones no pretenden servir como sustitución [al libro](https://leanpub.com/50quickideas), pero tal vez resulte de inspiración para investigar más en profundidad alguna de estas ideas.
