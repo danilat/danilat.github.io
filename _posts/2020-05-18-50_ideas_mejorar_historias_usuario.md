@@ -23,7 +23,7 @@ Estas ideas están agrupadas en cinco bloques:
 - [Planificando con historias]({{page.url}}#planificando-con-historias)
 - [Discutiendo historias]({{page.url}}#discutiendo-historias)
 - [Partiendo historias]({{page.url}}#partiendo-historias)
-- Gestionando la entrega iterativa
+- [Gestionando la entrega iterativa]({{page.url}}#gestionando-la-entrega-iterativa)
 
 <br/>
 
@@ -338,10 +338,92 @@ Cómo crear una hamburguesa:
 Al Mapear opciones, esta técnica facilita discusiones sobre completar las necesidades de un subgrupo de usuarios más rápidamente o para desplegar sólo una parte de un caso de uso que pueda proveer valor igualmente.
 
 <br/>
- 
----
-Próximamente iré completando las traducciones de las recopilaciones del resto de bloques:
 
 ### Gestionando la entrega iterativa
+ 
+**No pongas todo en historias**
+ 
+Hay montones de cosas que cualquier equipo de software necesita hacer que no encajan conceptualmente como historias de usuario. Preparar máquinas, entornos de test, actualizar librerías, incrementar la velocidad de despliegue...
+ 
+Si el equipo tiene un presupuesto de tiempo para poder dedicarlo a trabajar en otros incidentes, puede acumular holgura o slack para hacer frente a interrupciones inesperadas. De este modo la planificación a corto y largo plazo se va volviendo más precisa y el equipo se va haciendo más productivo.
+ 
+Los equipos junto con los stakeholders deben decidir sobre el tiempo reservado y revisarlo periódicamente.
+ 
+**Presupuesta el tiempo en lugar de estimarlo**
+ 
+Evita perder tiempo en análisis innecesarios relacionados con el alcance y establece un compromiso para entregar valor de negocio.
+ 
+La mejor manera de decidir un presupuesto de tiempo, tanto en términos de tiempo como de dinero, es observar el beneficio de negocio y estimar su valor para los stakeholders.
+ 
+Cuando no se encuentre un buen modelo de valor prueba los dos enfoques siguientes:
+ - Pregunta por los extremos: ¿cuándo lo usarías si estuviera listo? ¿qué es lo mínimo con lo que aún recibirías valor?
+ - Presupuesta de forma incremental: en casos de alta incertidumbre puedes presupuestar los aprendizajes (prototipos, tests con usuarios, procesos semi manuales...) hasta llegar a la solución final.
+ 
+**Evita usar números en el tamaño de las historias**
+ 
+Los equipos poco experimentados a menudo usan el tamaño numérico de las historias para la planificación a largo plazo y la gestión de capacidad, lo cual es perjudicial y engañoso.
+ 
+El uso de un método de dimensionamiento más simple ayuda a los equipos a pasar por la planificación de la historia más rápido y a tomar la decisión más importante en función su tamaño (si debe desglosarse más o menos).
+ 
+Una buena idea es seleccionar varias historias representativas como referencia y comparar las nuevas historias con ellas.
+ 
+**Estima la capacidad en función de una media móvil del número de historias acumuladas**
+ 
+El número total de historias de tamaño similar es más simple y más fácil de calcular que un agregado de números arbitrarios como los puntos de historia. Y el resultado también será más preciso.
+ 
+Tal y como el producto madura o el equipo crece o se encoge, la media móvil sólo comparará la capacidad con eventos recientes, no con la historia completa.
+ 
+Usa la media móvil solo dentro del equipo para la planificación de la capacidad de iteración. Nadie fuera del equipo necesita saber esta media.
+ 
+**Estima la capacidad basada en el tiempo de análisis**
+ 
+Usar el tiempo que lleva el análisis de una historia como indicador de su complejidad es una alternativa a medir tamaños de historia o contar número de historias.
+
+Marca un timebox para evitar que un solo elemento complejo tome demasiado tiempo de análisis.
+
+ 
+**Elige impactos en lugar de priorizar historias**
+ 
+En lugar de priorizar historias, intenta elegir los impactos más importantes en los clientes o usuarios. Los impactos son mucho más fáciles de discutir y comparar que las historias.
+ 
+Idealmente selecciona un impacto para trabajar cada vez.
+ 
+**Nunca digas "no", di "no ahora"**
+ 
+Las organizaciones con una buena gestión de producto saben cuándo decir que no, pero cuando no hay una visión sólida de los productos los equipos suelen acabar con problemas al aceptar todo.
+ 
+Cuando alguien propone un cambio, pídele que revise si la propuesta se ajusta al objetivo de negocio actual. De lo contrario, ofrece dejar de trabajar en el objetivo actual y priorizar algún otro impacto o posponer el cambio propuesto para más adelante.
+ 
+La trampa típica es que cada idea se declara lo suficientemente crítica como para cambiar el objetivo actual, para evitarlo:
+- Proporciona un canal de baja fricción para que los stakeholders cambien de dirección a intervalos regulares.
+- Proporciona un canal de alta fricción para evitar que se provoquen cambios crítico entre esos intervalos.
+ 
+**Divide las mejoras de UX del trabajo de revisión de consistencia**
+ 
+Las mejoras de UX no necesitan pequeñas historias de usuarios, necesitan trabajar en el alto nivel sobre impactos y cambios de comportamiento.
+ 
+Después de la priorización de alto nivel utilizando cosas como la selección de impactos clave, comienza con la investigación de UX antes de decidir sobre las historias de usuario concretas.
+ 
+Para el trabajo en marcha, involucra a los diseñadores en hacer pruebas exploratorias para detectar inconsistencias. Más tarde evita esos problemas futuros creando un checklist de revisión de UX.
+ 
+**Haz que los usuarios finales participen en grandes cambios en la interfaz de usuario**
+ 
+El gentle deployment introduce cambios significativos en el producto y evita sorpresas desagradables para los usuarios, desplegando una versión paralela del producto e invitando a los usuarios a probarlo a su gusto.
+ 
+Pedirle a la gente que cambie de versión reduce el factor sorpresa. Las personas que elijan explícitamente usar la nueva versión estarán preparadas para pequeñas inconsistencias.
+ 
+**Verifica outcomes con usuarios reales**
+ 
+Es absolutamente esencial que pruebes tus ideas con usuarios finales reales. Podría decirse que es la parte más importante de tu trabajo.
+ 
+Escribe historias de usuario para que puedan verificarse los outcomes después de la entrega. Y, de hecho, ve y verifica con usuarios reales que los resultados planificados se han materializado.
+ 
+**Tira las historias después de que se entreguen**
+ 
+Muchos equipos se quedan apegados a la idea de usar las historias hechas como documentación, esto es insostenible incluso para productos no demasiado complejos.
+ 
+Las especificaciones y pruebas organizadas por áreas funcionales describen el comportamiento actual sin la necesidad de que alguien comprenda toda la historia.
+ 
+---
 
 Obviamente estas anotaciones no pretenden servir como sustitución [al libro](https://leanpub.com/50quickideas), pero tal vez resulte de inspiración para investigar más en profundidad alguna de estas ideas.
