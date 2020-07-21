@@ -9,7 +9,7 @@ Ayudar o acompañar a equipos en mejorar en algún aspecto es una actividad que 
 
 Es una inquietud que tardó en despertar en mí. Primero arrancando la iniciativa de [Senpai Devs](http://senpaidevs.github.io/) mentorizando a varias personas, después haciéndolo de vez en cuando junto a mis compañeros de Coding Stones y más tarde en Inditex donde, además de los equipos en los que mi rol era el de techlead, pude acompañar un tiempo a algún otro equipo. Incluso hace unos meses he ido dedicando un poco de mi tiempo libre a hacerlo.
 
-Ahora, [tras mi paso por Devengo](https://twitter.com/dani_latorre/status/1282609209482399745), quiero dedicar más tiempo a **ayudar a equipos para que hagan mejor software y producto digital**. De hecho, ya tengo apalabrado comenzar colaboraciones con un par de compañías.
+Ahora, [tras mi paso por Devengo](https://twitter.com/dani_latorre/status/1282609209482399745), quiero dedicar más tiempo a **ayudar a equipos para que hagan mejor software y producto digital**. De hecho, ya estoy cerrando fechas para arrancar un par de colaboraciones.
 
 ### ¿Ayudar a equipos? ¿Cómo?
 
@@ -21,14 +21,14 @@ Mi intención es ayudar a mejorar extremo a extremo en la creación de producto 
 
 Algunos dolores con los que puedo aportar valor son:
 
-- Habéis empezado a trabajar con marcos ágiles como scrum o kanban y los equipos siguen sin tener los resultados que esperabas. O tal vez estéis pensando en empezar con ello pero necesitáis un cable.
-- Tenéis problemas con la capacidad y calidad de entrega, porque en las revisiones o incluso en producción se encuentran excesivos bugs. Así que queréis incorporar o mejorar en algunas prácticas técnicas.
+- Habéis empezado a trabajar con marcos ágiles como scrum o kanban y los equipos siguen sin tener los resultados que esperabas. O tal vez estéis pensando en empezar con ello pero necesitáis ayuda para establecer las bases.
+- Tenéis problemas con la capacidad y calidad de entrega, porque en las revisiones o incluso en producción se encuentran excesivos bugs. Motivo por el cual queréis incorporar o mejorar en algunas prácticas técnicas. O necesitáis ayuda para identificar que mejorar.
 - A los equipos les cuesta entregar, se eternizan las historias de usuario en doing o incluso quedan semanas bloqueadas.
 - Hay cierto desalineamiento, o incluso tensiones, a la hora de integrar a los diferentes roles del equipo. Típicamente cualquier permuta entre desarrolladores vs diseñadores vs product owners/managers vs administradores de sistemas vs...
 - Se ha acumulado demasiada deuda técnica, así que el legacy no deja avanzar al ritmo esperado por el negocio.
 - No tenéis muy claro como cambiar la mentalidad de trabajo a proyecto hacia producto, tanto del propio equipo como por parte de stakeholders. Hay más preocupación y presión por cumplir con estimaciones que por lograr objetivos.
-- El negocio va como un tiro y estáis creciendo, eso implica cambiar parte de la arquitectura existente y ver si toca reorganizar los diferentes equipos que han ido surgiendo.
-- En la organización se os ve como un impedimento para nuevas iniciativas y oportunidades de negocio, no como un colaborador y facilitador.
+- El negocio va como un tiro y estáis creciendo, eso implica cambiar parte de la arquitectura existente y analizar si hay que reorganizar los diferentes equipos que han ido surgiendo, incluso la forma de esos equipos.
+- En la organización se ve a los equipos de producto o tecnología como un impedimento para nuevas iniciativas y oportunidades de negocio, no como un colaborador y facilitador.
 
 ---
 
