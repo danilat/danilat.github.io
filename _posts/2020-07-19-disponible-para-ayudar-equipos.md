@@ -2,14 +2,16 @@
 layout: post
 title: Disponible para ayudar a equipos
 excerpt: Para mentorizar y acompañar a equipos que crean software y producto digital en mejorar su forma de trabajar, tanto en prácticas de gestión como técnicas.
-image:
+image: /img/posts/ayudar-equipos/presentando.png
 ---
 
 Ya sea desde el rol de mentor o de asesor, me encanta ayudar a equipos en todo el espectro que involucra el desarrollo de producto digital.
 
-Esta inquietud tardó en despertar en mí, pero ha aumentado con el paso de los años. Arrancó primero con la iniciativa de [Senpai Devs](http://senpaidevs.github.io/) mentorizando a varias personas. Después haciendo algunas formaciones e intervenciones para ayudar a startups y corporaciones junto a mis compañeros de Coding Stones. Y más tarde en Inditex, donde además de ejercer como techlead en mis equipos, pude aconsejar a algún que otro equipo. Incluso hace unos meses he ido dedicando algo de mi tiempo libre a hacer asesoría.
+Esta inquietud tardó en despertar en mí, pero ha aumentado con el paso de los años. Arrancó primero con la iniciativa de [Senpai Devs](http://senpaidevs.github.io/) mentorizando a varias personas. Después haciendo algunas formaciones e intervenciones para ayudar a startups y corporaciones junto a mis compañeros de Coding Stones. Y más tarde en Inditex, donde además de ejercer como techlead en mis equipos, pude aconsejar a algún otro. Incluso hace unos meses he ido dedicando algo de mi tiempo libre a hacer asesorías puntuales.
 
 Ahora, [tras mi paso por Devengo](https://twitter.com/dani_latorre/status/1282609209482399745), quiero dedicar más tiempo a **ayudar a equipos a crear mejor software y producto digital**. De hecho, ya estoy cerrando fechas para arrancar un par de colaboraciones.
+
+![Haciendo una sesión de mob programming con código proyectado en la pared](/img/posts/ayudar-equipos/presentando.png  "Yo señalando código")
 
 ### ¿Ayudar a equipos? ¿Cómo?
 
