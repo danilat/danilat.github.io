@@ -24,7 +24,7 @@ Los **[Three Ways](https://itrevolution.com/the-three-ways-principles-underpinni
 ![Representación de Los Three Ways de Devops](/img/posts/principios-devops/3-ways.png  "Representación de Los Three Ways de Devops")
 
 
-### The First Way: aumentar el flujo de entrega.
+### The First Way: aumentar el flujo de entrega
 
 Hasta que algo no se está usando en producción por los usuarios y/o clientes no se está creando valor, así que deberíamos buscar desplegar de forma temprana y frecuente en producción incrementando la fiabilidad y calidad de lo entregado.
 
