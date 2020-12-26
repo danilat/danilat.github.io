@@ -13,7 +13,7 @@ Este libro habla de la forma natural de hacer software, ***the natural way*** lo
 
 Este no es un libro de recetas con trucos para hacerlo, si no de ideas sobre las que reflexionar y que anima a que explores por tu cuenta modos de hacerlo. Como muestra este es el capítulo resumen de la primera parte del libro llamada *The circle of value*.
 
-## Cerrando el círculo del valor:
+### Cerrando el círculo del valor:
 
 - *Valor es lo que queremos. Las funcionalidades entregan valor. Entregar funcionalidades pronto nos da valor antes.*
 - *Gestionar observando el valor funciona mejor que gestionando fechas o artefactos que no entregan valor.*
