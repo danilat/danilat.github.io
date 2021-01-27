@@ -2,7 +2,7 @@
 layout: post
 title: Charlando sobre slicing vertical
 excerpt: Agile Delivery organizó un evento en formato Lean Coffee en el que estuvimos unas cuantas personas hablando sobre slicing de productos de software. El slicing viene a ser simplemente dividir problemas grandes para hacerlos más manejables.
-image: 
+image: /img/posts/slicing/cake.jpg
 ---
 
 Hace unos días [Agile Delivery](https://www.meetup.com/es-ES/agile-delivery-es/) organizó un evento en formato [Lean Coffee](https://agilecoffee.com/leancoffee/) en el que estuvimos unas cuantas [personas hablando sobre *slicing*](https://www.meetup.com/es-ES/agile-delivery-es/events/275643577/) de producto de software. Lo del slicing viene a ser simplemente ir haciendo *rebanadas* para organizar el trabajo desde problemas grandes a más pequeños para hacerlos más manejables.
