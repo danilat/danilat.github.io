@@ -25,16 +25,16 @@ Según [Danilo Sato en la web de (san) Martin Fowler](https://martinfowler.com/b
  
 *Parallel change, also known as expand and contract, is a pattern to implement backward-incompatible changes to an interface in a safe manner, by breaking the change into three distinct phases: expand, migrate, and contract.*
  
-Lo que viene siendo introducir cambios retro compatibles haciendo que no rompan una interface existente hasta que todos los clientes de esa interface no se hayan adaptado.
+Lo que viene siendo introducir cambios retro compatibles haciendo *baby steps* que no rompan una interface existente hasta que todos los clientes de esa interface no se hayan adaptado.
 
-En este ejemplo no vamos a romper la interface existente, pero sí vamos a cambiar su implementación haciendo *baby steps*. Además como parte de cada uno de los cambios integramos con la línea principal de desarrollo y **desplegamos a producción** (obviamente antes en desarrollo, stage, etc). 
+En este ejemplo vamos a romper la interface existente porque vamos a pasar a una ejecución en el mismo proceso a en distintos workers de forma distribuida. Además como parte de cada uno de los cambios integramos con la línea principal de desarrollo y **desplegamos a producción** (obviamente antes en desarrollo, stage, etc).
 
 Esto es porque queremos evitar hacer grandes reescrituras y despliegues a modo big-bang, ir haciendo cambios razonablemente pequeños y hacer una **entrega continua** que nos ayude a reducir riesgos y detectar posibles problemas pronto.
  
 Personalmente me gustó mucho [el taller que preparó Eduardo Ferro sobre el tema](https://www.eferro.net/2018/11/slides-taller-parallel-changes.html), muy recomendable para practicar en un entorno controlado.
  
  
-### La interface
+### La interface EventBus
  
 Como lenguaje de programación que usamos es Python y tenemos la convención de equipo de usar [type hints](https://docs.python.org/3/library/typing.html) siempre que sea posible; para definir la interface usamos una clase base `EventBus` que define métodos para añadir un subscriber (que a su vez utilizan una clase base `Subscriber`). En otros lenguajes hubiéramos usado interfaces frente a clases abstractas.
  
