@@ -1,9 +1,9 @@
 ---
 layout: post
-title: KPIs para equipos de desarrollo de software
+title: Métricas para equipos de desarrollo de software
 categories:
 - General
-excerpt: Como parte de mi trabajo en el último año, he intentado empujar la cultura de mejora continua con diferentes equipos con los que he ido trabajando... También he ido pensando en los KPIs relacionados.
+excerpt: Como parte de mi trabajo en el último año, he intentado empujar la cultura de mejora continua con diferentes equipos con los que he ido trabajando... También he ido pensando en las métricas relacionadas.
 image: /img/posts/kpis/needs.jpg
 ---
 Como parte de mi trabajo en el último año, he intentado empujar la cultura de mejora continua en los diferentes equipos con los que he ido trabajando. Tanto en cuestiones de herramientas y habilidades técnicas, como en las de comunicación y coordinación, con ciertas restricciones y dependencias que caen fuera de nuestro margen de influencia.
@@ -12,7 +12,7 @@ Partimos del supuesto de que **cuanto mejores sean las prácticas del equipo, me
 
 Además de las típicas sensaciones subjetivas de efecto de mejora, teníamos que pensar en **indicadores** que nos permitieran ir observándolo realmente. En algún momento, también se empezaría a querer tener visibilidad desde fuera de los equipos, así que tocaba darle una vuelta y ordenar ideas.
 
-Estuve preparando una presentación para explicar internamente cómo estábamos trabajando, hacia dónde creía que debíamos ir a través de una mejora continua, los distintos *KPIs* que podríamos observar y las necesidades que se cubrirían con una buena capacidad de entrega.
+Estuve preparando una presentación para explicar internamente cómo estábamos trabajando, hacia dónde creía que debíamos ir a través de una mejora continua, las distintas *métricas* que podríamos observar y las necesidades que se cubrirían con una buena capacidad de entrega.
 
 ![Diapositiva de una presentación con la visión de lo que, como equipo deberíamos cubrir: adaptabilidad respecto a negocio, entregar pronto, evitar retrabajo, una buena UX y evitar bugs en lo posible](/img/posts/kpis/needs.jpg "Una visión de lo que es buena capacidad de entrega"){: .frame}
 
@@ -80,7 +80,7 @@ Dependiendo del contexto del producto y del negocio, posiblemente podamos sacar 
 
 ### Medir sin perder el foco
 
-Estos son muchos KPIs distintos. Es interesante observarlos porque nos pueden servir para detectar olores sobre problemas y oportunidades de mejora, pero son demasiados para tratar de mejorar todo a la vez.
+Estos son muchas métricas distintas. Es interesante observarlos porque nos pueden servir para detectar olores sobre problemas y oportunidades de mejora, pero son demasiados para tratar de mejorar todo a la vez.
 
 Para evitar diluirnos y no terminar mejorando en nada, deberíamos elegir y enfocarnos en un par de esos indicadores cada vez, dependiendo de la situación de cada equipo.
 
