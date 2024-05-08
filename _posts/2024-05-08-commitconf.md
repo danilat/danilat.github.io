@@ -16,7 +16,7 @@ Así que de ahí vino buena parte de mi motivación de proponer repetirla en un 
 La presentación está dividida en 4 bloques:
 - Introducción a DDD y específicamente a la parte estratégica
 - Resumen de las actividades estratégicas basado en el [Domain-Driven Design Starter Modelling Process de DDD Crew](https://github.com/ddd-crew/ddd-starter-modelling-process) 
-- Un ejemplo práctico, basado en un caso real, de DDD estratégico de división y conexión de dominios visibilizándolo con un **Context Map** enriquecido con su clasificación desde diferentes puntos de vista
+- Un ejemplo práctico de DDD estratégico basado en un caso real, mostrando su división y conexión entre dominios visibilizándolo con un **Context Map** un tanto enriquecido con su clasificación desde diferentes puntos de vista
 - Otras consideraciones a tener a nivel de la organización de equipos
 
 Aquí os dejo el vídeo de la charla
