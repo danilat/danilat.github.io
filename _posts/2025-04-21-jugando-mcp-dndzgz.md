@@ -8,7 +8,7 @@ image: /img/posts/2025/mcp/screenshot.png
 Llevo unas semanas leyendo un poco sobre el hype de [**Model Context Protocol**](https://modelcontextprotocol.io/introduction), hay mucho escrito ya sobre MCP y en mi caso sólo me he asomado a este protocolo muy tímidamente, pero comparto algunas referencias que me han parecido muy interesantes:
 
 - [La documentación oficial](https://modelcontextprotocol.io/docs/concepts/architecture). Hosts, Clients, Servers, Stdio/Http con SSE y el uso de JSON-RPC en la transport layer, etc.   
-- [Everything Wrong with MCP](https://blog.sshh.io/p/everything-wrong-with-mcp). Shrivu Shankar escribe sobre problemas y limitaciones relacionados con seguridad y la experiencia de uso  
+- [Everything Wrong with MCP](https://blog.sshh.io/p/everything-wrong-with-mcp). Shrivu Shankar escribe sobre problemas y limitaciones relacionados con seguridad y la experiencia de uso.
 - [MCP: The Differential for Modern APIs and Systems](https://docs.mcp.run/blog/2025/03/27/mcp-differential-for-modern-apis). Steve Manuel escribe como MCP puede ayudar a tener integraciones más resilientes entre sistemas.
 
 Mientras he ido leyendo fui pensando en qué pequeño pet-project podía hacer para experimentar un poco y me acordé de [DNDzgz](http://www.dndzgz.com/).
