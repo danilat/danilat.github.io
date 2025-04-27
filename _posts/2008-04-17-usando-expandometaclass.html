@@ -85,7 +85,7 @@ comments:
     muy bien tanto para este caso que es una clase final como para parchear alguna
     cosita de las librerías que usemos sin tener que tocar su código original :)"
 ---
-<p>Como <a href="http://www.danilat.com/weblog/2008/03/26/algunas-impresiones-sobre-groovy/">ya comenté</a>, una de las cosas interesantes que veía en groovy era <a href="http://groovy.codehaus.org/ExpandoMetaClass">ExpandoMetaClass</a>.</p>
+<p>Como <a href="http://www.danilat.com/weblog/2008/03/26/algunas-impresiones-sobre-groovy">ya comenté</a>, una de las cosas interesantes que veía en groovy era <a href="http://groovy.codehaus.org/ExpandoMetaClass">ExpandoMetaClass</a>.</p>
 <p>Este sería un ejemplo de uso, añadiendo a la clase StringBuilder un método en tiempo de ejecución. Es un método para que se hiciera el append sólo si el parámetro pasado no es nulo, de esta forma nos podríamos ahorrar una buena cantidad de <em>if</em> si necesitaramos hacer esta comprobación antes de cada append.</p>
 <p><code><br />
 StringBuilder.metaClass.appendNotNull={ str -><br />
