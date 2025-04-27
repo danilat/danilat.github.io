@@ -78,7 +78,7 @@ comments:
     you!"
 ---
 <p>Me ha vuelto a pasar... otra vez! La configuración por defecto de <strong>Apache Tomcat 6</strong> me ha dado problemas con la codificación de carácteres. </p>
-<div style="text-align:center"><a href="http://www.flickr.com/photos/dlato/5498143790/" title="encoding por Dani Latorre, en Flickr"><img src="http://farm6.static.flickr.com/5292/5498143790_0a44f3f904.jpg" width="250" height="243" alt="encoding" /></a></div>
+<div style="text-align:center"><a href="http://www.flickr.com/photos/dlato/5498143790/" title="encoding por Dani Latorre, en Flickr"><img src="http://farm6.static.flickr.com/5292/5498143790_0a44f3f904.jpg" alt="encoding" /></a></div>
 <p>Mientras que en el servidor embebido de Grails funciona todo perfectamente con UTF8, siempre que no la líes <del datetime="2011-03-04T22:21:37+00:00">gracias a</del> a causa tu IDE/editor favorito, claro. Al poner en una instalación de tomcat el <em>war</em> que quería desplegar, los carácteres no-ascii(eñes, tildes, etc) no se pasaban con la codificación correcta cuando los parámetros iban por <em>GET</em>.</p>
 <p>La <a href="http://blog.oio.de/2010/12/31/solving-tomcat-encoding-problems-in-utf-8-webapps/">solución es bastante simple</a>.</p>
 <p>A la línea del <strong>server.xml</strong> de la configuración de nuestro/s tomcat/s:<br />
