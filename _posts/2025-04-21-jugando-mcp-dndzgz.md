@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jugando con MCP protocol
+title: Jugando con MCP protocol. Introducción.
 excerpt: 
 image: /img/posts/2025/mcp/screenshot.png
 ---
