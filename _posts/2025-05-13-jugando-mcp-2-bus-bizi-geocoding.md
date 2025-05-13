@@ -40,7 +40,7 @@ Con eso en la cabeza lo dejé reposar durante unos días, finalmente se me ocurr
 
 En un primer momento pensé en la posibilidad de tratar de montar un filtro sobre texto para devolver el mínimo de estaciones o paradas posible. Dada la interfaz conversacional tenía la sensación que todo lo que no fuera una búsqueda de vectores para hacerlo de un modo semántico podía resultar una experiencia de usuario mediocre. Como es algo con lo que ya he experimentado un poco en otras pruebas de concepto, sé que podría haber jugado con el [vector store en memoria de LangChaning](https://js.langchain.com/docs/integrations/vectorstores/memory/) y usar para los [embeddings](https://js.langchain.com/docs/integrations/text_embedding/) un proveedor externo o incluso añadir dependencia a Ollama.
 
-Más tarde se me ocurrió otra opción, la búsqueda semántica es buena opción si sabes más o menos **qué andas buscando**. Pero dada la naturaleza de geolocalización de los servicios de movilidad lo más importante es el **dónde lo andas buscando**. Así que tal como están los datos expuestos en DNDzgz, veía que tenía más sentido ir por el camino de añadir una nueva tool que resuelva localizaciones y luego hacer búsquedas por posición. Esto parecía tener mucho sentido y estaba alieneado con el comportamiento que había visto en varias ocasiones de Claude, en el que el modelo me iba ofreciendo estimaciones en posiviones cercanas.
+Más tarde se me ocurrió otra opción, la búsqueda semántica es buena opción si sabes más o menos **qué andas buscando**. Pero dada la naturaleza de geolocalización de los servicios de movilidad lo más importante es el **dónde lo andas buscando**. Así que tal como están los datos expuestos en DNDzgz, veía que tenía más sentido ir por el camino de añadir una nueva tool que resuelva localizaciones y luego hacer búsquedas por posición. Esto parecía tener mucho sentido y estaba alieneado con el comportamiento que había visto en varias ocasiones de Claude, en el que el modelo me iba ofreciendo estimaciones en posiciones cercanas.
 
 ### Solución desde la experiencia de uso de DNDzgz
 
@@ -58,15 +58,15 @@ Una vez implementado eso, dejando el límite a 10, se acotan mucho los resultado
 
 ![Captura de Claude Desktop devolviendo paradas de Bizi por Compromiso de Caspe](/img/posts/2025/mcp2/6-compromiso-caspe.png)
 
-A partir de ahí el problema del tamaño del bus dejó de ser un problema
+A partir de ahí el problema del tamaño del bus dejó de serlo.
 
 ![Captura de Claude Desktop responidendo sobre los tiempos de la línea 22 en plaza Aragón dirección a Las Fuentes](/img/posts/2025/mcp2/7-bus-pza-aragon.png)
 
-Durante mis pruebas me encontré que Claude intenta llamar varias veces a las tools en ocasiones donde considera que las distancias son alejadas o cuando no consigue obtener datos del estado en tiempo real, está claro que no le gusta quedar mal 🙂. Por ejemplo con esta prueba preguntando sobre una línea de bus en una dirección
+Durante mis pruebas me encontré que Claude intenta llamar varias veces a las tools en ocasiones donde considera que las distancias son alejadas o cuando no consigue obtener datos del estado en tiempo real, está claro que no le gusta quedar mal 🙂. Por ejemplo con esta prueba preguntando sobre una línea de bus en una dirección.
 
 ![Captura de Claude Desktop tratando de responder con estimaciones del 30 en Plaza San Miguel intentando corregir errores del API](/img/posts/2025/mcp2/8-30-san-miguel.png)
 
-También para variar y ver más comportamientos, hice alguna prueba con GitHub Copilot y GPT-4o en modo agente, con los que la experiencia a priori me resultó bastante similar
+También para variar y ver más comportamientos, hice alguna prueba con GitHub Copilot y GPT-4o en modo agente, con los que la experiencia a priori me resultó bastante similar.
 
 ![Captura de GitHub Copilot preguntando sobre el Circular 2 en camino de las Torres](/img/posts/2025/mcp2/9-bus-bizi.png)
 
