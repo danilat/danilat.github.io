@@ -13,4 +13,4 @@ No pretendo escribir cosas hiper curradas, sólo intentar obligarme a ordenar id
 
 Voy a seguir publicando aquí frente a plataformas de terceros por eso de [la web abierta y tal](https://www.theguardian.com/technology/2025/sep/28/why-i-gave-the-world-wide-web-away-for-free). Porque aunque en alguna ocasión del pasado me he currado mucho un artículo y eso a mi ego le gusta que tenga alcance, prefiero hacerlo bajo mi dominio aún a sabiendas de que va a tener infinitamente menos tráfico que los substacks, linkedins o mediums de turno
 
-Como siempre en este blog mi intención es seguir publicando sobre temas relacionados con el mundillo del desarrollo de productos de software. Tengo algunos borradores empezados, algunos desde hace muchísimos y otros razonablemente recientes. De cualquier modo se aceptan sugerencias.
+Como siempre en este blog mi intención es seguir publicando sobre temas relacionados con el mundillo del desarrollo de productos de software. Tengo algunos borradores empezados, algunos desde hace muchísimo y otros razonablemente recientes. De cualquier modo se aceptan sugerencias.
